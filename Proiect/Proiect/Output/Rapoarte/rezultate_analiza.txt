@@ -1,0 +1,156 @@
+[1] "Structura Datelor Unificate (df_total):"
+tibble [130 × 8] (S3: tbl_df/tbl/data.frame)
+ $ Country            : chr [1:130] "Austria" "Austria" "Austria" "Austria" ...
+ $ Year               : num [1:130] 2019 2020 2021 2022 2023 ...
+ $ Furturi            : num [1:130] 115423 84734 73213 97139 110359 ...
+ $ PIB_per_capita     : num [1:130] 45730 42650 44580 46430 45670 ...
+ $ Someri_Mii         : num [1:130] 220 272 284 221 241 278 291 324 294 294 ...
+ $ Imigratie          : num [1:130] 109167 103565 118511 201622 147591 ...
+ $ Politie            : num [1:130] 31192 31898 32136 31968 31995 ...
+ $ Densitate_Populatie: num [1:130] 108 108 108 110 111 ...
+[1] "Setul de date final a fost salvat."
+[1] "Statistici Descriptive:"
+                    vars  n      mean
+An                     1 26   2023.00
+Furturi                2 26 127035.38
+PIB_per_capita         3 26  37300.38
+Someri_Mii             4 26    351.62
+Imigratie              5 26 206052.96
+Politie                6 26  41216.08
+Densitate_Populatie    7 26    193.71
+Membru_UE              8 26      0.92
+ln_Furturi             9 26     10.73
+ln_PIB                10 26     10.34
+ln_Someri             11 26      5.05
+ln_Imigratie          12 26     11.48
+ln_Politie            13 26      9.87
+ln_Densitate          14 26      4.60
+                           sd   median
+An                       0.00  2023.00
+Furturi             228936.42 66196.50
+PIB_per_capita       24579.87 28175.00
+Someri_Mii             592.96   181.50
+Imigratie           328136.30 97268.00
+Politie              58925.88 21656.50
+Densitate_Populatie    340.99   105.20
+Membru_UE                0.27     1.00
+ln_Furturi               1.64    11.10
+ln_PIB                   0.63    10.25
+ln_Someri                1.37     5.20
+ln_Imigratie             1.25    11.49
+ln_Politie               1.35     9.98
+ln_Densitate             1.16     4.66
+                      trimmed      mad
+An                    2023.00     0.00
+Furturi              83556.27 81847.67
+PIB_per_capita       34355.91 20259.73
+Someri_Mii             220.18   194.96
+Imigratie           126635.32 88834.43
+Politie              28339.23 25120.43
+Densitate_Populatie    123.74    53.82
+Membru_UE                1.00     0.00
+ln_Furturi              10.80     1.53
+ln_PIB                  10.32     0.74
+ln_Someri                5.08     1.00
+ln_Imigratie            11.47     1.11
+ln_Politie               9.89     1.27
+ln_Densitate             4.62     0.54
+                         min        max
+An                   2023.00    2023.00
+Furturi               776.00 1172337.00
+PIB_per_capita      10950.00  102250.00
+Someri_Mii              8.00    2937.00
+Imigratie            5923.00 1303251.00
+Politie               783.00  263466.00
+Densitate_Populatie     3.80    1766.00
+Membru_UE               0.00       1.00
+ln_Furturi              6.65      13.97
+ln_PIB                  9.30      11.54
+ln_Someri               2.08       7.99
+ln_Imigratie            8.69      14.08
+ln_Politie              6.66      12.48
+ln_Densitate            1.34       7.48
+                         range  skew
+An                        0.00   NaN
+Furturi             1171561.00  3.63
+PIB_per_capita        91300.00  1.09
+Someri_Mii             2929.00  3.31
+Imigratie           1297328.00  2.62
+Politie              262683.00  2.53
+Densitate_Populatie    1762.20  3.78
+Membru_UE                 1.00 -2.99
+ln_Furturi                7.32 -0.47
+ln_PIB                    2.23  0.24
+ln_Someri                 5.91 -0.31
+ln_Imigratie              5.39 -0.01
+ln_Politie                5.82 -0.32
+ln_Densitate              6.14 -0.29
+                    kurtosis       se
+An                       NaN     0.00
+Furturi                13.76 44898.13
+PIB_per_capita          0.27  4820.51
+Someri_Mii             11.23   116.29
+Imigratie               5.80 64352.82
+Politie                 6.11 11556.31
+Densitate_Populatie    14.44    66.87
+Membru_UE               7.25     0.05
+ln_Furturi             -0.19     0.32
+ln_PIB                 -1.16     0.12
+ln_Someri              -0.12     0.27
+ln_Imigratie           -0.05     0.25
+ln_Politie             -0.30     0.27
+ln_Densitate            1.49     0.23
+[1] "Matricea de Corelație:"
+                        Furturi
+Furturi             1.000000000
+PIB_per_capita      0.142920930
+Someri_Mii          0.481954159
+Imigratie           0.768399466
+Politie             0.823857411
+Densitate_Populatie 0.008709165
+Membru_UE           0.052636720
+                    PIB_per_capita
+Furturi                 0.14292093
+PIB_per_capita          1.00000000
+Someri_Mii             -0.11788481
+Imigratie              -0.01883683
+Politie                -0.13516618
+Densitate_Populatie     0.08231239
+Membru_UE              -0.41332013
+                     Someri_Mii   Imigratie
+Furturi              0.48195416  0.76839947
+PIB_per_capita      -0.11788481 -0.01883683
+Someri_Mii           1.00000000  0.89638310
+Imigratie            0.89638310  1.00000000
+Politie              0.81118047  0.95432019
+Densitate_Populatie -0.09083646 -0.02532535
+Membru_UE            0.12194199  0.06181007
+                        Politie
+Furturi              0.82385741
+PIB_per_capita      -0.13516618
+Someri_Mii           0.81118047
+Imigratie            0.95432019
+Politie              1.00000000
+Densitate_Populatie -0.05547797
+Membru_UE            0.15694385
+                    Densitate_Populatie
+Furturi                     0.008709165
+PIB_per_capita              0.082312387
+Someri_Mii                 -0.090836459
+Imigratie                  -0.025325348
+Politie                    -0.055477971
+Densitate_Populatie         1.000000000
+Membru_UE                   0.069336012
+                      Membru_UE
+Furturi              0.05263672
+PIB_per_capita      -0.41332013
+Someri_Mii           0.12194199
+Imigratie            0.06181007
+Politie              0.15694385
+Densitate_Populatie  0.06933601
+Membru_UE            1.00000000
+null device 
+          1 
+[1] "Dimensiune Train: 22"
+[1] "Dimensiune Test: 4"
+[1] "Script finalizat cu succes! Rezultatele sunt in folderul 'Output'."

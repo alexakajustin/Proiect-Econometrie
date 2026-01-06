@@ -1,0 +1,291 @@
+2 0 2 5 - 2 0 2 6
+C E R I N Ț E
+P R O I E C T  E C O N O M E T R I E
+F a c u l t a t e a  d e  C i b e r n e t i c ă ,  S t a t i s t i c ă  ș i  I n f o r m a t i c ă  E c o n o m i c ă
+S p e c i a l i z a r e a  I n f o r m a t i c ă  E c o n o m i c ă
+
+F o l o s i n d  d a t e  r e a l e  r e f e r i t o a r e  l a  v a r i a b i l e  î n t r e  c a r e  e x i s t ă  o  l e g a t u ă  l o g i c ă  d i n  p u n c t u l  d e  v e d e r e  a l
+t e o r i e i  e c o n o m i c e  s e  c e r e :
+1
+1 . F u n d a m e n t a r e a  t e o r e t i c ă  ș i  c o n t e x t u a l i z a r e a  a p l i c a ț i e i
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+A P L I C A Ț I A  1
+M o d e l e  d e  r e g r e s i e  p e  d a t e  d e  t i p  t r a n s v e r s a l  ș i  i n t r o d u c e r e  î n  a n a l i z a
+e c o n o m e t r i c ă  a s i s t a t ă  d e  m a c h i n e  l e a r n i n g
+ 
+a .  S ă  s e  f o r m a l i z e z e  c o n t e x t u l  a n a l i z e i  p e  b a z a  t e o r i e i  e c o n o m i c e ,  c u  r e l i e f a r e a  s t a d i u l u i
+a c t u a l  a l  c u n o a ș t e r i i  p e n t r u  p r o b l e m a t i c a  a l e a s ă ,  p r i n  r a p o r t a r e  l a  c e l e  m a i  r e c e n t e  5 – 1 0
+a r t i c o l e  ș t i i n ț i f i c e  ( d i n  u l t i m i i  5  a n i ) .
+b .  S e  v a  e v i d e n ț i a  m o d u l  î n  c a r e  r e l a ț i i l e  t e o r e t i c e  p o t  f i  t r a d u s e  î n  m o d e l e  e m p i r i c e ,
+p r e c u m  ș i  p o t e n ț i a l e l e  e x t i n d e r i  p r i n  t e h n i c i  d e  a n a l i z ă  p r e d i c t i v ă .
+2 .  A n a l i z a  e x p l o r a t o r i e  a  d a t e l o r
+a .  S e  v o r  d e s c r i e  v a r i a b i l e l e  i d e n t i f i c a t e  ( d e f i n i ț i i ,  u n i t ă ț i  d e  m ă s u r ă ,  s u r s e ,  p e r i o d i c i t a t e ,
+m e t o d e  d e  c o l e c t a r e ) .
+b .  S e  v o r  e f e c t u a  a n a l i z e  s t a t i s t i c e  d e s c r i p t i v e  ș i  a n a l i z e  g r a f i c e  p r i v i n d  d i s t r i b u ț i i l e  ș i
+c o r e l a ț i i l e  d i n t r e  v a r i a b i l e .
+c .  S e  v o r  d o c u m e n t a  t o a t e  t r a n s f o r m ă r i l e  a p l i c a t e  d a t e l o r  ( d e f l a ț i o n a r e ,  l o g a r i t m a r e ,  t r a t a r e a
+v a l o r i l o r  l i p s ă  e t c . ) .
+d .  S e t u l  d e  d a t e  v a  f i  î m p ă r ț i t  î n  s e t  d e  a n t r e n a r e  ( t r a i n )  ș i  s e t  d e  t e s t a r e  ( t e s t ) ,  p e n t r u  a
+p e r m i t e  e v a l u a r e a  c o m p a r a t i v ă  a  p e r f o r m a n ț e i  m o d e l e l o r  e c o n o m e t r i c e  î n  a f a r a
+e ș a n t i o n u l u i .
+e .  O p ț i o n a l ,  î n  c o m p l e t a r e a  m e t o d e l o r  t r a d i ț i o n a l e ,  s e  p o t  a p l i c a  ș i  t e h n i c i  e x p l o r a t o r i i  d e
+t i p  m a c h i n e  l e a r n i n g ,  p r e c u m :
+i .  i d e n t i f i c a r e a  p a t t e r n - u r i l o r  ș i  g r u p ă r i l o r  p r i n  c l u s t e r i n g  ( K - M e a n s ,  h i e r a r c h i c a l  c l u s t e r i n g ) ;
+i i .  r e d u c e r e a  d i m e n s i o n a l i t ă ț i i  p r i n  P C A  s a u  t - S N E ;
+i i i .  e s t i m a r e a  r e l a ț i i l o r  n o n - l i n i a r e  p r e l i m i n a r e  p r i n  m e t o d e  d e  r e g r e s i e  s i m p l ă  c u  k e r n e l  s a u
+s p l i n e .
+ M o d e l a r e  l a  n i v e l  m a c r o e c o n o m i c  ( t e s t a r e a  e m p i r i c ă  a  c u r b e i  l u i  P h i l l i p s ,  a  l e g i i  l u i  O k u n ,  t e s t a r e a  e m p i r i c ă  a  c u r b e i  l u i  L a f f e r ,
+d e t e r m i n a n ț i  a i  s e c t o r u l u i  p u b l i c ,  i m p a c t u l  c o m p o n e n t e l o r  d e  m e d i u ,  s o c i a l e  ș i  d e  g u v e r n a n ț ă  a s u p r a  c r e ș t e r i i  e c o n o m i c e ) ,
+f o l o s i r e a  d a t e l e l o r  m i c r o e c o n o m i c e  d i n  E u r o b a r o m e t r e  p e n t r u  a  d e z v o l t a  m o d e l e  d e  i m p a c t  l a  n i v e l  m i c r o  ( a  s e  v e d e a  s i t e - u l
+G E S I S ) ,  u t i l i z a r e a  o b i e c t i v e l o r  d e  d e z v o l t a r e  s u s t e n a b i l ă ,  a  i n d i c a t o r i l o r  E S G  l a  n i v e l  s u v e r a n ,  a  i n d i c a t o r i l o r  s u s t e n a b i l i  d e
+g u v e r n a n c e  ( S G I ) .
+1
+
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+A P L I C A Ț I A  1
+M o d e l e  d e  r e g r e s i e  p e  d a t e  d e  t i p  t r a n s v e r s a l  ș i  i n t r o d u c e r e  î n  a n a l i z a
+e c o n o m e t r i c ă  a s i s t a t ă  d e  m a c h i n e  l e a r n i n g
+ 
+3 .  M o d e l a r e  e c o n o m e t r i c ă  c l a s i c ă
+a .  S e  v o r  i d e n t i f i c a  p r i n c i p a l i i  d e t e r m i n a n ț i  a i  f e n o m e n u l u i  a n a l i z a t  p r i n  c o n s t r u i r e a  d e
+m o d e l e  d e  r e g r e s i e  m u l t i p l ă ,  c u  i n t e r p r e t a r e a  e c o n o m i c ă  ș i  e c o n o m e t r i c ă  a  r e z u l t a t e l o r .
+b .  S e  v a  t e s t a  v a l i d i t a t e a  m o d e l u l u i  ( s e m n i f i c a ț i a  p a r a m e t r i l o r ,  i n d i c a t o r i i  d e  b o n i t a t e ,
+v e r i f i c a r e a  i p o t e z e l o r  c l a s i c e ,  a p l i c a r e a  c o r e c ț i i l o r  n e c e s a r e )  ș i  s e  v a  e v i d e n ț i a  m o d e l u l  o p t i m
+p e  b a z a  c r i t e r i i l o r  e c o n o m e t r i c e .
+c .  S e  v a  e v a l u a  c a p a c i t a t e a  p r e d i c t i v ă  î n  a f a r a  e ș a n t i o n u l u i  p e  s e t u l  d e  t e s t a r e ,  f o l o s i n d
+i n d i c a t o r i  p r e c u m  R M S E ,  M A E ,  M A P E  s a u  R ²  a j u s t a t .
+4 .  E x t i n d e r e a  m o d e l u l u i  ș i  s c e n a r i i  d e  p r o g n o z ă
+a .  S e  v a  î m b u n ă t ă ț i  m o d e l u l  p r i n  a d o p t a r e a  u n e i  a l t e  f o r m e  f u n c ț i o n a l e  ( l o g - l o g ,  p o l i n o m i a l ă )
+ș i  p r i n  a d ă u g a r e a  d e  v a r i a b i l e  d u m m y  ș i  t e r m e n i  d e  i n t e r a c ț i u n e .
+b .  S e  v o r  r e l i e f a  b e n e f i c i i l e  a c e s t o r  t r a n s f o r m ă r i ,  i a r  p e  m o d e l u l  o p t i m  ( v a l i d a t  a n t e r i o r )  s e  v a
+c o n s t r u i  u n  s c e n a r i u  d e  p r o g n o z ă ,  c u  e v i d e n ț i e r e a  i p o t e z e l o r  d e  l u c r u .
+5 .  R e g u l a r i z a r e  ș i  i n t e g r a r e a  t e h n i c i l o r  M L
+a .  S e  v o r  a p l i c a  t e h n i c i  d e  r e g u l a r i z a r e  ( L a s s o ,  R i d g e ,  E l a s t i c  N e t )  p e  m o d e l u l  m u l t i f a c t o r i a l
+c o n s i d e r a t .
+b .  S e  v o r  r e a l i z a  c o m p a r a ț i i  î n t r e  p e r f o r m a n ț e l e  m o d e l e l o r  M L  ș i  c e l e  a l e  m o d e l u l u i
+e c o n o m e t r i c  o p t i m  ( p r i n  i n d i c a t o r i  p r e c u m  R M S E ,  M A E ,  R ²  a j u s t a t ) .
+c .  S e  v o r  d i s c u t a  d i f e r e n ț e l e  d i n t r e  m o d e l e l e  e x p l i c a t i v e  ( o r i e n t a t e  p e  i n t e r p r e t a r e a
+p a r a m e t r i l o r )  ș i  m o d e l e l e  p r e d i c t i v e  ( o r i e n t a t e  p e  a c u r a t e ț e a  p r e d i c ț i e i ) .
+d .  O p ț i o n a l ,  s e  p o t  e x p l o r a  ș i  a l t e  m e t o d e  d e  r e g r e s i e  a v a n s a t ă  ( R a n d o m  F o r e s t ,  G r a d i e n t
+B o o s t i n g ,  S V R )  p e n t r u  e v i d e n ț i e r e a  d i f e r e n ț e l o r  î n t r e  a b o r d ă r i l e  e x p l i c a t i v e  ș i  p r e d i c t i v e .
+6 .  D i s c u ț i i  ș i  v a l i d a r e a  r e z u l t a t e l o r
+a .  S e  v o r  i n t e r p r e t a  r e z u l t a t e l e  î n  r a p o r t  c u  i p o t e z e l e  i n i ț i a l e  ș i  l i t e r a t u r a  d e  s p e c i a l i t a t e .
+b .  S e  v o r  e v i d e n ț i a  c o n v e r g e n ț e l e  ș i  d i s c r e p a n ț e l e  î n t r e  r e z u l t a t e l e  e c o n o m e t r i c e  ș i  c e l e
+g e n e r a t e  d e  m e t o d e l e  M L .
+c .  S e  v o r  d i s c u t a  l i m i t ă r i l e  s t u d i u l u i  ( d a t e ,  m e t o d e ,  b i a s )  ș i  s e  v o r  f o r m u l a  d i r e c ț i i  p e n t r u
+c e r c e t ă r i  v i i t o a r e ,  i n c l u s i v  p o t e n ț i a l e  e x t i n d e r i  c u  m o d e l e  n o n - l i n i a r e  s a u  d e  î n v ă ț a r e
+a u t o m a t ă .
+
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+A P L I C A Ț I A  2
+M o d e l e  c u  d a t e  d e  t i p  p a n e l
+ 
+S ă  s e  d e z v o l t e  u n  m o d e l  d e  r e g r e s i e  p e  d a t e  d e  t i p  p a n e l  p e n t r u  a n a l i z a  d e t e r m i n a n ț i l o r  f e n o m e n u l u i
+a l e s ,  c e  v a  r e s p e c t a  u r m ă t o a r e l e  s p e c i f i c a ț i i  t e h n i c e :
+1 .  S e  v a  c o n f i g u r a  s e t u l  d e  d a t e  p e n t r u  u n  e ș a n t i o n  d e  u n i t ă ț i  ș i  p e n t r u  u n  i n t e r v a l  d e  t i m p ,
+c r e â n d u - s e  o  s t r u c t u r ă  c u  d a t e  d e  t i p  p a n e l  a d e c v a t ă  f e n o m e n u l u i  a n a l i z a t .
+2 .  S ă  s e  d e f i n e a s c ă  m o d e l u l  ș i  s ă  s e  s p e c i f i c e  v a r i a b i l e l e  c u  p r e c i z a r e a  t r a n s f o r m ă r i l o r  a d u s e .
+3 .  S ă  s e  t e s t e z e  a l e g e r e a  t i p u l u i  d e  m o d e l  R E  s a u  F E  c u  a j u t o r u l  t e s t e l o r  s p e c i f i c e .
+4 .  S ă  s e  e s t i m e z e  m o d e l u l  a d e c v a t  o b t i n u t  d i n  a n a l i z a  e t a p e i  3 .  O p ț i o n a l :  s e  v o r  t e s t a
+i p o t e z e l e  p e  r e z i d u u r i  ș i  s e  v o r  c r e a  s c e n a r i i  d e  p r o g n o z ă .
+5 .  S ă  s e  i n t e r p r e t e z e  r e z u l t a t e l e  o b ţ i n u t e  d i n  p u n c t  d e  v e d e r e  e c o n o m e t r i c  ș i  e c o n o m i c
+r e z u l t a t e l e  c u  t e s t a r e a  i p o t e z e l o r  m o d e l u l u i ,  e t c .
+6 .  S ă  s e  c r e i o n e z e  o  s e c ț i u n e  d e  d i s c u ț i i  p e  b a z a  r e z u l t a t e l o r  o b ț i n u t e  c u  v a l i d a r e a  a c e s t o r a
+c u  l i t e r a t u r a  d e  s p e c i a l i t a t e :  c o m p a r a r e a  c u  i p o t e z e l e  i n i ț i a l e ,  s e m n i f i c a ț i a  r e z u l t a t e l o r ,
+l i m i t ă r i  a l e  s t u d i u l u i ,  s u g e s t i i  p e n t r u  c e r c e t ă r i  v i i t o a r e .
+T o a t e  a p l i c a ț i i l e  s e  r e a l i z e a z ă  î n  R !
+
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+P R E Z E N T A R E
+P r e z e n t a r e a  p r o i e c t e l o r  l a  E c o n o m e t r i e  s e  v a  r e a l i z a  s u b  f o r m ă  d e  i n f o g r a f i c ,  i n c l u z â n d  s c h e m e  l o g i c e
+c o m p r e h e n s i v e  ș i  u r m ă t o a r e l e  s e c ț i u n i  o b l i g a t o r i i :
+1 .  T e m a  ( t i t l u l )  p r o i e c t u l u i  ș i  a u t o r i i :  I n c l u d e ț i  t i t l u l  p r o i e c t u l u i ,  n u m e l e  ș i  p r e n u m e l e
+a u t o r i l o r ,  n u m e l e  ș i  p r e n u m e l e  c o n d u c ă t o r u l u i  ș t i i n ț i f i c ,  ș i  a n u l  î n  c a r e  e s t e  s u s ț i n u t  p r o i e c t u l .
+2 .  I n t r o d u c e r e :  P r e z e n t a ț i  a r g u m e n t e l e  p r i v i n d  a l e g e r e a  t e m e i  l u c r ă r i i  ș i  m o d u l  c o n c i s  d e
+l u c r u .
+3 .  S e c ț i u n e  t e o r e t i c ă :
+L i t e r a t u r e  r e v i e w :  P r e z e n t a r e a  s t a d i u l u i  c u n o a ș t e r i i  î n  d o m e n i u ,  s u m a r i z â n d  m i n i m  5
+a r t i c o l e  d e  s p e c i a l i t a t e  d i n  u l t i m i i  5  a n i .
+M e t o d o l o g i a  c e r c e t ă r i i :  D e s c r i e r e a  m e t o d o l o g i e i  u t i l i z a t e  î n  s t u d i u l  d e  c a z .
+4 .  S e c ț i u n e  a p l i c a t i v ă :
+D a t e  u t i l i z a t e :  D e s c r i e r e a  d a t e l o r  u t i l i z a t e ,  m o d u l  l o r  d e  o b ț i n e r e  ș i  t r a n s f o r m ă r i l e  a d u s e
+a c e s t o r a .
+R e z u l t a t e l e  e m p i r i c e  a l e  c e r c e t ă r i i :  P r e z e n t a r e a ,  e x p l i c a r e a  ș i  i n t e r p r e t a r e a  r e z u l t a t e l o r
+o b ț i n u t e .
+5 .  D i s c u ț i i :  C o m p a r a r e a  c u  i p o t e z e l e  i n i ț i a l e ,  s e m n i f i c a ț i a  r e z u l t a t e l o r ,  l i m i t ă r i l e  s t u d i u l u i ,
+s u g e s t i i  p e n t r u  c e r c e t ă r i  v i i t o a r e .
+6 .  C o n c l u z i i :  S u m a r i z a r e a  p r i n c i p a l e l o r  d e s c o p e r i r i  ș i  i m p l i c a ț i i  a l e  l u c r ă r i i .
+7 .  B i b l i o g r a f i e :  U t i l i z a r e a  p r i o r i t a r a  a  b i b l i o g r a f i e i  d e  r e f e r i n ț ă  r e c e n t e  ( u l t i m i i  c i n c i  a n i )  ș i
+i n d i c a r e a  c o r e c t ă  a  s u r s e l o r  c o n f o r m  s i s t e m u l u i  d e  c i t a r e  a l e s .
+8 .  A n e x e :  
+I n c l u d e r e a  d e  i l u s t r a ț i i  f o t o - v i d e o ,  g r a f i c e  ș i  a l t e  e l e m e n t e  r e l e v a n t e  p e n t r u  l u c r a r e .
+S e m n a r e a  F i ș e i  d e  e v a l u a r e  a  p r o i e c t u l u i ,  c o n f o r m  M e t o d o l o g i e i  p r i v i n d  i n t e g r a r e a
+I n t e l i g e n ț e i  A r t i f i c i a l e  î n  p r o c e s u l  d e  e v a l u a r e  c e  e s t e  a n e x a t ă  c e r i n ț e l o r .
+A T E N Ț I E !  L u c r a r e a  e s t e  r e s p i n s a  d a c a :
+s u n t  p r e l u a t e  c u  c o p y - p a s t e ,  f ă r ă  c i t a r e ,  t e x t e  d i n  l i t e r a t u r a  d e  s p e c i a l i t a t e  s a u  d e  p e  I n t e r n e t ;
+l i p s e ș t e  c o n t r i b u ț i a  p e r s o n a l ă  ( e x e m p l u :  p r e l u a r e a  i n t e g r a l ă  a  u n e i  i n v e s t i g a ț i i  s a u  a  u n u i  s t u d i u  d e
+c a z  r e a l i z a t  d e  a l t c i n e v a ) ;
+l i p s e s c  i n t e g r a l  t r i m i t e r i l e  l a  s u r s e  t e o r e t i c e ;
+l i p s e ș t e  s t u d i u l  d e  c a z  /  i n v e s t i g a ț i a  e m p i r i c ă  /  p r o d u s u l  /  p r o c e d u r a  d e  c o m u n i c a r e  e t c . ;
+l i p s e ș t e  b i b l i o g r a f i a ;
+l i p s e s c  i n d i c ă r i l e  s u r s e l o r  p e n t r u  d a t e l e  d i n  s t u d i u l  d e  c a z .
+
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+P R E Z E N T A R E
+S u g e s t i i  p e n t r u  s u r s e  d e  d a t e :
+1 .  M i c r o :
+K a g g l e  -  h t t p s : / / w w w . k a g g l e . c o m /
+D a t a  S w e e p  -  h t t p s : / / w w w . d a t a s w e e p . a p p /
+U C I  M a c h i n e  L e a r n i n g  R e p o s i t o r y  -  h t t p s : / / a r c h i v e . i c s . u c i . e d u /
+G e s i s  -  h t t p s : / / w w w . g e s i s . o r g / e n / h o m e
+2 .  M a c r o :
+W o r l d b a n k  -  h t t p s : / / d a t a . w o r l d b a n k . o r g /
+E u r o s t a t  -  h t t p s : / / e c . e u r o p a . e u / e u r o s t a t / d a t a / d a t a b a s e
+O E C D  -  h t t p s : / / d a t a . o e c d . o r g /
+T h e g l o b a l e c o n o m y  -  h t t p s : / / w w w . t h e g l o b a l e c o n o m y . c o m /
+I N S S E  -  h t t p : / / s t a t i s t i c i . i n s s e . r o : 8 0 7 7 / t e m p o - o n l i n e /
+I M F  -  h t t p s : / / w w w . i m f . o r g / e n / D a t a
+B N R  -  h t t p s : / / w w w . b n r . r o / D a t a - s e t s - 3 2 0 5 - M o b i l e . a s p x
+U N  S D G  -  h t t p s : / / u n s t a t s . u n . o r g / s d g s / d a t a p o r t a l
+S G I  -  h t t p s : / / w w w . s g i - n e t w o r k . o r g / 2 0 2 4 /
+S u g e s t i i  p e n t r u  a p l i c a ț i i  p r e z e n t a r e :
+C a n v a  –  h t t p s : / / w w w . c a n v a . c o m /
+P i k t o c h a r t  –  h t t p s : / / p i k t o c h a r t . c o m /
+d r a w . i o  -  h t t p s : / / a p p . d i a g r a m s . n e t /
+N a p k i n . a i  -  h t t p s : / / w w w . n a p k i n . a i /
+
+P r e z e n t a  m e t o d o l o g i e  s t a b i l e ș t e  c a d r u l  d e  u t i l i z a r e  r e s p o n s a b i l ă  a  t e h n o l o g i i l o r  d e  i n t e l i g e n ț ă
+a r t i f i c i a l ă  ( A I )  î n  a c t i v i t ă ț i l e  d e  î n v ă ț a r e ,  a n a l i z ă  ș i  e v a l u a r e  d e s f ă ș u r a t e  î n  c a d r u l  d i s c i p l i n e i
+E c o n o m e t r i e .  D o c u m e n t u l  u r m ă r e ș t e  a l i n i e r e a  p r o c e s u l u i  e d u c a ț i o n a l  l a  t e n d i n ț e l e  u n i v e r s i t a r e
+i n t e r n a ț i o n a l e ,  m e n ț i n â n d  t o t o d a t ă  r i g o a r e a  a c a d e m i c ă  ș i  e t i c a  p r o f e s i o n a l ă  s p e c i f i c e  A c a d e m i e i
+d e  S t u d i i  E c o n o m i c e  d i n  B u c u r e ș t i .
+I n t e g r a r e a  i n s t r u m e n t e l o r  A I  a r e  c a  s c o p  s p r i j i n i r e a  p r o c e s u l u i  e d u c a ț i o n a l ,  n u  s u b s t i t u i r e a
+g â n d i r i i  e c o n o m i c e  s a u  a  r a ț i o n a m e n t u l u i  s t a t i s t i c .  P r i n  u r m a r e ,  u t i l i z a r e a  a c e s t o r  i n s t r u m e n t e
+e s t e  p e r m i s ă  c u  c o n d i ț i a  c a  r e z u l t a t e l e  s ă  f i e  a s u m a t e  c r i t i c ,  v e r i f i c a t e  e m p i r i c  ș i  i n t e r p r e t a t e
+e c o n o m i c  d e  c ă t r e  s t u d e n ț i .
+2 0 2 5 - 2 0 2 6
+1 .  P r i n c i p i i  g e n e r a l e
+M E T O D O L O G I E  P R I V I N D  I N T E G R A R E A  I N T E L I G E N Ț E I  A R T I F I C I A L E
+Î N  P R O C E S U L  D E  E V A L U A R E
+F i e c a r e  e c h i p ă  d e  s t u d e n ț i  a r e  o b l i g a ț i a  d e  a  i n c l u d e ,  î n  f i ș i e r u l  d e  d o c u m e n t a r e  t e h n i c ă ,  o
+d e c l a r a ț i e  p r i v i n d  m o d u l  î n  c a r e  a u  f o s t  u t i l i z a t e  i n s t r u m e n t e l e  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă .
+M o d e l  d e  d e c l a r a ț i e :
+„ E c h i p a  c o n f i r m ă  c ă  a  u t i l i z a t  i n s t r u m e n t e  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă  î n  s c o p  e d u c a ț i o n a l ,  e x c l u s i v
+p e n t r u  a c t i v i t ă ț i  d e  s p r i j i n ,  p r e c u m  r e d a c t a r e a  p r e l i m i n a r ă  a  c o d u l u i ,  v e r i f i c a r e a  l o g i c i i  m o d e l e l o r
+e c o n o m e t r i c e ,  f o r m u l a r e a  e x p l i c a ț i i l o r  m e t o d o l o g i c e  s a u  î m b u n ă t ă ț i r e a  c l a r i t ă ț i i  t e x t u l u i
+a c a d e m i c .  T o a t e  r e z u l t a t e l e  o b ț i n u t e  c u  a j u t o r u l  A I  a u  f o s t  v e r i f i c a t e ,  a j u s t a t e  ș i  i n t e r p r e t a t e
+c r i t i c  d e  m e m b r i i  e c h i p e i ,  c a r e  î ș i  a s u m ă  r e s p o n s a b i l i t a t e a  i n t e g r a l ă  p e n t r u  v a l i d i t a t e a  ș i
+c o r e c t i t u d i n e a  p r o i e c t u l u i . ”
+A c e a s t ă  d e c l a r a ț i e  c o n s t i t u i e  o  p a r t e  o b l i g a t o r i e  a  d o c u m e n t a ț i e i  p r o i e c t u l u i  ș i  v a  f i  a n a l i z a t ă  d e
+c a d r u l  d i d a c t i c  î n  m o m e n t u l  e v a l u ă r i i  f i n a l e .
+2 .  D e c l a r a ț i a  p r i v i n d  u t i l i z a r e a  i n s t r u m e n t e l o r  A I
+1
+Î n  s c o p u l  a s i g u r ă r i i  t r a n s p a r e n ț e i ,  f i e c a r e  e c h i p ă  v a  c o m p l e t a  u n  t a b e l  a n e x a t  f i ș e i  d e  e v a l u a r e ,  î n
+c a r e  v a  s p e c i f i c a  i n s t r u m e n t e l e  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă  u t i l i z a t e  ș i  v e r s i u n e a  a c e s t o r a ,  c o n f o r m
+A n e x e i  1 .  A c e s t  t a b e l  v a  f i  s e m n a t  d e  m e m b r i i  e c h i p e i  ș i  t r a n s m i s  î m p r e u n ă  c u  p r o i e c t u l  f i n a l ,  c a
+a n e x ă  o f i c i a l ă  a  p r o i e c t u l u i .
+3 .  D o c u m e n t a r e a  u t i l i z ă r i i  A I
+
+2 0 2 5 - 2 0 2 6
+ 2
+Î n  v e d e r e a  a s i g u r ă r i i  t r a n s p a r e n ț e i  p r o c e s u l u i  d e  l u c r u ,  a n e x a t  f i ș e i  d e  e v a l u a r e ,  f i e c a r e  e c h i p ă  v a
+b i f a  a c t i v i t ă ț i l e  p e n t r u  c a r e  a u  f o s t  u t i l i z a t e  i n s t r u m e n t e  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă ,  c o n f o r m  l i s t e i
+d i n  A n e x a  1 .
+4 .  R e f l e c ț i a  m e t o d o l o g i c ă  a s u p r a  u t i l i z ă r i i  A I
+P e n t r u  a  g a r a n t a  r i g o a r e a  m e t o d o l o g i c ă ,  t o a t e  a n a l i z e l e  e c o n o m e t r i c e  t r e b u i e  s ă  f i e  c o m p l e t
+r e p r o d u c t i b i l e  î n  s c r i p t  R ,  f ă r ă  p a ș i  m a n u a l i  i n t e r m e d i a ț i .  C o d u l  s u r s ă  t r e b u i e  c o m e n t a t  ș i
+e x p l i c a t ,  i a r  t o a t e  t r a n s f o r m ă r i l e  d e  d a t e ,  e s t i m ă r i l e  ș i  t e s t e l e  s t a t i s t i c e  t r e b u i e  d o c u m e n t a t e  c l a r .
+Î n  s i t u a ț i i l e  î n  c a r e  A I  a  f o s t  f o l o s i t ă  p e n t r u  g e n e r a r e a  d e  c o d ,  e c h i p a  e s t e  r e s p o n s a b i l ă  s ă
+v e r i f i c e  f u n c ț i o n a l i t a t e a  a c e s t u i a ,  s ă - l  a d a p t e z e  l a  c e r i n ț e l e  p r o i e c t u l u i  ș i  s ă  d e m o n s t r e z e
+î n ț e l e g e r e a  f i e c ă r u i  p a s .  P r o f e s o r u l  p o a t e  s o l i c i t a ,  î n  c a d r u l  e v a l u ă r i i ,  d e m o n s t r a r e a  p r a c t i c ă  a
+r u l ă r i i  c o d u l u i  ș i  a  i n t e r p r e t ă r i i  r e z u l t a t e l o r .
+5 .  R e p r o d u c i b i l i t a t e  ș i  t r a s a b i l i t a t e
+Î n  c a d r u l  s e s i u n i i  d e  p r e z e n t a r e  a  p r o i e c t u l u i ,  f i e c a r e  m e m b r u  a l  e c h i p e i  v a  p r i m i  o  î n t r e b a r e
+i n d i v i d u a l ă  r e f e r i t o a r e  l a  p a r t e a  d e  a n a l i z ă  l a  c a r e  a  c o n t r i b u i t .  S c o p u l  a c e s t e i  e t a p e  e s t e
+c o n f i r m a r e a  î n ț e l e g e r i i  p r o p r i i  ș i  a  i m p l i c ă r i i  e f e c t i v e  î n  e l a b o r a r e a  p r o i e c t u l u i .
+Î n t r e b ă r i l e  v o r  u r m ă r i  a s p e c t e  d e  t i p u l :  a l e g e r e a  v a r i a b i l e l o r  ș i  m o d e l e l o r ,  i n t e r p r e t a r e a
+c o e f i c i e n ț i l o r ,  v e r i f i c a r e a  i p o t e z e l o r  e c o n o m e t r i c e  s a u  j u s t i f i c a r e a  d e c i z i i l o r  m e t o d o l o g i c e .
+6 .  V e r i f i c a r e  i n d i v i d u a l
+R u b r i c a  d e  e v a l u a r e  a  p r o i e c t u l u i  i n c l u d e  u n  c r i t e r i u  s u p l i m e n t a r  r e f e r i t o r  l a  t r a n s p a r e n ț a  ș i
+u t i l i z a r e a  r e s p o n s a b i l ă  a  A I .  A c e s t  c r i t e r i u  v i z e a z ă  c l a r i t a t e a  d e c l a r a ț i e i ,  c a l i t a t e a  r e f l e c ț i e i  a s u p r a
+m o d u l u i  d e  u t i l i z a r e  ș i  c a p a c i t a t e a  e c h i p e i  d e  a  e x p l i c a  r e z u l t a t e l e  o b ț i n u t e .
+7 .  C r i t e r i i  d e  e v a l u a r e
+
+T i t l u l
+p r o i e c t u l u i :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+C o m p o n e n ț a
+e c h i p e i  
+( 3  s t u d e n ț i ) :
+1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+P r o f e s o r
+c o o r d o n a t o r :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+D a t a
+p r e z e n t ă r i i :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+N u m e  s t u d e n t R o l  î n  e c h i p ă
+C o n t r i b u ț i e  p r i n c i p a l ă  
+( m a x .  2 - 3  f r a z e )
+%
+i m p l i c a r e *
+P u n c t a j
+p r o p u s
+( d i n  3 0 )
+1 . . . . % . . .
+2 . . . . % . . .
+3 . . . . % . . .
+2 0 2 5 - 2 0 2 6 1
+A n e x a  1
+F i ș a  d e  e v a l u a r e  a  p r o i e c t u l u i  l a  E c o n o m e t r i e
+D a t e  g e n e r a l e
+A u t o e v a l u a r e a  E c h i p e i
+* R e g u l ă :  s u m a  p r o c e n t e l o r  t r e b u i e  s ă  f i e  1 0 0 %  ( c o r e s p u n z ă t o r  p u n c t a j u l u i  t o t a l  3 0 p ) .
+
+2 0 2 5 - 2 0 2 6 2
+A n e x a  1
+U t i l i z a r e a  i n s t r u m e n t e l o r  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă  ( A I )
+B i f a ț i  t o a t e  o p ț i u n i l e  r e l e v a n t e  ș i  c o m p l e t a ț i  t a b e l u l  d e  m a i  j o s .
+A )  T i p u r i  d e  a c t i v i t ă ț i  p e n t r u  c a r e  a ț i  f o l o s i t  A I  ( b i f a ț i ) :
+☐  S c r i e r e  c o d  /  g e n e r a r e  s c h e l e t  d e  c o d  R
+☐  D e b u g g i n g  /  o p t i m i z a r e  c o d
+☐  C o m e n t a r i i  d e  c o d
+☐  P r o p u n e r i  p e n t r u  c u r ă ț a r e a  d a t e l o r  /  i m p u t a r e  /  t r a n s f o r m ă r i  ( l o g ,  s c a l e ,  d u m m i e s )
+☐  S u g e s t i i  p e n t r u  E D A  ( s t a t i s t i c i  d e s c r i p t i v e ,  v i z u a l i z ă r i ,  t e s t e  s i m p l e )
+☐  A l e g e r e a / j u s t i f i c a r e a  m o d e l e l o r
+☐  T u n i n g  /  s e t ă r i  p e n t r u  m o d e l e
+☐  F o r m u l a r e a  e x p l i c a ț i i l o r  e c o n o m e t r i c e  ( i p o t e z e ,  l i m i t ă r i ,  i n t e r p r e t a r e a  c o e f i c i e n ț i l o r )
+☐  R e d a c t a r e  t e x t  a c a d e m i c  ( c l a r i t a t e ,  s t r u c t u r ă ,  c o e z i u n e )
+☐  C o r e c t u r ă  d e  l i m b ă  /  s t i l  /  c o n d e n s a r e  t e x t
+☐  R e z u m a t  l i t e r a t u r ă  /  s i n t e z ă  s u r s e
+☐  F o r m a t ă r i  c i t ă r i  /  b i b l i o g r a f i e
+☐  D e s i g n  s l i d e - u r i  /  s t r u c t u r ă  p r e z e n t a r e
+☐  Î m b u n ă t ă ț i r e  g r a f i c e  ( a x e ,  l e g e n d e ,  c a p t i o n ,  c u l o r i ;  f ă r ă  a  m o d i f i c a  d a t e l e )
+☐  V e r i f i c ă r i  d e  l o g i c ă  /  c h e c k l i s t  m e t o d o l o g i c
+☐  A l t e l e :  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+B )  I n s t r u m e n t e  A I  f o l o s i t e
+N r . C r t . I n s t r u m e n t  A I  ( e x .  C h a t G P T ,  C o p i l o t ,  G e m i n i ) V e r s i u n e  / M o d e l
+1 .
+2 .
+3 .
+
+2 0 2 5 - 2 0 2 6 2
+A n e x a  1
+C )  V e r i f i c ă r i  ș i  a s u m a r e  ( b i f a ț i  c e  a ț i  f ă c u t ) :
+☐  A m  r u l a t  i n t e g r a l  c o d u l  î n  m e d i u l  n o s t r u  ș i  a m  v e r i f i c a t  r e z u l t a t e l e .
+☐  A m  r e v i z u i t  c r i t i c  c o n ț i n u t u l  g e n e r a t  d e  A I  ( a m  c o r e c t a t  e r o r i / n u a n ț e ) .
+☐  A m  p ă s t r a t  t r a s a b i l i t a t e a  ( s c r i p t  u n i c  R  c a r e  r e p r o d u c e  t o a t e  r e z u l t a t e l e ) .
+☐  P u t e m  e x p l i c a  v e r b a l  ( l a  Q & a m p ; A )  d e c i z i i l e  m e t o d o l o g i c e  ș i  i n t e r p r e t ă r i l e .
+E c h i p a  c o n f i r m ă  c ă  p r o i e c t u l  a  f o s t  r e a l i z a t  i n t e g r a l  î n  c a d r u l  d i s c i p l i n e i  E c o n o m e t r i e ,
+f o l o s i n d  s u r s e  d e  d a t e  ș i  c o d  p r o p r i i ,  c u  r e s p e c t a r e a  e t i c i i  a c a d e m i c e .
+U t i l i z a r e a  i n s t r u m e n t e l o r  A I  ( C h a t G P T ,  C o p i l o t ,  G e m i n i  e t c . )  a  f o s t  m e n ț i o n a t ă  ș i  v e r i f i c a t ă
+c r i t i c  î n  a n a l i z a  f i n a l ă .
+S e m n ă t u r i  m e m b r i  e c h i p ă :
+1 .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2 .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3 .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+S e m n ă t u r a  p r o f e s o r u l u i :  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+D a t a :  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
