@@ -11,7 +11,8 @@ pacman::p_load(
   corrplot,     # Matrice de corelație
   psych,        # Statistici descriptive (skewness, kurtosis)
   janitor,      # Curățare nume coloane
-  caret         # Pentru împărțirea setului de date (Train/Test)
+  caret,        # Pentru împărțirea setului de date (Train/Test)
+  gridExtra     # Pentru aranjarea graficelor în grid
 )
 
 # Setare director de lucru EXPLICIT (pentru a evita erorile de path)
@@ -155,7 +156,11 @@ translations <- c(
   "Sweden" = "Suedia", "Switzerland" = "Elveția"
 )
 
-df_final$Tara <- recode(df_final$Tara, !!!translations)
+# Folosim indexare directă (Vectorized Lookup) pentru a evita erorile de 'recode'
+df_final$Tara <- translations[df_final$Tara]
+
+# Verificăm dacă au rămas valori NA (țări netraduse) și le păstrăm pe cele originale (sau le semnalăm)
+# df_final$Tara[is.na(df_final$Tara)] <- names(translations)[match(df_final$Tara[is.na(df_final$Tara)], names(translations))] # Fallback opțional
 
 # Salvare set de date final
 write_xlsx(df_final, "Output/Date/Date_Proiect_Final_2023.xlsx")
@@ -185,34 +190,82 @@ corrplot(cor_matrix, method = "color", type = "upper",
          title = "Matricea de Corelatie a Variabilelor", mar=c(0,0,1,0))
 dev.off()
 
-# 4.3. Histograme (Distribuții)
-# MODIFICARE: Folosim Logaritmul pentru a avea o distribuție vizibilă (nu "cod de bare")
-p1 <- ggplot(df_final, aes(x = ln_Furturi)) +
-  geom_histogram(aes(y = ..density..), binwidth = 0.5, fill = "skyblue", color = "black") +
-  geom_density(alpha = .2, fill = "#FF6666") +
-  labs(title = "Distribuția [Logaritmică] a Furturilor", x = "Log(Furturi)", y = "Densitate") +
-  theme_minimal()
+# 4.3. Histograme si Densitate pentru TOATE variabilele (Grid)
+# ------------------------------------------------------------------------------
+# Funcție pentru a genera histograma cu densitate
+plot_hist_density <- function(data, column, title, color_fill) {
+  ggplot(data, aes_string(x = column)) +
+    geom_histogram(aes(y = ..density..), binwidth = 0.5, fill = color_fill, color = "black", alpha = 0.7) +
+    geom_density(alpha = .3, fill = "red") +
+    labs(title = title, x = column, y = "Densitate") +
+    theme_minimal()
+}
 
-ggsave("Output/Grafice/Hist_Furturi.png", plot = p1)
+p_hist1 <- plot_hist_density(df_final, "ln_Furturi", "Distribuție Furturi (Log)", "skyblue")
+p_hist2 <- plot_hist_density(df_final, "ln_PIB", "Distribuție PIB (Log)", "lightgreen")
+p_hist3 <- plot_hist_density(df_final, "ln_Someri", "Distribuție Șomaj (Log)", "orange")
+p_hist4 <- plot_hist_density(df_final, "ln_Politie", "Distribuție Poliție (Log)", "purple")
 
-# 4.4. Scatter Plots (Relații)
-# Exemplu: Șomeri vs Furturi
-p2 <- ggplot(df_final, aes(x = Someri_Mii, y = Furturi)) +
-  geom_point(color = "blue") +
-  geom_smooth(method = "lm", color = "red", se = FALSE) +
-  geom_text(aes(label = Tara), vjust = 1.5, size = 3) +
-  labs(title = "Relația Nr. Șomeri - Furturi", x = "Nr. Șomeri (Mii)", y = "Furturi") +
-  theme_minimal()
+# Grid 2x2
+png("Output/Grafice/Hist_Grid_All.png", width = 1000, height = 800)
+gridExtra::grid.arrange(p_hist1, p_hist2, p_hist3, p_hist4, ncol = 2)
+dev.off()
 
-ggsave("Output/Grafice/Scatter_Somaj_Furturi.png", plot = p2)
+ggsave("Output/Grafice/Hist_Furturi.png", plot = p_hist1) # Păstrăm și individual
 
-# 4.5. Scatter Plot Log-Log (Unități Armonizate / Elasticitate)
-# Răspuns la cerința userului pentru unități armonizate
+# 4.4. Boxplots pentru identificarea Outlierilor
+# ------------------------------------------------------------------------------
+# Vom face un singur grafic cu boxplot-uri standardizate (z-scores) pentru a le vedea pe toate
+df_long_z <- df_final %>%
+  select(starts_with("ln_")) %>%
+  scale() %>%
+  as.data.frame() %>%
+  pivot_longer(cols = everything(), names_to = "Variabila", values_to = "Z_Score")
+
+p_box <- ggplot(df_long_z, aes(x = Variabila, y = Z_Score, fill = Variabila)) +
+  geom_boxplot() +
+  labs(title = "Boxplot Standardizat (Identificare Outlieri)", y = "Z-Score (Deviații Standard)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggsave("Output/Grafice/Boxplot_Outlieri.png", plot = p_box)
+
+# 4.5. Top 5 / Bottom 5 Țări (Bar Charts)
+# ------------------------------------------------------------------------------
+# Funcție pentru Bar Chart
+plot_top_bottom <- function(df, var_col, title_text) {
+  df_sorted <- df %>% arrange(desc(!!sym(var_col)))
+  df_subset <- bind_rows(head(df_sorted, 5), tail(df_sorted, 5))
+  
+  ggplot(df_subset, aes(x = reorder(Tara, !!sym(var_col)), y = !!sym(var_col), fill = !!sym(var_col))) +
+    geom_bar(stat = "identity") +
+    coord_flip() +
+    labs(title = title_text, x = "Țara", y = var_col) +
+    theme_minimal()
+}
+
+p_bar1 <- plot_top_bottom(df_final, "Furturi", "Top/Bottom 5 Țări după Nr. Furturi")
+ggsave("Output/Grafice/Bar_Top_Furturi.png", plot = p_bar1)
+
+# 4.6. Pair Plot (Toate relațiile într-o singură imagine)
+# ------------------------------------------------------------------------------
+png("Output/Grafice/Pairs_Plot.png", width = 1000, height = 1000)
+pairs.panels(df_final %>% select(ln_Furturi, ln_PIB, ln_Someri, ln_Imigratie, ln_Politie), 
+             method = "pearson", # correlation method
+             hist.col = "#00AFBB",
+             density = TRUE,  # show density plots
+             ellipses = TRUE # show correlation ellipses
+)
+dev.off()
+
+# 4.7. Scatter Plot Log-Log (Relația Principală)
+# ------------------------------------------------------------------------------
 p3 <- ggplot(df_final, aes(x = ln_Someri, y = ln_Furturi)) +
-  geom_point(color = "darkgreen") +
-  geom_smooth(method = "lm", color = "orange", se = FALSE) +
+  geom_point(color = "darkgreen", size = 3) +
+  geom_smooth(method = "lm", color = "orange", se = TRUE, fill = "wheat") +
   geom_text(aes(label = Tara), vjust = 1.5, size = 3) +
-  labs(title = "Relația [Log] Șomeri - [Log] Furturi (Unități Armonizate)", 
+  labs(title = "Relația Log-Log: Șomaj vs Furturi", 
+       subtitle = paste("Corelație:", round(cor(df_final$ln_Someri, df_final$ln_Furturi), 2)),
        x = "Log(Nr. Șomeri)", y = "Log(Furturi)") +
   theme_minimal()
 
