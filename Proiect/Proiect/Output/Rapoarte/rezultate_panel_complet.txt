@@ -1,0 +1,1739 @@
+=================================================================
+     APLICAȚIA 2: MODELE CU DATE DE TIP PANEL - ANALIZĂ COMPLETĂ 
+=================================================================
+
+--- 1. ÎNCĂRCARE DATE PANEL ---
+
+Structura Panel:
+- Număr țări (n): 40 
+- Număr ani (T): 5 
+- Total observații (N): 200 
+- Tip panel: Balanced
+
+pdata.frame creat cu succes.
+Dimensiuni pdata: 40 țări × 5 ani = 200 obs.
+
+=================================================================
+               2. ESTIMARE MODELE PANEL                          
+=================================================================
+
+--- 2.1 Model Pooled OLS ---
+Ignoră structura panel, tratează toate observațiile ca independente.
+
+Pooling Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "pooling")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-3.81504 -0.40357  0.33293  0.80306  4.58584 
+
+Coefficients:
+              Estimate Std. Error t-value  Pr(>|t|)    
+(Intercept)  -4.810245   1.573763 -3.0565  0.002553 ** 
+ln_PIB        0.721122   0.149354  4.8283 2.777e-06 ***
+ln_Someri     0.621382   0.093032  6.6792 2.446e-10 ***
+ln_Imigratie  0.496355   0.086192  5.7587 3.255e-08 ***
+ln_Densitate -0.208228   0.103708 -2.0078  0.046041 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    840.53
+Residual Sum of Squares: 401.09
+R-Squared:      0.52281
+Adj. R-Squared: 0.51302
+F-statistic: 53.4107 on 4 and 195 DF, p-value: < 2.22e-16
+
+--- 2.2 Model Fixed Effects (Within) ---
+Controlează pentru efecte fixe individuale (specifice fiecărei țări).
+Ecuația: Y_it - Ȳ_i = β(X_it - X̄_i) + (ε_it - ε̄_i)
+
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-0.370967 -0.083748 -0.002324  0.072656  0.501982 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)   
+ln_PIB       -0.528530   0.298861 -1.7685  0.07894 . 
+ln_Someri    -0.338689   0.123969 -2.7320  0.00702 **
+ln_Imigratie  0.119971   0.048126  2.4929  0.01372 * 
+ln_Densitate  0.883344   0.503413  1.7547  0.08127 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    4.0233
+Residual Sum of Squares: 3.5613
+R-Squared:      0.11482
+Adj. R-Squared: -0.12917
+F-statistic: 5.05891 on 4 and 156 DF, p-value: 0.00073535
+
+R² within: 0.1148 
+R² ajustat: -0.1292 
+
+Efecte fixe individuale (primele 10 țări):
+  France   Sweden    Italy  Germany  Finland   Norway    Spain  Türkiye  Denmark  Moldova 
+16.59569 16.13633 15.43575 15.42147 15.34345 15.09276 14.52991 14.20599 13.67334 13.60982 
+
+--- 2.3 Model Random Effects ---
+Tratează efectele individuale ca variabile aleatoare: u_i ~ N(0, σ²_u)
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "random")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Effects:
+                  var std.dev share
+idiosyncratic 0.02283 0.15109  0.01
+individual    2.24657 1.49886  0.99
+theta: 0.955
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.5865600 -0.0904984  0.0059292  0.1132449  0.4909238 
+
+Coefficients:
+             Estimate Std. Error z-value Pr(>|z|)    
+(Intercept)  6.588320   2.660157  2.4767 0.013262 *  
+ln_PIB       0.057896   0.245125  0.2362 0.813284    
+ln_Someri    0.097314   0.107581  0.9046 0.365697    
+ln_Imigratie 0.162827   0.046489  3.5025 0.000461 ***
+ln_Densitate 0.202825   0.233544  0.8685 0.385141    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    5.7199
+Residual Sum of Squares: 5.2317
+R-Squared:      0.085363
+Adj. R-Squared: 0.066601
+Chisq: 18.1994 on 4 DF, p-value: 0.0011282
+
+--- 2.4 Model Fixed Effects cu Efecte de Timp ---
+Two-way FE: controlelază atât pentru efecte țară cât și pentru efecte an.
+
+Twoways effects Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, effect = "twoways", 
+    model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.3380098 -0.0585413 -0.0058961  0.0654716  0.4193180 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)
+ln_PIB       -0.496458   0.355286 -1.3973   0.1643
+ln_Someri     0.049884   0.123750  0.4031   0.6874
+ln_Imigratie -0.016997   0.053806 -0.3159   0.7525
+ln_Densitate  0.652655   0.445772  1.4641   0.1452
+
+Total Sum of Squares:    2.7127
+Residual Sum of Squares: 2.6205
+R-Squared:      0.034008
+Adj. R-Squared: -0.26469
+F-statistic: 1.33779 on 4 and 152 DF, p-value: 0.25849
+
+=================================================================
+           3. TESTE PENTRU SELECTAREA MODELULUI                  
+=================================================================
+
+--- 3.1 Testul Hausman (FE vs RE) ---
+H₀: Efectele aleatorii sunt consistente și eficiente (preferăm RE)
+H₁: Efectele aleatorii sunt inconsistente (preferăm FE)
+
+
+	Hausman Test
+
+data:  formula_panel
+chisq = 50.217, df = 4, p-value = 3.252e-10
+alternative hypothesis: one model is inconsistent
+
+
+Decizie: p = 0 < 0.05 → RESPINGEM H₀
+Selectăm modelul FIXED EFFECTS.
+Interpretare: Efectele individuale sunt CORELATE cu regresorii.
+
+--- 3.2 Test F pentru efecte fixe individuale ---
+H₀: Toate efectele individuale sunt egale (αᵢ = α pentru toate i)
+H₁: Efectele individuale diferă între țări
+
+
+	F test for individual effects
+
+data:  formula_panel
+F = 446.49, df1 = 39, df2 = 156, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efectele fixe sunt semnificative - preferăm FE față de Pooled OLS 
+
+--- 3.3 Test Breusch-Pagan LM pentru efecte aleatorii ---
+H₀: Varianța efectelor individuale = 0 (σ²_u = 0)
+H₁: Varianța efectelor individuale > 0
+
+
+	Lagrange Multiplier Test - (Breusch-Pagan)
+
+data:  formula_panel
+chisq = 382.65, df = 1, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efecte aleatorii semnificative - RE preferat față de Pooled 
+
+--- 3.4 Test pentru Efecte de Timp ---
+H₀: Efectele de timp nu sunt semnificative
+
+
+	F test for twoways effects
+
+data:  formula_panel
+F = 13.644, df1 = 4, df2 = 152, p-value = 1.578e-09
+alternative hypothesis: significant effects
+
+Verdict: Efectele de timp sunt semnificative - consideră two-way FE 
+
+=================================================================
+           4. DIAGNOSTICE SPECIFICE PANEL                        
+=================================================================
+
+--- 4.1 Test Pesaran CD (Dependență Cross-Secțională) ---
+H₀: Nu există dependență între entități (rezidurile sunt independente cross-secțional)
+H₁: Există dependență cross-secțională (șocuri comune afectează toate țările)
+
+
+	Pesaran CD test for cross-sectional dependence in panels
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate
+z = 13.628, p-value < 2.2e-16
+alternative hypothesis: cross-sectional dependence
+
+
+Interpretare:
+RESPINGEM H₀: Există DEPENDENȚĂ cross-secțională.
+Implicație: Șocuri comune afectează simultan mai multe țări.
+Soluție: Utilizați erori standard robuste cluster (Driscoll-Kraay).
+
+--- 4.2 Test Breusch-Godfrey (Autocorelare serială în panel) ---
+H₀: Nu există corelație serială în erori
+H₁: Există corelație serială de ordinul specificat
+
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  formula_panel
+chisq = 36.478, df = 5, p-value = 7.621e-07
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+Verdict: AUTOCORELARE SERIALĂ detectată! 
+
+--- 4.3 Test Wooldridge pentru Autocorelare în Panel ---
+H₀: Nu există autocorelare de ordinul 1
+
+
+	Wooldridge's test for serial correlation in FE panels
+
+data:  model_final
+F = 35.445, df1 = 1, df2 = 158, p-value = 1.641e-08
+alternative hypothesis: serial correlation
+
+Verdict: AUTOCORELARE AR(1) detectată! 
+
+--- 4.4 Test Breusch-Pagan pentru Heteroscedasticitate în Panel ---
+H₀: Varianța erorilor este constantă între entități
+
+
+	Breusch-Pagan test
+
+data:  formula_panel
+BP = 142.41, df = 4, p-value < 2.2e-16
+
+Verdict: HETEROSCEDASTICITATE detectată! 
+
+--- 4.5 Test pentru Heteroscedasticitate Grupată (entre țări) ---
+
+	Breusch-Pagan test
+
+data:  lm(ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate +     factor(Tara), data = df_panel_final)
+BP = 123.79, df = 43, p-value = 9.402e-10
+
+Verdict: HETEROSCEDASTICITATE GRUPATĂ detectată! 
+
+=================================================================
+           5. REZUMAT DIAGNOSTICE & CORECȚII                     
+=================================================================
+
+                     Test Statistica DF       P_Value          Verdict
+1      Hausman (FE vs RE)   50.21740  4  3.252479e-10      FE Preferat
+2      F-test efecte fixe  446.49326 NA 2.480684e-141      FE > Pooled
+3  BP LM efecte aleatorii  382.65001 NA  3.296226e-85      RE > Pooled
+4      F-test efecte timp   13.64354 NA  1.578235e-09          Two-way
+5              Pesaran CD   13.62813 NA  2.724548e-42     CD Prezentă!
+6  Breusch-Godfrey serial   36.47784  5  7.620870e-07    Autocorelare!
+7 BP Heteroscedasticitate  142.40900  4  8.606840e-30 Heteroscedastic!
+
+--- 5.1 Model Final cu Erori Robuste HC ---
+Aplicăm erori standard robuste pentru a corecta heteroscedasticitatea și dependența.
+
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)  
+ln_PIB       -0.528530   0.299350 -1.7656  0.07942 .
+ln_Someri    -0.338689   0.152715 -2.2178  0.02801 *
+ln_Imigratie  0.119971   0.056586  2.1202  0.03557 *
+ln_Densitate  0.883344   0.744913  1.1858  0.23749  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Comparație SE Standard vs Robust:
+                Variabila       Coef SE_Standard  SE_Robust P_Standard   P_Robust
+ln_PIB             ln_PIB -0.5285297  0.29886140 0.29935032 0.07893555 0.07942115
+ln_Someri       ln_Someri -0.3386890  0.12396944 0.15271520 0.00702049 0.02801484
+ln_Imigratie ln_Imigratie  0.1199708  0.04812561 0.05658574 0.01371570 0.03557447
+ln_Densitate ln_Densitate  0.8833439  0.50341340 0.74491260 0.08127242 0.23749026
+
+=================================================================
+           6. INTERPRETARE ECONOMICĂ & CONCLUZII                 
+=================================================================
+
+MODELUL FINAL SELECTAT: Fixed Effects 
+
+Coeficienți estimați:
+      ln_PIB    ln_Someri ln_Imigratie ln_Densitate 
+  -0.5285297   -0.3386890    0.1199708    0.8833439 
+
+--- Interpretare coeficienți (elasticități) ---
+- ln_PIB : -0.5285 
+  Interpretare: O creștere cu 1% în PIB este asociată cu o modificare de -0.5285 % în furturi.
+
+- ln_Someri : -0.3387 
+  Interpretare: O creștere cu 1% în Someri este asociată cu o modificare de -0.3387 % în furturi.
+
+- ln_Imigratie : 0.12 
+  Interpretare: O creștere cu 1% în Imigratie este asociată cu o modificare de 0.12 % în furturi.
+
+- ln_Densitate : 0.8833 
+  Interpretare: O creștere cu 1% în Densitate este asociată cu o modificare de 0.8833 % în furturi.
+
+--- Recomandări finale ---
+1. Model recomandat: Fixed Effects (conform Hausman)
+2. Utilizați erori robuste cluster pentru inferență datorită heteroscedasticității
+3. Considerați modele cu factori comuni (Driscoll-Kraay SE) pentru dependența CD
+4. Considerați modele dinamice (GMM) pentru corecția autocorelării
+Model Panel salvat cu succes!
+
+=================================================================
+                    ANALIZĂ PANEL FINALIZATĂ                     
+=================================================================
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 =================================================================
+     APLICAȚIA 2: MODELE CU DATE DE TIP PANEL - ANALIZĂ COMPLETĂ 
+=================================================================
+
+--- 1. ÎNCĂRCARE DATE PANEL ---
+
+Structura Panel:
+- Număr țări (n): 40 
+- Număr ani (T): 5 
+- Total observații (N): 200 
+- Tip panel: Balanced
+
+pdata.frame creat cu succes.
+Dimensiuni pdata: 40 țări × 5 ani = 200 obs.
+
+=================================================================
+               2. ESTIMARE MODELE PANEL                          
+=================================================================
+
+--- 2.1 Model Pooled OLS ---
+Ignoră structura panel, tratează toate observațiile ca independente.
+
+Pooling Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "pooling")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-3.81504 -0.40357  0.33293  0.80306  4.58584 
+
+Coefficients:
+              Estimate Std. Error t-value  Pr(>|t|)    
+(Intercept)  -4.810245   1.573763 -3.0565  0.002553 ** 
+ln_PIB        0.721122   0.149354  4.8283 2.777e-06 ***
+ln_Someri     0.621382   0.093032  6.6792 2.446e-10 ***
+ln_Imigratie  0.496355   0.086192  5.7587 3.255e-08 ***
+ln_Densitate -0.208228   0.103708 -2.0078  0.046041 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    840.53
+Residual Sum of Squares: 401.09
+R-Squared:      0.52281
+Adj. R-Squared: 0.51302
+F-statistic: 53.4107 on 4 and 195 DF, p-value: < 2.22e-16
+
+--- 2.2 Model Fixed Effects (Within) ---
+Controlează pentru efecte fixe individuale (specifice fiecărei țări).
+Ecuația: Y_it - Ȳ_i = β(X_it - X̄_i) + (ε_it - ε̄_i)
+
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-0.370967 -0.083748 -0.002324  0.072656  0.501982 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)   
+ln_PIB       -0.528530   0.298861 -1.7685  0.07894 . 
+ln_Someri    -0.338689   0.123969 -2.7320  0.00702 **
+ln_Imigratie  0.119971   0.048126  2.4929  0.01372 * 
+ln_Densitate  0.883344   0.503413  1.7547  0.08127 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    4.0233
+Residual Sum of Squares: 3.5613
+R-Squared:      0.11482
+Adj. R-Squared: -0.12917
+F-statistic: 5.05891 on 4 and 156 DF, p-value: 0.00073535
+
+R² within: 0.1148 
+R² ajustat: -0.1292 
+
+Efecte fixe individuale (primele 10 țări):
+  France   Sweden    Italy  Germany  Finland   Norway    Spain  Türkiye  Denmark  Moldova 
+16.59569 16.13633 15.43575 15.42147 15.34345 15.09276 14.52991 14.20599 13.67334 13.60982 
+
+--- 2.3 Model Random Effects ---
+Tratează efectele individuale ca variabile aleatoare: u_i ~ N(0, σ²_u)
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "random")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Effects:
+                  var std.dev share
+idiosyncratic 0.02283 0.15109  0.01
+individual    2.24657 1.49886  0.99
+theta: 0.955
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.5865600 -0.0904984  0.0059292  0.1132449  0.4909238 
+
+Coefficients:
+             Estimate Std. Error z-value Pr(>|z|)    
+(Intercept)  6.588320   2.660157  2.4767 0.013262 *  
+ln_PIB       0.057896   0.245125  0.2362 0.813284    
+ln_Someri    0.097314   0.107581  0.9046 0.365697    
+ln_Imigratie 0.162827   0.046489  3.5025 0.000461 ***
+ln_Densitate 0.202825   0.233544  0.8685 0.385141    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    5.7199
+Residual Sum of Squares: 5.2317
+R-Squared:      0.085363
+Adj. R-Squared: 0.066601
+Chisq: 18.1994 on 4 DF, p-value: 0.0011282
+
+--- 2.4 Model Fixed Effects cu Efecte de Timp ---
+Two-way FE: controlelază atât pentru efecte țară cât și pentru efecte an.
+
+Twoways effects Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, effect = "twoways", 
+    model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.3380098 -0.0585413 -0.0058961  0.0654716  0.4193180 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)
+ln_PIB       -0.496458   0.355286 -1.3973   0.1643
+ln_Someri     0.049884   0.123750  0.4031   0.6874
+ln_Imigratie -0.016997   0.053806 -0.3159   0.7525
+ln_Densitate  0.652655   0.445772  1.4641   0.1452
+
+Total Sum of Squares:    2.7127
+Residual Sum of Squares: 2.6205
+R-Squared:      0.034008
+Adj. R-Squared: -0.26469
+F-statistic: 1.33779 on 4 and 152 DF, p-value: 0.25849
+
+=================================================================
+           3. TESTE PENTRU SELECTAREA MODELULUI                  
+=================================================================
+
+--- 3.1 Testul Hausman (FE vs RE) ---
+H₀: Efectele aleatorii sunt consistente și eficiente (preferăm RE)
+H₁: Efectele aleatorii sunt inconsistente (preferăm FE)
+
+
+	Hausman Test
+
+data:  formula_panel
+chisq = 50.217, df = 4, p-value = 3.252e-10
+alternative hypothesis: one model is inconsistent
+
+
+Decizie: p = 0 < 0.05 → RESPINGEM H₀
+Selectăm modelul FIXED EFFECTS.
+Interpretare: Efectele individuale sunt CORELATE cu regresorii.
+
+--- 3.2 Test F pentru efecte fixe individuale ---
+H₀: Toate efectele individuale sunt egale (αᵢ = α pentru toate i)
+H₁: Efectele individuale diferă între țări
+
+
+	F test for individual effects
+
+data:  formula_panel
+F = 446.49, df1 = 39, df2 = 156, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efectele fixe sunt semnificative - preferăm FE față de Pooled OLS 
+
+--- 3.3 Test Breusch-Pagan LM pentru efecte aleatorii ---
+H₀: Varianța efectelor individuale = 0 (σ²_u = 0)
+H₁: Varianța efectelor individuale > 0
+
+
+	Lagrange Multiplier Test - (Breusch-Pagan)
+
+data:  formula_panel
+chisq = 382.65, df = 1, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efecte aleatorii semnificative - RE preferat față de Pooled 
+
+--- 3.4 Test pentru Efecte de Timp ---
+H₀: Efectele de timp nu sunt semnificative
+
+
+	F test for twoways effects
+
+data:  formula_panel
+F = 13.644, df1 = 4, df2 = 152, p-value = 1.578e-09
+alternative hypothesis: significant effects
+
+Verdict: Efectele de timp sunt semnificative - consideră two-way FE 
+
+=================================================================
+           4. DIAGNOSTICE SPECIFICE PANEL                        
+=================================================================
+
+--- 4.1 Test Pesaran CD (Dependență Cross-Secțională) ---
+H₀: Nu există dependență între entități (rezidurile sunt independente cross-secțional)
+H₁: Există dependență cross-secțională (șocuri comune afectează toate țările)
+
+
+	Pesaran CD test for cross-sectional dependence in panels
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate
+z = 13.628, p-value < 2.2e-16
+alternative hypothesis: cross-sectional dependence
+
+
+Interpretare:
+RESPINGEM H₀: Există DEPENDENȚĂ cross-secțională.
+Implicație: Șocuri comune afectează simultan mai multe țări.
+Soluție: Utilizați erori standard robuste cluster (Driscoll-Kraay).
+
+--- 4.2 Test Breusch-Godfrey (Autocorelare serială în panel) ---
+H₀: Nu există corelație serială în erori
+H₁: Există corelație serială de ordinul specificat
+
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  formula_panel
+chisq = 36.478, df = 5, p-value = 7.621e-07
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+Verdict: AUTOCORELARE SERIALĂ detectată! 
+
+--- 4.3 Test Wooldridge pentru Autocorelare în Panel ---
+H₀: Nu există autocorelare de ordinul 1
+
+
+	Wooldridge's test for serial correlation in FE panels
+
+data:  model_final
+F = 35.445, df1 = 1, df2 = 158, p-value = 1.641e-08
+alternative hypothesis: serial correlation
+
+Verdict: AUTOCORELARE AR(1) detectată! 
+
+--- 4.4 Test Breusch-Pagan pentru Heteroscedasticitate în Panel ---
+H₀: Varianța erorilor este constantă între entități
+
+
+	Breusch-Pagan test
+
+data:  formula_panel
+BP = 142.41, df = 4, p-value < 2.2e-16
+
+Verdict: HETEROSCEDASTICITATE detectată! 
+
+--- 4.5 Test pentru Heteroscedasticitate Grupată (entre țări) ---
+
+	Breusch-Pagan test
+
+data:  lm(ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate +     factor(Tara), data = df_panel_final)
+BP = 123.79, df = 43, p-value = 9.402e-10
+
+Verdict: HETEROSCEDASTICITATE GRUPATĂ detectată! 
+
+=================================================================
+           5. REZUMAT DIAGNOSTICE & CORECȚII                     
+=================================================================
+
+                     Test Statistica DF       P_Value          Verdict
+1      Hausman (FE vs RE)   50.21740  4  3.252479e-10      FE Preferat
+2      F-test efecte fixe  446.49326 NA 2.480684e-141      FE > Pooled
+3  BP LM efecte aleatorii  382.65001 NA  3.296226e-85      RE > Pooled
+4      F-test efecte timp   13.64354 NA  1.578235e-09          Two-way
+5              Pesaran CD   13.62813 NA  2.724548e-42     CD Prezentă!
+6  Breusch-Godfrey serial   36.47784  5  7.620870e-07    Autocorelare!
+7 BP Heteroscedasticitate  142.40900  4  8.606840e-30 Heteroscedastic!
+
+--- 5.1 Model Final cu Erori Robuste HC ---
+Aplicăm erori standard robuste pentru a corecta heteroscedasticitatea și dependența.
+
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)  
+ln_PIB       -0.528530   0.299350 -1.7656  0.07942 .
+ln_Someri    -0.338689   0.152715 -2.2178  0.02801 *
+ln_Imigratie  0.119971   0.056586  2.1202  0.03557 *
+ln_Densitate  0.883344   0.744913  1.1858  0.23749  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Comparație SE Standard vs Robust:
+                Variabila       Coef SE_Standard  SE_Robust P_Standard   P_Robust
+ln_PIB             ln_PIB -0.5285297  0.29886140 0.29935032 0.07893555 0.07942115
+ln_Someri       ln_Someri -0.3386890  0.12396944 0.15271520 0.00702049 0.02801484
+ln_Imigratie ln_Imigratie  0.1199708  0.04812561 0.05658574 0.01371570 0.03557447
+ln_Densitate ln_Densitate  0.8833439  0.50341340 0.74491260 0.08127242 0.23749026
+
+=================================================================
+           6. INTERPRETARE ECONOMICĂ & CONCLUZII                 
+=================================================================
+
+MODELUL FINAL SELECTAT: Fixed Effects 
+
+Coeficienți estimați:
+      ln_PIB    ln_Someri ln_Imigratie ln_Densitate 
+  -0.5285297   -0.3386890    0.1199708    0.8833439 
+
+--- Interpretare coeficienți (elasticități) ---
+- ln_PIB : -0.5285 
+  Interpretare: O creștere cu 1% în PIB este asociată cu o modificare de -0.5285 % în furturi.
+
+- ln_Someri : -0.3387 
+  Interpretare: O creștere cu 1% în Someri este asociată cu o modificare de -0.3387 % în furturi.
+
+- ln_Imigratie : 0.12 
+  Interpretare: O creștere cu 1% în Imigratie este asociată cu o modificare de 0.12 % în furturi.
+
+- ln_Densitate : 0.8833 
+  Interpretare: O creștere cu 1% în Densitate este asociată cu o modificare de 0.8833 % în furturi.
+
+--- Recomandări finale ---
+1. Model recomandat: Fixed Effects (conform Hausman)
+2. Utilizați erori robuste cluster pentru inferență datorită heteroscedasticității
+3. Considerați modele cu factori comuni (Driscoll-Kraay SE) pentru dependența CD
+4. Considerați modele dinamice (GMM) pentru corecția autocorelării
+Model Panel salvat cu succes!
+
+=================================================================
+                    ANALIZĂ PANEL FINALIZATĂ                     
+=================================================================
+
+✅ Toate rezultatele au fost salvate în Output/Rapoarte/
+   - rezultate_panel_complet.txt
+   - Diagnostice_Panel.xlsx
+   - Comparatie_SE_Robust.xlsx
+   - Model_Panel_Final.xlsx
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             =================================================================
+     APLICAȚIA 2: MODELE CU DATE DE TIP PANEL - ANALIZĂ COMPLETĂ 
+=================================================================
+
+--- 1. ÎNCĂRCARE DATE PANEL ---
+
+Structura Panel:
+- Număr țări (n): 40 
+- Număr ani (T): 5 
+- Total observații (N): 200 
+- Tip panel: Balanced
+
+pdata.frame creat cu succes.
+Dimensiuni pdata: 40 țări × 5 ani = 200 obs.
+
+=================================================================
+               2. ESTIMARE MODELE PANEL                          
+=================================================================
+
+--- 2.1 Model Pooled OLS ---
+Ignoră structura panel, tratează toate observațiile ca independente.
+
+Pooling Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "pooling")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-3.81504 -0.40357  0.33293  0.80306  4.58584 
+
+Coefficients:
+              Estimate Std. Error t-value  Pr(>|t|)    
+(Intercept)  -4.810245   1.573763 -3.0565  0.002553 ** 
+ln_PIB        0.721122   0.149354  4.8283 2.777e-06 ***
+ln_Someri     0.621382   0.093032  6.6792 2.446e-10 ***
+ln_Imigratie  0.496355   0.086192  5.7587 3.255e-08 ***
+ln_Densitate -0.208228   0.103708 -2.0078  0.046041 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    840.53
+Residual Sum of Squares: 401.09
+R-Squared:      0.52281
+Adj. R-Squared: 0.51302
+F-statistic: 53.4107 on 4 and 195 DF, p-value: < 2.22e-16
+
+--- 2.2 Model Fixed Effects (Within) ---
+Controlează pentru efecte fixe individuale (specifice fiecărei țări).
+Ecuația: Y_it - Ȳ_i = β(X_it - X̄_i) + (ε_it - ε̄_i)
+
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-0.370967 -0.083748 -0.002324  0.072656  0.501982 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)   
+ln_PIB       -0.528530   0.298861 -1.7685  0.07894 . 
+ln_Someri    -0.338689   0.123969 -2.7320  0.00702 **
+ln_Imigratie  0.119971   0.048126  2.4929  0.01372 * 
+ln_Densitate  0.883344   0.503413  1.7547  0.08127 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    4.0233
+Residual Sum of Squares: 3.5613
+R-Squared:      0.11482
+Adj. R-Squared: -0.12917
+F-statistic: 5.05891 on 4 and 156 DF, p-value: 0.00073535
+
+R² within: 0.1148 
+R² ajustat: -0.1292 
+
+Efecte fixe individuale (primele 10 țări):
+  France   Sweden    Italy  Germany  Finland   Norway    Spain  Türkiye  Denmark  Moldova 
+16.59569 16.13633 15.43575 15.42147 15.34345 15.09276 14.52991 14.20599 13.67334 13.60982 
+
+--- 2.3 Model Random Effects ---
+Tratează efectele individuale ca variabile aleatoare: u_i ~ N(0, σ²_u)
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "random")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Effects:
+                  var std.dev share
+idiosyncratic 0.02283 0.15109  0.01
+individual    2.24657 1.49886  0.99
+theta: 0.955
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.5865600 -0.0904984  0.0059292  0.1132449  0.4909238 
+
+Coefficients:
+             Estimate Std. Error z-value Pr(>|z|)    
+(Intercept)  6.588320   2.660157  2.4767 0.013262 *  
+ln_PIB       0.057896   0.245125  0.2362 0.813284    
+ln_Someri    0.097314   0.107581  0.9046 0.365697    
+ln_Imigratie 0.162827   0.046489  3.5025 0.000461 ***
+ln_Densitate 0.202825   0.233544  0.8685 0.385141    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    5.7199
+Residual Sum of Squares: 5.2317
+R-Squared:      0.085363
+Adj. R-Squared: 0.066601
+Chisq: 18.1994 on 4 DF, p-value: 0.0011282
+
+--- 2.4 Model Fixed Effects cu Efecte de Timp ---
+Two-way FE: controlelază atât pentru efecte țară cât și pentru efecte an.
+
+Twoways effects Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, effect = "twoways", 
+    model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.3380098 -0.0585413 -0.0058961  0.0654716  0.4193180 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)
+ln_PIB       -0.496458   0.355286 -1.3973   0.1643
+ln_Someri     0.049884   0.123750  0.4031   0.6874
+ln_Imigratie -0.016997   0.053806 -0.3159   0.7525
+ln_Densitate  0.652655   0.445772  1.4641   0.1452
+
+Total Sum of Squares:    2.7127
+Residual Sum of Squares: 2.6205
+R-Squared:      0.034008
+Adj. R-Squared: -0.26469
+F-statistic: 1.33779 on 4 and 152 DF, p-value: 0.25849
+
+=================================================================
+           3. TESTE PENTRU SELECTAREA MODELULUI                  
+=================================================================
+
+--- 3.1 Testul Hausman (FE vs RE) ---
+H₀: Efectele aleatorii sunt consistente și eficiente (preferăm RE)
+H₁: Efectele aleatorii sunt inconsistente (preferăm FE)
+
+
+	Hausman Test
+
+data:  formula_panel
+chisq = 50.217, df = 4, p-value = 3.252e-10
+alternative hypothesis: one model is inconsistent
+
+
+Decizie: p = 0 < 0.05 → RESPINGEM H₀
+Selectăm modelul FIXED EFFECTS.
+Interpretare: Efectele individuale sunt CORELATE cu regresorii.
+
+--- 3.2 Test F pentru efecte fixe individuale ---
+H₀: Toate efectele individuale sunt egale (αᵢ = α pentru toate i)
+H₁: Efectele individuale diferă între țări
+
+
+	F test for individual effects
+
+data:  formula_panel
+F = 446.49, df1 = 39, df2 = 156, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efectele fixe sunt semnificative - preferăm FE față de Pooled OLS 
+
+--- 3.3 Test Breusch-Pagan LM pentru efecte aleatorii ---
+H₀: Varianța efectelor individuale = 0 (σ²_u = 0)
+H₁: Varianța efectelor individuale > 0
+
+
+	Lagrange Multiplier Test - (Breusch-Pagan)
+
+data:  formula_panel
+chisq = 382.65, df = 1, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efecte aleatorii semnificative - RE preferat față de Pooled 
+
+--- 3.4 Test pentru Efecte de Timp ---
+H₀: Efectele de timp nu sunt semnificative
+
+
+	F test for twoways effects
+
+data:  formula_panel
+F = 13.644, df1 = 4, df2 = 152, p-value = 1.578e-09
+alternative hypothesis: significant effects
+
+Verdict: Efectele de timp sunt semnificative - consideră two-way FE 
+
+=================================================================
+           4. DIAGNOSTICE SPECIFICE PANEL                        
+=================================================================
+
+--- 4.1 Test Pesaran CD (Dependență Cross-Secțională) ---
+H₀: Nu există dependență între entități (rezidurile sunt independente cross-secțional)
+H₁: Există dependență cross-secțională (șocuri comune afectează toate țările)
+
+
+	Pesaran CD test for cross-sectional dependence in panels
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate
+z = 13.628, p-value < 2.2e-16
+alternative hypothesis: cross-sectional dependence
+
+
+Interpretare:
+RESPINGEM H₀: Există DEPENDENȚĂ cross-secțională.
+Implicație: Șocuri comune afectează simultan mai multe țări.
+Soluție: Utilizați erori standard robuste cluster (Driscoll-Kraay).
+
+--- 4.2 Test Breusch-Godfrey (Autocorelare serială în panel) ---
+H₀: Nu există corelație serială în erori
+H₁: Există corelație serială de ordinul specificat
+
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  formula_panel
+chisq = 36.478, df = 5, p-value = 7.621e-07
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+Verdict: AUTOCORELARE SERIALĂ detectată! 
+
+--- 4.3 Test Wooldridge pentru Autocorelare în Panel ---
+H₀: Nu există autocorelare de ordinul 1
+
+
+	Wooldridge's test for serial correlation in FE panels
+
+data:  model_final
+F = 35.445, df1 = 1, df2 = 158, p-value = 1.641e-08
+alternative hypothesis: serial correlation
+
+Verdict: AUTOCORELARE AR(1) detectată! 
+
+--- 4.4 Test Breusch-Pagan pentru Heteroscedasticitate în Panel ---
+H₀: Varianța erorilor este constantă între entități
+
+
+	Breusch-Pagan test
+
+data:  formula_panel
+BP = 142.41, df = 4, p-value < 2.2e-16
+
+Verdict: HETEROSCEDASTICITATE detectată! 
+
+--- 4.5 Test pentru Heteroscedasticitate Grupată (entre țări) ---
+
+	Breusch-Pagan test
+
+data:  lm(ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate +     factor(Tara), data = df_panel_final)
+BP = 123.79, df = 43, p-value = 9.402e-10
+
+Verdict: HETEROSCEDASTICITATE GRUPATĂ detectată! 
+
+=================================================================
+           5. REZUMAT DIAGNOSTICE & CORECȚII                     
+=================================================================
+
+                     Test Statistica DF       P_Value          Verdict
+1      Hausman (FE vs RE)   50.21740  4  3.252479e-10      FE Preferat
+2      F-test efecte fixe  446.49326 NA 2.480684e-141      FE > Pooled
+3  BP LM efecte aleatorii  382.65001 NA  3.296226e-85      RE > Pooled
+4      F-test efecte timp   13.64354 NA  1.578235e-09          Two-way
+5              Pesaran CD   13.62813 NA  2.724548e-42     CD Prezentă!
+6  Breusch-Godfrey serial   36.47784  5  7.620870e-07    Autocorelare!
+7 BP Heteroscedasticitate  142.40900  4  8.606840e-30 Heteroscedastic!
+
+--- 5.1 Model Final cu Erori Robuste HC ---
+Aplicăm erori standard robuste pentru a corecta heteroscedasticitatea și dependența.
+
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)  
+ln_PIB       -0.528530   0.299350 -1.7656  0.07942 .
+ln_Someri    -0.338689   0.152715 -2.2178  0.02801 *
+ln_Imigratie  0.119971   0.056586  2.1202  0.03557 *
+ln_Densitate  0.883344   0.744913  1.1858  0.23749  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Comparație SE Standard vs Robust:
+                Variabila       Coef SE_Standard  SE_Robust P_Standard   P_Robust
+ln_PIB             ln_PIB -0.5285297  0.29886140 0.29935032 0.07893555 0.07942115
+ln_Someri       ln_Someri -0.3386890  0.12396944 0.15271520 0.00702049 0.02801484
+ln_Imigratie ln_Imigratie  0.1199708  0.04812561 0.05658574 0.01371570 0.03557447
+ln_Densitate ln_Densitate  0.8833439  0.50341340 0.74491260 0.08127242 0.23749026
+
+=================================================================
+           6. INTERPRETARE ECONOMICĂ & CONCLUZII                 
+=================================================================
+
+MODELUL FINAL SELECTAT: Fixed Effects 
+
+Coeficienți estimați:
+      ln_PIB    ln_Someri ln_Imigratie ln_Densitate 
+  -0.5285297   -0.3386890    0.1199708    0.8833439 
+
+--- Interpretare coeficienți (elasticități) ---
+- ln_PIB : -0.5285 
+  Interpretare: O creștere cu 1% în PIB este asociată cu o modificare de -0.5285 % în furturi.
+
+- ln_Someri : -0.3387 
+  Interpretare: O creștere cu 1% în Someri este asociată cu o modificare de -0.3387 % în furturi.
+
+- ln_Imigratie : 0.12 
+  Interpretare: O creștere cu 1% în Imigratie este asociată cu o modificare de 0.12 % în furturi.
+
+- ln_Densitate : 0.8833 
+  Interpretare: O creștere cu 1% în Densitate este asociată cu o modificare de 0.8833 % în furturi.
+
+--- Recomandări finale ---
+1. Model recomandat: Fixed Effects (conform Hausman)
+2. Utilizați erori robuste cluster pentru inferență datorită heteroscedasticității
+3. Considerați modele cu factori comuni (Driscoll-Kraay SE) pentru dependența CD
+4. Considerați modele dinamice (GMM) pentru corecția autocorelării
+Model Panel salvat cu succes!
+
+=================================================================
+                    ANALIZĂ PANEL FINALIZATĂ                     
+=================================================================
+
+✅ Toate rezultatele au fost salvate în Output/Rapoarte/
+   - rezultate_panel_complet.txt
+   - Diagnostice_Panel.xlsx
+   - Comparatie_SE_Robust.xlsx
+   - Model_Panel_Final.xlsx
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              =================================================================
+     APLICAȚIA 2: MODELE CU DATE DE TIP PANEL - ANALIZĂ COMPLETĂ 
+=================================================================
+
+--- 1. ÎNCĂRCARE DATE PANEL ---
+
+Structura Panel:
+- Număr țări (n): 40 
+- Număr ani (T): 5 
+- Total observații (N): 200 
+- Tip panel: Balanced
+
+pdata.frame creat cu succes.
+Dimensiuni pdata: 40 țări × 5 ani = 200 obs.
+
+=================================================================
+               2. ESTIMARE MODELE PANEL                          
+=================================================================
+
+--- 2.1 Model Pooled OLS ---
+Ignoră structura panel, tratează toate observațiile ca independente.
+
+Pooling Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "pooling")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-3.81504 -0.40357  0.33293  0.80306  4.58584 
+
+Coefficients:
+              Estimate Std. Error t-value  Pr(>|t|)    
+(Intercept)  -4.810245   1.573763 -3.0565  0.002553 ** 
+ln_PIB        0.721122   0.149354  4.8283 2.777e-06 ***
+ln_Someri     0.621382   0.093032  6.6792 2.446e-10 ***
+ln_Imigratie  0.496355   0.086192  5.7587 3.255e-08 ***
+ln_Densitate -0.208228   0.103708 -2.0078  0.046041 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    840.53
+Residual Sum of Squares: 401.09
+R-Squared:      0.52281
+Adj. R-Squared: 0.51302
+F-statistic: 53.4107 on 4 and 195 DF, p-value: < 2.22e-16
+
+--- 2.2 Model Fixed Effects (Within) ---
+Controlează pentru efecte fixe individuale (specifice fiecărei țări).
+Ecuația: Y_it - Ȳ_i = β(X_it - X̄_i) + (ε_it - ε̄_i)
+
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-0.370967 -0.083748 -0.002324  0.072656  0.501982 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)   
+ln_PIB       -0.528530   0.298861 -1.7685  0.07894 . 
+ln_Someri    -0.338689   0.123969 -2.7320  0.00702 **
+ln_Imigratie  0.119971   0.048126  2.4929  0.01372 * 
+ln_Densitate  0.883344   0.503413  1.7547  0.08127 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    4.0233
+Residual Sum of Squares: 3.5613
+R-Squared:      0.11482
+Adj. R-Squared: -0.12917
+F-statistic: 5.05891 on 4 and 156 DF, p-value: 0.00073535
+
+R² within: 0.1148 
+R² ajustat: -0.1292 
+
+Efecte fixe individuale (primele 10 țări):
+  France   Sweden    Italy  Germany  Finland   Norway    Spain  Türkiye  Denmark  Moldova 
+16.59569 16.13633 15.43575 15.42147 15.34345 15.09276 14.52991 14.20599 13.67334 13.60982 
+
+--- 2.3 Model Random Effects ---
+Tratează efectele individuale ca variabile aleatoare: u_i ~ N(0, σ²_u)
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "random")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Effects:
+                  var std.dev share
+idiosyncratic 0.02283 0.15109  0.01
+individual    2.24657 1.49886  0.99
+theta: 0.955
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.5865600 -0.0904984  0.0059292  0.1132449  0.4909238 
+
+Coefficients:
+             Estimate Std. Error z-value Pr(>|z|)    
+(Intercept)  6.588320   2.660157  2.4767 0.013262 *  
+ln_PIB       0.057896   0.245125  0.2362 0.813284    
+ln_Someri    0.097314   0.107581  0.9046 0.365697    
+ln_Imigratie 0.162827   0.046489  3.5025 0.000461 ***
+ln_Densitate 0.202825   0.233544  0.8685 0.385141    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    5.7199
+Residual Sum of Squares: 5.2317
+R-Squared:      0.085363
+Adj. R-Squared: 0.066601
+Chisq: 18.1994 on 4 DF, p-value: 0.0011282
+
+--- 2.4 Model Fixed Effects cu Efecte de Timp ---
+Two-way FE: controlelază atât pentru efecte țară cât și pentru efecte an.
+
+Twoways effects Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, effect = "twoways", 
+    model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.3380098 -0.0585413 -0.0058961  0.0654716  0.4193180 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)
+ln_PIB       -0.496458   0.355286 -1.3973   0.1643
+ln_Someri     0.049884   0.123750  0.4031   0.6874
+ln_Imigratie -0.016997   0.053806 -0.3159   0.7525
+ln_Densitate  0.652655   0.445772  1.4641   0.1452
+
+Total Sum of Squares:    2.7127
+Residual Sum of Squares: 2.6205
+R-Squared:      0.034008
+Adj. R-Squared: -0.26469
+F-statistic: 1.33779 on 4 and 152 DF, p-value: 0.25849
+
+=================================================================
+           3. TESTE PENTRU SELECTAREA MODELULUI                  
+=================================================================
+
+--- 3.1 Testul Hausman (FE vs RE) ---
+H₀: Efectele aleatorii sunt consistente și eficiente (preferăm RE)
+H₁: Efectele aleatorii sunt inconsistente (preferăm FE)
+
+
+	Hausman Test
+
+data:  formula_panel
+chisq = 50.217, df = 4, p-value = 3.252e-10
+alternative hypothesis: one model is inconsistent
+
+
+Decizie: p = 0 < 0.05 → RESPINGEM H₀
+Selectăm modelul FIXED EFFECTS.
+Interpretare: Efectele individuale sunt CORELATE cu regresorii.
+
+--- 3.2 Test F pentru efecte fixe individuale ---
+H₀: Toate efectele individuale sunt egale (αᵢ = α pentru toate i)
+H₁: Efectele individuale diferă între țări
+
+
+	F test for individual effects
+
+data:  formula_panel
+F = 446.49, df1 = 39, df2 = 156, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efectele fixe sunt semnificative - preferăm FE față de Pooled OLS 
+
+--- 3.3 Test Breusch-Pagan LM pentru efecte aleatorii ---
+H₀: Varianța efectelor individuale = 0 (σ²_u = 0)
+H₁: Varianța efectelor individuale > 0
+
+
+	Lagrange Multiplier Test - (Breusch-Pagan)
+
+data:  formula_panel
+chisq = 382.65, df = 1, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efecte aleatorii semnificative - RE preferat față de Pooled 
+
+--- 3.4 Test pentru Efecte de Timp ---
+H₀: Efectele de timp nu sunt semnificative
+
+
+	F test for twoways effects
+
+data:  formula_panel
+F = 13.644, df1 = 4, df2 = 152, p-value = 1.578e-09
+alternative hypothesis: significant effects
+
+Verdict: Efectele de timp sunt semnificative - consideră two-way FE 
+
+=================================================================
+           4. DIAGNOSTICE SPECIFICE PANEL                        
+=================================================================
+
+--- 4.1 Test Pesaran CD (Dependență Cross-Secțională) ---
+H₀: Nu există dependență între entități (rezidurile sunt independente cross-secțional)
+H₁: Există dependență cross-secțională (șocuri comune afectează toate țările)
+
+
+	Pesaran CD test for cross-sectional dependence in panels
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate
+z = 13.628, p-value < 2.2e-16
+alternative hypothesis: cross-sectional dependence
+
+
+Interpretare:
+RESPINGEM H₀: Există DEPENDENȚĂ cross-secțională.
+Implicație: Șocuri comune afectează simultan mai multe țări.
+Soluție: Utilizați erori standard robuste cluster (Driscoll-Kraay).
+
+--- 4.2 Test Breusch-Godfrey (Autocorelare serială în panel) ---
+H₀: Nu există corelație serială în erori
+H₁: Există corelație serială de ordinul specificat
+
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  formula_panel
+chisq = 36.478, df = 5, p-value = 7.621e-07
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+Verdict: AUTOCORELARE SERIALĂ detectată! 
+
+--- 4.3 Test Wooldridge pentru Autocorelare în Panel ---
+H₀: Nu există autocorelare de ordinul 1
+
+
+	Wooldridge's test for serial correlation in FE panels
+
+data:  model_final
+F = 35.445, df1 = 1, df2 = 158, p-value = 1.641e-08
+alternative hypothesis: serial correlation
+
+Verdict: AUTOCORELARE AR(1) detectată! 
+
+--- 4.4 Test Breusch-Pagan pentru Heteroscedasticitate în Panel ---
+H₀: Varianța erorilor este constantă între entități
+
+
+	Breusch-Pagan test
+
+data:  formula_panel
+BP = 142.41, df = 4, p-value < 2.2e-16
+
+Verdict: HETEROSCEDASTICITATE detectată! 
+
+--- 4.5 Test pentru Heteroscedasticitate Grupată (entre țări) ---
+
+	Breusch-Pagan test
+
+data:  lm(ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate +     factor(Tara), data = df_panel_final)
+BP = 123.79, df = 43, p-value = 9.402e-10
+
+Verdict: HETEROSCEDASTICITATE GRUPATĂ detectată! 
+
+=================================================================
+           5. REZUMAT DIAGNOSTICE & CORECȚII                     
+=================================================================
+
+                     Test Statistica DF       P_Value          Verdict
+1      Hausman (FE vs RE)   50.21740  4  3.252479e-10      FE Preferat
+2      F-test efecte fixe  446.49326 NA 2.480684e-141      FE > Pooled
+3  BP LM efecte aleatorii  382.65001 NA  3.296226e-85      RE > Pooled
+4      F-test efecte timp   13.64354 NA  1.578235e-09          Two-way
+5              Pesaran CD   13.62813 NA  2.724548e-42     CD Prezentă!
+6  Breusch-Godfrey serial   36.47784  5  7.620870e-07    Autocorelare!
+7 BP Heteroscedasticitate  142.40900  4  8.606840e-30 Heteroscedastic!
+
+--- 5.1 Model Final cu Erori Robuste HC ---
+Aplicăm erori standard robuste pentru a corecta heteroscedasticitatea și dependența.
+
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)  
+ln_PIB       -0.528530   0.299350 -1.7656  0.07942 .
+ln_Someri    -0.338689   0.152715 -2.2178  0.02801 *
+ln_Imigratie  0.119971   0.056586  2.1202  0.03557 *
+ln_Densitate  0.883344   0.744913  1.1858  0.23749  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Comparație SE Standard vs Robust:
+                Variabila       Coef SE_Standard  SE_Robust P_Standard   P_Robust
+ln_PIB             ln_PIB -0.5285297  0.29886140 0.29935032 0.07893555 0.07942115
+ln_Someri       ln_Someri -0.3386890  0.12396944 0.15271520 0.00702049 0.02801484
+ln_Imigratie ln_Imigratie  0.1199708  0.04812561 0.05658574 0.01371570 0.03557447
+ln_Densitate ln_Densitate  0.8833439  0.50341340 0.74491260 0.08127242 0.23749026
+
+=================================================================
+           6. INTERPRETARE ECONOMICĂ & CONCLUZII                 
+=================================================================
+
+MODELUL FINAL SELECTAT: Fixed Effects 
+
+Coeficienți estimați:
+      ln_PIB    ln_Someri ln_Imigratie ln_Densitate 
+  -0.5285297   -0.3386890    0.1199708    0.8833439 
+
+--- Interpretare coeficienți (elasticități) ---
+- ln_PIB : -0.5285 
+  Interpretare: O creștere cu 1% în PIB este asociată cu o modificare de -0.5285 % în furturi.
+
+- ln_Someri : -0.3387 
+  Interpretare: O creștere cu 1% în Someri este asociată cu o modificare de -0.3387 % în furturi.
+
+- ln_Imigratie : 0.12 
+  Interpretare: O creștere cu 1% în Imigratie este asociată cu o modificare de 0.12 % în furturi.
+
+- ln_Densitate : 0.8833 
+  Interpretare: O creștere cu 1% în Densitate este asociată cu o modificare de 0.8833 % în furturi.
+
+--- Recomandări finale ---
+1. Model recomandat: Fixed Effects (conform Hausman)
+2. Utilizați erori robuste cluster pentru inferență datorită heteroscedasticității
+3. Considerați modele cu factori comuni (Driscoll-Kraay SE) pentru dependența CD
+4. Considerați modele dinamice (GMM) pentru corecția autocorelării
+Model Panel salvat cu succes!
+
+=================================================================
+                    ANALIZĂ PANEL FINALIZATĂ                     
+=================================================================
+
+✅ Toate rezultatele au fost salvate în Output/Rapoarte/
+   - rezultate_panel_complet.txt
+   - Diagnostice_Panel.xlsx
+   - Comparatie_SE_Robust.xlsx
+   - Model_Panel_Final.xlsx
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              =================================================================
+     APLICAȚIA 2: MODELE CU DATE DE TIP PANEL - ANALIZĂ COMPLETĂ 
+=================================================================
+
+--- 1. ÎNCĂRCARE DATE PANEL ---
+
+Structura Panel:
+- Număr țări (n): 40 
+- Număr ani (T): 5 
+- Total observații (N): 200 
+- Tip panel: Balanced
+
+pdata.frame creat cu succes.
+Dimensiuni pdata: 40 țări × 5 ani = 200 obs.
+
+=================================================================
+               2. ESTIMARE MODELE PANEL                          
+=================================================================
+
+--- 2.1 Model Pooled OLS ---
+Ignoră structura panel, tratează toate observațiile ca independente.
+
+Pooling Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "pooling")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-3.81504 -0.40357  0.33293  0.80306  4.58584 
+
+Coefficients:
+              Estimate Std. Error t-value  Pr(>|t|)    
+(Intercept)  -4.810245   1.573763 -3.0565  0.002553 ** 
+ln_PIB        0.721122   0.149354  4.8283 2.777e-06 ***
+ln_Someri     0.621382   0.093032  6.6792 2.446e-10 ***
+ln_Imigratie  0.496355   0.086192  5.7587 3.255e-08 ***
+ln_Densitate -0.208228   0.103708 -2.0078  0.046041 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    840.53
+Residual Sum of Squares: 401.09
+R-Squared:      0.52281
+Adj. R-Squared: 0.51302
+F-statistic: 53.4107 on 4 and 195 DF, p-value: < 2.22e-16
+
+--- 2.2 Model Fixed Effects (Within) ---
+Controlează pentru efecte fixe individuale (specifice fiecărei țări).
+Ecuația: Y_it - Ȳ_i = β(X_it - X̄_i) + (ε_it - ε̄_i)
+
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-0.370967 -0.083748 -0.002324  0.072656  0.501982 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)   
+ln_PIB       -0.528530   0.298861 -1.7685  0.07894 . 
+ln_Someri    -0.338689   0.123969 -2.7320  0.00702 **
+ln_Imigratie  0.119971   0.048126  2.4929  0.01372 * 
+ln_Densitate  0.883344   0.503413  1.7547  0.08127 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    4.0233
+Residual Sum of Squares: 3.5613
+R-Squared:      0.11482
+Adj. R-Squared: -0.12917
+F-statistic: 5.05891 on 4 and 156 DF, p-value: 0.00073535
+
+R² within: 0.1148 
+R² ajustat: -0.1292 
+
+Efecte fixe individuale (primele 10 țări):
+  France   Sweden    Italy  Germany  Finland   Norway    Spain  Türkiye  Denmark  Moldova 
+16.59569 16.13633 15.43575 15.42147 15.34345 15.09276 14.52991 14.20599 13.67334 13.60982 
+
+--- 2.3 Model Random Effects ---
+Tratează efectele individuale ca variabile aleatoare: u_i ~ N(0, σ²_u)
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = formula_panel, data = pdata, model = "random")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Effects:
+                  var std.dev share
+idiosyncratic 0.02283 0.15109  0.01
+individual    2.24657 1.49886  0.99
+theta: 0.955
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.5865600 -0.0904984  0.0059292  0.1132449  0.4909238 
+
+Coefficients:
+             Estimate Std. Error z-value Pr(>|z|)    
+(Intercept)  6.588320   2.660157  2.4767 0.013262 *  
+ln_PIB       0.057896   0.245125  0.2362 0.813284    
+ln_Someri    0.097314   0.107581  0.9046 0.365697    
+ln_Imigratie 0.162827   0.046489  3.5025 0.000461 ***
+ln_Densitate 0.202825   0.233544  0.8685 0.385141    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    5.7199
+Residual Sum of Squares: 5.2317
+R-Squared:      0.085363
+Adj. R-Squared: 0.066601
+Chisq: 18.1994 on 4 DF, p-value: 0.0011282
+
+--- 2.4 Model Fixed Effects cu Efecte de Timp ---
+Two-way FE: controlelază atât pentru efecte țară cât și pentru efecte an.
+
+Twoways effects Within Model
+
+Call:
+plm(formula = formula_panel, data = pdata, effect = "twoways", 
+    model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.3380098 -0.0585413 -0.0058961  0.0654716  0.4193180 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)
+ln_PIB       -0.496458   0.355286 -1.3973   0.1643
+ln_Someri     0.049884   0.123750  0.4031   0.6874
+ln_Imigratie -0.016997   0.053806 -0.3159   0.7525
+ln_Densitate  0.652655   0.445772  1.4641   0.1452
+
+Total Sum of Squares:    2.7127
+Residual Sum of Squares: 2.6205
+R-Squared:      0.034008
+Adj. R-Squared: -0.26469
+F-statistic: 1.33779 on 4 and 152 DF, p-value: 0.25849
+
+=================================================================
+           3. TESTE PENTRU SELECTAREA MODELULUI                  
+=================================================================
+
+--- 3.1 Testul Hausman (FE vs RE) ---
+H₀: Efectele aleatorii sunt consistente și eficiente (preferăm RE)
+H₁: Efectele aleatorii sunt inconsistente (preferăm FE)
+
+
+	Hausman Test
+
+data:  formula_panel
+chisq = 50.217, df = 4, p-value = 3.252e-10
+alternative hypothesis: one model is inconsistent
+
+
+Decizie: p = 0 < 0.05 → RESPINGEM H₀
+Selectăm modelul FIXED EFFECTS.
+Interpretare: Efectele individuale sunt CORELATE cu regresorii.
+
+--- 3.2 Test F pentru efecte fixe individuale ---
+H₀: Toate efectele individuale sunt egale (αᵢ = α pentru toate i)
+H₁: Efectele individuale diferă între țări
+
+
+	F test for individual effects
+
+data:  formula_panel
+F = 446.49, df1 = 39, df2 = 156, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efectele fixe sunt semnificative - preferăm FE față de Pooled OLS 
+
+--- 3.3 Test Breusch-Pagan LM pentru efecte aleatorii ---
+H₀: Varianța efectelor individuale = 0 (σ²_u = 0)
+H₁: Varianța efectelor individuale > 0
+
+
+	Lagrange Multiplier Test - (Breusch-Pagan)
+
+data:  formula_panel
+chisq = 382.65, df = 1, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+Verdict: Efecte aleatorii semnificative - RE preferat față de Pooled 
+
+--- 3.4 Test pentru Efecte de Timp ---
+H₀: Efectele de timp nu sunt semnificative
+
+
+	F test for twoways effects
+
+data:  formula_panel
+F = 13.644, df1 = 4, df2 = 152, p-value = 1.578e-09
+alternative hypothesis: significant effects
+
+Verdict: Efectele de timp sunt semnificative - consideră two-way FE 
+
+=================================================================
+           4. DIAGNOSTICE SPECIFICE PANEL                        
+=================================================================
+
+--- 4.1 Test Pesaran CD (Dependență Cross-Secțională) ---
+H₀: Nu există dependență între entități (rezidurile sunt independente cross-secțional)
+H₁: Există dependență cross-secțională (șocuri comune afectează toate țările)
+
+
+	Pesaran CD test for cross-sectional dependence in panels
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate
+z = 13.628, p-value < 2.2e-16
+alternative hypothesis: cross-sectional dependence
+
+
+Interpretare:
+RESPINGEM H₀: Există DEPENDENȚĂ cross-secțională.
+Implicație: Șocuri comune afectează simultan mai multe țări.
+Soluție: Utilizați erori standard robuste cluster (Driscoll-Kraay).
+
+--- 4.2 Test Breusch-Godfrey (Autocorelare serială în panel) ---
+H₀: Nu există corelație serială în erori
+H₁: Există corelație serială de ordinul specificat
+
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  formula_panel
+chisq = 36.478, df = 5, p-value = 7.621e-07
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+Verdict: AUTOCORELARE SERIALĂ detectată! 
+
+--- 4.3 Test Wooldridge pentru Autocorelare în Panel ---
+H₀: Nu există autocorelare de ordinul 1
+
+
+	Wooldridge's test for serial correlation in FE panels
+
+data:  model_final
+F = 35.445, df1 = 1, df2 = 158, p-value = 1.641e-08
+alternative hypothesis: serial correlation
+
+Verdict: AUTOCORELARE AR(1) detectată! 
+
+--- 4.4 Test Breusch-Pagan pentru Heteroscedasticitate în Panel ---
+H₀: Varianța erorilor este constantă între entități
+
+
+	Breusch-Pagan test
+
+data:  formula_panel
+BP = 142.41, df = 4, p-value < 2.2e-16
+
+Verdict: HETEROSCEDASTICITATE detectată! 
+
+--- 4.5 Test pentru Heteroscedasticitate Grupată (entre țări) ---
+
+	Breusch-Pagan test
+
+data:  lm(ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate +     factor(Tara), data = df_panel_final)
+BP = 123.79, df = 43, p-value = 9.402e-10
+
+Verdict: HETEROSCEDASTICITATE GRUPATĂ detectată! 
+
+=================================================================
+           5. REZUMAT DIAGNOSTICE & CORECȚII                     
+=================================================================
+
+                     Test Statistica DF       P_Value          Verdict
+1      Hausman (FE vs RE)   50.21740  4  3.252479e-10      FE Preferat
+2      F-test efecte fixe  446.49326 NA 2.480684e-141      FE > Pooled
+3  BP LM efecte aleatorii  382.65001 NA  3.296226e-85      RE > Pooled
+4      F-test efecte timp   13.64354 NA  1.578235e-09          Two-way
+5              Pesaran CD   13.62813 NA  2.724548e-42     CD Prezentă!
+6  Breusch-Godfrey serial   36.47784  5  7.620870e-07    Autocorelare!
+7 BP Heteroscedasticitate  142.40900  4  8.606840e-30 Heteroscedastic!
+
+--- 5.1 Model Final cu Erori Robuste HC ---
+Aplicăm erori standard robuste pentru a corecta heteroscedasticitatea și dependența.
+
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)  
+ln_PIB       -0.528530   0.299350 -1.7656  0.07942 .
+ln_Someri    -0.338689   0.152715 -2.2178  0.02801 *
+ln_Imigratie  0.119971   0.056586  2.1202  0.03557 *
+ln_Densitate  0.883344   0.744913  1.1858  0.23749  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Comparație SE Standard vs Robust:
+                Variabila       Coef SE_Standard  SE_Robust P_Standard   P_Robust
+ln_PIB             ln_PIB -0.5285297  0.29886140 0.29935032 0.07893555 0.07942115
+ln_Someri       ln_Someri -0.3386890  0.12396944 0.15271520 0.00702049 0.02801484
+ln_Imigratie ln_Imigratie  0.1199708  0.04812561 0.05658574 0.01371570 0.03557447
+ln_Densitate ln_Densitate  0.8833439  0.50341340 0.74491260 0.08127242 0.23749026
+
+=================================================================
+           6. INTERPRETARE ECONOMICĂ & CONCLUZII                 
+=================================================================
+
+MODELUL FINAL SELECTAT: Fixed Effects 
+
+Coeficienți estimați:
+      ln_PIB    ln_Someri ln_Imigratie ln_Densitate 
+  -0.5285297   -0.3386890    0.1199708    0.8833439 
+
+--- Interpretare coeficienți (elasticități) ---
+- ln_PIB : -0.5285 
+  Interpretare: O creștere cu 1% în PIB este asociată cu o modificare de -0.5285 % în furturi.
+
+- ln_Someri : -0.3387 
+  Interpretare: O creștere cu 1% în Someri este asociată cu o modificare de -0.3387 % în furturi.
+
+- ln_Imigratie : 0.12 
+  Interpretare: O creștere cu 1% în Imigratie este asociată cu o modificare de 0.12 % în furturi.
+
+- ln_Densitate : 0.8833 
+  Interpretare: O creștere cu 1% în Densitate este asociată cu o modificare de 0.8833 % în furturi.
+
+--- Recomandări finale ---
+1. Model recomandat: Fixed Effects (conform Hausman)
+2. Utilizați erori robuste cluster pentru inferență datorită heteroscedasticității
+3. Considerați modele cu factori comuni (Driscoll-Kraay SE) pentru dependența CD
+4. Considerați modele dinamice (GMM) pentru corecția autocorelării
+Model Panel salvat cu succes!
+
+=================================================================
+                    ANALIZĂ PANEL FINALIZATĂ                     
+=================================================================
+
+✅ Toate rezultatele au fost salvate în Output/Rapoarte/
+   - rezultate_panel_complet.txt
+   - Diagnostice_Panel.xlsx
+   - Comparatie_SE_Robust.xlsx
+   - Model_Panel_Final.xlsx

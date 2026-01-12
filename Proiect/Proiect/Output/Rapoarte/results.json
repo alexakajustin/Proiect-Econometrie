@@ -1,0 +1,303 @@
+{
+  "Model_Simplu": {
+    "Coefficients": [
+      {
+        "Variable": "(Intercept)",
+        "Estimate": "6.0035",
+        "P_Value": "3.05e-06",
+        "Significance": "***"
+      },
+      {
+        "Variable": "ln_Someri",
+        "Estimate": "0.8450",
+        "P_Value": "0.000134",
+        "Significance": "***"
+      }
+    ],
+    "R2": "0.322",
+    "P_Value_F": "0.0001343"
+  },
+  "Model_Multiplu": {
+    "Coefficients": [
+      {
+        "Variable": "(Intercept)",
+        "Estimate": "-6.20266",
+        "P_Value": "0.17047",
+        "Significance": ""
+      },
+      {
+        "Variable": "ln_PIB",
+        "Estimate": "0.89065",
+        "P_Value": "0.03049",
+        "Significance": "*"
+      },
+      {
+        "Variable": "ln_Someri",
+        "Estimate": "0.66306",
+        "P_Value": "0.00705",
+        "Significance": "**"
+      },
+      {
+        "Variable": "ln_Imigratie",
+        "Estimate": "0.44253",
+        "P_Value": "0.04290",
+        "Significance": "*"
+      },
+      {
+        "Variable": "ln_Densitate",
+        "Estimate": "-0.20690",
+        "P_Value": "0.43736",
+        "Significance": ""
+      },
+      {
+        "Variable": "Membru_UE",
+        "Estimate": "0.01685",
+        "P_Value": "0.98588",
+        "Significance": ""
+      }
+    ],
+    "R2": "0.5195",
+    "P_Value_F": "9.197e-05"
+  },
+  "Diagnostics": [
+    {
+      "Test": "Shapiro-Wilk",
+      "Statistic": "N/A",
+      "P_Value": "N/A"
+    },
+    {
+      "Test": "Breusch-Pagan",
+      "Statistic": "N/A",
+      "P_Value": "N/A"
+    },
+    {
+      "Test": "Durbin-Watson",
+      "Statistic": "N/A",
+      "P_Value": "N/A"
+    }
+  ],
+  "Model_Stepwise": {
+    "Coefficients": [
+      {
+        "Variable": "(Intercept)",
+        "Estimate": "-6.4286",
+        "P_Value": "0.10166",
+        "Significance": ""
+      },
+      {
+        "Variable": "ln_PIB",
+        "Estimate": "0.8552",
+        "P_Value": "0.02295",
+        "Significance": "*"
+      },
+      {
+        "Variable": "ln_Someri",
+        "Estimate": "0.6395",
+        "P_Value": "0.00675",
+        "Significance": "**"
+      },
+      {
+        "Variable": "ln_Imigratie",
+        "Estimate": "0.4227",
+        "P_Value": "0.04392",
+        "Significance": "*"
+      }
+    ],
+    "R2": "0.5098",
+    "P_Value_F": "9.542e-06"
+  },
+  "Stats": [
+    {
+      "Unnamed: 0": "An",
+      "vars": 1,
+      "n": 40,
+      "mean": 2023.0,
+      "sd": 0.0,
+      "median": 2023.0,
+      "trimmed": 2023.0,
+      "mad": 0.0,
+      "min": 2023.0,
+      "max": 2023.0,
+      "range": 0.0,
+      "skew": NaN,
+      "kurtosis": NaN,
+      "se": 0.0
+    },
+    {
+      "Unnamed: 0": "Furturi",
+      "vars": 2,
+      "n": 40,
+      "mean": 158862.351351351,
+      "sd": 298632.456329594,
+      "median": 66196.5,
+      "trimmed": 82596.5016891892,
+      "mad": 91962.7128,
+      "min": 245.0,
+      "max": 1359102.0,
+      "range": 1358857.0,
+      "skew": 2.9078721298329,
+      "kurtosis": 7.75983089313182,
+      "se": 47217.9372626142
+    },
+    {
+      "Unnamed: 0": "PIB_per_capita",
+      "vars": 3,
+      "n": 40,
+      "mean": 33208.5714285714,
+      "sd": 22567.9393811683,
+      "median": 30920.0,
+      "trimmed": 30121.3392857143,
+      "mad": 20356.098,
+      "min": 5500.0,
+      "max": 102250.0,
+      "range": 96750.0,
+      "skew": 1.19216308183238,
+      "kurtosis": 1.09247884972055,
+      "se": 3568.30452705514
+    },
+    {
+      "Unnamed: 0": "Someri_Mii",
+      "vars": 4,
+      "n": 40,
+      "mean": 497.428571428571,
+      "sd": 769.993316178593,
+      "median": 204.0,
+      "trimmed": 294.035714285714,
+      "mad": 231.2856,
+      "min": 8.0,
+      "max": 3274.0,
+      "range": 3266.0,
+      "skew": 2.39073608886952,
+      "kurtosis": 4.82946362579218,
+      "se": 121.746633111527
+    },
+    {
+      "Unnamed: 0": "Imigratie",
+      "vars": 5,
+      "n": 40,
+      "mean": 203644.085714286,
+      "sd": 286160.980717405,
+      "median": 108580.0,
+      "trimmed": 139082.232142857,
+      "mad": 127541.4063,
+      "min": 716.0,
+      "max": 1303251.0,
+      "range": 1302535.0,
+      "skew": 2.69554261479334,
+      "kurtosis": 7.20668414937587,
+      "se": 45246.0238267263
+    },
+    {
+      "Unnamed: 0": "Densitate_Populatie",
+      "vars": 6,
+      "n": 40,
+      "mean": 171.267567567568,
+      "sd": 278.57686142253,
+      "median": 106.6,
+      "trimmed": 119.790709459459,
+      "mad": 80.65344,
+      "min": 3.8,
+      "max": 1766.0,
+      "range": 1762.2,
+      "skew": 4.71716850192475,
+      "kurtosis": 23.9421165209885,
+      "se": 44.0468692758145
+    },
+    {
+      "Unnamed: 0": "Membru_UE",
+      "vars": 7,
+      "n": 40,
+      "mean": 0.9,
+      "sd": 0.3038218101251,
+      "median": 1.0,
+      "trimmed": 1.0,
+      "mad": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "range": 1.0,
+      "skew": -2.56729429555709,
+      "kurtosis": 4.710625,
+      "se": 0.0480384461415261
+    },
+    {
+      "Unnamed: 0": "ln_Furturi",
+      "vars": 8,
+      "n": 40,
+      "mean": 10.5183917159204,
+      "sd": 2.08637175857701,
+      "median": 11.0996904767562,
+      "trimmed": 10.6454788247723,
+      "mad": 1.73711421576159,
+      "min": 5.50125821054473,
+      "max": 14.1223347455044,
+      "range": 8.62107653495969,
+      "skew": -0.542909566436474,
+      "kurtosis": -0.309420530003838,
+      "se": 0.329884340147715
+    },
+    {
+      "Unnamed: 0": "ln_PIB",
+      "vars": 9,
+      "n": 40,
+      "mean": 10.1830938514528,
+      "sd": 0.711468011671955,
+      "median": 10.3376088986672,
+      "trimmed": 10.2040386492451,
+      "mad": 0.718457019176564,
+      "min": 8.61250337122056,
+      "max": 11.535176073905,
+      "range": 2.92267270268449,
+      "skew": -0.271296795366196,
+      "kurtosis": -0.585921763024221,
+      "se": 0.112492969961732
+    },
+    {
+      "Unnamed: 0": "ln_Someri",
+      "vars": 10,
+      "n": 40,
+      "mean": 5.34291135075971,
+      "sd": 1.40100467454343,
+      "median": 5.31811999384422,
+      "trimmed": 5.36156702300676,
+      "mad": 1.25702596312412,
+      "min": 2.07944154167984,
+      "max": 8.09376775793108,
+      "range": 6.01432621625124,
+      "skew": -0.190078014274344,
+      "kurtosis": -0.144902388969864,
+      "se": 0.221518289205008
+    },
+    {
+      "Unnamed: 0": "ln_Imigratie",
+      "vars": 11,
+      "n": 40,
+      "mean": 11.4050277797619,
+      "sd": 1.5370894601921,
+      "median": 11.5907883785001,
+      "trimmed": 11.5394552060265,
+      "mad": 1.136256196426,
+      "min": 6.57507584059962,
+      "max": 14.0803732372542,
+      "range": 7.50529739665453,
+      "skew": -0.950922352246998,
+      "kurtosis": 1.22212294228861,
+      "se": 0.243035183082288
+    },
+    {
+      "Unnamed: 0": "ln_Densitate",
+      "vars": 12,
+      "n": 40,
+      "mean": 4.60826150360039,
+      "sd": 1.04085781383813,
+      "median": 4.66900914570201,
+      "trimmed": 4.64968835145254,
+      "mad": 0.703075474129648,
+      "min": 1.33500106673234,
+      "max": 7.47647238116391,
+      "range": 6.14147131443157,
+      "skew": -0.407610146623577,
+      "kurtosis": 1.82074627955524,
+      "se": 0.164574070605601
+    }
+  ]
+}

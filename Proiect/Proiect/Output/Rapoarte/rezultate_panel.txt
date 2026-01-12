@@ -1,0 +1,75 @@
+[1] "Structura Panel:"
+tibble [200 × 13] (S3: tbl_df/tbl/data.frame)
+ $ Country     : chr [1:200] "Albania" "Albania" "Albania" "Albania" ...
+ $ Year        : Factor w/ 5 levels "2019","2020",..: 1 2 3 4 5 1 2 3 4 5 ...
+ $ Furturi     : num [1:200] 4833 3162 3342 2458 2334 ...
+ $ PIB         : num [1:200] 4850 4710 5190 5500 5500 ...
+ $ Someri      : num [1:200] 573 580 573 511 497 ...
+ $ Imigratie   : num [1:200] 149162 120532 144156 231126 203644 ...
+ $ Densitate   : num [1:200] 99.1 101.6 101 98.8 98.8 ...
+ $ ln_Furturi  : num [1:200] 8.48 8.06 8.11 7.81 7.76 ...
+ $ ln_PIB      : num [1:200] 8.49 8.46 8.55 8.61 8.61 ...
+ $ ln_Someri   : num [1:200] 6.35 6.36 6.35 6.24 6.21 ...
+ $ ln_Imigratie: num [1:200] 11.9 11.7 11.9 12.4 12.2 ...
+ $ ln_Densitate: num [1:200] 4.6 4.62 4.62 4.59 4.59 ...
+ $ Est_Vest    : num [1:200] 1 1 1 1 1 0 0 0 0 0 ...
+NULL
+[1] "--- Testul Hausman ---"
+
+	Hausman Test
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate
+chisq = 50.217, df = 4, p-value = 3.252e-10
+alternative hypothesis: one model is inconsistent
+
+[1] "Modelul selectat conform Hausman (p < 0.05 -> FE, altfel RE): Fixed Effects"
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + 
+    ln_Densitate, data = pdata, model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-0.370967 -0.083748 -0.002324  0.072656  0.501982 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)   
+ln_PIB       -0.528530   0.298861 -1.7685  0.07894 . 
+ln_Someri    -0.338689   0.123969 -2.7320  0.00702 **
+ln_Imigratie  0.119971   0.048126  2.4929  0.01372 * 
+ln_Densitate  0.883344   0.503413  1.7547  0.08127 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    4.0233
+Residual Sum of Squares: 3.5613
+R-Squared:      0.11482
+Adj. R-Squared: -0.12917
+F-statistic: 5.05891 on 4 and 156 DF, p-value: 0.00073535
+[1] "--- Test Pasaran CD (Dependenta Transversala) ---"
+
+	Pesaran CD test for cross-sectional dependence in panels
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate
+z = 13.628, p-value < 2.2e-16
+alternative hypothesis: cross-sectional dependence
+
+[1] "--- Test Serial Correlation ---"
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate
+chisq = 36.478, df = 5, p-value = 7.621e-07
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+[1] "--- Test Heteroscedasticitate ---"
+
+	Breusch-Pagan test
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate +     factor(Country)
+BP = 123.79, df = 43, p-value = 9.402e-10
+
+[1] "Analiza Panel Finalizata."
