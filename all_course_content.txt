@@ -1,0 +1,6699 @@
+--- START OF FILE: cerinte econometrie 2025-2026.pdf ---
+
+2 0 2 5 - 2 0 2 6
+C E R I N Ț E
+P R O I E C T  E C O N O M E T R I E
+F a c u l t a t e a  d e  C i b e r n e t i c ă ,  S t a t i s t i c ă  ș i  I n f o r m a t i c ă  E c o n o m i c ă
+S p e c i a l i z a r e a  I n f o r m a t i c ă  E c o n o m i c ă
+
+F o l o s i n d  d a t e  r e a l e  r e f e r i t o a r e  l a  v a r i a b i l e  î n t r e  c a r e  e x i s t ă  o  l e g a t u ă  l o g i c ă  d i n  p u n c t u l  d e  v e d e r e  a l
+t e o r i e i  e c o n o m i c e  s e  c e r e :
+1
+1 . F u n d a m e n t a r e a  t e o r e t i c ă  ș i  c o n t e x t u a l i z a r e a  a p l i c a ț i e i
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+A P L I C A Ț I A  1
+M o d e l e  d e  r e g r e s i e  p e  d a t e  d e  t i p  t r a n s v e r s a l  ș i  i n t r o d u c e r e  î n  a n a l i z a
+e c o n o m e t r i c ă  a s i s t a t ă  d e  m a c h i n e  l e a r n i n g
+ 
+a .  S ă  s e  f o r m a l i z e z e  c o n t e x t u l  a n a l i z e i  p e  b a z a  t e o r i e i  e c o n o m i c e ,  c u  r e l i e f a r e a  s t a d i u l u i
+a c t u a l  a l  c u n o a ș t e r i i  p e n t r u  p r o b l e m a t i c a  a l e a s ă ,  p r i n  r a p o r t a r e  l a  c e l e  m a i  r e c e n t e  5 – 1 0
+a r t i c o l e  ș t i i n ț i f i c e  ( d i n  u l t i m i i  5  a n i ) .
+b .  S e  v a  e v i d e n ț i a  m o d u l  î n  c a r e  r e l a ț i i l e  t e o r e t i c e  p o t  f i  t r a d u s e  î n  m o d e l e  e m p i r i c e ,
+p r e c u m  ș i  p o t e n ț i a l e l e  e x t i n d e r i  p r i n  t e h n i c i  d e  a n a l i z ă  p r e d i c t i v ă .
+2 .  A n a l i z a  e x p l o r a t o r i e  a  d a t e l o r
+a .  S e  v o r  d e s c r i e  v a r i a b i l e l e  i d e n t i f i c a t e  ( d e f i n i ț i i ,  u n i t ă ț i  d e  m ă s u r ă ,  s u r s e ,  p e r i o d i c i t a t e ,
+m e t o d e  d e  c o l e c t a r e ) .
+b .  S e  v o r  e f e c t u a  a n a l i z e  s t a t i s t i c e  d e s c r i p t i v e  ș i  a n a l i z e  g r a f i c e  p r i v i n d  d i s t r i b u ț i i l e  ș i
+c o r e l a ț i i l e  d i n t r e  v a r i a b i l e .
+c .  S e  v o r  d o c u m e n t a  t o a t e  t r a n s f o r m ă r i l e  a p l i c a t e  d a t e l o r  ( d e f l a ț i o n a r e ,  l o g a r i t m a r e ,  t r a t a r e a
+v a l o r i l o r  l i p s ă  e t c . ) .
+d .  S e t u l  d e  d a t e  v a  f i  î m p ă r ț i t  î n  s e t  d e  a n t r e n a r e  ( t r a i n )  ș i  s e t  d e  t e s t a r e  ( t e s t ) ,  p e n t r u  a
+p e r m i t e  e v a l u a r e a  c o m p a r a t i v ă  a  p e r f o r m a n ț e i  m o d e l e l o r  e c o n o m e t r i c e  î n  a f a r a
+e ș a n t i o n u l u i .
+e .  O p ț i o n a l ,  î n  c o m p l e t a r e a  m e t o d e l o r  t r a d i ț i o n a l e ,  s e  p o t  a p l i c a  ș i  t e h n i c i  e x p l o r a t o r i i  d e
+t i p  m a c h i n e  l e a r n i n g ,  p r e c u m :
+i .  i d e n t i f i c a r e a  p a t t e r n - u r i l o r  ș i  g r u p ă r i l o r  p r i n  c l u s t e r i n g  ( K - M e a n s ,  h i e r a r c h i c a l  c l u s t e r i n g ) ;
+i i .  r e d u c e r e a  d i m e n s i o n a l i t ă ț i i  p r i n  P C A  s a u  t - S N E ;
+i i i .  e s t i m a r e a  r e l a ț i i l o r  n o n - l i n i a r e  p r e l i m i n a r e  p r i n  m e t o d e  d e  r e g r e s i e  s i m p l ă  c u  k e r n e l  s a u
+s p l i n e .
+ M o d e l a r e  l a  n i v e l  m a c r o e c o n o m i c  ( t e s t a r e a  e m p i r i c ă  a  c u r b e i  l u i  P h i l l i p s ,  a  l e g i i  l u i  O k u n ,  t e s t a r e a  e m p i r i c ă  a  c u r b e i  l u i  L a f f e r ,
+d e t e r m i n a n ț i  a i  s e c t o r u l u i  p u b l i c ,  i m p a c t u l  c o m p o n e n t e l o r  d e  m e d i u ,  s o c i a l e  ș i  d e  g u v e r n a n ț ă  a s u p r a  c r e ș t e r i i  e c o n o m i c e ) ,
+f o l o s i r e a  d a t e l e l o r  m i c r o e c o n o m i c e  d i n  E u r o b a r o m e t r e  p e n t r u  a  d e z v o l t a  m o d e l e  d e  i m p a c t  l a  n i v e l  m i c r o  ( a  s e  v e d e a  s i t e - u l
+G E S I S ) ,  u t i l i z a r e a  o b i e c t i v e l o r  d e  d e z v o l t a r e  s u s t e n a b i l ă ,  a  i n d i c a t o r i l o r  E S G  l a  n i v e l  s u v e r a n ,  a  i n d i c a t o r i l o r  s u s t e n a b i l i  d e
+g u v e r n a n c e  ( S G I ) .
+1
+
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+A P L I C A Ț I A  1
+M o d e l e  d e  r e g r e s i e  p e  d a t e  d e  t i p  t r a n s v e r s a l  ș i  i n t r o d u c e r e  î n  a n a l i z a
+e c o n o m e t r i c ă  a s i s t a t ă  d e  m a c h i n e  l e a r n i n g
+ 
+3 .  M o d e l a r e  e c o n o m e t r i c ă  c l a s i c ă
+a .  S e  v o r  i d e n t i f i c a  p r i n c i p a l i i  d e t e r m i n a n ț i  a i  f e n o m e n u l u i  a n a l i z a t  p r i n  c o n s t r u i r e a  d e
+m o d e l e  d e  r e g r e s i e  m u l t i p l ă ,  c u  i n t e r p r e t a r e a  e c o n o m i c ă  ș i  e c o n o m e t r i c ă  a  r e z u l t a t e l o r .
+b .  S e  v a  t e s t a  v a l i d i t a t e a  m o d e l u l u i  ( s e m n i f i c a ț i a  p a r a m e t r i l o r ,  i n d i c a t o r i i  d e  b o n i t a t e ,
+v e r i f i c a r e a  i p o t e z e l o r  c l a s i c e ,  a p l i c a r e a  c o r e c ț i i l o r  n e c e s a r e )  ș i  s e  v a  e v i d e n ț i a  m o d e l u l  o p t i m
+p e  b a z a  c r i t e r i i l o r  e c o n o m e t r i c e .
+c .  S e  v a  e v a l u a  c a p a c i t a t e a  p r e d i c t i v ă  î n  a f a r a  e ș a n t i o n u l u i  p e  s e t u l  d e  t e s t a r e ,  f o l o s i n d
+i n d i c a t o r i  p r e c u m  R M S E ,  M A E ,  M A P E  s a u  R ²  a j u s t a t .
+4 .  E x t i n d e r e a  m o d e l u l u i  ș i  s c e n a r i i  d e  p r o g n o z ă
+a .  S e  v a  î m b u n ă t ă ț i  m o d e l u l  p r i n  a d o p t a r e a  u n e i  a l t e  f o r m e  f u n c ț i o n a l e  ( l o g - l o g ,  p o l i n o m i a l ă )
+ș i  p r i n  a d ă u g a r e a  d e  v a r i a b i l e  d u m m y  ș i  t e r m e n i  d e  i n t e r a c ț i u n e .
+b .  S e  v o r  r e l i e f a  b e n e f i c i i l e  a c e s t o r  t r a n s f o r m ă r i ,  i a r  p e  m o d e l u l  o p t i m  ( v a l i d a t  a n t e r i o r )  s e  v a
+c o n s t r u i  u n  s c e n a r i u  d e  p r o g n o z ă ,  c u  e v i d e n ț i e r e a  i p o t e z e l o r  d e  l u c r u .
+5 .  R e g u l a r i z a r e  ș i  i n t e g r a r e a  t e h n i c i l o r  M L
+a .  S e  v o r  a p l i c a  t e h n i c i  d e  r e g u l a r i z a r e  ( L a s s o ,  R i d g e ,  E l a s t i c  N e t )  p e  m o d e l u l  m u l t i f a c t o r i a l
+c o n s i d e r a t .
+b .  S e  v o r  r e a l i z a  c o m p a r a ț i i  î n t r e  p e r f o r m a n ț e l e  m o d e l e l o r  M L  ș i  c e l e  a l e  m o d e l u l u i
+e c o n o m e t r i c  o p t i m  ( p r i n  i n d i c a t o r i  p r e c u m  R M S E ,  M A E ,  R ²  a j u s t a t ) .
+c .  S e  v o r  d i s c u t a  d i f e r e n ț e l e  d i n t r e  m o d e l e l e  e x p l i c a t i v e  ( o r i e n t a t e  p e  i n t e r p r e t a r e a
+p a r a m e t r i l o r )  ș i  m o d e l e l e  p r e d i c t i v e  ( o r i e n t a t e  p e  a c u r a t e ț e a  p r e d i c ț i e i ) .
+d .  O p ț i o n a l ,  s e  p o t  e x p l o r a  ș i  a l t e  m e t o d e  d e  r e g r e s i e  a v a n s a t ă  ( R a n d o m  F o r e s t ,  G r a d i e n t
+B o o s t i n g ,  S V R )  p e n t r u  e v i d e n ț i e r e a  d i f e r e n ț e l o r  î n t r e  a b o r d ă r i l e  e x p l i c a t i v e  ș i  p r e d i c t i v e .
+6 .  D i s c u ț i i  ș i  v a l i d a r e a  r e z u l t a t e l o r
+a .  S e  v o r  i n t e r p r e t a  r e z u l t a t e l e  î n  r a p o r t  c u  i p o t e z e l e  i n i ț i a l e  ș i  l i t e r a t u r a  d e  s p e c i a l i t a t e .
+b .  S e  v o r  e v i d e n ț i a  c o n v e r g e n ț e l e  ș i  d i s c r e p a n ț e l e  î n t r e  r e z u l t a t e l e  e c o n o m e t r i c e  ș i  c e l e
+g e n e r a t e  d e  m e t o d e l e  M L .
+c .  S e  v o r  d i s c u t a  l i m i t ă r i l e  s t u d i u l u i  ( d a t e ,  m e t o d e ,  b i a s )  ș i  s e  v o r  f o r m u l a  d i r e c ț i i  p e n t r u
+c e r c e t ă r i  v i i t o a r e ,  i n c l u s i v  p o t e n ț i a l e  e x t i n d e r i  c u  m o d e l e  n o n - l i n i a r e  s a u  d e  î n v ă ț a r e
+a u t o m a t ă .
+
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+A P L I C A Ț I A  2
+M o d e l e  c u  d a t e  d e  t i p  p a n e l
+ 
+S ă  s e  d e z v o l t e  u n  m o d e l  d e  r e g r e s i e  p e  d a t e  d e  t i p  p a n e l  p e n t r u  a n a l i z a  d e t e r m i n a n ț i l o r  f e n o m e n u l u i
+a l e s ,  c e  v a  r e s p e c t a  u r m ă t o a r e l e  s p e c i f i c a ț i i  t e h n i c e :
+1 .  S e  v a  c o n f i g u r a  s e t u l  d e  d a t e  p e n t r u  u n  e ș a n t i o n  d e  u n i t ă ț i  ș i  p e n t r u  u n  i n t e r v a l  d e  t i m p ,
+c r e â n d u - s e  o  s t r u c t u r ă  c u  d a t e  d e  t i p  p a n e l  a d e c v a t ă  f e n o m e n u l u i  a n a l i z a t .
+2 .  S ă  s e  d e f i n e a s c ă  m o d e l u l  ș i  s ă  s e  s p e c i f i c e  v a r i a b i l e l e  c u  p r e c i z a r e a  t r a n s f o r m ă r i l o r  a d u s e .
+3 .  S ă  s e  t e s t e z e  a l e g e r e a  t i p u l u i  d e  m o d e l  R E  s a u  F E  c u  a j u t o r u l  t e s t e l o r  s p e c i f i c e .
+4 .  S ă  s e  e s t i m e z e  m o d e l u l  a d e c v a t  o b t i n u t  d i n  a n a l i z a  e t a p e i  3 .  O p ț i o n a l :  s e  v o r  t e s t a
+i p o t e z e l e  p e  r e z i d u u r i  ș i  s e  v o r  c r e a  s c e n a r i i  d e  p r o g n o z ă .
+5 .  S ă  s e  i n t e r p r e t e z e  r e z u l t a t e l e  o b ţ i n u t e  d i n  p u n c t  d e  v e d e r e  e c o n o m e t r i c  ș i  e c o n o m i c
+r e z u l t a t e l e  c u  t e s t a r e a  i p o t e z e l o r  m o d e l u l u i ,  e t c .
+6 .  S ă  s e  c r e i o n e z e  o  s e c ț i u n e  d e  d i s c u ț i i  p e  b a z a  r e z u l t a t e l o r  o b ț i n u t e  c u  v a l i d a r e a  a c e s t o r a
+c u  l i t e r a t u r a  d e  s p e c i a l i t a t e :  c o m p a r a r e a  c u  i p o t e z e l e  i n i ț i a l e ,  s e m n i f i c a ț i a  r e z u l t a t e l o r ,
+l i m i t ă r i  a l e  s t u d i u l u i ,  s u g e s t i i  p e n t r u  c e r c e t ă r i  v i i t o a r e .
+T o a t e  a p l i c a ț i i l e  s e  r e a l i z e a z ă  î n  R !
+
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+P R E Z E N T A R E
+P r e z e n t a r e a  p r o i e c t e l o r  l a  E c o n o m e t r i e  s e  v a  r e a l i z a  s u b  f o r m ă  d e  i n f o g r a f i c ,  i n c l u z â n d  s c h e m e  l o g i c e
+c o m p r e h e n s i v e  ș i  u r m ă t o a r e l e  s e c ț i u n i  o b l i g a t o r i i :
+1 .  T e m a  ( t i t l u l )  p r o i e c t u l u i  ș i  a u t o r i i :  I n c l u d e ț i  t i t l u l  p r o i e c t u l u i ,  n u m e l e  ș i  p r e n u m e l e
+a u t o r i l o r ,  n u m e l e  ș i  p r e n u m e l e  c o n d u c ă t o r u l u i  ș t i i n ț i f i c ,  ș i  a n u l  î n  c a r e  e s t e  s u s ț i n u t  p r o i e c t u l .
+2 .  I n t r o d u c e r e :  P r e z e n t a ț i  a r g u m e n t e l e  p r i v i n d  a l e g e r e a  t e m e i  l u c r ă r i i  ș i  m o d u l  c o n c i s  d e
+l u c r u .
+3 .  S e c ț i u n e  t e o r e t i c ă :
+L i t e r a t u r e  r e v i e w :  P r e z e n t a r e a  s t a d i u l u i  c u n o a ș t e r i i  î n  d o m e n i u ,  s u m a r i z â n d  m i n i m  5
+a r t i c o l e  d e  s p e c i a l i t a t e  d i n  u l t i m i i  5  a n i .
+M e t o d o l o g i a  c e r c e t ă r i i :  D e s c r i e r e a  m e t o d o l o g i e i  u t i l i z a t e  î n  s t u d i u l  d e  c a z .
+4 .  S e c ț i u n e  a p l i c a t i v ă :
+D a t e  u t i l i z a t e :  D e s c r i e r e a  d a t e l o r  u t i l i z a t e ,  m o d u l  l o r  d e  o b ț i n e r e  ș i  t r a n s f o r m ă r i l e  a d u s e
+a c e s t o r a .
+R e z u l t a t e l e  e m p i r i c e  a l e  c e r c e t ă r i i :  P r e z e n t a r e a ,  e x p l i c a r e a  ș i  i n t e r p r e t a r e a  r e z u l t a t e l o r
+o b ț i n u t e .
+5 .  D i s c u ț i i :  C o m p a r a r e a  c u  i p o t e z e l e  i n i ț i a l e ,  s e m n i f i c a ț i a  r e z u l t a t e l o r ,  l i m i t ă r i l e  s t u d i u l u i ,
+s u g e s t i i  p e n t r u  c e r c e t ă r i  v i i t o a r e .
+6 .  C o n c l u z i i :  S u m a r i z a r e a  p r i n c i p a l e l o r  d e s c o p e r i r i  ș i  i m p l i c a ț i i  a l e  l u c r ă r i i .
+7 .  B i b l i o g r a f i e :  U t i l i z a r e a  p r i o r i t a r a  a  b i b l i o g r a f i e i  d e  r e f e r i n ț ă  r e c e n t e  ( u l t i m i i  c i n c i  a n i )  ș i
+i n d i c a r e a  c o r e c t ă  a  s u r s e l o r  c o n f o r m  s i s t e m u l u i  d e  c i t a r e  a l e s .
+8 .  A n e x e :  
+I n c l u d e r e a  d e  i l u s t r a ț i i  f o t o - v i d e o ,  g r a f i c e  ș i  a l t e  e l e m e n t e  r e l e v a n t e  p e n t r u  l u c r a r e .
+S e m n a r e a  F i ș e i  d e  e v a l u a r e  a  p r o i e c t u l u i ,  c o n f o r m  M e t o d o l o g i e i  p r i v i n d  i n t e g r a r e a
+I n t e l i g e n ț e i  A r t i f i c i a l e  î n  p r o c e s u l  d e  e v a l u a r e  c e  e s t e  a n e x a t ă  c e r i n ț e l o r .
+A T E N Ț I E !  L u c r a r e a  e s t e  r e s p i n s a  d a c a :
+s u n t  p r e l u a t e  c u  c o p y - p a s t e ,  f ă r ă  c i t a r e ,  t e x t e  d i n  l i t e r a t u r a  d e  s p e c i a l i t a t e  s a u  d e  p e  I n t e r n e t ;
+l i p s e ș t e  c o n t r i b u ț i a  p e r s o n a l ă  ( e x e m p l u :  p r e l u a r e a  i n t e g r a l ă  a  u n e i  i n v e s t i g a ț i i  s a u  a  u n u i  s t u d i u  d e
+c a z  r e a l i z a t  d e  a l t c i n e v a ) ;
+l i p s e s c  i n t e g r a l  t r i m i t e r i l e  l a  s u r s e  t e o r e t i c e ;
+l i p s e ș t e  s t u d i u l  d e  c a z  /  i n v e s t i g a ț i a  e m p i r i c ă  /  p r o d u s u l  /  p r o c e d u r a  d e  c o m u n i c a r e  e t c . ;
+l i p s e ș t e  b i b l i o g r a f i a ;
+l i p s e s c  i n d i c ă r i l e  s u r s e l o r  p e n t r u  d a t e l e  d i n  s t u d i u l  d e  c a z .
+
+P r o i e c t  E c o n o m e t r i e  2 0 2 5 - 2 0 2 6
+P R E Z E N T A R E
+S u g e s t i i  p e n t r u  s u r s e  d e  d a t e :
+1 .  M i c r o :
+K a g g l e  -  h t t p s : / / w w w . k a g g l e . c o m /
+D a t a  S w e e p  -  h t t p s : / / w w w . d a t a s w e e p . a p p /
+U C I  M a c h i n e  L e a r n i n g  R e p o s i t o r y  -  h t t p s : / / a r c h i v e . i c s . u c i . e d u /
+G e s i s  -  h t t p s : / / w w w . g e s i s . o r g / e n / h o m e
+2 .  M a c r o :
+W o r l d b a n k  -  h t t p s : / / d a t a . w o r l d b a n k . o r g /
+E u r o s t a t  -  h t t p s : / / e c . e u r o p a . e u / e u r o s t a t / d a t a / d a t a b a s e
+O E C D  -  h t t p s : / / d a t a . o e c d . o r g /
+T h e g l o b a l e c o n o m y  -  h t t p s : / / w w w . t h e g l o b a l e c o n o m y . c o m /
+I N S S E  -  h t t p : / / s t a t i s t i c i . i n s s e . r o : 8 0 7 7 / t e m p o - o n l i n e /
+I M F  -  h t t p s : / / w w w . i m f . o r g / e n / D a t a
+B N R  -  h t t p s : / / w w w . b n r . r o / D a t a - s e t s - 3 2 0 5 - M o b i l e . a s p x
+U N  S D G  -  h t t p s : / / u n s t a t s . u n . o r g / s d g s / d a t a p o r t a l
+S G I  -  h t t p s : / / w w w . s g i - n e t w o r k . o r g / 2 0 2 4 /
+S u g e s t i i  p e n t r u  a p l i c a ț i i  p r e z e n t a r e :
+C a n v a  –  h t t p s : / / w w w . c a n v a . c o m /
+P i k t o c h a r t  –  h t t p s : / / p i k t o c h a r t . c o m /
+d r a w . i o  -  h t t p s : / / a p p . d i a g r a m s . n e t /
+N a p k i n . a i  -  h t t p s : / / w w w . n a p k i n . a i /
+
+P r e z e n t a  m e t o d o l o g i e  s t a b i l e ș t e  c a d r u l  d e  u t i l i z a r e  r e s p o n s a b i l ă  a  t e h n o l o g i i l o r  d e  i n t e l i g e n ț ă
+a r t i f i c i a l ă  ( A I )  î n  a c t i v i t ă ț i l e  d e  î n v ă ț a r e ,  a n a l i z ă  ș i  e v a l u a r e  d e s f ă ș u r a t e  î n  c a d r u l  d i s c i p l i n e i
+E c o n o m e t r i e .  D o c u m e n t u l  u r m ă r e ș t e  a l i n i e r e a  p r o c e s u l u i  e d u c a ț i o n a l  l a  t e n d i n ț e l e  u n i v e r s i t a r e
+i n t e r n a ț i o n a l e ,  m e n ț i n â n d  t o t o d a t ă  r i g o a r e a  a c a d e m i c ă  ș i  e t i c a  p r o f e s i o n a l ă  s p e c i f i c e  A c a d e m i e i
+d e  S t u d i i  E c o n o m i c e  d i n  B u c u r e ș t i .
+I n t e g r a r e a  i n s t r u m e n t e l o r  A I  a r e  c a  s c o p  s p r i j i n i r e a  p r o c e s u l u i  e d u c a ț i o n a l ,  n u  s u b s t i t u i r e a
+g â n d i r i i  e c o n o m i c e  s a u  a  r a ț i o n a m e n t u l u i  s t a t i s t i c .  P r i n  u r m a r e ,  u t i l i z a r e a  a c e s t o r  i n s t r u m e n t e
+e s t e  p e r m i s ă  c u  c o n d i ț i a  c a  r e z u l t a t e l e  s ă  f i e  a s u m a t e  c r i t i c ,  v e r i f i c a t e  e m p i r i c  ș i  i n t e r p r e t a t e
+e c o n o m i c  d e  c ă t r e  s t u d e n ț i .
+2 0 2 5 - 2 0 2 6
+1 .  P r i n c i p i i  g e n e r a l e
+M E T O D O L O G I E  P R I V I N D  I N T E G R A R E A  I N T E L I G E N Ț E I  A R T I F I C I A L E
+Î N  P R O C E S U L  D E  E V A L U A R E
+F i e c a r e  e c h i p ă  d e  s t u d e n ț i  a r e  o b l i g a ț i a  d e  a  i n c l u d e ,  î n  f i ș i e r u l  d e  d o c u m e n t a r e  t e h n i c ă ,  o
+d e c l a r a ț i e  p r i v i n d  m o d u l  î n  c a r e  a u  f o s t  u t i l i z a t e  i n s t r u m e n t e l e  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă .
+M o d e l  d e  d e c l a r a ț i e :
+„ E c h i p a  c o n f i r m ă  c ă  a  u t i l i z a t  i n s t r u m e n t e  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă  î n  s c o p  e d u c a ț i o n a l ,  e x c l u s i v
+p e n t r u  a c t i v i t ă ț i  d e  s p r i j i n ,  p r e c u m  r e d a c t a r e a  p r e l i m i n a r ă  a  c o d u l u i ,  v e r i f i c a r e a  l o g i c i i  m o d e l e l o r
+e c o n o m e t r i c e ,  f o r m u l a r e a  e x p l i c a ț i i l o r  m e t o d o l o g i c e  s a u  î m b u n ă t ă ț i r e a  c l a r i t ă ț i i  t e x t u l u i
+a c a d e m i c .  T o a t e  r e z u l t a t e l e  o b ț i n u t e  c u  a j u t o r u l  A I  a u  f o s t  v e r i f i c a t e ,  a j u s t a t e  ș i  i n t e r p r e t a t e
+c r i t i c  d e  m e m b r i i  e c h i p e i ,  c a r e  î ș i  a s u m ă  r e s p o n s a b i l i t a t e a  i n t e g r a l ă  p e n t r u  v a l i d i t a t e a  ș i
+c o r e c t i t u d i n e a  p r o i e c t u l u i . ”
+A c e a s t ă  d e c l a r a ț i e  c o n s t i t u i e  o  p a r t e  o b l i g a t o r i e  a  d o c u m e n t a ț i e i  p r o i e c t u l u i  ș i  v a  f i  a n a l i z a t ă  d e
+c a d r u l  d i d a c t i c  î n  m o m e n t u l  e v a l u ă r i i  f i n a l e .
+2 .  D e c l a r a ț i a  p r i v i n d  u t i l i z a r e a  i n s t r u m e n t e l o r  A I
+1
+Î n  s c o p u l  a s i g u r ă r i i  t r a n s p a r e n ț e i ,  f i e c a r e  e c h i p ă  v a  c o m p l e t a  u n  t a b e l  a n e x a t  f i ș e i  d e  e v a l u a r e ,  î n
+c a r e  v a  s p e c i f i c a  i n s t r u m e n t e l e  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă  u t i l i z a t e  ș i  v e r s i u n e a  a c e s t o r a ,  c o n f o r m
+A n e x e i  1 .  A c e s t  t a b e l  v a  f i  s e m n a t  d e  m e m b r i i  e c h i p e i  ș i  t r a n s m i s  î m p r e u n ă  c u  p r o i e c t u l  f i n a l ,  c a
+a n e x ă  o f i c i a l ă  a  p r o i e c t u l u i .
+3 .  D o c u m e n t a r e a  u t i l i z ă r i i  A I
+
+2 0 2 5 - 2 0 2 6
+ 2
+Î n  v e d e r e a  a s i g u r ă r i i  t r a n s p a r e n ț e i  p r o c e s u l u i  d e  l u c r u ,  a n e x a t  f i ș e i  d e  e v a l u a r e ,  f i e c a r e  e c h i p ă  v a
+b i f a  a c t i v i t ă ț i l e  p e n t r u  c a r e  a u  f o s t  u t i l i z a t e  i n s t r u m e n t e  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă ,  c o n f o r m  l i s t e i
+d i n  A n e x a  1 .
+4 .  R e f l e c ț i a  m e t o d o l o g i c ă  a s u p r a  u t i l i z ă r i i  A I
+P e n t r u  a  g a r a n t a  r i g o a r e a  m e t o d o l o g i c ă ,  t o a t e  a n a l i z e l e  e c o n o m e t r i c e  t r e b u i e  s ă  f i e  c o m p l e t
+r e p r o d u c t i b i l e  î n  s c r i p t  R ,  f ă r ă  p a ș i  m a n u a l i  i n t e r m e d i a ț i .  C o d u l  s u r s ă  t r e b u i e  c o m e n t a t  ș i
+e x p l i c a t ,  i a r  t o a t e  t r a n s f o r m ă r i l e  d e  d a t e ,  e s t i m ă r i l e  ș i  t e s t e l e  s t a t i s t i c e  t r e b u i e  d o c u m e n t a t e  c l a r .
+Î n  s i t u a ț i i l e  î n  c a r e  A I  a  f o s t  f o l o s i t ă  p e n t r u  g e n e r a r e a  d e  c o d ,  e c h i p a  e s t e  r e s p o n s a b i l ă  s ă
+v e r i f i c e  f u n c ț i o n a l i t a t e a  a c e s t u i a ,  s ă - l  a d a p t e z e  l a  c e r i n ț e l e  p r o i e c t u l u i  ș i  s ă  d e m o n s t r e z e
+î n ț e l e g e r e a  f i e c ă r u i  p a s .  P r o f e s o r u l  p o a t e  s o l i c i t a ,  î n  c a d r u l  e v a l u ă r i i ,  d e m o n s t r a r e a  p r a c t i c ă  a
+r u l ă r i i  c o d u l u i  ș i  a  i n t e r p r e t ă r i i  r e z u l t a t e l o r .
+5 .  R e p r o d u c i b i l i t a t e  ș i  t r a s a b i l i t a t e
+Î n  c a d r u l  s e s i u n i i  d e  p r e z e n t a r e  a  p r o i e c t u l u i ,  f i e c a r e  m e m b r u  a l  e c h i p e i  v a  p r i m i  o  î n t r e b a r e
+i n d i v i d u a l ă  r e f e r i t o a r e  l a  p a r t e a  d e  a n a l i z ă  l a  c a r e  a  c o n t r i b u i t .  S c o p u l  a c e s t e i  e t a p e  e s t e
+c o n f i r m a r e a  î n ț e l e g e r i i  p r o p r i i  ș i  a  i m p l i c ă r i i  e f e c t i v e  î n  e l a b o r a r e a  p r o i e c t u l u i .
+Î n t r e b ă r i l e  v o r  u r m ă r i  a s p e c t e  d e  t i p u l :  a l e g e r e a  v a r i a b i l e l o r  ș i  m o d e l e l o r ,  i n t e r p r e t a r e a
+c o e f i c i e n ț i l o r ,  v e r i f i c a r e a  i p o t e z e l o r  e c o n o m e t r i c e  s a u  j u s t i f i c a r e a  d e c i z i i l o r  m e t o d o l o g i c e .
+6 .  V e r i f i c a r e  i n d i v i d u a l
+R u b r i c a  d e  e v a l u a r e  a  p r o i e c t u l u i  i n c l u d e  u n  c r i t e r i u  s u p l i m e n t a r  r e f e r i t o r  l a  t r a n s p a r e n ț a  ș i
+u t i l i z a r e a  r e s p o n s a b i l ă  a  A I .  A c e s t  c r i t e r i u  v i z e a z ă  c l a r i t a t e a  d e c l a r a ț i e i ,  c a l i t a t e a  r e f l e c ț i e i  a s u p r a
+m o d u l u i  d e  u t i l i z a r e  ș i  c a p a c i t a t e a  e c h i p e i  d e  a  e x p l i c a  r e z u l t a t e l e  o b ț i n u t e .
+7 .  C r i t e r i i  d e  e v a l u a r e
+
+T i t l u l
+p r o i e c t u l u i :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+C o m p o n e n ț a
+e c h i p e i  
+( 3  s t u d e n ț i ) :
+1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+P r o f e s o r
+c o o r d o n a t o r :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+D a t a
+p r e z e n t ă r i i :
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+N u m e  s t u d e n t R o l  î n  e c h i p ă
+C o n t r i b u ț i e  p r i n c i p a l ă  
+( m a x .  2 - 3  f r a z e )
+%
+i m p l i c a r e *
+P u n c t a j
+p r o p u s
+( d i n  3 0 )
+1 . . . . % . . .
+2 . . . . % . . .
+3 . . . . % . . .
+2 0 2 5 - 2 0 2 6 1
+A n e x a  1
+F i ș a  d e  e v a l u a r e  a  p r o i e c t u l u i  l a  E c o n o m e t r i e
+D a t e  g e n e r a l e
+A u t o e v a l u a r e a  E c h i p e i
+* R e g u l ă :  s u m a  p r o c e n t e l o r  t r e b u i e  s ă  f i e  1 0 0 %  ( c o r e s p u n z ă t o r  p u n c t a j u l u i  t o t a l  3 0 p ) .
+
+2 0 2 5 - 2 0 2 6 2
+A n e x a  1
+U t i l i z a r e a  i n s t r u m e n t e l o r  d e  i n t e l i g e n ț ă  a r t i f i c i a l ă  ( A I )
+B i f a ț i  t o a t e  o p ț i u n i l e  r e l e v a n t e  ș i  c o m p l e t a ț i  t a b e l u l  d e  m a i  j o s .
+A )  T i p u r i  d e  a c t i v i t ă ț i  p e n t r u  c a r e  a ț i  f o l o s i t  A I  ( b i f a ț i ) :
+☐  S c r i e r e  c o d  /  g e n e r a r e  s c h e l e t  d e  c o d  R
+☐  D e b u g g i n g  /  o p t i m i z a r e  c o d
+☐  C o m e n t a r i i  d e  c o d
+☐  P r o p u n e r i  p e n t r u  c u r ă ț a r e a  d a t e l o r  /  i m p u t a r e  /  t r a n s f o r m ă r i  ( l o g ,  s c a l e ,  d u m m i e s )
+☐  S u g e s t i i  p e n t r u  E D A  ( s t a t i s t i c i  d e s c r i p t i v e ,  v i z u a l i z ă r i ,  t e s t e  s i m p l e )
+☐  A l e g e r e a / j u s t i f i c a r e a  m o d e l e l o r
+☐  T u n i n g  /  s e t ă r i  p e n t r u  m o d e l e
+☐  F o r m u l a r e a  e x p l i c a ț i i l o r  e c o n o m e t r i c e  ( i p o t e z e ,  l i m i t ă r i ,  i n t e r p r e t a r e a  c o e f i c i e n ț i l o r )
+☐  R e d a c t a r e  t e x t  a c a d e m i c  ( c l a r i t a t e ,  s t r u c t u r ă ,  c o e z i u n e )
+☐  C o r e c t u r ă  d e  l i m b ă  /  s t i l  /  c o n d e n s a r e  t e x t
+☐  R e z u m a t  l i t e r a t u r ă  /  s i n t e z ă  s u r s e
+☐  F o r m a t ă r i  c i t ă r i  /  b i b l i o g r a f i e
+☐  D e s i g n  s l i d e - u r i  /  s t r u c t u r ă  p r e z e n t a r e
+☐  Î m b u n ă t ă ț i r e  g r a f i c e  ( a x e ,  l e g e n d e ,  c a p t i o n ,  c u l o r i ;  f ă r ă  a  m o d i f i c a  d a t e l e )
+☐  V e r i f i c ă r i  d e  l o g i c ă  /  c h e c k l i s t  m e t o d o l o g i c
+☐  A l t e l e :  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+B )  I n s t r u m e n t e  A I  f o l o s i t e
+N r . C r t . I n s t r u m e n t  A I  ( e x .  C h a t G P T ,  C o p i l o t ,  G e m i n i ) V e r s i u n e  / M o d e l
+1 .
+2 .
+3 .
+
+2 0 2 5 - 2 0 2 6 2
+A n e x a  1
+C )  V e r i f i c ă r i  ș i  a s u m a r e  ( b i f a ț i  c e  a ț i  f ă c u t ) :
+☐  A m  r u l a t  i n t e g r a l  c o d u l  î n  m e d i u l  n o s t r u  ș i  a m  v e r i f i c a t  r e z u l t a t e l e .
+☐  A m  r e v i z u i t  c r i t i c  c o n ț i n u t u l  g e n e r a t  d e  A I  ( a m  c o r e c t a t  e r o r i / n u a n ț e ) .
+☐  A m  p ă s t r a t  t r a s a b i l i t a t e a  ( s c r i p t  u n i c  R  c a r e  r e p r o d u c e  t o a t e  r e z u l t a t e l e ) .
+☐  P u t e m  e x p l i c a  v e r b a l  ( l a  Q & a m p ; A )  d e c i z i i l e  m e t o d o l o g i c e  ș i  i n t e r p r e t ă r i l e .
+E c h i p a  c o n f i r m ă  c ă  p r o i e c t u l  a  f o s t  r e a l i z a t  i n t e g r a l  î n  c a d r u l  d i s c i p l i n e i  E c o n o m e t r i e ,
+f o l o s i n d  s u r s e  d e  d a t e  ș i  c o d  p r o p r i i ,  c u  r e s p e c t a r e a  e t i c i i  a c a d e m i c e .
+U t i l i z a r e a  i n s t r u m e n t e l o r  A I  ( C h a t G P T ,  C o p i l o t ,  G e m i n i  e t c . )  a  f o s t  m e n ț i o n a t ă  ș i  v e r i f i c a t ă
+c r i t i c  î n  a n a l i z a  f i n a l ă .
+S e m n ă t u r i  m e m b r i  e c h i p ă :
+1 .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2 .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3 .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+S e m n ă t u r a  p r o f e s o r u l u i :  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+D a t a :  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+--- END OF FILE: cerinte econometrie 2025-2026.pdf ---
+
+--- START OF FILE: CURS 1 - Econometrie.pdf ---
+
+Conf.univ.dr. Maria Denisa VASILESCU
+Departamentul de Statistica si Econometrie
+Email: maria.vasilescu@csie.ase.ro
+
+▪ Evaluare pe parcurs (40%)
+▪ Proiect –30%
+❖ Proiectul se realizează ȋn echipe și
+se susține la seminar!
+▪ Teme/teste/activitate la curs –10%
+▪ Evaluare in sesiune (60%)
+▪ Examen scris
+❖ Minim nota 5 in examen pentru
+promovare
+
+
+ Familiarizarea cu tehnicile specifice econometriei în
+rezolvarea problemelor economice.
+ Utilizarea și analiza unor seturi de date economice
+ Construirea și estimarea unor modele proprii care
+să surprindă anumite aspecte economice
+ Utilizarea unor programe software specifice pentru
+prelucrarea și analiza datelor
+ Formularea unui raport economic având la bază
+modele econometrice care sa contina caracterizarea
+fenomenelor studiate, dar si recomandari de politici
+sau strategii.
+
+
+1. Introducere. Definiţii. Elemente conceptuale
+2. Modelul de regresie liniarăunifactorială
+3. Modelul de regresie liniarămultifactorială
+4. Ipoteze clasice ale modelului de regresie
+5. Modele de regresie neliniare
+6. Modele cu variabile binare
+7. Modele cu date de tip panel
+
+
+ Provine din cuvintele greceşti: „eikonomia” - economie şi
+„metron” - măsură.
+Definitie istorica: „experienţa a arătat că
+fiecare din următoarele 3 puncte de
+vedere, al statisticii, al teoriei economice
+şi al matematicii este o condiţie necesară,
+dar nu şi suficientă pentru o înţelegere
+efectivă a relaţilor cantitative din
+economia modernă; unificarea lor este
+aceea care asigură eficienţa. Econometria
+este tocmai această unificare.”
+(R.Frisch, Econometrica, 1933) 
+
+
+Termenul econometrie a fost introdus în anul 1926 de către
+economistul şi statisticianul norvegian R. Frisch prin analogie
+cu termenul „biometrie” (cercetări biologice cu ajutorul
+statisticii şi matematicii), utilizat de Galton şi Pearson.
+VS
+
+➢ Directiile în care s-au derulat analizele lui Galton au condus la
+conceptul de corelatie. Ex: corelatia dintre statura parintilor si
+cea a copiilor.
+➢ Termenul de regresie provine tot de la Galton – regresie fata de
+medie. (Francis Galton – „Regression towards mediocrity in hereditary stature”
+
+
+Econometria opereaza cu o serie de concepte, notiuni si termeni specifici:
+ model econometric – modelul este o schema simplificata a realitatii cu 
+rol in explicarea fenomenului studiat, de regula, sub forma unor 
+ecuatii sau sisteme de ecuatii.
+ variabile statistice - pot fi: dependente, independente si reziduale.
+ parametri - marimi reale si necunoscute care apar in model alături de
+variabile. Parametrii fac obiectul procesului de estimare si testare 
+statistica.
+ estimatori - variabile aleatoare, construite in procesul de estimare 
+ estimaţii - valori posibile ale estimatorilor calculate la nivelul unui 
+eşantion sau set de date reale observate din realitate. 
+ ipoteze statistice - presupuneri cu privire la parametrii modelului 
+econometric.
+
+
+ Ipoteză statistică = se intelege “presupunerea” care se 
+face cu privire la parametrul unei repartitii sau a legii 
+de repartitie pe care o urmeaza anumite variabile 
+aleatoare. 
+ Ipoteză nulă (H0) = este ipoteza care urmează a fi 
+testată. Aceasta presupune că nu există deosebiri 
+esentiale sau că eventualele deosebiri au un caracter 
+intamplator; constă întotdeauna în admiterea
+caracterului întâmplător al deosebirilor.
+ Ipoteză alternativă (H1) = reprezintă negarea ipotezei 
+nule. Ea va fi acceptată doar când există suficiente
+dovezi, evidenţe, pentru a se stabili că este adevărată. 
+
+
+
+
+Fals pozitiv                            Fals negativ
+
+Variabilele economice determină structura modelului econometric:
+◦ Variabile endogene (dependente, rezultative sau efect):
+variabile determinate în cadrul sistemului;
+◦ Variabile exogene (independente, factoriale sau explicative):
+variabile determinate în afara sistemului, despre care modelul
+econometric nu are nimic de spus.
+◦ Variabila reziduală (eroare, notată ε sau u): este inclusă în
+modelul econometric ca sumă a tuturor influenţelor necunoscute
+sau care nu apar explicit în model. În cercetarea econometrică,
+variabila eroare este o variabilă aleatoare care respectă anumite
+proprietăţi, numite şi ipoteze clasice.
+
+
+ Date de tip profil (cross-sectional data)
+ "tăieturi informaţionale" efectuate într-o 
+populaţie la un moment dat, tăieturi care 
+sunt de tip transversal în raport cu axa 
+timpului.
+ Ex: Ponderea persoanelor cu studii 
+superioare în 2024 in statele membre UE
+ Date de tip serii de timp (serii 
+cronologice)
+• reprezintă "secţiuni informaţionale" de-a 
+lungul axei timpului, de-a lungul evoluţiei; 
+secţiuni longitudinale în raport cu axa 
+timpului.
+• Ex: Ponderea persoanelor cu studii 
+superioare în Romania în perioada 2015-2024
+
+
+ Date de tip panel 
+ sunt combinaţii, mixturi, ale 
+datelor de tip profil şi datelor de 
+tipul seriilor de timp.
+ "tăieturi informaţionale mixte" 
+transversale şi logitudinale, în 
+raport cu axa timpului. 
+ Ex: Ponderea persoanelor cu 
+studii superioare în statele membre
+UE în perioada 2019-2024
+Tara 2019 2020 2021 2022 2023 2024
+Belgium 36 37.6 39.7 40.2 39.1 38.8
+Bulgaria 24.7 25.8 26.1 26.3 26.7 29.4
+Czechia 21.6 22.1 23.4 23.5 23.5 23.8
+Denmark 33.4 33.7 34.8 35 35.5 37.3
+Germany 26 27.2 28.1 28 28.7 29.8
+Estonia 34.7 35.2 36 36.7 36 36
+Ireland 40.7 42.8 45.4 46.1 46.6 48.3
+Greece 27.8 28.5 30.1 30.5 29.9 30.4
+Spain 35.1 36 36.2 36.5 37.1 37.5
+France 33.8 35.3 36.3 36.9 37.6 38.4
+Croatia 22.1 22.3 22.3 22.8 24.9 26.6
+Italy 17.5 17.8 17.8 18.1 19.2 19.7
+Cyprus 40.5 41 42.8 44 46 46.3
+Latvia 31.4 33.2 34.2 34.5 34 34.7
+Lithuania 37.9 38.7 39.8 41.3 41 41.7
+Luxembourg 41 40.9 44.5 46 45.7 48.2
+Hungary 22.5 23.6 25.5 25.6 25.8 27
+Malta 27 28.2 29.6 29.4 30.8 33.3
+Netherlands 34.8 36.6 37.5 38.8 38.4 38.7
+Austria 31.1 31.3 31.8 32.5 33.6 34.4
+Poland 28.6 29.3 29.4 30 33.2 34.3
+Portugal 23.9 24.8 26.2 26.8 27.1 28.6
+Romania 16 16.2 16.4 17.1 16.1 16.5
+Slovenia 29.3 31.5 35.4 35.1 29.8 30.5
+Slovakia 23.1 23.9 24.7 26 25.8 25.7
+Finland 38.5 39.8 35.5 35.9 35.7 35.7
+Sweden 37.8 38.3 39.6 41.1 41.9 42.8
+
+ Modelul econometric este o reprezentare
+simplificată a relațiilor existente în
+economie, fiind exprimat prin ecuaţii.
+ Descrie un fenomen economic și permite 
+înțelegerea, explicarea sau obținerea de noi 
+informații referitoare la fenomenul analizat.
+ Face posibilă proiectarea politicilor
+economice, luarea deciziilor în cadrul
+companiilor sau chiar la nivel individual.
+
+
+Modele deterministe
+◦ Exprimă o relaţie exactă 
+între variabile
+◦ Teoretic, eroarea de 
+previziune este nulă
+Exemplu: 
+Principiul al doilea al 
+mecanicii newtoniene:
+F = m*a
+Modele probabiliste
+o Componentă deterministă
+o Componentă aleatoare
+o Eroarea de previziune este 
+nenulă
+o Componenta aleatoare poate 
+fi datorată factorilor obiectivi, 
+ce nu sunt incluşi în model
+Exemplu: 
+Volumul vanzarilor =a+b * 
+Chelt. pub.+ Comp. aleatoare
+
+Relaţiile statistice pe care se formulează modelul
+econometric:
+◦ relaţii de identitate sau deterministe: sunt formulări
+logice cu privire la procesul economic descris (exemplu:
+V= C + E);
+◦ relaţii de comportament: au în vedere modificările
+tradiţiilor, atitudinilor, înclinaţiilor (sub raportul
+satisfacţie/efort) (exemplu: C = a + bV +u );
+◦ relaţii instituţionale: conform unor reglementări impuse
+de lege (exemplu: amortizarea, impozitul pe venit etc.).
+
+
+SALARIU
+Educatie
+Experienta
+Domeniu
+de 
+activitate
+Gen
+Ce altceva? 
+
+Modelele econometrice pot fi clasificate în funcţie de:
+1. Numărul factorilor luaţi în considerare
+◦ modele unifactoriale: se fundamentează pe ipoteza că în rândul factorilor
+de influenţă ai variabilei rezultative y există un factor determinant x,
+ceilalţi factori cu excepţia acestuia având o influenţă întâmplătoare
+(exprimată prin intermediul variabilei reziduale u) sau fiind invariabili în
+perioada analizată
+  y = f(x)+u
+◦ modele multifactoriale: elimină deficienţa modelului unifactorial, însă
+trebuie ca numărul factorilor luaţi în considerare să nu fie foarte mare
+pentru a nu fi mult prea complex, dificil de estimat etc.
+   y = f(x1,x2,...,xp)+u
+2. Forma legăturii dintre variabila rezultativă şi variabilele cauză
+◦ modele liniare: dacă legătura este liniară y = f(xi)+u
+◦ modele neliniare: dacă legătura este neliniară y = f(x, x2)+u
+
+
+3. Includerea factorului timp în model
+ modele statice: dependenţa variabilei endogene y faţă de valorile 
+variabilei exogene xj se realizează în aceeaşi perioadă de timp:
+ y = f(x1t,...,xjt,...,xkt) + ut
+ modele dinamice:
+◦ introducerea variabilei timp ca o variabilă explicativă
+y = f(xt,t) + ut
+◦ autoregresive: variabila rezultativă cu valori decalate este una din 
+variabilele explicative
+ y = f(xt,yt-k) + ut
+◦ model cu decalaj: variabila explicativă x îşi exercită influenţa asupra 
+variaţiei variabilei rezultative pe mai multe perioade de timp:
+ y = f(xt,xt-1,... xt-k) + ut
+
+
+4. Numărul de ecuaţii din model
+ modele cu o singură ecuaţie: toate modelele prezentate anterior
+ modele cu ecuaţii multiple: sunt formate dintr-un sistem de ecuaţii
+ Forma structurală a unui model cu ecuaţii multiple este:
+  
+variabile rezultative sau endogene
+  variabile explicative sau exogene
+
+
+
+
+
+
+=+++++++
+=+++++++
+=+++++++
+nmnmnnnnn
+mmnn
+mmnn
+UXcXcXcYYbYb
+UXcXcXcYbYYb
+UXcXcXcYbYbY
+......
+......
+......
+22112211
+2222212122121
+1121211112121
+
+niYi ,1, =
+mjX j ,1, =
+
+ Etapa 1: Identificarea şi specificarea modelului econometric
+◦ Enunţ, teorie, ipoteze – teoria economică
+◦ Specificarea modelului econometric care corespunde teoriei
+economice
+ Etapa 2: Obţinerea datelor şi estimarea modelului
+◦ Obţinerea datelor: din surse oficiale (INS, Eurostat, WorldBank, etc),
+din surse administrative sau din sondaje.
+◦ Estimarea parametrilor modelului
+◦ Verificarea parametrilor, testarea ipotezelor clasice, validarea
+modelului.
+ Etapa 3: Interpretarea rezultatelor, previziuni
+◦ Interpretarea rezultatelor obţinute
+◦ Previziuni
+◦ Folosirea modelului in scop decizional
+
+
+ Andrei, T., Statistică şi econometrie, Ed. Economică, 2003 
+ Andrei. T., Bourbonnais, R., Econometrie, Ed. Economică, 2008
+ Ergun, U., Goksu, A.,  Applied Econometrics with Eviews
+Applications, International Burch University Publication, 2013, 
+Sarajevo
+ Greene, W., Econometric Analysis, 7th Edition, Prentice Hall, 2012.
+ Green, W., Econometrics I, Class Notes, 
+http://people.stern.nyu.edu/wgreene 
+ Gujarati, D., Basic Econometrics, The McGraw−HillEconometrics, 
+2004
+ Pecican, E. Ş. Econometrie, Ed. C. H. Beck, Bucureşti, 2006.
+ Stock JH, Watson, MW, Introduction to Econometrics, Pearson 
+International, NY, 2007
+ Voineagu, V., Ţiţan, E., Şerban, R., Ghiţă, S., Todose, D., Boboc, C., 
+Pele, D., – Teorie şi practică econometrică, Ed. Meteor Press, 2007
+ Wooldridge, J.M., Introductory Econometrics – A Modern Approach, 
+Fifth Edition, South-Western Cengage Learning, 2013.
+
+
+--- END OF FILE: CURS 1 - Econometrie.pdf ---
+
+--- START OF FILE: CURS 10.pdf ---
+
+Curs 10
+MODELE DE REGRESIE PENTRU
+DATE DE TIP PANEL
+
+2
+• Date de tip panel
+• Regresia prin metoda celor mai mici pătrate 
+grupată (POLS – Pooled ordinary least squares) 
+• Modelul de regresie cu efecte fixe
+• Modelul de regresie cu efecte aleatoare
+• Testul Hausman
+
+3
+• Exista 3 tipuri de structuri de date:
+• Serii de tip profil (transversale): i = 1, 2, …, N; T=1.
+• Serii cronologice (serii de timp): N=1; t = 1, 2, …, T.
+• Panel de date: i = 1, 2, …, N; t = 1, 2, …, T.
+• Tipuri de structuri cu date de tip panel:
+• Panel de date clasic (scurt sau micro):  N > T
+• Panel de date macro (lung):  T > N
+• Panel echilibrat: date disponibile pentru toate 
+perioadele si toti indivizii: nr de obs = N x T
+• Panel dezechilibrat: lipsesc inregistrari (de regula 
+perioade diferite de timp pentru indivizi)
+
+4
+YNTXN3TN
+YNtXNt…N
+Y31XN11N
+Yi3Xi3T…
+Yi2Xi2……
+Yi1Xi11…
+Y1TX1TT1
+Y1tX1t…1
+Y11X1111
+Variabila 2
+Yit
+Variabila 1
+Xit
+TimpNumărul 
+unităţii
+
+5
+
+
+6
+
+
+7
+
+
+ Datele de tip panel fac posibilă estimarea relaţiilor în
+dinamică, chiar dacă datele sunt disponibile pentru o
+perioadă scurtă de timp, prin creşterea numărului
+observaţiilor (N x T)
+ Încorporează dimensiunea timp pentru datele în secţiune
+transversală şi dimensiunea spaţiu pentru serii temporale
+ Eficienţă sporită a estimărilor modelelor de regresie prin
+mărimea eşantionului
+ Capacitatea de a controla efectele individuale fixe – ceea
+ce este comun unui individ de-a lungul timpului, dar care
+poate varia între indivizi
+8
+
+9
+
+
+ Termenul eroare include întotdeauna toţi factorii neobservabili care determină variabila 
+rezultativă Y
+ Termenul eroare într-un model de regresie pe date de tip panel are 3 componente:
+ αi cuprinde impactul variabilelor neobservate constante în timp pentru un anumit 
+individ, dar care variază între indivizi: calitatea managementului, cultura organizațională 
+(firma); gen, inteligenta, educația părinților (individ); calitatea instituţiilor (ţări)
+ μt cuprinde impactul variabilelor neobservate care afectează în acelaşi fel toţi indivizii 
+într-o anumită perioadă de timp, însă variază în timp: modificări de politică, rata de 
+schimb, inflatia, schimbarea valorilor în societate, criza economica, pandemia, inovații 
+tehnologice majore (internetul, AI)
+ εit cuprinde impactul variabilelor neobservate care variază atât între indivizi cât şi în 
+timp: starea de bine, motivatia, venituri ocazionale sau pierderi (moșteniri, amenzi, 
+cheltuieli neprevăzute, bonusuri), rata de absenteism, etc
+10
+itititit uxxy +++= 22110 
+ittiititit xxy  +++++= 22110
+efect neobservat 
+specific individului
+efect neobservat 
+specific timpului
+efect neobservat 
+specific individului 
+si timpului
+
+ Dacă se face o secţiune transversală (se observă N indivizi la un 
+moment de timp t, de exemplu t = 2023)
+11
+ittiitu  ++=
+𝑌1 2023 = 𝛽0 + 𝛽1𝑋11 2023 + 𝛽2𝑋21 2023 + 𝛼1 + 𝜇2023 + 𝜀1 2023
+𝑌𝑖 2023 = 𝛽0 + 𝛽1𝑋1𝑖 2023 + 𝛽2𝑋2𝑖 2023 + 𝛼𝑖 + 𝜇2023 + 𝜀𝑖 2023
+𝑌𝑁 2023 = 𝛽0 + 𝛽1𝑋1𝑁 2023 + 𝛽2𝑋2𝑁 2023 + 𝛼𝑁 + 𝜇2023 + 𝜀𝑁 2023
+
+ Observaţii repetate în diverse momente de timp 
+pentru acelaşi individ
+12
+𝑌1 2022 = 𝛽0 + 𝛽1𝑋11 2022 + 𝛽2𝑋21 2022 + 𝛼1 + 𝜇2022 + 𝜀1 2022
+………………………………………………………………….
+𝑌1 2021 = 𝛽0 + 𝛽1𝑋11 2021 + 𝛽2𝑋21 2021 + 𝛼1 + 𝜇2021 + 𝜀1 2021
+𝑌1 2023 = 𝛽0 + 𝛽1𝑋11 2023 + 𝛽2𝑋21 2023 + 𝛼1 + 𝜇2023 + 𝜀1 2023
+𝑌2 2022 = 𝛽0 + 𝛽1𝑋12 2022 + 𝛽2𝑋22 2022 + 𝛼2 + 𝜇2022 + 𝜀2 2022
+𝑌2 2023 = 𝛽0 + 𝛽1𝑋12 2023 + 𝛽2𝑋22 2023 + 𝛼2 + 𝜇2023 + 𝜀2 2023
+𝑌2 2021 = 𝛽0 + 𝛽1𝑋12 2021 + 𝛽2𝑋22 2021 + 𝛼2 + 𝜇2021 + 𝜀2 2021
+
+ Una din ipotezele metodei celor mai mici pătrate este:
+Cov(Xi, Ui)=0
+ Se presupune că toate cele trei componente sunt
+independente între ele şi cu variabila X
+ Descompunerea termenului eroare indică faptul că una
+dintre presupunerile metodei celor mai mici pătrate nu va
+fi respectată: "Două observaţii ale aceluiaşi individ vor fi
+mai asemănătoare comparativ cu două observaţii
+provenind de la doi indivizi diferiţi"
+13
+ittiitu  ++=
+0)( iiXCov 
+
+ Este cea mai simplă abordare
+ Combină într-o singură mulţime ambele dimensiuni
+ Renunţă la structura temporală şi transversală
+ Se estimează parametrii ecuaţiei de regresie liniară
+unde i este individul iar t este timpul
+14
+itpitpititit uxxxy +++++=  ...22110
+
+ Metoda celor mai mici pătrate grupată va furniza estimatori ai 
+parametrilor constanţi fără diferenţiere între indivizi şi timp
+ Din cauza componentei efectului neobservat specific indivizilor 
+una din ipotezele pe care se bazează metoda celor mai mici 
+pătrate poate fi nerespectată:
+◦ Presupunerea că fiecare eroare în fiecare perioadă de timp, pentru fiecare 
+persoană este necorelată cu variabilele şi efectele pentru fiecare persoană şi 
+de-a lungul timpului, poate să nu fie respectată
+ Structura de tip panel are dimensiunea timp, deci corelaţia 
+dintre erori succesive poate să conducă la violarea ipotezei 
+privind non autocorelarea erorilor
+◦ Estimatorii obţinuţi nu vor fi deplasaţi însă vor fi neeficienţi (informaţia cu 
+privire la autocorelarea erorilor poate fi folosită pentru obţinerea de 
+estimatori mai buni)
+15
+
+ Permit diferenţierea comportamentului între indivizi 
+şi în perioade diferite de timp sub forma:
+◦ Efectelor fixe (Fixed effects): atunci când există 
+corelaţie între X şi αi
+◦ Efectelor aleatoare (Random effects): atunci 
+când corelaţia între X şi α i este zero
+16
+
+17
+it it ity x u =+
+şi
+it i itu =+ pentru
+1,..., ; 1,...,i N t T==
+( ) 0
+i itE  =
+( ) 0
+iitEx   fixed effects model
+
+ Modelul pentru o singură observaţie:
+ Modelul pentru individul i:
+ Modelul pentru toate observatiile
+18
+1,..., ; 1,...,it i it ity x i N t T  = + + = =
+1
+1 1 1 1 1
+1
+1
+1
+K
+i i i i
+i
+K
+iT iT iT K iT
+y x x
+y x x
+
+
+
+             = + +                   
+i T i i iyX    = + +
+resp.
+1 1 11
+2 2 22
+00
+00
+00
+T
+T
+T N N NN
+Xy
+Xy
+Xy
+  
+   
+  
+       
+      
+       = + +       
+                     
+( ) ( )( ) ( )( ) ( )1 1 1 1
+N
+NT NNT N NT K K NT
+y D X   
+    
+= + +
+Variabilă dummy pentru individul i  
+
+ Estimarea folosind metoda celor mai mici pătrate cu variabile 
+dummy: 
+ Estimatorul lui ß este BLUE (atâta timp cât  este zgomot alb)
+ Dar:
+➔ calcule complexe dacă N este mare
+➔ dimensiunea mare a vectorului coeficienţilor poate conduce la estimări 
+imprecise
+➔ pierdere mare a gradelor de libertate
+➔ de multe ori nu suntem interesaţi de toţi parametrii i dacă N este mare!
+ Scop: Eliminarea efectului individual, adică
+➔Transformarea prin diferente de ordinul I
+➔Transformarea in interiorul perioadelor de timp (toate observatiile se masoara in 
+deviatie fata de media in timp a fiecarui individ)
+19
+
+ Transformarea în interiorul perioadelor de timp:
+Modelul transformat:
+Observăm că parametrii α nu mai apar în ecuaţie → aceştia sunt 
+consideraţi neimportanţi şi nu vor mai fi estimaţi
+Prin aplicarea metodei celor mai mici pătrate clasică ecuaţiei 
+transformate va rezulta estimatorul obţinut prin metoda celor mai mici 
+pătrate cu variabile dummy numit Within Estimator: 
+20
+. . . ( ) ( ) 1,..., ; 1,...,it i it i it iy y x x i N t T   − = − + − = =
+unde
+. 1 /
+T
+i it ty y T == 
+.,  where  etc.= + = −
+it it it it it iy x y y y
+( )
+1
+ˆˆ
+−
+==
+W LSDVX X X y
+
+ Estimatorul modelului cu efecte fixe pentru :
+▪ nedeplasat
+▪ consistent în toate cele trei cazuri (N mare & T 
+fix, T mare & N fix, N & T mari)
+▪ eficient
+▪ asimptotic normal distribuit
+21
+
+ Estimarea termenilor liberi individuali:
+ Dacă modelul iniţial include o constantă , atunci este estimat efectul 
+compus i+  (interpretare diferită a lui i ). 
+ Nu este posibilă identificarea efectelor individuale decât în cazul în 
+care se face o presupunere suplimentară, adică:
+ Estimatorii pentru i :
+ nu sunt consistenţi pentru N mare:  
+ numarul parametrilor creste odata cu cresterea lui N
+22
+,
+ˆˆi W i i Wyx =−
+1 0
+N
+ii = =
+
+23
+(*) , 1,..., ; 1,...,= + + = =it it ity x u i N t T
+it i itu =+
+şi
+Ipotezele privind termenul eroare  zgomot alb (ca în regresia 
+liniară):
+- media zero a erorilor
+- dispersia erorilor constantă
+- non-autocorelarea erorilor 
+Ipotezele privind efectele individuale i: distribuţia constantă de-a 
+lungul lui i
+- media zero a erorilor
+- dispersia erorilor constantă
+- non-autocorelarea erorilor
+Ipoteză: Nu există corelaţie între efectul individual şi termenul eroare :  
+Ipoteză: Nu există corelaţie între efectul individual şi variabilele explicative:
+( ) 0
+i itE  =
+( ) 0 random effects model
+iitEx  =
+
+ Cum poate fi implementat estimatorul modelului cu efecte 
+aleatoare?
+ Estimator RE (Random Effects)
+ Se face următoarea transformare pentru fiecare observaţie:
+Unde
+(σε
+2 este dispersia lui ε şi σα
+2 este dispersia lui α) 
+24
+(1 ) ( ) ( ),
+1,..., ; 1,...,
+− = − + − + −
+==
+it i it i it iy y x x u u
+i N t T
+     
+22
+1=−
++T
+
+
+
+
+
+ Estimarea ecuaţiei transformate se va face cu metoda
+celor mai mici pătrate. Acesta este estimatorul
+obţinut prin metoda celor mai mici pătrate
+generalizată şi se numeşte estimator RE (Random
+Effects).
+Estimatorul RE:
+➔este consistent
+➔este eficient dacă modelul pentru componentele 
+erorilor este adevărat
+25
+
+ Estimatorul BE
+ Putem scrie
+ Se calculează estimatorul prin metoda celor mai mici pătrate 
+pentru acest model transformat, numit estimator BE (Between 
+Estimator) 
+ Estimatorul BE:
+• Este consistent, dacă efectele individuale şi X sunt necorelate
+• Nu este eficient (ţine cont doar de variaţia dintre indivizi)
+26
+1,..., ; 1,...,it it i ity x i N t T   = + + + = =
+.. 1,...,i i i iy x i N   = + + + =
+(Transformarea dintre perioadele de timp)
+
+ Estimatorul RE este o sumă ponderată a estimatorilor Within şi 
+Between:
+ Cazuri speciale
+27
+( ) ( )
+11ˆ ˆ ˆ −−
+     = + + +
+RE D D D FE D D D BEX M X X P X X M X X M X X P X X P X    
+( )
+2
+2
+221= − = +T
+
+
+ 
+2
+2
+01
+0
+00
+=  = 
+→  → 
+=  = 
+→ 
+T
+
+
+
+
+
+
+OLS
+Within estimator
+Within estimator
+Between estimator
+
+ Modelul clasic de regresie liniara
+ Variante de modele
+1. Modelul initial general
+2. Modelul transformat Between
+3. Modelul transformat Within
+4. Modelul transformat RE
+28
+ˆ ˆ ˆ ˆy X u X u y u= + = + = +
+22 ˆ ˆ ˆ ˆ ˆ ˆ( ) ( ) ( )ˆ( , ) 1 ( ) ( )
+Var y Var y Var u y y u uR corr y y Var y Var y y y y y
+−= = = = = − 
+it it i ityx    = + + +
+..i i i iyx    = + + +
+. . . ( ) ( )it i it i it iy y x x   − = − + −
+. . . ( ) ( )it i it i it iy y x x u u   − = − + −
+ˆˆˆit ityx =+
+.
+ˆˆ ˆiiyx =+
+..
+ˆˆ ˆˆ ()it i it iy y y x x = − = −
+
+
+ Exista efecte fixe invididuale? => Testul F
+ H0: nu există efecte fixe individuale (= modelul grupat)  
+ H1: există efecte fixe individuale
+ Testul statistic
+ Regula de decizie: se respinge ipoteza nula (şi deci modelul
+grupat) dacă FT este mai mare decât valoarea critică (adică dacă
+p-value < un nivel de semnificaţie dat , în general 0.05).
+29
+12 N   = = = =
+( ) ( )
+( )
+01
+1
+/1
+/
+RSS RSS NFT RSS NT N K
+−−= −−
+
+ Dacă se respinge modelul grupat: Se foloseşte 
+modelul cu efecte fixe sau aleatoare? 
+◦ Testul Hausman
+◦  Se testează dacă efectele individuale aleatoare sunt 
+corelate cu variabilele explicative (FE) sau nu (RE) 
+ Ideea generala a testului Hausman
+       - Compară un estimator care este consistent 
+şi eficient sub ipoteza nulă şi inconsistent în 
+ipoteza alternativă cu un estimator care este 
+consistent în ambele alternative
+30
+
+Ipotezele in cazul testului Hausman:
+ Ho: nu exista corelatie, FE consistent, RE consistent 
+si eficient 
+ H1: exista corelatie, FE consistent, RE inconsistent
+31
+( ) 0
+iitEx  =
+( ) 0
+iitEx  
+
+ Testul statistic:
+ Regula de decizie 
+- Se respinge ipoteza nulă dacă HW este
+mai mare decât valoarea critică (sau dacă p-
+value < valoarea dată a nivelului de
+semnificaţie , în general 0.05).
+32
+( ) ( ) ( ) ( )
+1 2ˆ ˆ ˆ ˆ
+a
+RE FE RE FE RE FEHW K number of columns in X    
+−= −  − − =
+sub ipoteza H0 este χ2
+k unde k este 
+numărul de coloane în X
+
+
+--- END OF FILE: CURS 10.pdf ---
+
+--- START OF FILE: CURS 11 - Econometrie.pdf ---
+
+Curs 11
+VARIABILE BINARE 
+
+ Modele cu variabile calitative binare: modele 
+de tip Probit şi Logit
+ Modelul de regresie:
+ 𝒚𝒊 = 𝒂𝟎 +σ𝒋=𝟏
+𝒌 𝒂𝒋𝒙𝒊𝒋 +𝒆𝒊
+ unde y este o variabila dummy.
+ Exemplu: variabila dummy observată indică 
+dacă o persoană are sau nu un loc de muncă, 
+atunci y poate fi definită ca dorinţa sau 
+abilitatea de a găsi un loc de muncă.
+
+𝑷𝒊 = 𝑷𝒓𝒐𝒃 𝒚 = 𝟏 = 𝑷𝒓𝒐𝒃 𝒆𝒊 > − 𝒂𝟎 +෍
+𝒋=𝟏
+𝒌
+𝒂𝒋𝒙𝒊𝒋 +𝒆𝒊
+= 𝟏−𝐅 − 𝒂𝟎 +෍
+𝒋=𝟏
+𝒌
+𝒂𝒋𝒙𝒊𝒋 +𝒆𝒊
+F este funcţia de distribuţie cumulată a erorilor.
+Dacă F este simetrică, atunci 1 – F(–Z) = F(Z) si
+𝑷𝒊 = 𝐅 𝒂𝟎 +෍
+𝒋=𝟏
+𝒌
+𝒂𝒋𝒙𝒊𝒋 +𝒆𝒊
+
+ Modelele probit şi logit diferă în ceea ce priveşte specificarea
+distribuţiei erorilor din ecuaţia de regresie.
+ Dacă distribuţia cumulată a erorilor este o funcţie logistică
+rezultă un model de tip logit.
+ Dacă distribuţia a erorilor urmează o distribuţie normală, rezultă
+un model de tip probit.
+ Modelul probit:
+𝑭 𝒁𝒊 = න
+−∞
+𝒛
+𝟏
+𝟐𝝅
+𝒆𝒙𝒑 −𝒕𝟐
+𝟐 𝐝𝐭
+ unde
+𝑍𝑖 = 𝑎0 +෍
+𝑗=1
+𝑘
+𝑎𝑗𝑥𝑖𝑗 +𝑒𝑖
+
+Modelul Logit
+ Modelul de regresie logistică cu un singur factor
+explicativ se scrie:
+𝑃 𝑦 = 1|𝑥 =
+𝑒𝛼+𝛽𝑥
+1+𝑒𝛼+𝛽𝑥
+sau  
+ln 𝑃 𝑦 = 1|𝑥
+1−𝑃 𝑦 = 1|𝑥 = 𝛼+𝛽𝑥
+
+ Regresia logistică cu mai multe variabile
+independente
+ln 𝑃 𝑦 = 1|𝑥1, 𝑥2, 𝑥3,…,𝑥𝑘
+1−𝑃 𝑦 = 1|𝑥1, 𝑥2, 𝑥3,…,𝑥𝑘
+= 𝛽0 +𝛽1𝑥1 +𝛽2𝑥2 +⋯+𝛽𝑘𝑥𝑘
+ Ţinȃnd cont de caracterul multiplicativ, modelul
+logistic poate fi scris utilizand conceptul de raport
+de sansa (odds ratio):
+𝑂𝑅𝑥1,𝑥2…,𝑥𝑘 = exp 𝛽0 ∙exp 𝛽1𝑥1 ∙⋯ ∙exp(𝛽𝑘𝑥𝑘)
+
+Interpretarea rezultatelor:
+▪ fiecare 𝛽𝑖 arată contribuţia factorului xi la
+explicarea probabilităţii de producere a
+evenimentului y = 1.
+▪ dacă 𝛽𝑖 = 0, atunci factorul corespunzător nu are
+niciun efect,
+▪ dacă 𝛽𝑖 < 0 atunci prezenţa factorului reduce
+probabilitatea de realizare a evenimentului y = 1
+▪ 𝛽𝑖 > 0 măreşte această probabilitate.
+
+▪ In practica, se interpreteaza mai des valorile pentru
+odds ratio (raportul de sansa) decat valorile
+coeficientilor
+▪ Raportul de sansa este o masura a asocierii dintre un
+factor si un eveniment.
+▪ OR reprezinta sansele ca un eveniment sa se produca
+avand in vedere un anumit factor, in comparatie cu
+sansele ca evenimentul sa se produca in absenta
+acelui factor.
+
+ Matricea de confuzie este un tabel utilizat
+pentru a evalua performanța unui algoritm de
+clasificare.
+ Este folosită pentru aprecierea predicțiilor
+corecte și greșite ale modelului.
+
+
+ Fals pozitiv (FP) - acele cazuri din clasa
+negativă identificate incorect drept cazuri
+pozitive.
+ Fals negativ (FN) - cazurile pozitive reale care
+au fost prezise în mod eronat drept negative.
+Clasa Prezisă: Negativ Clasa Prezisă: Pozitiv
+Clasa Reală: Negativ Adevărat Negativ (TN) Fals Pozitiv (FP)
+(eroare de tip I)
+Clasa Reală: Pozitiv Fals Negativ (FN)
+(eroare de tip II) Adevărat Pozitiv (TP)
+
+ Acuratețe (Accuracy): 
+(TP+TN)/(TP+TN+FP+FN)
+ Precizie (Precision - positive predicted value): 
+TP/(TP+FP)
+ Sensibilitate (sau Recall - true positive rate): 
+TP/(TP+FN)
+ Specificitate (Specificity - false positive rate): 
+TN/(TN+FP)
+
+
+ AUC (Area Under the Curve) reprezintă aria de
+sub curba ROC (Receiver Operating
+Characteristic).
+• ROC este o curbă care arată relația dintre True 
+Positive Rate (TPR) și False Positive Rate (FPR) 
+adică intre Sensibilitate și Specificitate
+
+
+ AUC indică probabilitatea ca un model să
+clasifice corect un caz pozitiv și un caz negativ
+alese la întâmplare.
+ Poate lua valori între 0,5 și 1:
+◦ AUC = 0.5: Modelul are o performanță echivalentă cu
+o clasificare aleatorie, fără nicio capacitate reală de a
+distinge între clasele pozitive și negative.
+◦ AUC = 1: Model perfect, clasifică toate observațiile
+corect.
+
+
+
+
+ Testul Hosmer-Lemeshow este un test
+statistic folosit pentru a evalua buna
+potrivire a unui model de regresie logistică
+(goodness-of-fit).
+ Evaluează cât de bine se potrivesc valorile
+prezise cu valorile reale ale variabilei
+dependente binare.
+
+
+ H0: Modelul logistic se potrivește bine datelor
+(nu există diferențe semnificative între
+valorile observate și prezise).
+ H1: Modelul logistic nu se potrivește bine
+datelor (există diferențe semnificative între
+valorile observate și prezise).
+
+
+ Avantaje:
+◦ Simplu de interpretat.
+◦ Bun pentru verificarea potrivirii globale a
+modelului.
+◦ Ușor de implementat în software statistic.
+ Dezavantaje:
+◦ Sensibil la dimensiunea eșantionului
+
+
+ Datele utilizate:
+Fig 1. Fragment din baza de date
+
+
+ Variabila dependenta:
+◦ Sef – variabila binara: 
+ 0 = angajatul nu detine o functie de conducere, 
+ 1 = angajatul detine o functie de conducere;
+ Posibile variabile explicative:
+◦ Educatie (ani)
+◦ Varsta (ani)
+◦ Gen ( 0 = feminin, 1 = masculin)
+◦ Minoritate (0 = nu apartine unei minoritati, 
+1 = angajatul apartine unei minoritati)
+
+
+
+
+
+
+
+
+Acuratețe = 94,5%
+Precizie = TP/(TP+FP) = 67/(67+9) = 88,2%
+Sensibilitate = TP/(TP+FN) = 67/(67+17) = 79,8%
+Specificitate = TN/(TN+FP) = 380/(380+9) = 97,7%
+
+AUC = 0,973
+
+--- END OF FILE: CURS 11 - Econometrie.pdf ---
+
+--- START OF FILE: CURS 2 - Econometrie.pdf ---
+
+Curs 2
+Modelul unifactorial de regresie liniară
+
+Deseori, în analiza fenomenelor economico-sociale,
+două sau mai multe variabile trebuie studiate împreună în
+vederea determinării legăturilor dintre caracteristicile unui
+sistem micro sau macroeconomic.
+Metoda regresiei se foloseşte pentru a:
+◦ explica evoluția trecută sau prezentă a unui fenomen
+social-economic
+◦ verifica empiric teorii economice
+◦ prognoza modificări viitoare ale fenomenului studiat
+◦ ajusta variabila efect prin intervenţia asupra variabilei
+cauză
+
+
+ Modelul econometric – modelează dependenţa
+variabilelor complexe de un ansamblu de factori
+principali şi secundari, sistematici sau aleatori, care
+acţionează în acelaşi sens sau în sensuri diferite
+ Analiza de regresie se ocupă cu descrierea şi evaluarea
+legăturii dintre o variabilă dependentă şi una sau mai
+multe variabile independente, cu scopul de a estima şi
+de a previziona valoarea medie a variabilei dependente,
+cunoscându-se valorile variabilelor independente.
+
+
+unifactorială (simplă)
+ Regresie
+multifactorială (multiplă)
+liniară
+ Regresie
+în variabile
+neliniară
+în parametri
+
+
+
+
+1. Specificarea modelului 
+2. Estimarea parametrilor modelului
+3. Evaluarea validităţii modelului
+▪ Inferenta statistica pentru parametrii modelului de
+regresie
+▪ Testarea validităţii modelului de regresie folosind
+metoda ANOVA
+▪ Determinarea masurii calitatii ajustarii
+▪ Verificarea ipotezelor modelului de regresie
+4. Realizarea de predicții utilizând modelul de regresie
+
+
+Ecuaţia funcţiei liniare de regresie se scrie:
+𝒀𝒊 = 𝒂 + 𝒃𝑿𝒊 + 𝜺𝒊
+unde:
+Y – variabila dependentă (explicată, endogenă, rezultativă)
+X – variabila independentă (explicativă, exogenă, factorială)
+a, b - parametrii necunoscuţi ai funcţiei de regresie
+a – termenul liber
+b – coeficientul de regresie (panta dreptei de regresie)
+ε – termenul eroare (reziduu) - variabila aleatoare
+
+
+➢ Imposibilitatea introducerii explicite a anumitor
+variabile
+ absența datelor
+ imposibilitatea măsurării anumitor variabile
+➢ Teoria economică incompletă
+➢ Specificarea incorectă a formei funcționale
+➢ Erori de măsurare
+
+
+
+
+Se doreşte investigarea legăturii dintre corupţie şi
+nivelul bunăstării unei ţări.
+ Variabila dependentă (Y) este corupţia, pe care o
+cuantificăm pe baza Indicelui de Percepţie a
+Corupţiei (CPI). Acest indice ia valori între 0 şi
+100 şi cu cât valoarea lui este mai mică, cu atât
+nivelul corupţiei din ţara respectivă este mai
+mare.
+ Variabila independentă (X) este Produsul Intern
+Brut pe cap de locuitor (PIB/loc, în mii euro) – cea
+mai frecventă măsură a bunăstării unei ţări.
+
+
+• Datele colectate sunt 
+prezentate in tabelul 
+alaturat.
+• Valorile inregistrate sunt 
+pentru anul 2024
+Tara PIB_loc CPI
+Austria 53.83 67
+Belgium 51.81 69
+Bulgaria 16.11 43
+Croatia 21.74 47
+Cyprus 34.49 56
+Czechia 29.44 56
+Denmark 65.65 90
+Estonia 28.99 76
+Finland 49.1 88
+France 42.59 67
+Germany 51.83 75
+Greece 22.56 49
+Hungary 21.55 41
+Ireland 104.51 77
+Italy 37.31 54
+Latvia 21.69 59
+Lithuania 27.35 63
+Luxembourg 127.03 81
+Malta 40.53 46
+Netherlands 62.38 78
+Poland 22.54 53
+Portugal 27.06 57
+Romania 18.56 46
+Slovakia 24 49
+Slovenia 31.7 60
+Spain 32.63 56
+Sweden 52.49 80
+
+➢ Reprezentarea  grafică (corelogramă, scatter plot)
+   
+  Sursa datelor:    CPI – organizatia Transparency International
+   PIB/loc (mii euro) – baza de date online Eurostat
+
+
+ Modelul de regresie la nivelul populației statistice:
+𝑌𝑖 = 𝑎 + 𝑏𝑋𝑖 + 𝜀𝑖
+ La nivel de eșantion :
+𝑌𝑖 = ො𝑎 + ෠𝑏𝑋𝑖 + Ƹ𝜀𝑖
+෠𝑌𝑖 = ො𝑎 + ෠𝑏𝑋𝑖
+unde ෠𝑌𝑖 – reprezintă valorile estimate ale variabilei Y 
+ො𝑎 + ෠𝑏𝑋𝑖 – reprezintă ecuația dreptei de regresie. 
+Ƹ𝜀𝑖 – reprezintă estimarea termenului eroare
+ො𝑎 şi ෠𝑏 – sunt estimatorii parametrilor modelului de
+regresie.
+!!!  Estimator vs.   Estimație
+
+
+ Presupune minimizarea sumei pătratelor erorilor:
+min ෍
+i=1
+n
+ොεi
+2
+
+
+Deoarece:
+Ƹ𝜀𝑖 = 𝑌𝑖 − ෠𝑌𝑖 = 𝑌𝑖 − ( ො𝑎 + ෠𝑏𝑋𝑖)
+se poate scrie:
+𝑚𝑖𝑛 ෍
+𝑖=1
+𝑛
+Ƹ𝜀𝑖
+2 = 𝑚𝑖𝑛 ෍
+𝑖=1
+𝑛
+[𝑌𝑖 − ( ො𝑎 + ෠𝑏𝑋𝑖)]2= 𝑓( ො𝑎, ෠𝑏)
+Anulând derivatele parţiale ale funcţiei f în raport cu cele două 
+necunoscute vom obţine:
+𝜕𝑓 ො𝑎, ෠𝑏
+𝜕 ො𝑎 = 0 => 2 ∙ ෍
+𝑖=1
+𝑛
+𝑌𝑖 − ො𝑎 − ෠𝑏𝑋𝑖 −1 = 0
+𝜕𝑓 ො𝑎, ෠𝑏
+𝜕 ෠𝑏 = 0 => 2 ∙ ෍
+𝑖=1
+𝑛
+𝑌𝑖 − ො𝑎 − ෠𝑏𝑋𝑖 −𝑋𝑖 = 0
+
+
+Prelucrând cele două ecuații se obține sistemul:
+− ෍
+i=1
+n
+Yi + ෍
+i=1
+n
+ොa + ෍
+i=1
+n
+෠bXi = 0
+− ෍
+i=1
+n
+XiYi + ෍
+i=1
+n
+ොaXi + ෍
+i=1
+n
+෠bXi
+2 = 0
+֞
+nොa + ෠b ෍
+i=1
+n
+Xi = ෍
+i=1
+n
+Yi
+ොa ෍
+i=1
+n
+Xi + ෠b ෍
+i=1
+n
+Xi
+2 = ෍
+i=1
+n
+XiYi
+
+
+Acest sistem se poate rezolva prin metoda determinanţilor:
+ො𝑎 =
+σ 𝑌𝑖 σ 𝑋𝑖
+σ 𝑋𝑖𝑌𝑖 σ 𝑋𝑖
+2
+𝑛 σ 𝑋𝑖
+σ 𝑋𝑖 σ 𝑋𝑖
+2
+= (σ 𝑌𝑖)(σ 𝑋𝑖
+2) − (σ 𝑋𝑖𝑌𝑖)(σ 𝑋𝑖)
+𝑛 σ 𝑋𝑖
+2 − (σ 𝑋𝑖)2
+෠𝑏 =
+𝑛 σ 𝑌𝑖
+σ 𝑋𝑖 σ 𝑋𝑖𝑌𝑖
+𝑛 σ 𝑋𝑖
+σ 𝑋𝑖 σ 𝑋𝑖
+2
+= 𝑛 σ 𝑋𝑖𝑌𝑖 − (σ 𝑋𝑖)(σ 𝑌𝑖)
+𝑛 σ 𝑋𝑖
+2 − (σ 𝑋𝑖)2
+
+ Rămâne de verificat dacă este indeplinită condiţia de ordin 2,
+adică soluţia găsită este un punct de minim. Matricea
+derivatelor parţiale de ordin doi trebuie să fie pozitiv definită:
+Deci matricea este pozitiv definită.
+
+
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+xx
+xn
+b
+e
+ab
+e
+ba
+e
+a
+e
+2
+22
+2222
+22
+22
+22
+22
+22
+)()(
+)()(
+
+
+
+
+
+
+
+
+
+−=−
+
+
+
+
+0)(4)(44
+02
+02
+222
+2
+i
+i
+i
+i
+i
+i
+i
+i
+xxnxxn
+x
+n
+
+ Estimaţia ෠𝑏 este nedeplasată:  M ෠𝑏 = 𝑏 
+ Estimaţia ෠𝑏 este consistentă:  ෠𝑏  →  𝑏
+ Estimaţia este eficientă: acel estimator care
+este nedeplasat şi de dispersie minimă
+(nedistorsionat şi de precizie maximă)
+ BLUE – best linear unbiased estimator
+
+
+ Ȋn Excel, se obţine următorul output de regresie:
+SUMMARY OUTPUT
+Regression Statistics
+Multiple R 0.6985
+R Square 0.4879
+Adjusted R Square 0.4675
+Standard Error 10.3756
+Observations 27
+ANOVA
+df SS MS F Significance F
+Regression 1 2564.654 2564.6536 23.8231 5.0733E-05
+Residual 25 2691.346 107.6539
+Total 26 5256
+Coefficients Standard Error t Stat P-value Lower 95% Upper 95%
+Intercept 46.3132 3.8419 12.0548 6.5141E-12 38.4007 54.2257
+PIB_loc 0.3864 0.0792 4.8809 5.0733E-05 0.2233 0.5494
+
+ ෡𝒃 – coeficientul de regresie indică faptul că la creșterea cu o unitate
+a variabilei independente (X), variabila dependentă (Y) se va
+modifica, în medie, cu ෠𝑏 unități.
+- Semnul lui ෠𝑏 indică direcția legăturii dintre variabile: o
+valoare pozitivă indică o legătură directă, iar o valoare negativă
+arată o legătură inversă.
+ ෝ𝒂 – termenul liber reprezintă intersecţia dreptei de regresie cu axa
+OY şi indică valoarea variabilei dependente atunci când variabila
+independentă este zero.
+- Uneori variabila independentă nu are sens dpdv economic
+să ia valoarea zero, situaţie în care termenul liber nu are
+interpretare economică.
+       Exemplu: 
+Coefficients
+Intercept 46.3132
+PIB_loc 0.3864
+
+--- END OF FILE: CURS 2 - Econometrie.pdf ---
+
+--- START OF FILE: CURS 3 - Econometrie.pdf ---
+
+Curs 3
+Modelul unifactorial de regresie liniară
+(II)
+
+Inferenţa statistică pentru parametrii modelului se poate realiza prin:
+ Testarea ipotezei statistice referitoare la semnificaţia
+parametrilor modelului de regresie;
+ Estimarea pe interval de încredere a parametrilor modelului
+din colectivitatea totală.
+În cazul regresiei liniare coeficienţii ecuaţiei de regresie în eşantion, ෝ𝒂 şi ෡𝒃,
+sunt estimaţii ale coeficienţilor ecuaţiei de regresie în populaţia
+generală a şi b.
+
+
+Pentru coeficientul de regresie:
+Coeficientul b măsoară schimbarea variabilei
+rezultative determinată de modificarea cu o unitate a
+variabilei cauzale.
+ Pasul 1: Definirea ipotezelor:
+𝐻𝑜: 𝑏 = 0
+𝐻1: 𝑏 ≠ 0
+ Pasul 2:  Calculul statisticii t:
+𝑡𝑐𝑎𝑙𝑐 =
+෠𝑏
+𝑠෠𝑏
+
+
+ Pasul 3:  Valoarea critică: 
+𝑡𝛼
+2;𝑛−2
+unde 𝛼 este pragul de semnificaţie, 
+n-2 grade de libertate (n = nr de observaţii, 2 = 
+numărul de parametri)
+ Pasul 4: Decizia:
+Dacă 𝑡𝑐𝑎𝑙𝑐 > 𝑡𝛼
+2;𝑛−2 atunci se respinge 𝐻𝑜 iar
+parametrul diferă semnificativ de zero (este
+semnificativ statistic).
+
+
+Test unilateral
+Test bilateral
+Grade de libertate
+
+Pentru termenul liber:
+ Pasul 1: Definirea ipotezelor:
+   𝐻𝑜: 𝑎 = 0
+      𝐻1: 𝑎 ≠ 0
+ Pasul 2:  Calculul statisticii t:
+𝑡𝑐𝑎𝑙𝑐 = ො𝑎
+𝑠 ො𝑎
+ Pasul 3:  Valoarea critică: 
+𝑡𝛼
+2;𝑛−2
+ Pasul 4: Decizia:
+ Dacă 𝑡𝑐𝑎𝑙𝑐 > 𝑡𝛼
+2;𝑛−2 atunci se respinge 𝐻𝑜 iar 
+parametrul diferă semnificativ de zero.
+
+
+Pentru a putea calcula statistica t, avem nevoie de abaterile
+medii pătratice ale estimatorilor:
+unde:
+𝑠ො𝜀2 = σ Ƹ𝜀𝑖
+2
+𝑛 − 2 =
+σ 𝑌𝑖 − ෠𝑌𝑖
+2
+𝑛 − 2
+     este estimatorul dispersiei variabilei reziduale
+Pentru ෝ𝒂 Pentru ෡𝒃
+s ො𝑎 = sො𝜀
+1
+𝑛 +
+ത𝑋2
+σ 𝑋𝑖 − ത𝑋 2 s෠𝑏 = sො𝜀
+1
+σ 𝑋𝑖 − ത𝑋 2
+
+Se doreşte investigarea legăturii dintre corupţie şi
+nivelul bunăstării unei ţări.
+ Variabila dependentă (Y) este corupţia, pe care o
+cuantificăm pe baza Indicelui de Percepţie a
+Corupţiei (CPI). Acest indice ia valori între 0 şi
+100 şi cu cât valoarea lui este mai mică, cu atât
+nivelul corupţiei din ţara respectivă este mai
+mare.
+ Variabila independentă (X) este Produsul Intern
+Brut pe cap de locuitor (PIB/loc, în mii euro) – cea
+mai frecventă măsură a bunăstării unei ţări.
+
+
+• Datele colectate sunt 
+prezentate in tabelul 
+alaturat.
+• Valorile inregistrate sunt 
+pentru anul 2024
+Tara PIB_loc CPI
+Austria 53.83 67
+Belgium 51.81 69
+Bulgaria 16.11 43
+Croatia 21.74 47
+Cyprus 34.49 56
+Czechia 29.44 56
+Denmark 65.65 90
+Estonia 28.99 76
+Finland 49.1 88
+France 42.59 67
+Germany 51.83 75
+Greece 22.56 49
+Hungary 21.55 41
+Ireland 104.51 77
+Italy 37.31 54
+Latvia 21.69 59
+Lithuania 27.35 63
+Luxembourg 127.03 81
+Malta 40.53 46
+Netherlands 62.38 78
+Poland 22.54 53
+Portugal 27.06 57
+Romania 18.56 46
+Slovakia 24 49
+Slovenia 31.7 60
+Spain 32.63 56
+Sweden 52.49 80
+
+Outputul de regresie din Excel ne oferă următoarele informaţii:
+ Standard Error - reprezintă eroarea standard a estimatorilor:
+𝑠 ො𝑎 = 3,8419
+𝑠෠𝑏 = 0,0792
+t Stat - reprezintă valoarea calculată a statisticii t (𝑡𝑐𝑎𝑙𝑐)
+𝑡𝑐𝑎𝑙𝑐 ෝ𝑎 = 12,0548
+𝑡𝑐𝑎𝑙𝑐 ෡𝑏 = 4,8809
+ Decizia se ia pe baza valorii lui P-value
+Dacă P-value < α atunci acel parametru este semnificativ 
+statistic (α = pragul de semnificaţie, de obicei α = 0,05).
+Testarea semnificaţiei parametrilor
+- exemplu -
+Coefficients Standard Error t Stat P-value Lower 95% Upper 95%
+Intercept 46.3132 3.8419 12.0548 6.5141E-12 38.4007 54.2257
+PIB_loc 0.3864 0.0792 4.8809 5.0733E-05 0.2233 0.5494
+
+Pentru termenul liber:
+• Pasul 1: Definirea ipotezelor:
+𝐻𝑜: 𝑎 = 0
+𝐻1: 𝑎 ≠ 0
+• Pasul 2:  Calculul statisticii t:
+𝑡𝑐𝑎𝑙𝑐 = ෝ𝑎
+s ො𝑎
+= 46,3132
+3.8419 = 12,0548
+• Pasul 3:  Valoarea critică: 
+𝑡𝛼
+2;𝑛−2 = 2,06
+• Pasul 4: Decizia:
+𝑡𝑐𝑎𝑙𝑐 > 𝑡𝛼
+2;𝑛−2֞12,05 > 2,06 (𝐴)
+adică respingem 𝐻𝑜, parametrul a
+este semnificativ diferit de zero.
+Pentru coeficientul de regresie:
+• Pasul 1: Definirea ipotezelor:
+𝐻𝑜: 𝑏 = 0
+𝐻1: 𝑏 ≠ 0
+• Pasul 2:  Calculul statisticii t:
+𝑡𝑐𝑎𝑙𝑐 =
+෡𝑏
+s෠𝑏
+= 0,3864
+0,0792 = 4,8809
+• Pasul 3:  Valoarea critică: 
+𝑡𝛼
+2;𝑛−2 = 2,06
+• Pasul 4: Decizia:
+𝑡𝑐𝑎𝑙𝑐 > 𝑡𝛼
+2;𝑛−2֞4,88 > 2,06 (𝐴)
+adică respingem 𝐻𝑜 , parametrul b
+este semnificativ statistic
+Testarea semnificaţiei parametrilor
+- exemplu -
+
+Pentru un nivel de incredere P = 100(1-α)%, se poate afirma că:
+ Parametrul a se găseşte în următorul interval
+ෝ𝑎 −𝑡𝛼
+2;𝑛−2· 𝑠 ො𝑎≤ 𝑎 ≤ ෝ𝑎 + 𝑡𝛼
+2;𝑛−2 · 𝑠 ො𝑎
+ Parametrul b se găseşte în intervalul:
+෡𝑏 −𝑡𝛼
+2;𝑛−2· 𝑠෠𝑏 ≤ 𝑏 ≤ ෡𝑏 + 𝑡𝛼
+2;𝑛−2 · 𝑠෠𝑏
+Exemplu:
+Lower 95% - limita inferioară a intervalului de încredere pt P=95%
+Upper 95% - limita superioară a intervalului de încredere pt P=95%
+Intervale de încredere pentru parametri 
+Coefficients Standard Error t Stat P-value Lower 95% Upper 95%
+Intercept 46.3132 3.8419 12.0548 6.5141E-12 38.4007 54.2257
+PIB_loc 0.3864 0.0792 4.8809 5.0733E-05 0.2233 0.5494
+
+ Parametrul a se găseşte în următorul interval
+P(ෝ𝑎 −𝑡𝛼
+2;𝑛−2· 𝑠 ො𝑎≤ 𝑎 ≤ ෝ𝑎 + 𝑡𝛼
+2;𝑛−2 · 𝑠 ො𝑎)=(1-α)100
+46,3132 − 2,06 · 3,8419 ≤ 𝑎 ≤ 46,3132 + 2,06 · 3,8419
+P(38,4007 ≤ 𝒂 ≤ 𝟓𝟒, 𝟐𝟐𝟓𝟕)=95%
+ Parametrul b se găseşte în intervalul:
+P(෡𝑏 −𝑡𝛼
+2;𝑛−2· 𝑠෠𝑏 ≤ 𝑏 ≤ ෡𝑏 + 𝑡𝛼
+2;𝑛−2 · 𝑠෠𝑏)=(1-α)100
+0,3864 − 2,06 · 0,0792 ≤ 𝑏 ≤ 0,3864 + 2,06 · 0,0792
+P(𝟎, 𝟐𝟐𝟑𝟑 ≤ 𝒃 ≤ 𝟎, 𝟓𝟒𝟗𝟒)=95%
+Intervale de încredere pentru parametri  
+- exemplu -
+
+În literatura de specialitate, precum şi în pachetele de
+programe informatice specializate se utilizează notaţiile:
+ SST = varianţa totală, suma pătratelor abaterilor totale
+ SSE = varianţa neexplicată (reziduală) , suma pătratelor
+erorilor
+ SSR = varianţa explicată, suma pătratelor abaterilor
+datorate regresiei
+ Deci,  SST= SSR+SSE.
+
+
+ 
+= ==
+−+−=−
+n
+i
+n
+i
+iii
+n
+i
+i )yyˆ()yˆy()yy(
+1 1
+22
+1
+2
+SST     =         SSE        +         SSR
+SST - Total Sum of Squares
+Măsoară variaţia valorilor observate Yi în jurul mediei ത𝑌
+SSE  -  Error Sum of Squares 
+Măsoară variaţia ce poate fi atribuită altor factori, diferiţi 
+de variabila explicativă X
+SSR - Regression Sum of Squares 
+Măsoară variaţia explicată de modelul de regresie
+
+
+
+Ipoteze:
+   H0: Modelul nu este valid (b =0; MSR = MSE)
+ H1: Modelul este valid (b ≠0; MSR > MSE)
+Statistica utilizată este:
+Decizia: Se compară valoarea calculată a testului F cu valoarea
+teoretică pentru un prag de semnificaţie α, si k-1, respectiv n-k
+grade de libertate, preluată din tabelul repatiţiei Fisher: 𝐹𝛼,𝑘−1,𝑛−𝑘.
+ Dacă 𝑭𝒄𝒂𝒍𝒄 > 𝑭𝜶,𝒌−𝟏,𝒏−𝒌 se respinge H0, adică se concluzionează că
+modelul este valid.
+MSE
+MSRFcalc =
+
+Pentru α = 0,05 
+Puteti gasi valorile critice 
+pentru alte praguri de 
+semnificatie la adresa:
+http://www.stat.ufl.edu/~a
+a/sta6126/tables.pdf
+
+unde k este numarul de parametri (pentru regresia unifactoriala k = 2)
+Sursa 
+variaţiei 
+Suma pătratelor 
+(SS-Sum of 
+Squares) 
+Grade de libertate 
+(df- degree of 
+freedom) 
+Media pătratelor 
+(MS- Mean of 
+Squares) 
+Testul Fisher 
+(testul F) 
+Datorată 
+regresiei 
+ 
+( )
+=
+−=
+n
+i
+i yySSR
+1
+2
+ˆ
+ k-1 
+1−= k
+SSRMSR  
+MSE
+MSRFcalc =  
+Reziduală 
+( )
+=
+−=
+n
+i
+ii yySSE
+1
+2
+ˆ
+ n – k  
+kn
+SSEMSE −=  
+Totală 
+( )
+=
+−=
+n
+i
+i yySST
+1
+2
+ n – 1 
+ 
+ 
+
+Decizia:  Dacă Significance F  < α atunci modelul este valid.
+SUMMARY OUTPUT
+Regression Statistics
+Multiple R 0.6985
+R Square 0.4879
+Adjusted R Square 0.4675
+Standard Error 10.3756
+Observations 27
+ANOVA
+df SS MS F Significance F
+Regression 1 2564.654 2564.6536 23.8231 5.0733E-05
+Residual 25 2691.346 107.6539
+Total 26 5256
+Coefficients Standard Error t Stat P-value Lower 95% Upper 95%
+Intercept 46.3132 3.8419 12.0548 6.5141E-12 38.4007 54.2257
+PIB_loc 0.3864 0.0792 4.8809 5.0733E-05 0.2233 0.5494
+
+Pentru a măsura calitatea ajustării în cazul regresiei
+liniare unifactoriale se calculează:
+1. Raportul de corelație
+2. Coeficientul de determinaţie
+3. Coeficientul de determinație ajustat
+4. Abaterea medie pătratică (eroarea standard) a
+reziduurilor - măsură absolută a calităţii ajustării pe
+baza regresiei în eşantion
+
+
+ Coeficientul de determinaţie (R2) arată proporţia
+din variaţia totală a variabilei dependente
+explicată de variaţia variabilei independente
+                                                  cu   𝑅2 ∈ [0; 1] 
+R2 este afectat de creşterea numărului de parametri;
+de aceea pentru modele cu multi parametri se
+calculează R2 ajustat, care are aceeaşi interpretare.
+
+
+
+
+Raportul de corelaţie este un indicator relativ utilizat pentru:
+- măsurarea intensităţii legăturii dintre variabile
+- validarea modelelor de regresie.
+Raportul de corelaţie se calculează ca:
+                                   sau                                 sau
+◦ Daca R→1 legatura dintre X şi Y este puternică
+◦ Daca R →0 legatura dintre X şi Y este slabă
+◦ În cazul legăturilor liniare: 
+( )
+( )
+( )
+( )
+
+
+
+=
+=
+=
+=
+−
+−
+−=
+−
+−
+= n
+i
+i
+n
+i
+i
+n
+i
+i
+n
+i
+i
+yy
+yˆy
+yy
+yyˆ
+R
+1
+2
+1
+2
+1
+2
+1
+2
+1
+SST
+SSE
+SST
+SSRR −== 1
+2RR =
+xyrR =
+
+ Abaterea medie pătratică a erorilor în eşantion este:
+unde     este un estimator nedeplasat al dispersiei reziduurilor
+ Acest indicator se este important în determinarea intervalului de
+încredere pentru coeficientul de regresie b şi pentru termenul 
+liber a.
+( )
+2
+ˆ
+1
+2
+2
+−
+−
+==
+
+=
+n
+yy
+ss
+n
+i
+ii
+
+2
+s
+2
+
+
+ Rezultatele:
+Raportul de corelatie
+Coeficientul de determinatie
+Coeficientul de determinatie ajustat
+Abaterea medie patratica a erorilor
+Numarul de observatii
+Regression Statistics
+Multiple R 0.6985
+R Square 0.4879
+Adjusted R Square 0.4675
+Standard Error 10.3756
+Observations 27
+
+ Previziune punctuala
+෡𝑌𝑖 =ො𝑎 + ෠𝑏 ∙ 𝑋𝑖 
+ Previziune pe baza de interval de incredere:
+unde
+
+
+--- END OF FILE: CURS 3 - Econometrie.pdf ---
+
+--- START OF FILE: CURS 4.pdf ---
+
+Curs 4
+Regresia liniară multifactorială
+
+Sub formă generală, un model multifactorial de
+regresie se defineşte prin următoarea relaţie:
+y = f(xj)+𝜺
+unde: 
+y = variabila endogenă, efect sau rezultativă; 
+xj = variabilele exogene, factoriale sau cauzale; 
+𝜺 = variabila reziduală, aleatoare sau eroare.
+
+
+Descrierea modelului:
+f(xj) = funcţia de regresie cu ajutorul căreia
+vor fi estimate (aproximate) valorile variabilei y,
+determinate numai de influenţa factorilor xj,
+consideraţi esenţiali, principali, hotărâtori,
+exceptând influenţa celorlalţi factori ai
+fenomenului y, care sunt consideraţi factori
+neesenţiali, nesemnificativi de explicare a apariţiei
+şi a evoluţiei în timp şi în spaţiu a fenomenului y,
+aceştia fiind trataţi separat cu ajutorul variabilei
+reziduale 𝜺.
+
+
+
+
+În economie, modelele multifactoriale au o arie vastă de
+aplicare, acestea putând fi utilizate în mai multe situaţii şi
+sub diverse forme, ca, de exemplu:
+1) Modelarea venitului
+În medie ne-am aştepta ca la un nivel mai ridicat de
+educaţie, nivelul venitului să crească:
+venit = bo + b1educaţie + 
+Dar în acest caz nu se tine seama de faptul că venitul
+depinde şi de vârstă: 
+venit = bo + b1educaţie +b2vârstă + 
+care este un model liniar multifactorial.
+
+
+2) Modelarea consumului
+C = f (V, P, N) + ε
+unde:
+C = consumul unui produs sau grupe de produse;
+V = venitul pe familie;
+P = preţul produsului sau indicele preţurilor grupei
+de produse;
+N = numărul membrilor unei familii.
+
+
+3) Funcţia de producţie Cobb-Douglas 
+Q = f (K, L) + e 
+unde: 
+ Q = volumul (valoarea) producţiei; 
+ K = capitalul; 
+ L = forţa de muncă.
+
+
+Un model multifactorial, în formă generală, se 
+prezintă astfel: 
+𝒚𝒊 = 𝒃𝟎 + 𝒃𝟏 ∙ 𝒙𝒊𝟏 + 𝒃𝟐 ∙ 𝒙𝒊𝟐 + ⋯ + 𝒃𝒋 ∙ 𝒙𝒊𝒋 + ⋯ + 𝒃𝒑 ∙ 𝒙𝒊𝒑 + 𝜺𝒊
+unde: 
+ i = 1,…, n
+ n= numărul termenilor seriei; 
+ p = numărul variabilelor exogene.
+
+
+ Expresia analitică: 
+𝒚𝟏 = 𝒃𝟎 + 𝒃𝟏 ∙ 𝒙𝟏𝟏 + 𝒃𝟐 ∙ 𝒙𝟏𝟐 + ⋯ + 𝒃𝒑 ∙ 𝒙𝟏𝒑 + 𝜺𝟏
+𝒚𝟐 = 𝒃𝟎 + 𝒃𝟏 ∙ 𝒙𝟐𝟏 + 𝒃𝟐 ∙ 𝒙𝟐𝟐 + ⋯ + 𝒃𝒑 ∙ 𝒙𝟐𝒑 + 𝜺𝟐
+… … … … … … … … … … … … … … … … … … … … … …
+𝒚𝒏 = 𝒃𝟎 + 𝒃𝟏 ∙ 𝒙𝒏𝟏 + 𝒃𝟐 ∙ 𝒙𝒏𝟐 + ⋯ + 𝒃𝒑 ∙ 𝒙𝒏𝒑 + 𝜺𝒏
+ Scrierea sub forma matriceala:
+Y = X·B + E
+
+
+ unde:
+vectorul coloana al variabilei
+endogene, de dimensiune n x 1
+matricea variabilelor
+exogene, de dimensiune
+n x (p+1)
+
+
+
+
+
+
+
+
+
+
+
+
+=
+ny
+y
+y
+Y
+
+2
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=
+pnn
+p
+p
+p
+xx
+xx
+xx
+xx
+X
+
+
+
+
+
+1
+313
+212
+111
+1
+1
+1
+1
+
+vectorul coloana al parametrilor, de 
+dimensiune (p+1) x 1
+vectorul coloana al variabilei 
+aleatoare, de dimensiune n x 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=
+pb
+b
+b
+b
+B
+
+2
+1
+0𝐸 =
+𝜀1
+𝜀2
+𝜀3
+⋮
+𝜀𝑛
+
+ Scrierea matriceala:
+Y = X·B + E
+este echivalenta cu:
+)1(1)1()1()1(
+1
+1
+1
+2
+1
+1
+0
+1
+212
+111
+2
+1
+++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+
+
+nppnn
+e
+e
+e
+b
+b
+b
+xx
+xx
+xx
+y
+y
+y
+nppnn
+p
+p
+n
+
+
+
+
+
+
+
+ Funcţia de regresie corespunzătoare
+modelului, scrisă sub forma unei ecuaţii
+matriceale, este:
+ Reziduurile ෝ𝑒𝑖 (estimaţiile variabilei aleatoare) 
+se definesc astfel:
+෠𝐸 = 𝑌 − ෠𝑌 = 𝑌 − 𝑋 ∙ ෠𝐵
+unde: = valorile estimate (ajustate) ale variabilei Y. 
+BˆXYˆ =
+Yˆ
+
+Metoda celor mai mici patrate presupune
+minimizarea sumei patratelor erorilor:
+F ෠𝐵 = min ෍ 𝑒2 = min 𝐸′𝐸 = min 𝑌 − 𝑋 ∙ ෠𝐵
+′
+𝑌 − 𝑋 ∙ ෠𝐵
+Egaland cu zero derivatele partiale in raport cu
+estimatorii, obtinem:
+( ) ( )( )=  −   +  min   Y Y B X Y B X X B2
+( ) ( ) ( )
+
+
+F B
+B
+X Y X X B
+
+
+= −  +  =0 2 2 0
+( ) YXBXX = ˆ
+( ) ( ) ( ) ( )  =  
+− −
+X X X X B X X X Y
+1 1
+
+ Estimatorii parametrilor modelului de regresie 
+multifactoriala sunt calculati pa baza relatiei:
+( ) ( )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==
+−
+pb
+b
+b
+YXXXB
+ˆ
+ˆ
+ˆ
+ˆ 2
+1
+1
+
+
+ Pentru a interpreta semnificaţia parametrilor modelului de
+regresie considerăm modelul:
+ෝ𝑦𝑖 = ෢𝑏0 + ෢𝑏1 ∙ 𝑥1𝑖 + ⋯ + ෢𝑏𝑝 ∙ 𝑥𝑝𝑖
+ Atunci, dacă x2, … xp sunt constante se obţine:
+∆𝑦𝑖 = ෢𝑏1∆𝑥1𝑖
+ Rezolvând ecuaţia de mai sus se obţine că estimatorul
+parametrului b1 este rata marginală de substituţie a
+variabilei endogene în raport cu variabila exogenă X1:
+෢𝑏1 = ∆𝑦𝑖
+∆𝑥𝑖
+Coefcientul ෢𝑏1 arata cu cate unitati se modifica in medie 
+Y daca X1 se modifica cu ∆𝑥𝑖1 unitati, in conditiile in care 
+celalalte variabile X2, …, Xp raman constante.
+
+
+ Ipotezele: H0:  𝑏𝑗 = 0
+   H1:  𝑏𝑗 ≠ 0,    cu j = 1,…, k  (k=nr parametri)
+ Testul statistic:
+𝑡𝑐𝑎𝑙𝑐 =
+෡𝑏𝑗
+𝑠෠𝑏𝑗
+ Regiunea critica
+𝑡𝑐𝑎𝑙𝑐 >𝑡𝛼
+2,𝑛−𝑘
+ Intervalele de incredere
+jj bknjjbknj stbbstb ˆ,2/ˆ,2/
+ˆˆ +− −− 
+
+ Estimatorul abaterii medii pătratice (standard error) al 
+variabilei reziduale: 
+ 
+unde: k reprezintă numărul parametrilor, iar (n-k) reprezintă numărul 
+gradelor de libertate
+ Estimaţiile abaterilor medii pătratice (standard error) ale 
+parametrilor: 
+ 
+       unde: aij = elementul (j+1) situat pe 
+diagonala principală a matricei (X’X)-1 
+
+
+ Verificarea semnificaţiei modelului econometric multifactorial se face
+cu ajutorul metodei analizei dispersionale (ANOVA) şi a testului Fisher-
+Snedecor (F).
+ Ipotezele:
+H0:  𝒃𝒋 = 𝟎 (toţi coeficienţii de regresie egali cu 0)
+➢ cele două dispersii sunt aproximativ egale (MSR=MSE),
+respectiv influenţa variabilelor exogene X nu este diferită
+de cea a factorilor întâmplători, deci modelul nu poate fi
+validat
+H1: ∃ 𝒃𝒋 ≠ 𝟎 (cel puţin un coeficient de regresie e diferit de 0)
+➢ influenţa variabilelor exogene X şi a factorilor întâmplători
+– măsurată prin cele două dispersii – diferă semnificativ,
+deci modelul poate fi validat. 
+
+
+ Testul F:
+ Regiunea critică: 
+
+
+unde: k – numarul de parametri
+  n – numarul de observatii 
+Sursa 
+variaţiei 
+Suma pătratelor 
+(SS-Sum of 
+Squares) 
+Grade de libertate 
+(df- degree of 
+freedom) 
+Media pătratelor 
+(MS- Mean of 
+Squares) 
+Testul Fisher 
+(testul F) 
+Datorată 
+regresiei 
+ 
+( )
+=
+−=
+n
+i
+i yySSR
+1
+2
+ˆ
+ k-1 
+1−= k
+SSRMSR  
+MSE
+MSRFcalc =  
+Reziduală 
+( )
+=
+−=
+n
+i
+ii yySSE
+1
+2
+ˆ
+ n – k  
+kn
+SSEMSE −=  
+Totală 
+( )
+=
+−=
+n
+i
+i yySST
+1
+2
+ n – 1 
+ 
+ 
+
+Pentru α = 0,05 
+Puteti gasi valorile critice 
+pentru alte praguri de 
+semnificatie la adresa:
+http://www.stat.ufl.edu/~a
+a/sta6126/tables.pdf
+
+ Estimaţia punctuală a valorii de prognoză pentru 
+variabila y pentru un model cu doi factori explicativi: 
+
+
+ Estimaţia pe interval de încredere pentru variabila y: 
+
+
+ Versiunea pentru studenti - gratuita
+ https://www.eviews.com/download/student12/
+ Solicitare Serial Number
+ https://register1.eviews.com/Lite/
+! Utilizati adresa institutionala
+ Alte softuri recomandate: R, Python, SPSS, Stata
+
+
+--- END OF FILE: CURS 4.pdf ---
+
+--- START OF FILE: CURS 5 - Econometrie.pdf ---
+
+Ipoteze clasice ale modelului de regresie
+
+
+ Datele sunt corecte, modelul este corect specificat.
+ I1) Forma funcţională este liniară. 
+ I2) Necoliniaritatea variabilelor explicative.
+ I3) Erorile aleatoare au media zero. 
+ I4) Necorelarea dintre regresori şi erori.
+ I5) Erorile aleatoare au o distribuţie normală. 
+ I6) Homoscedasticitatea erorilor aleatoare.
+ I7) Erorile aleatoare nu sunt autocorelate.
+→ Dacă una (sau mai multe) din aceste ipoteze nu este
+îndeplinită, nu este recomandat să se folosească MCMMP
+pentru estimarea parametrilor.
+
+
+
+
+
+
+
+
+ Multicoliniaritatea nu este o problemă a
+modelului ci o problemă a datelor.
+ Tipuri de multicoliniaritate 
+◦ Multicoliniaritatea perfectă 
+→ Nu pot fi estimaţi parametrii modelului. 
+◦ Multicoliniaritatea imperfectă 
+→ Nu se pune problema existenţei coliniarităţii ci a 
+gradului de coliniaritate
+
+
+ Metoda de colectare a datelor 
+◦ Dacă datele nu au fost observate complet aleator 
+sau au fost excluse anumite grupuri de subiecţi din 
+eşantion, apare multicoliniaritatea.
+ Specificarea modelului nu este corectă.
+ Modelul este supradeterminat
+◦ Există mai multe variabile explicative decât 
+observaţii.
+
+
+ Estimatorii obţinuţi prin MCMMP au varianţele şi
+erorile standard foarte mari.
+ Rapoartele t sunt foarte mici. În mod eronat,
+parametrii modelului apar a nu fi semnificativi
+statistic.
+ Intervalele de încredere pentru parametrii modelului
+sunt foarte largi, deci sunt imprecise.
+ Testul F respinge ipoteza nulă că toţi parametrii
+modelului sunt 0, iar pe de altă parte testele
+individuale sunt nesemnificative.
+ Semnul coeficienţilor de regresie poate fi greşit.
+
+
+▪ Calculul coeficientului de corelatie Pearson
+▪ Reprezentarea grafica a seriilor corespunzatoare 
+variabilelor explicative
+• In cazul in care se constata analogii in evolutie, acestea indica 
+existenta unei corelatii destul de puternice intre variabilele 
+respective.
+
+
+
+
+
+
+ Se creşte volumul eşantionului, introducând 
+observaţii suplimentare
+ Se utilizează serii transversale 
+ Se transformă datele. 
+◦ De multe ori problema se rezolvă prin 
+logaritmarea datelor. 
+◦ Se pot face diferenţele de ordinul întâi, în cazul 
+seriilor cronologice. 
+ Se renunţă la una din cele două variabile 
+puternic corelate 
+
+
+--- END OF FILE: CURS 5 - Econometrie.pdf ---
+
+--- START OF FILE: Curs 6 - Econometrie.pdf ---
+
+Ipoteze clasice ale modelului de regresie
+(II)
+
+
+ Datele sunt corecte, modelul este corect specificat.
+ I1) Forma funcţională este liniară. 
+ I2) Necoliniaritatea variabilelor explicative.
+ I3) Erorile aleatoare au media zero. 
+ I4) Necorelarea dintre regresori şi erori.
+ I5) Homoscedasticitatea erorilor aleatoare.
+ I6) Erorile aleatoare nu sunt autocorelate.
+ I7) Erorile aleatoare au o distribuţie normală. 
+→ Dacă una (sau mai multe) din aceste ipoteze nu este
+îndeplinită, nu este recomandat să se folosească MCMMP
+pentru estimarea parametrilor.
+
+
+ Eroarea aleatoare este văzută ca suma efectelor
+individuale datorate unor factori aleatori.
+ Înseamnă că, în medie, factorii neînregistraţi nu au efect
+asupra mediei variabilei Y.
+ Valorile pozitive şi negative ale variabilei reziduale se
+anulează între ele.
+ Dacă în cadrul modelului au fost incluse acele variabile ce
+influenţează în mod real valoarea lui Y, atunci ecartul sau
+abaterea dintre cele două tipuri de valori, reale şi
+estimate, tinde spre zero, iar în medie acesta este zero.
+niExE iii ,...,2,1,0)()|( === 
+
+pentru orice i şi j.
+ Această proprietate poate fi exprimată într-o formă
+echivalentă:
+pentru orice i şi j.
+ Erorile aleatoare sunt independente de variabilele
+explicative. Variabila X nu este stochastică, adică
+valorile sunt fixate în selecţii repetate. Înseamnă că se
+regăsesc aceleaşi valori dacă se face o nouă selecţie.
+ În plus, se presupune că factorul X prezintă
+variabilitate şi deci, poate fi evidenţiat rolul acestui
+factor.
+0),cov( =ii x
+0)( =ii xE 
+
+ Erorile aleatoare sunt presupuse a fi normal
+distribuite, pentru orice i.
+ Teorema Limită Centrală: Dacă există un număr mare de
+variabile aleatoare independente şi identic distribuite
+(iid), atunci distribuţia sumei lor tinde să fie o distribuţie
+normală, atunci când numărul variabilelor creşte
+indefinit.
+ In practică, atunci când mărimea eșantionului este
+suficient de mare, testarea normalității nu este necesară
+deoarece teorema limitei centrale asigură distribuirea
+aproximativ normală a erorii.
+),0(~ 2 Ni
+ni ,1)( =
+
+ Stă la baza inferenței statistice (cum ar fi testele de
+ipoteze și intervalele de încredere) pentru coeficienții
+de regresie.
+ Atunci când erorile sunt distribuite normal, estimatorii
+obținuți prin metoda celor mai mici pătrate sunt
+nedeplasați (neafectați de eroare sistematică) și au
+varianța minimă dintre toți estimatorii liniari
+nedeplasati (conform teoremei Gauss-Markov).
+ În practică, normalitatea erorilor justifică utilizarea
+testelor t și F în analiza de regresie, permițând luarea
+unor decizii riguroase și fiabile pe baza datelor din
+eșantion.
+
+
+ Pentru eșantioane mari – Teorema limită centrală garantează că
+distribuția mediei (și a altor statistici) este aproximativ normală, 
+chiar dacă datele inițiale nu respectă perfect distribuția normală. 
+Inferențele realizate sunt valide în majoritatea cazurilor practice 
+atunci când dimensiunea eșantionului este mare.
+ Pentru eșantioane mici – Dacă erorile nu urmează o distribuție
+normală, acest lucru poate conduce la inferențe eronate: 
+intervalele de încredere și valorile p obținute în urma regresiei
+pot fi inexacte, iar testele statistice devin mai puțin fiabile.
+ Este deosebit de importantă verificarea normalității în cazul
+eșantioanelor mici, deoarece prezența valorilor aberante sau a 
+datelor asimetrice pot influența rezultatele modelului.
+
+
+ Analiza grafică poate fi utilizată pentru a verifica
+dacă reziduurile urmează o distribuție normală, 
+condiție necesară pentru validitatea multor teste 
+statistice inferențiale.
+ Graficele utilizate frecvent includ:
+◦ Histograma reziduurilor
+◦ Suprapunerea curbei normale teoretice pe histograma
+◦ Graficul Q-Q al reziduurilor
+ Aceste grafice oferă un mod rapid și eficient de a
+evalua ipoteza normalității în cadrul diagnosticării
+unui model de regresie.
+
+
+ Histograma reziduurilor – permite observarea 
+distribuției reziduurilor și identificarea eventualelor 
+asimetrii sau valori aberante (outlieri).
+
+
+ Graficul Q-Q al reziduurilor
+(Normal Probability Plot) –
+compară distribuția
+reziduurilor cu o distribuție
+normală teoretică; dacă
+punctele se aliniază de-a
+lungul unei drepte, acest
+lucru indică o bună
+conformitate cu ipoteza
+normalității.
+
+
+ Testul Jarque–Bera – evaluează dacă reziduurile prezintă 
+simetria (skewness) și gradul de aplatizare (kurtosis) 
+caracteristice unei distribuții normale. 
+ Testul Shapiro–Wilk – verifică dacă reziduurile provin 
+dintr-o populație cu distribuție normală; este deosebit de 
+eficient pentru eșantioane mici.
+ Testul Kolmogorov–Smirnov – compară distribuția 
+empirică a datelor cu o distribuție normală teoretică, 
+pentru a detecta diferențe semnificative între cele două.
+ Respingerea ipotezei nule în oricare dintre aceste teste 
+constituie o dovadă a non-normalității reziduurilor.
+
+
+ Cele două ipoteze sunt:
+H0 – erorile sunt normal distribuite
+H1 – erorile nu sunt normal distribuite
+ Valoarea statisticii JB se calculează cu formula:
+unde
+ Cas este coeficientul de asimetrie al variabilei reziduale
+ Cbolt este coeficientul de boltire Pearson al variabilei
+reziduale
+( ) ( )
+22
+3
+6 24
+as boltCCJB n
+ −=+ 
+
+
+4
+2 2
+2
+boltC  ==
+( )
+4
+4
+i
+n
+
+
+−
+= 
+13
+( )
+2
+2
+2
+i
+n
+
+
+−
+== 
+( )
+3
+3
+i
+n
+
+
+−
+= 
+3
+2
+2
+3
+1
+
+ ==asC
+unde
+(momentul centrat de ordin 2)
+(momentul centrat de ordin 3)
+unde:
+(momentul centrat de ordinul 4)
+
+ Valoarea calculată a testului JB urmează o
+repartiţie χ2 cu 2 grade de libertate.
+ Decizia: 
+ Dacă valoarea calculate a testului JB este
+inferioară valorii tabelare vom accepta
+ipoteza H0 (erorile sunt normal distribuite).
+2
+,2
+
+ Atunci când distribuția erorilor se dovedeste a nu 
+respecta ipoteza de normalitate:
+ Eșantioane mari – Testele t și inferențele rezultate din 
+regresie rămân, în general, fiabile, chiar și atunci 
+când datele nu respectă perfect o distribuție normală.
+ Tehnica bootstrap 
+◦ oferă o alternativă flexibilă la testele statistice 
+tradiționale. 
+◦ nu impune ipoteza normalității și permite obținerea 
+unor intervale de încredere precise, fiind deosebit de 
+utilă în cazul eșantioanelor mici sau al datelor care se 
+abat puternic de la normalitate.
+
+
+ Transformarea variabilelor (logaritm, rădăcină pătrată) – 
+Aplicarea unor transformări matematice poate reduce 
+asimetria și poate face datele mai compatibile cu ipoteza 
+normalității, îmbunătățind astfel modelul de regresie.
+ Eliminarea valorilor aberante – Identificarea și eliminarea 
+valorilor extreme limitează influența lor disproporționată 
+și permite reziduurilor să urmeze mai bine o distribuție 
+normală.
+ Utilizarea metodelor de regresie robuste – Tehnicile 
+robuste reduc sensibilitatea la non-normalitate și la valori 
+extreme, oferind rezultate mai fiabile atunci când 
+metodele clasice nu sunt adecvate.
+
+
+ Erorile aleatoare sunt homoscedastice:
+ → varianţă constantă
+niEEVar iii ,...,2,1,))(()( 22 ==−= 
+
+
+▪ Modelul de regresie nu este corect specificat
+(modelul nu include variabilele explicative
+esenţiale sau forma sa nu este cea potrivită).
+▪ Neomogenitatea datelor.
+▪ Erorile de măsurare.
+▪ Seriile de date sunt constituite din valori medii şi
+nu din valori individuale.
+▪ Asupra seriilor de date nu au fost aplicate
+transformări corecte.
+
+
+1. Estimatorii obţinuţi prin MCMMP sunt în
+continuare liniari şi nedeplasaţi, dar nu mai sunt
+eficienţi, adică nu mai au varianţă minimă.
+2. Estimatorul varianţei erorilor aleatoare nu mai
+este nedeplasat ci este deplasat.
+3. Estimatorii varianţelor coeficienţilor modelului
+sunt deplasaţi.
+4. Erorile standard ale coeficienţilor modelului sunt
+estimate greşit; testele t şi F sunt incorecte.
+5. Intervalele de încredere şi testele de ipoteze
+bazate pe distribuţiile t şi F nu sunt sigure, nu sunt de
+încredere.
+
+
+
+
+
+
+Alte metode de detectare a heteroscedasticităţii 
+erorilor:
+❑ Metoda grafica
+❑ Testul Goldfeld-Quandt
+❑ Testul Park
+❑ Testul Glejser
+❑ Testul Breusch – Pagan – Godfrey  
+
+- Se reprezintă grafic reziduurile regresiei (obţinute
+în urma estimării modelului prin MCMMP) în raport cu
+fiecare variabilă explicativă X.
+a) Modelul homoscedastic al erorilor                b) Modelul heteroscedastic al erorilor 
+ Se consideră că erorile aleatoare prezintă heteroscedasticitate,
+dacă se obţine o structură „în trompetă”
+
+
+▪ Redefinirea variabilelor
+▪ Respecificarea modelului
+▪ Transformarea variabilelor (logaritmare)
+▪ Metoda celor mai mici pătrate ponderată
+▪ Estimarea parametrilor folosind erorile
+standard robuste ale lui White.
+
+
+
+
+--- END OF FILE: Curs 6 - Econometrie.pdf ---
+
+--- START OF FILE: Curs 8 - Econometrie.pdf ---
+
+Ipoteze clasice ale modelului de regresie
+(III)
+
+
+ Datele sunt corecte, modelul este corect specificat.
+ I1) Forma funcţională este liniară. 
+ I2) Necoliniaritatea variabilelor explicative.
+ I3) Erorile aleatoare au media zero. 
+ I4) Necorelarea dintre regresori şi erori.
+ I5) Erorile aleatoare au o distribuţie normală. 
+ I6) Homoscedasticitatea erorilor aleatoare.
+ I7) Erorile aleatoare nu sunt autocorelate.
+→ Dacă una (sau mai multe) din aceste ipoteze nu este
+îndeplinită, nu este recomandat să se folosească MCMMP
+pentru estimarea parametrilor.
+
+
+Aplicarea corecta a MCMMP presupune că erorile
+aleatoare nu sunt autocorelate
+Observatii:
+ Aplicaţiile practice au arătat că acest fenomen e frecvent în
+special în cazul seriilor cronologice, din acest motiv verificarea
+acestei ipoteze este necesară mai ales în cazul calculelor de
+prognoză.
+ Deoarece autocorelarea apare frecvent in cazul seriilor de
+timp si mai rar in cazul seriilor transversale, de obicei se
+folosesc indicii t si s in loc de i si j.
+
+
+Cauzele posibile ale apariţiei autocorelării erorilor
+aleatoare:
+▪ Absenţa unor variabile explicative importante din
+modelul de regresie
+▪ Forma funcţională a modelului de regresie nu este
+potrivită
+▪ Transformările efectuate asupra datelor sunt
+nepotrivite
+▪ Se datorează analizei în timp a legăturii dintre
+variabile, respectiv a unui efect inerţial în evoluţia
+variabilelor.
+
+
+▪ Estimatorii obţinuţi prin MCMMP rămân
+estimatori liniari şi nedeplasaţi, dar nu mai sunt
+eficienţi.
+▪ Estimatorul convenţional al varianţei erorilor
+aleatoare conduce la un estimator deplasat al
+varianţei reale.
+▪ Testele uzuale bazate pe distribuţiile t şi F nu
+sunt de încredere.
+▪ Coeficientul de determinaţie R2 calculat nu este o
+măsură de încredere pentru R2 real.
+
+
+❑ Se reprezintă grafic reziduurile în raport cu timpul.
+❑ Reziduurile indică existenţa autocorelării dacă graficul prezintă
+o anumită regularitate:
+❑Dacă reziduurile intersectează de puţine ori axa timpului,
+avem autocorelare pozitivă.
+❑Dacă valorile reziduurilor trec frecvent de la o valoare
+pozitivă la una negativă a.î. graficul intersectează de
+multe ori axa timpului, există autocorelare negativă.
+❑ Dacă valorile reziduurilor sunt distribuite în mod aleator de o
+parte şi de alta a axei, fără să apară un model anume, atunci
+erorile aleatoare nu sunt autocorelate, ci independente.
+
+
+ Tipuri de variabila reziduala care indica existenta autocorelatiei
+erorilor
+Autocorelare pozitiva                      Autocorelare negativa
+
+ Calculul coeficientului de autocorelaţie de ordinul 1 
+
+
+=
+= −
+= n
+t t
+n
+t tt
+e
+ee
+1
+2
+2 1
+ˆ
+
+
+ Variabila reziduală satisface:
+ Ipoteze:  
+ Ho:  = 0 
+H1:   0 
+ Statistica testului:
+ Valori critice: 
+◦ d1 şi d2 extrase din tabela Durbin Watson pentru 
+, k şi n
+
+
+=
+=
+−−
+== n
+i
+i
+n
+i
+ii
+e
+ee
+dDW
+1
+2
+2
+2
+1)(
+iii u+= −1
+
+ Proprietatile statisticii Durbin-Watson:
+
+
+
+
+Testul Durbin-Watson pentru  α= 5 %.  
+n k = 1 k = 2 k = 3 k = 4 k = 5 
+  d1 d2  d1 d2  d1 d2  d1 d2  d1 d2 
+15 1,08 1,36 0,95 1,54 0,82 1,75 0,69 1,97 0,56 2,21 
+20 1,20 1,41 1,10 1,94 1,00 1,68 0,90 1,83 0,79 1,99 
+30 1,35 1,49 1,28 1,57 1,21 1,65 1,14 1,74 1,07 1,83 
+40 1,44 1,54 1,39 1,60 1,34 1,66 1,29 1,72 1,23 1,79 
+50 1,50 1,59 1,46 1, 63 1,42 1,67 1,38 1,72 1,34 1,77 
+100 1,65 1,69 1,63 1,72 1,61 1,74 1,59 1,76 1,37 1,78 
+ 
+ 
+12
+Vezi: 
+https://www3.nd.edu/~wevans1/econ30331/Durbin_Watson_tables.pdf
+
+▪ Dacă forma funcţională nu este potrivită se
+va alege o nouă funcţie de regresie.
+▪ Dacă au fost omise variabile explicative
+importante, acestea vor fi incluse în model.
+▪ Dacă variabilele necesită transformări
+suplimentare, acestea se vor realiza.
+▪ Se estimeaza modelul prin Metoda celor mai 
+mici patrate generalizata (GLS - Generalized
+Least Squares).
+
+
+Testul RESET (Regression Specification Error Test)
+ Este un test pentru specificarea greșită a relației 
+dintre y și variabilele x din model
+ Poate fi utilizat pentru a identifica:
+◦ omiterea unor variabile relevante
+◦ forma funcțională incorectă
+
+
+
+
+
+ Se folosește un test F pentru a compara
+modelul extins cu cel original (se testează dacă 
+coeficienții asociați termenilor suplimentari 
+sunt semnificativ diferiți de zero).
+ Dacă ipoteza nulă este respinsă, specificația 
+modelului ar putea fi incorectă și ar putea fi 
+necesar să fie adaugate variabile explicative, să 
+fie schimbată forma funcțională sau să fie 
+utilizat un alt model.
+
+
+--- END OF FILE: Curs 8 - Econometrie.pdf ---
+
+--- START OF FILE: CURS 9 - Econometrie.pdf ---
+
+Curs 9
+MODELE NELINIARE.
+VARIABILE BINARE 
+
+▪ Modelul log-log este folosit atunci când
+suntem interesaţi de estimarea unei elasticităţi
+▪ Forma generala
+ Interpretarea coeficientul pantă: atunci când X
+creşte cu 1%, Y se modifica, în medie, cu %,
+menţinând celelalte condiţii nemodificate.
+iii xy  ++= lnln
+
+
+
+
+
+
+ Interpretarea coeficientilor:
+*sursa: Wooldridge, J.M., Introductory Econometrics – A modern 
+Approach, Second Edition, pag 45. 
+
+
+ Forma modelului:
+ Interpretare:
+◦ Când X creşte cu o unitate, Y creşte cu b+2ax unităţi
+ Exemple:
+◦ relaţia dintre veniturile guvernamentale şi rata de 
+impozitare
+◦ relaţia dintre castigurile salariale si varsta
+
+
+ In aceasta situatie, coeficientul lui X este pozitiv 
+si coeficientul lui X2 este negativ
+
+
+
+
+9
+ În multe situaţii din viaţa reală, una sau mai 
+multe variabile independente sunt calitative.
+ O variantă de includere a variabilelor calitative în 
+modelele de regresie este prin utilizarea 
+variabilelor binare (“dummy”).
+ O variabilă binara poate sa ia una dintre cele 
+două valori: “zero” sau “unu”.
+1  dacă e satisfăcută conditia
+0  dacă nu e satisfăcută conditiaI=
+
+10
+• Consideram ca pretul este determinat si de 
+culoarea masinii.
+• Consideram trei culori :
+ Alb
+ Argintiu
+ Alte culori
+I1 = 1 daca culoarea este alba
+0 pentru alta culoare
+I2 = 1 daca culoarea este argintie
+0 pentru alta culoare
+
+11
+◦ Folosim modelul 
+y = b0 + b1(Kilometraj) + b2I1 + b3I2 + e
+Pret Kilometraj I-1 I-2
+5318 37388 1 0
+5061 44758 1 0
+5008 45833 0 0
+5795 30862 0 0
+5784 31705 0 1
+5359 34010 0 1
+. . . .
+. . . .
+Alba
+Alta culoare
+Argintie
+
+
+12
+SUMMARY OUTPUT
+Regression Statistics
+Multiple R 0.835482
+R Square 0.69803
+Adjusted R Square0.688594
+Standard Error142.271
+Observations 100
+ANOVA
+df SS MS F Significance F
+Regression 3 4491749 1497250 73.97095 7.22E-25
+Residual 96 1943141 20241.05
+Total 99 6434890
+CoefficientsStandard Error t Stat P-value Lower 95%Upper 95%
+Intercept 6350.323 92.16653 68.90053 1.5E-83 6167.374 6533.272
+Km -0.02777 0.002369 -11.7242 3.14E-20 -0.03247 -0.02307
+I-1 45.24098 34.08443 1.327321 0.187551 -22.4161 112.8981
+I-2 147.738 38.18499 3.869007 0.000199 71.94135 223.5347
+
+
+--- END OF FILE: CURS 9 - Econometrie.pdf ---
+
+--- START OF FILE: Exemplu Proiect Econometrie.docx.pdf ---
+
+ 
+ACADEMIA  DE  STUDII  ECONOMICE  DIN  BUCUREȘTI  Facultatea  de  Cibernetică,  Statistică  și  Informatică  Economică   
+ 
+ 
+ 
+ 
+ 
+ Proiect  Econometrie  Factori  ce  influențează  fertilitatea  -Suedia-  
+ 
+     Proiect  realizat  de:                                                             Profesor  coordonator:  Mihalcea  Mirela                                                                  Lect.univ.dr.  Adriana  Davidescu  Mihalache  Alexandra  Novac  Răzvan  Oprea  Andrada                                                                   Ianuarie,  2015    
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+Cuprins  Introducere  2 APLICAŢIA  1:  3 Model  de  regresie  simplă  3 1.1.  Literature  review  3 1.2.  Metodologia  cercetării  4 2.1.  Date  utilizate  4 2.2.  Rezultatele  empirice  ale  cercetării  6 3.  Concluzii  11 APLICAŢIA  2:  11 Model  de  regresie  multiplă  11 1.1.  Literature  review  11 1.2.  Metodologia  cercetării  12 2.1.  Date  utilizate  12 2.2.  Rezultatele  empirice  ale  cercetării  16 3.  Concluzii  28 Concluzii  finale  30  ANEXE  31  Bibliografie  35   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+Introducere  
+Modelul  clasic  de  regresie  liniară  reprezintă  una  dintre  tehnicile  statistice  cele  mai  
+versatile
+ 
+şi
+ 
+mai
+ 
+des
+ 
+utilizate
+ 
+în
+ 
+analiza
+ 
+economică.
+ 
+Prin
+ 
+acest
+ 
+proiect
+ 
+ne
+ 
+propunem
+ 
+să
+ 
+realizăm
+ 
+analiza
+ 
+modelelor
+ 
+liniare
+ 
+de
+ 
+regresie
+ 
+și,
+ 
+în
+ 
+vederea
+ 
+atingerii
+ 
+acestui
+ 
+scop,
+ 
+vor
+ 
+fi
+ 
+avute
+ 
+în
+ 
+vedere
+ 
+trei
+ 
+modele
+ 
+de
+ 
+regresie
+ 
+diferite.
+ Prima  aplicaţie  analizează  prin  intermediul  unui  model  unifactorial  de  regresie  
+influenţa
+ 
+speranței
+ 
+de
+ 
+viață
+ 
+a
+ 
+populaţiei
+ 
+Suediei
+ 
+din
+ 
+perioada
+  
+2001
+ 
+–
+ 
+2012
+ 
+asupra
+ 
+ratei
+ 
+fertilității.
+ 
+Studiile
+ 
+efectuate
+ 
+pe
+ 
+perioadele
+ 
+anterioare
+ 
+arată
+ existența  unei  legături  directe  și  
+puternice,  de  aceea  dorim  să  analizăm  în  ce  măsură  acest  lucru  se  verifică  la  nivelul  țării  
+noastre,
+ 
+în
+ 
+ultimii
+ 
+12ani.
+ A  doua  aplicaţie  își  propune  să  studieze  prin  intermediul  unui  model  multifactorial  de  
+regresie
+ 
+factorii
+ 
+care
+ 
+influențează
+ 
+rata
+ 
+fertilității
+ 
+în
+ 
+Suedia;
+ 
+în
+ 
+acest
+ 
+caz,
+ 
+va
+ 
+fi
+ 
+vorba
+ 
+de
+ 
+venit
+ 
+și
+ 
+de
+ 
+speranța
+ 
+de
+ 
+viață.
+ Cu  ajutorul  acestui  model  se  dorește  evidențierea  semnificației  factorilor  
+care
+ 
+influențează
+ 
+rata
+ 
+fertilității
+ 
+și,
+ 
+implicit,
+ 
+a
+ 
+demografiei
+ 
+țării.
+  În  continuare,  sunt  descrise  şi  analizate  tehnicile  de  regresie  puse  la  dispoziţie  de  către   programul  econometric  Eviews:  specificarea  şi  estimarea  unui  model  de  regresie,  efectuarea  
+de
+ 
+analize
+ 
+simple
+ 
+de
+ 
+diagnostic
+ 
+şi
+ 
+utilizarea
+ 
+rezultatelor
+ 
+estimării
+ 
+în
+ 
+analize
+ 
+suplimentare,
+ 
+cum
+ 
+ar
+ 
+fi
+ 
+efectuarea
+ 
+de
+ 
+prognoze.
+ La  începutul  secolului  XX,  Suedia  era  o  țară  preponderent  agrară  si  una  dintre  cele  
+mai
+ 
+sărace
+ 
+națiuni
+ 
+europene.
+ Bogatele  sale  resurse  interne  (minereu  de  fier,  material  lemnos  si  putere  hidraulică),  au  
+permis
+ 
+o
+ 
+industrializare
+ 
+rapidă,
+ 
+care
+ 
+a
+ 
+transformat
+ 
+Suedia
+ 
+într-un
+ 
+modern
+ 
+stat
+ 
+al
+ 
+bunăstării.
+ Cea  mai  importantă  ramură  industrială  este  construcția  de  mașini  (autovehicule,  
+motoare
+ 
+diesel,
+ 
+aeronave,
+ 
+ambarcațiuni,
+ 
+echipamente
+ 
+electrice)
+ 
+cu
+ 
+centrele
+ 
+principale
+ 
+la:
+ 
+Stockholm,
+ 
+Goteborg,
+ 
+Vasteras).
+  "Europa  ar  trebui  sa-si  caute  modelul  de  dezvoltare  economica  in  zona  nordica,  in  
+Suedia,
+ 
+Danemarca,
+ 
+Norvegia,
+ 
+Suedia,
+ 
+acela
+ 
+ar
+ 
+trebui
+ 
+sa
+ 
+fie
+ 
+idealul,
+ 
+dar
+ 
+nu-l
+ 
+vom
+ 
+atinge
+ 
+fiindca
+ 
+suntem
+ 
+diferiti.
+ 
+E
+ 
+o
+ 
+utopie
+ 
+sa
+ 
+crezi
+ 
+ca
+ 
+"bella"
+ 
+Italia,
+ 
+Portugalia
+ 
+sau
+ 
+Spania
+ 
+vor
+ 
+ajunge
+ 
+la
+ 
+acest
+ 
+model
+ 
+extrem
+ 
+de
+ 
+disciplinat,
+ 
+de
+ 
+auster",
+ 
+este
+ 
+de
+ 
+parere
+ 
+consultantul
+ 
+financiar,
+ 
+Ionel
+ 
+Blanculescu.
+  
+ 
+
+ 
+ 
+APLICAȚIA  1:  
+Model  de  regresie  simplă  
+1.1.1.  Literature  review   
+ Aplicația  de  față  își  propune  să  analizeze  prin  intermediul  unui  model  unifactorial  de  
+regresie
+ 
+influenţa
+ 
+speranței
+ 
+de
+ 
+viață
+ 
+a
+ 
+populaţiei
+ 
+Suediei
+ 
+din
+ 
+perioada
+  
+2000
+ 
+–
+ 
+2012
+ 
+asupra
+ 
+ratei
+ 
+fertilității.
+  Lumea  modernă  oferă  prilejul  de  a  observa  un  fenomene  ușor  contradictorii:  pe  
+măsură
+ 
+ce
+ 
+speranța
+ 
+de
+ 
+viață
+ 
+crește,
+ 
+fertilitatea
+ 
+scade;
+ 
+de
+ 
+asemenea,
+ 
+creșterea
+ 
+venitului
+ 
+nu
+ 
+are
+ 
+o
+ 
+influență
+ 
+pozitivă
+ 
+asupra
+ 
+fertilității,
+ 
+dimpotrivă.
+ “Ulterior,  în  timp  ce  speranţa  de  viaţă  continua  să  crească,  fertilitatea  începea  să  scadă.  
+Se
+ 
+estimează,
+ 
+la
+ 
+ora
+ 
+actuală,
+ 
+la
+ 
+un
+ 
+nivel
+ 
+de
+ 
+2,7
+ 
+copii
+ 
+per
+ 
+mamă,
+ 
+şi
+ 
+e
+ 
+posibil
+ 
+să
+ 
+ajungă
+ 
+la
+ 
+o
+ 
+valoare
+ 
+de
+ 
+2,1
+ 
+până
+ 
+la
+ 
+mijlocul
+ 
+secolului.
+ 
+Evoluţia
+ 
+unei
+ 
+ţării
+ 
+ca
+ 
+Boţuana
+ 
+este
+ 
+mult
+ 
+mai
+ 
+complexă,
+ 
+şi
+ 
+prin
+ 
+urmare,
+ 
+mai
+ 
+interesantă.
+ 
+Cu
+ 
+un
+ 
+nivel
+ 
+al
+ 
+fertilităţii
+ 
+mult
+ 
+mai
+ 
+ridicat
+ 
+(7
+ 
+copii
+ 
+per
+ 
+femeie
+ 
+în
+ 
+anii
+ 
+‘60)
+ 
+şi
+ 
+cu
+ 
+o
+ 
+speranţă
+ 
+de
+ 
+viaţa
+ 
+la
+ 
+naştere
+ 
+puţin
+ 
+mai
+ 
+scăzută
+ 
+decăt
+ 
+restul
+ 
+lumii,
+ 
+a
+ 
+ajuns
+ 
+s
+ 
+îşi
+ 
+mentine
+ 
+rate
+ 
+intrinseci
+ 
+de
+ 
+creştere
+ 
+a
+ 
+populaţiei
+ 
+cu
+ 
+mult
+ 
+peste
+ 
+3%
+ 
+pentru
+ 
+aproape
+ 
+30
+ 
+de
+ 
+ani.”
+1
+ “Deşi  încă  este  cu  mult  sub  restul  lumii,  speranţa  de  viaţă  în  Africa  s-a  îmbunătăţit,  
+ajungând
+ 
+de
+ 
+la
+ 
+30-40
+ 
+de
+ 
+ani
+ 
+la
+ 
+50-66
+ 
+de
+ 
+în
+ 
+ziua
+ 
+de
+ 
+azi(împreună
+ 
+cu
+ 
+o
+ 
+scadere
+ 
+în
+ 
+fertilitate
+ 
+de
+ 
+la
+ 
+7
+ 
+la
+ 
+5).
+ 
+O
+ 
+îmbunătăţire
+ 
+importantă.
+ 
+În
+ 
+ansamblu,
+ 
+fertilitatea
+ 
+la
+ 
+nivelul
+ 
+tuturor
+ 
+ţărilor
+ 
+a
+ 
+scăzut
+ 
+intre
+ 
+30-60%
+ 
+în
+ 
+ultimii
+ 
+50
+ 
+de
+ 
+ani.
+ 
+Foarte
+ 
+multe
+ 
+ţări
+ 
+şi
+ 
+regiuni(Europa
+ 
+şi
+ 
+Asia
+ 
+în
+ 
+general)se
+ 
+află
+ 
+sub
+ 
+cifra
+ 
+magică
+ 
+a
+ 
+fertilităţii
+ 
+de
+ 
+2,1
+ 
+,
+ 
+numar
+ 
+ce
+ 
+reprezintă
+ 
+nivelul
+ 
+optim
+ 
+pentru
+ 
+a
+ 
+menţine
+ 
+populaţia
+ 
+unei
+ 
+tări.
+ 
+Japonia
+ 
+se
+ 
+afla
+ 
+la
+ 
+1,4,
+  
+Singapore
+ 
+la
+ 
+1,2,
+ 
+Statele
+ 
+Unite
+ 
+la
+ 
+2
+ 
+şi
+ 
+chiar
+ 
+şi
+ 
+China
+ 
+e
+ 
+la
+ 
+doar
+ 
+1,6.”
+2
+                  
+2
+ 
+ 
+1
+ Influences  on  fertility:  assets,  women's  autonomy  or  both?  By  Gustavo  De  Santis  
+ 
+ 
+
+ 
+1.1.2.  Metodologia  cercetării   Problema  analizată  studiază  evoluţia  ratei  fertilitatii  în  Suedia  în  funcţie  de  speranța  de  
+viața.
+ 
+Analiza
+ 
+se
+ 
+va
+ 
+face
+ 
+pe
+ 
+o
+ 
+perioadă
+ 
+de
+ 
+12
+ 
+ani,
+ 
+din
+  
+2001
+ 
+până
+ 
+în
+ 
+2012,
+ 
+pe
+ 
+baza
+ 
+datelor
+ 
+preluate
+ 
+de
+ 
+pe
+ 
+EUROSTAT.
+ Forma  acestuia  este  următoarea:   ,   𝑌 =  α +  β * 𝑋unde:  X  –  variabila  independentă,  adică  speranța  de  viață  a  populației  Y  –  variabila  dependentă,  adică  rata  fertilității.  Pentru  a  analiza  corelațiile  dintre  variabilele  selectate,  am  folosit  date  cu  o  frecvență  
+anuală,
+ 
+preluate
+ 
+de
+ 
+pe
+ 
+site-ul
+  
+EUROSTAT.
+ Cu  ajutorului  softului  Eviews,  am  estimat  modelul,  folosind  metoda  celor  mai  mici  
+pătrate
+ 
+și
+ 
+am
+ 
+testat
+ 
+validitatea
+ 
+modelului,
+ 
+gradul
+ 
+său
+ 
+de
+ 
+bonitate,
+ 
+ipotezele
+ 
+modelului
+ 
+unifactorial
+ 
+de
+ 
+regresie
+ 
+precum
+ 
+și
+ 
+semnificația
+ 
+statistică
+ 
+a
+ 
+parametrilor
+ 
+incluși
+ 
+în
+ 
+model.
+ În  cadrul  prezentului  studiu  de  caz,  vom  utiliza  o  multitudine  de  teste  și  criterii  statistice  
+precum:
+ ●  Testul  Durbin-Watson  ●  Testul  Breusch-Godfrey  ●  Testul  White  ●  Testul  Glesjer  ●  Testul  Park  ●  Testul   Jarque-Bera  ●  Testul  Fisher  ●  Testul  t  
+1.2.1.  Date  utilizate   
+Definirea  variabilelor  utilizate  în  model  
+ Datele  utilizate  au  fost  preluate  de  pe  site-ul  Eurostat  și  reprezintă  valorile  pentru  rata  
+fertilităţii
+ 
+şi
+ 
+speranţa
+ 
+de
+ 
+viaţă
+ 
+între
+ 
+anii
+ 
+2000
+ 
+–
+ 
+2012.
+  Rata  fertilităţii,  cunoscută  şi  ca  „indicatorul  conjunctural  al  fertilităţii”,  reprezintă  
+numărul
+ 
+mediu
+ 
+de
+ 
+copii
+ 
+născuţi
+ 
+vii
+ 
+de
+ 
+către
+ 
+o
+ 
+femeie
+ 
+în
+ 
+cursul
+ 
+întregii
+ 
+sale
+ 
+perioade
+ 
+fertile.
+ 
+Pentru
+ 
+a
+ 
+calcula
+ 
+rata
+ 
+se
+ 
+însumează
+ 
+ratele
+ 
+specifice
+ 
+de
+ 
+fertilitate
+ 
+pe
+ 
+ani
+ 
+de
+ 
+vâstă,
+ 
+obţinându-se
+ 
+astfel
+ 
+o
+ 
+imagine
+ 
+sintetică
+ 
+a
+ 
+intesităţii
+ 
+fertilităţii.
+3
+  Speranţa  de  viaţă  la  naştere,  cunoscută  şi  ca  durata  medie  a  vieţii,  reprezintă  numărul  
+mediu
+ 
+de
+ 
+ani
+ 
+pe
+ 
+care
+ 
+îi
+ 
+are
+ 
+de
+ 
+trăit
+ 
+un
+ 
+nou
+ 
+născut
+ 
+dacă
+ 
+ar
+ 
+trăi
+ 
+tot
+ 
+restul
+ 
+vieţii
+ 
+în
+ 
+condiţiile
+ 
+mortalităţii
+ 
+pe
+ 
+vârste
+ 
+din
+ 
+perioada
+ 
+de
+ 
+referinţă.
+ 
+Indicator
+ 
+sintetic
+ 
+al
+ 
+stării
+ 
+de
+ 
+sănătate
+ 
+a
+ 
+3
+ Defini ţ ie  conform  INS  
+ 
+
+ 
+populaţiei  a  fost  elaborat  pe  baza  datelor  privind  numărul  populaţiei,  precum  şi  a  deceselor  pe  
+ani
+ 
+de
+ 
+naştere
+ 
+şi
+ 
+vârste,
+ 
+din
+ 
+perioada
+ 
+de
+ 
+referinţă.
+4
+  Valorile  utilizate  au  fost  colectate  anual  și  nu  au  necesitat  transformări  (modificări)  
+suplimentare.
+  Evoluția  economică  a  variabilelor  incluse  în  model  
+ 
+Figura  1.  Evoluţia  ratei  fertilității  
+Se  poate  observa  în  figura  de  mai  sus,  că  tendința  între  anii  de  observație  este  de  
+creștere,
+ 
+chiar
+ 
+dacă
+ 
+se
+ 
+remarcă
+ 
+ușoare
+ 
+variații
+ 
+ale
+ 
+acestia
+ 
+de
+ 
+la
+ 
+un
+ 
+an
+ 
+la
+ 
+altul.
+ 
+De
+ 
+asemenea,
+ 
+se
+ 
+observă
+ 
+creşterea
+ 
+puternică
+ 
+dintre
+ 
+anii
+ 
+2009-2010,
+ 
+dar
+ 
+și
+ 
+o
+ 
+scăderea
+ 
+dramatică
+ 
+din
+ 
+2011.
+ 
+4
+ Defini ţ ie  conform  INS  
+ 
+
+
+ 
+ 
+Figura  2.  Evolutia  sperantei  de  viata  
+Se  poate  observa  în  figura  de  mai  sus,  că  tendința  între  anii  de  observație  este  de  
+creștere,
+ 
+chiar
+ 
+dacă
+ 
+se
+ 
+remarcă
+ 
+ușoare
+ 
+variații
+ 
+ale
+ 
+acestia
+ 
+de
+ 
+la
+ 
+un
+ 
+an
+ 
+la
+ 
+altul.
+ 
+De
+ 
+asemenea,
+ 
+se
+ 
+observă
+ 
+ca
+ 
+intervalul
+ 
+debutează
+ 
+cu
+ 
+o
+ 
+scădere
+ 
+destul
+ 
+de
+ 
+drastică
+ 
+din
+ 
+2001,
+ 
+avându-și
+ 
+apogeul
+ 
+în
+ 
+2002.
+ 
+Începând
+ 
+cu
+ 
+2002,
+ 
+speranța
+ 
+de
+ 
+viață
+ 
+a
+ 
+femeilor
+ 
+a
+ 
+tot
+ 
+crescut,
+ 
+până
+ 
+în
+ 
+2011,
+ 
+când
+ 
+a
+ 
+reînceput
+ 
+o
+ 
+scădere
+ 
+bruscă.
+ 
+ 
+1.2.2.  Rezultatele  empirice  ale  cercetării  Pentru  a  determina  intensitatea  relaţiei  dintre  variabile  (cât  de  bine  este  reprezentat  
+setul
+ 
+de
+ 
+date
+ 
+cu
+ 
+ajutorul
+ 
+funcţiei
+ 
+de
+ 
+regresie)
+ 
+se
+ 
+stabileşte
+ 
+nivelul
+ 
+corelaţiei
+ 
+dintre
+ 
+acestea.
+ 
+Corelaţia
+ 
+indică
+ 
+intensitatea
+ 
+legăturii
+ 
+dintre
+ 
+variabile
+ 
+prin
+ 
+măsurarea
+ 
+gradului
+ 
+de
+ 
+împrăştierea
+ 
+a
+ 
+datelor
+ 
+înregistrate
+ 
+în
+ 
+jurul
+ 
+dreptei
+ 
+de
+ 
+regresie.
+ 
+Raportul
+ 
+de
+ 
+corelaţie
+ 
+va
+ 
+avea
+ 
+semnul
+ parametrului  din  ecuaţia  de  regresie.  Vom  calcula  acum  coeficientul  de  corelaţie  Pearson:  β
+ ,  care  indică  o  legătură  directă  puternică  între  cele  
+𝑟
+𝑥𝑦
+=
+ 
+𝑅
+ 2 
+= 𝑅 = 0 , 94121două  variabile.  
+Vom  testa  în  continuare  semnificaţia  coeficientului  de  corelaţie  liniară  folosind  testul  t.  
+1    H
+0
+:  r
+xy
+ 
+=0  (  r
+xy
+ nu  e  semnificativ  statistic  )       H
+1
+:  r
+xy
+≠0  (   r
+xy
+  e  semnificativ  statistic  )  
+2  =-27,334   
+3  t
+critic
+=  2,228  
+ 
+
+
+ 
+4  Deoarece  |t
+calculat
+|>  t
+critic
+ 
+acceptăm  ipoteza  alternativă  conform  căreia  coeficientul  de  corelație  
+liniară
+ 
+Pearson
+ 
+este
+ 
+semnificativ
+ 
+din
+ 
+punct
+ 
+de
+ 
+vedere
+ 
+statistic.
+  Modelul  econometric  
+ Pentru  a  analiza  influenţa  variaţiei  speranței  de  viața  din  Suedia  asupra  ratei  fertilității  
+au
+ 
+fost
+ 
+extrase
+ 
+datele
+ 
+pe
+ 
+parcursul
+ 
+a
+ 
+12
+ 
+ani
+ 
+aşa
+ 
+cum
+ 
+reiese
+ 
+din
+ 
+tabelul
+ 
+următor:
+ Yi-Rata  Fertilitatii Xi-  Speranta  de  viata 1.57  82.2  1.65  82.1  1.71  82.5  1.75  82.8  1.77  82.9  1.85  83.1  1.88  83.1  1.91  83.3  1.94  83.5  1.98  83.6  1.9  83.8  1.91  83.6    
+ 
+ 
+ 
+ 
+ 
+ 
+Modelul  econometric  unifactorial  utilizat  este:   y
+i
+=α  +  β x
+i
+ +  
+i
+ ,  i=1,2,…,15.  ε
+ 
+Reprezentarea  grafică  a  datelor  şi  legătura  dintre  variabile  În  efectuarea  calculelor  pentru  estimarea  unui  model  de  regresie  vom  folosi  Excel  Eviews  
+ 
+
+
+ 
+ 
+Pentru  a  identifica  existenţa  unei  relaţii  de  dependenţă  între  variabilele  analizate,  
+forma
+ 
+şi
+ 
+sensul
+ 
+relaţiei
+ 
+de
+ 
+dependenţă,
+ 
+construim
+ 
+diagrama
+ 
+împrăştierii
+ 
+datelor.
+ 
+Vom
+ 
+avea
+ 
+pe
+ 
+axa
+ 
+orizontală
+ 
+variabila
+ 
+explicativă
+ 
+X
+ 
+şi
+ 
+pe
+ 
+axa
+ 
+verticală
+ 
+variabila
+ 
+explicată
+ 
+Y.
+ Din  grafic  se  observă  că  între  variabilele  X  şi  Y  există  o  legătură  directă  şi  liniară:
+ 
+Estimarea  parametrilor  modelului  Pentru  a  determina  estimatorii  a  şi  b  ai  parametrilor  α
+ 
+şi  β  se  poate  rezolva  sistemul  de  
+ecuaţii
+ 
+normale
+ 
+ale
+ 
+lui
+ 
+Gauss.
+ 
+  În  Excel:  
+  
+ 
+
+
+ 
+      În  Eviews:    
+                              Dreapta  de  regresie  estimată  este   a  =-15,9456  –arată  nivelul  ratei  fertilității  atunci  când  speranța  de  viață  tinde  la  0  (e  
+foarte
+ 
+mica).
+ 
+Parametrul
+ 
+a
+ 
+este
+ 
+efectul
+ 
+mediu
+ 
+asupra
+ 
+lui
+ 
+Y,
+ 
+al
+ 
+tuturor
+ 
+factorilor
+ 
+care
+ 
+nu
+ 
+sunt
+ 
+luaţi
+ 
+în
+ 
+considerare
+ 
+în
+ 
+modelul
+ 
+de
+ 
+regresie.
+ b=0.2139  -măsoară  panta  dreptei  de  regresie  şi  arată  că,  atunci  speranța  de  viața  pe  cap  
+crește
+ 
+cu
+ 
+o
+ 
+unitate
+ 
+(1
+ 
+an),
+ 
+rata
+ 
+fertilității
+ 
+va
+ 
+creşte
+ 
+,
+ 
+în
+ 
+medie,
+ 
+cu
+ 
+0.2139
+ 
+unităţi(
+ 
+născuți
+ 
+vii
+ 
+în
+ 
+medie/femeie),
+ 
+menţinând
+ 
+celelalte
+ 
+condiţii
+ 
+constante.
+  În  continuarea  vom  verifica  semnificaţia  parametrilor  cu  ajutorul  testului  t:    (parametrii  nu  sunt  semnificativi,  modelul  nu  este  valid)  𝐻
+0
+ 
+: α = 0 ;  β = 0 (parametrii  sunt  semnificativi  din  punct  de  vedere  statistic,  modelul  𝐻
+1
+:  α≠0 ; β≠0este  valid  statistic)  Deoarece  (2,228)  pentru  fiecare  dintre  cei  2  parametri   respingem  H
+0
+ acceptăm  H
+1
+ parametrii  α,β  sunt  semnificativi  statistic  la  pragul  de  semnificaţie  de  5%.  Acest  lucru  este  întărit  și  de  valorile  foarte  mici  ale  lui  Prob.  pentru  fiecare  parametru  al  
+modelului(0,0000).
+  Testarea  validității  modelului:   Pentru  testarea  validității  modelului  de  regresie,  ipotezele  sunt:  :  modelul  nu  este  valid  statistic  (MSR=MSE)  𝐻
+0
+:  modelul  este  valid  statistic  (MSR>MSE)  𝐻
+1
+ 
+
+
+ 
+Putem  afirma  cu  siguranță  că  modelul  este  semnificativ  statistic  în  urma  testului  F  
+(F-statistic
+ 
+=
+ 
+78.399984
+ 
+>
+ 
+F
+ 
+critic
+ 
+(
+ 
+F
+tabelat
+=F
+critic
+=F
+α;1;
+n-2
+=F
+0,05;1;10
+=4,9646),
+ 
+deci
+ 
+se
+ 
+respinge
+ ipoteza   și  se  acceptă  ),  fiind  valid  pentru  un  nivel  de  semnificație  Prob.  𝐻
+0
+𝐻
+1
+(F-statistic)=0,000005,  mai  mic  față  de  5%.   Verificarea  îndeplinirii  ipotezelor  modelului  de  regresie  liniară  simplă  
+1.  Forma  funcţională  este  liniară :    2.  Homoscedasticitatea  erorilor  aleatoare   Erorile  sunt  heteroscedastice  dacă  au  dispersii  diferite:  
+ .   Pentru  a  observa  homoscedasticitatea  erorilor  aleatoare  aplicam  urmatoarele  teste:  Testul  WHITE    
+ 
+Testul  se  aplică  pentru  următoarele   ipoteze:  :  există  homoscedasticitate  𝐻
+0
+:  există  heteroscedasticitate.  𝐻
+1
+ Obținem  că  Prob.  F  pentru  statisticile  calculate  este  mai  mare  de  5%,  respectiv  0,091844,  astfel  există  o  probabilitate  foarte  mare  de  a  greși  în  respingerea  lui  ,  deci  𝐻
+0
+acceptăm   ,  conform  căreia  erorile  aleatoare  sunt  homoscedasticitate.  𝐻
+0
+ 
+ 
+ 
+
+
+ 
+            Testul  GLEJSER   
+                             Testul  se  aplică  pentru  următoarele   ipoteze:   :    (există  homoscedasticitate)  𝐻
+0
+β = 0 :   (există  heteroscedasticitate)  𝐻
+1
+β≠0  Din  figura  de  mai  sus  rezultă  că  avem  coeficientul  parametrului-pantă  nesemnificativ  
+statistic,
+ 
+probabilitatea
+ 
+acestuia
+ 
+fiind
+ 
+mai
+ 
+mare
+ 
+de
+ 
+5%
+ 
+(0,5620),
+ 
+deci
+  
+acceptăm
+ 
+ipoteza
+ 
+nula,
+ 
+erorile
+ 
+aleatoare
+ 
+fiind
+ 
+homoscedastice.
+  
+ 
+ 
+ 
+
+
+ 
+ 
+           Testul  PARK   
+ 
+                            Testul  se  aplică  pentru  următoarele   ipoteze:    H
+0
+:  β=0  (  Există  homoscedasticitate  )    H
+1
+:  β≠0  (  Există   heteroscedasticitate  )       β=  48,61781     Valoarea  lui  t
+calculat
+ 
+este  0.8084.      Valoarea  lui  t
+critic
+ este   2,228     t
+calculat
+ <  t
+critic
+ ceea  ce  înseamnă  că  acceptăm  H
+0
+ 
+erorile  sunt  homoscedastice.     Aşa  cum  am  putut  observa  în  urma  aplicării  celor  trei  teste  diferite,  putem  concluziona  
+că
+ 
+erorile
+ 
+sunt
+ 
+homoscedastice.
+ 3.Neautocorelarea  erorilor  aleatoare   Testul  Durbin-Watson   
+ 
+
+
+ 
+Folosim  statistica  Durbin-Watson  cu  ipotezele:  :  ρ  =0  (nu  există  autocorelarea  erorilor  aleatoare  de  ordinul  I)  𝐻
+0
+:  ρ  ≠0  (există  autocorelarea  erorilor  aleatoare  de  ordinul  I)  𝐻
+1
+ Se  obține  DW  =  1,6064  pentru  modelul  analizat.   Valorile  critice  ale  statisticii  DW  sunt  d1=0,97  și  d2=1,33.  Având  în  vedere  că  DW  calculat  se  află  în  intervalul  (d2,4-  d2),  rezultă  că  nu  există   
+autocorelarea
+ 
+erorilor.
+     4.Normalitatea  distribuției  erorilor  aleatoare  și  media  acestora   Pentru  testarea  ipotezei  de  normalitate  a  erorilor  aleatoare  se  va  folosi  testul  Jarque-Bera,  
+cu
+ 
+ipotezele:
+ :  erorile  aleatoare  au  distribuție  normală  𝐻
+0
+:  erorile  aleatoare  nu  au  distribuția  normală.  𝐻
+1
+             Probabilitatea  asociată  acestui  test  este  de  0,5419  care  tinde  spre  1,  deci  se  va  accepta  
+ipoteza
+ 
+H0,
+ 
+erorile
+ 
+aleatoare
+ 
+având
+ 
+distribuție
+ 
+normală.
+ 
+Se
+ 
+observă
+ 
+că
+ 
+media
+ 
+erorilor
+ 
+aleatoare
+ 
+este
+ 
+-1,48e-15,
+ 
+fiind
+ 
+foarte
+ 
+aproape
+ 
+de
+ 
+zero.
+ 
+  
+Verificarea  intensităţii  legăturii  şi  testarea  semnificaţiei  coeficientului  de  corelaţie  liniară   Pentru  măsurarea  intensităţii  legaturii  dintre  cele  două  variabile  alese  ne  vom  folosi  de  
+coeficientul
+ 
+de
+ 
+corelaţie
+ 
+liniară
+ 
+Pearson.
+ 
+Valoarea
+ 
+acestuia
+ 
+a
+ 
+fost
+ 
+calculată
+ 
+în
+ 
+Eviews
+ 
+cat
+ 
+si
+ 
+in
+ 
+ 
+
+
+ 
+Excel  si  este  de    ,  ceea  ce  înseamnă  că  între  cele  două  variabile  există  o  legătură  0 , 94121directă,  foarte  puternică.  Vom  testa  în  continuare  semnificaţia  coeficientului  de  corelaţie  
+liniară
+ 
+folosind
+ 
+testul
+ 
+t.
+ 
+1)  Testarea  seminficatiei  coeficientului  de  corelatie  liniara  (testul  t)    H
+0
+:  r
+xy
+ 
+=0  (  r
+xy
+ nu  e  semnificativ  statistic  )     H
+1
+:  r
+xy
+≠0  (   r
+xy
+  e  semnificativ  statistic  )  
+  =-27,334   
+  t
+critic
+=  2,228    Deoarece  |t
+calculat
+|>  t
+critic
+ 
+acceptăm  ipoteza  alternativă  conform  căreia  coeficientul  de  
+corelație
+ 
+liniară
+ 
+Pearson
+ 
+este
+ 
+semnificativ
+ 
+din
+ 
+punct
+ 
+de
+ 
+vedere
+ 
+statistic.
+   Vom  testa  în  continuare  semnificaţia  raportului  de  corelaţie  R.    H
+0
+:  R=0  (  Modelul  nu  e  corect  specificat  )   H
+1
+:  R>0  (  Modelul  e  corect  specificat  )   F
+calculat
+=  78,3998   F
+critic
+=  4.96460270    Deoarece  F
+calculat
+>F
+critic
+ 
+acceptăm  ipoteza  alternativă  conform  căreia  modelul  e  corect  
+specificat.
+  
+  
+Previziuni  pe  baza  modelului  de  regresie  liniară  multiplă  estimat  
+În  cele  din  urmă  vom  realiza  o  previziune  pentru  următorul  an  a  variabilei  dependente  
+y-rata
+ 
+medie
+ 
+a
+ 
+fertilitatii
+ 
+în
+ 
+ipoteza
+ 
+în
+ 
+care
+ 
+speranța
+ 
+de
+ 
+viață
+ 
+va
+ 
+crește,
+ 
+ajungând
+ 
+la
+ 
+85
+ 
+de
+ 
+ani.
+ 
+ 
+
+
+ 
+ 
+ Ultima  valoare  înregistrată  a  lui  X  este  83,6.  Dacă  X  creşte  atunci  fixam  x
+0
+=  85.   În  această  ipoteză  valoarea  previzionată  va  fi:  
+  De  asemenea,  cu  o  probabilitate  de  95%  putem  garanta  ca  in  anul  2014,  rata  fertilitatii  
+se
+ 
+va
+ 
+incadra
+ 
+in
+ 
+intervalul
+ 
+[2,16299;
+ 
+2,16751]
+ 
+  
+ 
+1.3  Concluzii   În  urma  prelucrărilor  efectuate  asupra  datelor  s-au  obținut  un  model  econometric  de  
+regresie
+ 
+liniară
+ 
+cu
+ 
+o
+ 
+bonitate
+ 
+ridicată
+ 
+care
+ 
+reușește
+ 
+să
+ 
+surprindă
+ 
+modul
+ 
+în
+ 
+care
+ 
+speranța
+ 
+de
+ 
+viață
+ 
+a
+ 
+populației
+ 
+reuşeşte
+ 
+sa
+ 
+influenţeze
+ 
+variția
+ 
+ratei
+ 
+fertilității.
+ 
+ 
+Modelul  unifactorial  rezultat  în  urma  estimării  este:  
+ 𝑅𝑎𝑡𝑎𝐹𝑒𝑟𝑡𝑖𝑙𝑖𝑡𝑎𝑡𝑒 =  − 15 , 9456 + 0 , 2139 * 𝑆𝑝𝑒𝑟𝑎𝑛 ț 𝑎𝐷𝑒𝑉𝑖𝑎 ță 𝐹𝑒𝑚𝑒𝑖
+Cu  ajutorul  utilitarului  Eviews  am  estimat  modelul  de  mai  sus,  obţinând  următoarele  
+concluzii
+ 
+finale:
+ 
+ 
+
+
+ 
+Raportul  de  determinare  conﬁrmă  faptul  că  speranța  de  viață  este  un  factor  care  
+influenţează
+ 
+evoluția
+ 
+ratei
+ 
+fertilității,
+ 
+aceasta
+ 
+inﬂuenţând
+ 
+variaţia
+ 
+ratei
+ 
+fertilității
+ 
+în
+ 
+proporţie
+ 
+de
+ 40,15%.(nu  stiu  de  unde  sa  luam  valoarea  asta) 
+Cu  o  probabilitate  de  95%,  utilizând  statistica  t  se  poate  aprecia  că  ipoteza  
+semniﬁcaţiei
+ 
+de
+ 
+corelaţie
+ 
+se
+ 
+veriﬁcă
+ 
+şi
+ 
+între
+ 
+variabilele
+ 
+cercetate
+ 
+există
+ 
+o
+ 
+legatură
+ semniﬁcativă,  deci   este  semniﬁcativ  statistic  şi  modelul  de  analiză  este  corect  speciﬁcat.  𝑟
+𝑦
+/
+𝑥
+Între  valoarea  ratei  fertilității  şi  cea  a  speranței  de  viațp  la  femei  înregistrate  în  anii  
+2001
+ 
+–
+ 
+2012
+ 
+există
+ 
+o
+ 
+relaţie
+ 
+directă
+ 
+semniﬁcativă.
+ 
+Se
+ 
+poate
+ 
+aﬁrma
+ 
+că
+ 
+o
+ 
+creştere
+ 
+cu
+ 
+o
+ 
+unitate(1
+ 
+an)a
+  
+speranței
+ 
+de
+ 
+viață
+ 
+va
+ 
+conduce,
+ 
+în
+ 
+medie,
+  
+,
+ 
+cu
+ 
+0.2139
+ 
+unităţi(
+ 
+născuți
+ 
+vii
+ 
+în
+ 
+medie/femeie),
+ 
+menţinând
+ 
+celelalte
+ 
+condiţii
+ 
+constante.
+  
+ 
+                      
+APLICAȚIA  2:  
+Model  de  regresie  multipla  
+ 
+1.1.  Literature  review   
+ 
+
+ 
+În  cadrul  aplicației  numărul  doi  am  ales  să  studiem  influenţa  indicatorului  „speranţa  de  
+viaţă”,
+ 
+măsurată
+ 
+în
+ 
+ani
+ 
+şi
+ 
+a
+ 
+indicatorului
+ 
+„venit”
+ 
+asupra
+ 
+indicatorului
+ 
+”fertilitate”.
+ 
+Acest
+ 
+model
+ 
+economic
+ 
+a
+ 
+fost
+ 
+constituit
+ 
+pe
+ 
+Suedia,
+ 
+între
+ 
+anii
+  
+2001
+ 
+–
+ 
+2012.
+ 
+1.2.Metodologia  cercetării   
+În  cadrul  prezentului  studiu  de  caz,  vom  utiliza  o  multitudine  de  teste  și  criterii  statistice  
+precum:
+ 
+●  Criteriul  lui  Klein   ●  Testul  Durbin-Watson  ●  Testul  White  ●  Testul  Glesjer  ●  Testul  Park  ●  Testul   Jarque-Bera  ●  Testul  Fisher  ●  Testul  t  
+ 
+ 
+2.1.  Date  utilizate   
+Pentru  a  studia  influenţa  indicatorului  „speranţa  de  viaţă”,  măsurată  în  ani  şi  a  indicatorului  
+„venit”
+ 
+asupra
+ 
+indicatorului
+ 
+”fertilitate”,
+ 
+am
+ 
+utilizat
+ 
+câte
+ 
+un
+ 
+eșantion
+ 
+de
+ 
+32
+ 
+de
+ 
+înregistrări
+ 
+pentru
+ 
+cei
+ 
+3
+ 
+indicatori.
+  
+ 
+Informațiile  au  fost  procurate  de  pe  site-uri  de  specialitate  ca:    
+●  http://epp.eurostat.ec.europa.eu/ ●  http://databank.worldbank.org/  
+2.2.Rezultatele  empirice  ale  cercetarii   
+Pentru  determinarea  validităţii  acestui  model  folosim  modelul  liniar  cu  două  variabile  
+explicative:
+ 
+.  
+Astfel   variabila  Y  este  fertilitatea,  X1  speranţa  de  viaţă  si  X2  venitul;  
+ 
+
+
+ 
+ 
+După  cum  puteţi  observa:  Y  =  0.16  *  X1  +  2.42*  X2  –  12.46  
+Interpretarea  coeficienţilor   β
+0
+,   β
+1
+,   β
+2
+;
+Parametrul  de  interpretare,  ,  reprezintă  valoarea  variabilei  dependente  atunci  când   β
+0
+varilabilele  independente  sunt  egale  cu  zero;  
+Coeficientul  panta   respectiv   măsoară  modificarea,  în  medie,  a  variabilei  Y  atunci  cand  β
+1
+β
+2
+variabila  X1  respectiv  X2  se  modifică  cu  o  unitate.  Mai  departe,  urmărind  acest  output,   ce  
+are  o  valoare  de  0.16  ne  arată  că  atunci  când  speranţa  de  viaţă  creste  cu  o  unitate  fertilitatea  
+creste  cu  0.16%.  Analizand  valoarea  lui  ,  de  2.42   putem  trage  concluzia  că  o  creştere  cu  o  
+unitate
+ 
+a
+ 
+venitului,
+ 
+fertilitatea
+ 
+creşte
+ 
+cu
+ 
+2.42
+ 
+%.
+  
+Verificarea  ipotezei  de  necorelare  a  variabilelor  explicative   
+ 
+Criteriul  lui  Klein   
+ 
+
+
+ 
+La  primul  pas  reţinem  coeficientul  de  determinaţie  R
+ 2
+ din  modelul  de  regresie  estimat,  ce  are  
+o
+ 
+valoare
+ 
+de
+ 
+0.292542.
+ 
+ 
+La  următorul  pas  estimăm  o  nouă  ecuaţie   de  regresie  şi  reţinem  coeficientul  de  determinaţie  
+R
+2
+.
+ 
+ 
+La  pasul  trei  din  acest  output  observăm  ca  R
+ 2
+ =0.647338  este  mai  mare  decat  primul  
+coeficient,
+ 
+de
+ 
+unde
+ 
+tragem
+ 
+concluzia
+ 
+că
+ 
+există
+ 
+multicoliniaritate
+ 
+în
+ 
+date.
+ 
+Verificarea  ipotezei  de  nonautocorelare  a  reziduurilor   
+Testul  Durbin-Watson  
+In  cadrul  acestui  test  se  estimează  parametrii  modelului  de  regresie  prin  metoda  celor  mai  
+mici
+ 
+pătrate
+ 
+Testam  ipotezele:  
+ (nu  există  autocorelarea  erorilor)  
+ (există  autocorelarea  erorilor).  
+ 
+
+
+ 
+Se  preia  indicatorul  Durbin-Watson,  ce  are  o  valoare  de  2.071008  şi  se  compara  cu  valorile  
+tabelare
+ 
+ale
+ 
+acestui
+ 
+indicator.
+ 
+Se
+ 
+constata
+ 
+ca
+ 
+in
+ 
+urma
+ 
+comparatiei
+ 
+dintre
+ 
+valoarea
+ 
+statistică
+ 
+cu
+ cea  tabelară  că   reziduurile  sunt  independente.  
+Verificarea  ipotezei  de  homoscedasticitate  a  erorilor    
+Testul  White  
+Pentru  a  implementa  acest  test  folosim  ipotezele:  
+ (nu  există  heteroscedasticitate,  ci  există  homoscedasticitate)  
+ (există  heteroscedasticitate)   
+ 
+ 
+ 
+
+
+ 
+Obținem  că  Prob.  F  pentru  statisticile  calculate  este  mai  mare  de  5%,  respectiv  0,206189,  astfel  există  o  probabilitate  foarte  mare  de  a  greși  în  respingerea  lui  ,  deci  𝐻
+0
+acceptăm   ,  conform  căreia  erorile  aleatoare  sunt  homoscedasticitate.  𝐻
+0
+ 
+Testul  Glesjer  
+Ipotezele  testului  sunt:  
+H
+0
+:   (există  homoscedasticitate  sau,  nu  există  heteroscedasticitate)   
+H
+1
+:   (există  heteroscedasticitate  sau,  nu  există  homoscedasticitate)   
+ 
+ 
+ 
+
+
+ 
+ 
+Din  figura  de  mai  sus  rezultă  că  avem  coeficientul  parametrului-pantă  nesemnificativ  
+statistic,
+ 
+probabilitatea
+ 
+acestuia
+ 
+fiind
+ 
+mai
+ 
+mare
+ 
+de
+ 
+5%
+ 
+(0,683319),
+ 
+deci
+  
+acceptăm
+ 
+ipoteza
+ 
+nula,
+ 
+erorile
+ 
+aleatoare
+ 
+fiind
+ 
+homoscedastice.
+     Testul  Park  
+ 
+Ecuatia  de  regresie  obţinută  este:  =  627.7505  +  10.82748*VENIT  –  168.1593*SV  Stabilirea  ipotezelor:   H
+0
+:  β
+1
+=0  si  β
+2
+=0  (  Există  homoscedasticitate)  H
+1
+:  β
+1
+≠0  si  β
+2
+≠0  (  Există   heteroscedasticitate  )  Valorile  parametrilor:  β
+1
+=  -168.1593  si  β=10.82748  Valoarea  lui  t
+calculat
+ 
+1
+ 
+este  =  -1.17  si  pentru  t
+calculat
+ 
+2
+=1.22  Valoarea  lui  t
+critic
+ este  :   2.179  Observăm  că  |  t
+calculat
+ 
+i
+ 
+|  <   t
+critic
+.  În  acest  caz  acceptăm  ipoteza  nulă  conform  căreia  erorile  sunt  
+homoscedastice,
+ 
+și
+ 
+respingem
+ 
+ipoteza
+ 
+alternativă.
+ Cum  în  două  din  trei  cazuri  am  obţinut  homoschedasticitate  în  date  rezultă  că  ipoteza  de  
+homoschedasticitate
+ 
+este
+ 
+respectată.
+ 
+ 
+
+
+ 
+  
+Verificarea  ipotezei  de  normalitate  a  erorilor  aleatoare   In  cazul  testării  normalităţii  erorilor  folosim  testul   Jarque-Bera.         Se  testează  ipotezele:  H
+0
+:  Erorile  au  o  distribuţie  normală  H
+1
+:  Erorile  nu  au  o  distribuţie  normală    
+  Observăm  ca  probabilitatea  e  mai  mare  de  0.05  ceea  ce  rezultă  că  alegem  ipoteza  nulă  
+conform
+ 
+căreia
+ 
+erorile
+ 
+au
+ 
+o
+ 
+distribuție
+ 
+normală.
+ 
+ 
+Testare  validitate  model  de  regresie    Folosim  Testul  Fisher:  a)  Avem  ipotezele:  H
+0
+:  modelul  nu  este  valid  statistic  (MSR=MSE)  H
+1
+:  modelul  este  valid  statistic  (MSR>MSE)   
+ 
+
+
+ 
+  b)  :F
+calculat
+=  4.506182.  c)  Din  tabela  repartiției  avem  F
+α;1;
+n-2
+=F
+0,05;1;10
+=4.35.   d)  Cum  F
+calculat
+ 
+>F
+critic
+ 
+=>  Respingem  ipoteza  nulă  H
+0
+ conform  careia  modelul  nu  este  valid  
+statistic
+ 
+și
+ 
+acceptăm
+ 
+H
+1
+ 
+conform
+ 
+căreia
+ 
+modelul
+ 
+este
+ 
+valid
+ 
+din
+ 
+punct
+ 
+de
+ 
+vedere
+ 
+statistic
+ 
+pentru
+ 
+un
+ 
+prag
+ 
+de
+ 
+semnificație
+ 
+de
+ 
+5%.
+  
+ 
+   Testare  semnificați  a   parametrilor  modelului  de  regresie     Folosim  testul  t:  ●  Avem  ipotezele:  H
+0
+:  β
+0
+=0  (  Parametrul   β
+0
+ 
+nu  este  semnificativ  statistic)         β
+1
+ 
+=0  (  Parametrul  β
+1
+ 
+nu  este  semnificativ  statistic  )         β
+2
+=0  (  Parametrul  β
+2
+ 
+nu  este  semnificativ  statistic  )  H
+1
+:  β
+0
+ ≠0   (  Paramentrul  β
+0
+  
+este  semnificativ  statistic  )         β
+1
+≠0   (  Parametrul  β
+1
+ este  semnificativ  statistic  )         β
+2
+≠0   (  Parametrul  
+ 
+β
+2
+ 
+este  semnificativ  statistic  )  a)  Avem  b
+0
+=  -12.46483  ;  b
+1
+=  0.0164843;   b
+2
+=  2.42.   ,  parametrii  modelului  de  regresie  sunt:    b)  t
+ 1
+calculat
+=  -0.705  ;  t
+ 2
+calculat
+=  0.737;  t
+ 3
+calculat
+=  0.465.  (Din  tabelul  ANOVA,  Excell)  c)  Din  tabelul  repartiției  Student  este  t
+critic
+=  2,2.  d)  Cum  |  t
+ 1
+calculat
+|  <  t
+critic
+ 
+si  |  t
+ 2
+calculat
+ |,  |  t
+ 3
+calculat
+ |<  t
+critic
+.  Pentru  un  nivel  de  semnificatie  de  5%,  toți  
+parametrii
+ 
+nu
+ 
+sunt
+ 
+semnficativi
+ 
+statistic.
+ 
+Intervale  de  încredere  pentru  β
+0,
+ 
+β
+1
+,  β
+2
+               Din  outputul  de  regresie  din  Excel  avem  intervalele  de  încredere:  
+ Cu  un  coeficient  de  incredere  de  95%  putem  afirma  că  intervalul  de  încredere  pentru  
+β
+0
+ 
+este
+ 
+(-30.144<β
+0
+<5.21
+ 
+),
+ 
+Cum
+ 
+intervalul
+ 
+nu
+ 
+contine
+ 
+valoarea
+ 
+0,
+ 
+rezultă
+ 
+că
+ 
+β
+0
+≠0.
+ 
+ 
+ 
+
+
+ 
+Cu  un  coeficient  de  încredere  de  95%  putem  afirma  că  intervalul  de  încredere  pentru  
+β
+1
+ 
+este
+ 
+(-0.05515
+ 
+<
+ 
+β
+1
+<0.3848).
+ 
+Cum
+ 
+intervalul
+ 
+nu
+ 
+conține
+ 
+valoarea
+ 
+0,
+ 
+rezultă
+ 
+că
+ 
+β
+1
+ 
+≠0.
+ 
+ Cu  un  coeficient  de  încredere  de  95%  putem  afirma  că  intervalul  de  încredere  pentru  
+β
+2
+ 
+este
+ 
+(-2.78
+ 
+<
+ 
+β
+2
+ 
+<7.62).
+ 
+Cum
+ 
+intervalul
+ 
+nu
+ 
+conține
+ 
+valoarea
+ 
+0,
+ 
+rezultă
+ 
+că
+ 
+β
+2
+ 
+≠0.
+ 
+A
+  
+Indicatori  de  bonitate   Pentru  aflarea  calității  ajustării  ,calculăm  indicatorii  de  bonitate:  a)  Coeficientul  de  determinație         R
+ 2
+=  R-squared  =SSR/SST  =0.292542= >  venitului   și  speranța  de  viață  explică  
+aproximativ
+ 
+29.25%.
+ 
+din
+ 
+variația
+ 
+fertilității.
+ b)  Coeficientul   de   nedeterminație   K
+ 2
+=  1-  R
+ 2
+=  0.707458  =>  acțiunea  altor  factori  neincluși  în  model  și  cuprinși  în  eroare  explică  
+aproximativ
+ 
+70.75%
+ 
+din
+ 
+variația
+ 
+fertilității.
+ c)  Coeficientul  de  determinatie  ajustat        Adjusted  R-squared=  0.135329.  Arată  mai  corect  legătura  dintre  fertiliate,  venit,  speranța  
+de
+ 
+viață.Rezultă
+ 
+că
+ 
+aproximativ
+ 
+13.53%
+ 
+din
+ 
+variația
+ 
+fertilității
+ 
+este
+ 
+explicată
+ 
+de
+ 
+variația
+ 
+ratei
+ 
+șomajului
+ 
+și
+ 
+speranța
+ 
+de
+ 
+viață
+ d)  Raportul  de  corelație   R=  Multiple  R=  0.540871.  Indică  faptul  că  între  cele  două  variabile  exista  o  legatura  oarecum  
+puternica.
+  
+ 
+Testare  semnificație  a   raportului  de  corelație       Folosim  testul  Fisher:   a)  Avem  ipotezele>   H
+0
+:  R=0  (  Modelul  nu  e  corect  specificat  )  H
+1
+:  R>0  (  Modelul  e  corect  specificat  )  b)  Din  tabela  Anova  avem  :  F
+calculat
+=  4.506.  c)  Din  tabela  repartiției  Fisher  avem:  F
+critic
+=  4.35.  d)  Cum  F
+calculat
+>F
+critic
+ 
+=>  Respingem  ipoteza  nula  H
+0
+ si  acceptăm  ipoteza  alternativa  H
+1
+.
+ 
+Astfel,  am  
+arătat
+ 
+că,
+ 
+pentru
+ 
+un
+ 
+prag
+ 
+de
+ 
+semnificatie
+ 
+de
+ 
+5%,
+  
+modelul
+ 
+este
+ 
+valid
+ 
+din
+ 
+punct
+ 
+de
+ 
+vedere
+ 
+statistic
+ 
+.
+ 
+ 
+
+ 
+3  Concluzii   În  urma  prelucrărilor  efectuate  asupra  datelor  s-au  obținut  un  model  econometric  de  
+regresie
+ 
+liniară
+ 
+cu
+ 
+o
+ 
+bonitate
+ 
+ridicată
+ 
+care
+ 
+reușește
+ 
+să
+ 
+surprindă
+ 
+modul
+ 
+în
+ 
+care
+ 
+speranța
+ 
+de
+ 
+viață
+ 
+a
+ 
+populației
+  
+si
+ 
+venitul
+ 
+reuşesc
+ 
+sa
+ 
+influenţeze
+ 
+variția
+ 
+ratei
+ 
+fertilității.
+ 
+  Modelul  unifactorial  rezultat  în  urma  estimării  este:   𝑅𝑎𝑡𝑎𝐹𝑒𝑟𝑡𝑖𝑙𝑖𝑡𝑎𝑡𝑒 =  − 12 . 46489 + 0 , 164843 * 𝑆𝑝𝑒𝑟𝑎𝑛 ț 𝑎𝐷𝑒𝑉𝑖𝑎 ță 𝐹𝑒𝑚𝑒𝑖 + 2 . 42 * 𝑉𝑒𝑛𝑖𝑡
+ Cu  ajutorul  utilitarului  Eviews  am  estimat  modelul  de  mai  sus,  obţinând  următoarele  
+concluzii
+ 
+finale:
+ Raportul  de  determinare  conﬁrmă  faptul  că  speranța  de  viață  si  venitul  sunt  factori  care  
+influenţează
+ 
+evoluția
+ 
+ratei
+ 
+fertilității,
+ 
+aceasta
+ 
+inﬂuenţând
+ 
+variaţia
+ 
+ratei
+ 
+fertilității
+ 
+în
+ 
+proporţie
+ 
+de
+ 
+ Cu  o  probabilitate  de  95%,  utilizând  statistica  t  se  poate  aprecia  că  ipoteza  
+semniﬁcaţiei
+ 
+de
+ 
+corelaţie
+ 
+se
+ 
+veriﬁcă
+ 
+şi
+ 
+între
+ 
+variabilele
+ 
+cercetate
+ 
+există
+ 
+o
+ 
+legatură
+ semniﬁcativă,  deci   este  semniﬁcativ  statistic  şi  modelul  de  analiză  este  corect  speciﬁcat.  𝑟
+𝑦
+/
+𝑥
+Între  valoarea  ratei  fertilității  şi  cea  a  speranței  de  viața  si  venit  la  femei  înregistrate  în  
+anii
+ 
+2001
+ 
+–
+ 
+2012
+ 
+există
+ 
+o
+ 
+relaţie
+ 
+directă.
+                           
+ 
+
+ 
+  
+Bibliografie:   
+●  http://epp.eurostat.ec.europa.eu/ ●  http://databank.worldbank.org/ ●  h t t p : / / w i k i p e d i a . c o m  ●  h t t p : / / w a l l s t r e e t . r o  ●  https://people.richland.edu/james/lecture/m170/tbl-t.html  
+ 
+
+--- END OF FILE: Exemplu Proiect Econometrie.docx.pdf ---
+
+--- START OF FILE: Proiect_Econometrie_Bold_Andrei_Cătălin.pdf ---
+
+ACADEMIA DE STUDII ECONOMICE DIN BUCUREȘTI, 
+FACULTATEA DE CIBERNETICĂ, STATISTICĂ ȘI 
+INFORMATICĂ ECONOMICĂ 
+   
+ 
+ 
+ 
+ 
+ 
+        PROIECT ECONOMETRIE  
+Analiza influenței variabilelor “PIB” și “Rata Șomajului” asupra 
+“Emigrației populației în UE” 
+ 
+ 
+ 
+ 
+PROF. COORDONATOR:            STUDENT: 
+Conf. univ. dr. SPĂTARU SILVIA                          Bold Andrei Cătălin 
+                           Grupa 1085, Seria D  
+ 
+ 
+București, 2019 
+
+1. Prezentarea problemei 
+ 
+În cele ce urmează, voi analiza ce impact au PIB-ul si rata șomajului asupra emigrației în 30 de 
+țări europene. 
+Y – Emigrația, exprimată în număr persoane 
+X1 – Produsul intern brut (PIB), exprimat în milioane euro 
+X2 – Rata șomajului, exprimată în procente 
+Datele au fost înregistrate în anul 2018, acesta fiind ultimul an disponibil pentru datele privind 
+emigrația. Toate datele analizate sunt preluate de pe Eurostat, și anume: emigrația, produsul intern 
+brut și rata șomajului. 
+Grupare Excel 
+ 
+
+
+Grupare Eviews 
+ 
+Surse: 
+ http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=migr_emi1ctz&lang=en, 
+http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=namq_10_gdp&lang=en, 
+http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=une_rt_a&lang=en 
+ 
+2.  Definirea modelului de regresie 
+Pentru estimarea modelului multifactorial de regresie, variabilele luate în considerare sunt 
+Emigrația persoanelor (Y), Produsul Intern Brut(X1) și Rata Șomajului(X2). 
+ 
+Ŷ = β0 + β1 * X1 + β2 * X2 
+
+
+Ŷ = 10078.51 + 0.57 * X1 + 259629.32 * X2 
+ 
+3.  Estimarea parametrilor modelului prin metoda celor mai mici pătrate 
+Output în Excel 
+ 
+Output în Eviews 
+ 
+
+
+ 
+ 
+a) Interpretarea economică a parametrilor pantă exprimați 
+β0 = 10078.51. Atunci când PIB și rata șomajului nu sunt semnificativ diferite de 0, numărul de 
+emigranți este de aproximativ 20078 persoane. 
+β1 = 0.57. Atunci când PIB creste cu o unitate, numărul de emigranți va crește cu 0.57. Acest 
+parametru masoară panta dreptei de regresie. 
+β2 = 259629.32. Atunci cand rata șomajului crește cu un procent, numărul de emigranți va crește 
+cu aproximativ 259629 persoane. 
+ 
+b) Testarea semnificației parametrilor pantă 
+Formulam ipotezele: 
+β0 : 
+H0: β0 = 0 (parametrul nu este semnificativ statistic) 
+H1: β0 ≠ 0 (parametrul este semnificativ statistic) 
+ -tcalc  = -0.41 > tcritic = -2.051 =>Se accepta H0, se respinge H1 => β0  nu este semnificativ 
+diferit de 0. Acest lucru se poate observa si din faptul ca limita inferioara (Lower = -40019.81153) 
+si limita superioara (Upper = 60176.83253) au semne diferite. 
+ 
+β1 : 
+H0: β1 = 0 (parametrul nu este semnificativ statistic) 
+H1: β1 ≠ 0 (parametrul este semnificativ statistic) 
+ -tcalc  = -9.92 < tcritic = -2.051 => Se respinge H0, Se accepta H1 => β1  este semnificativ 
+diferit de 0 (respingem ipoteza nula si acceptam ipoteza alternativa). Acest lucru se poate observa 
+si din faptul ca limita inferioara (Lower =  0.4567133952) si limita superioara (Upper = 
+0.6927489244) au acelasi semn. 
+ 
+β2 : 
+H0: β2 = 0 (parametrul nu este semnificativ statistic) 
+H1: β2 ≠ 0 (parametrul este semnificativ statistic) 
+ tcalc  = 0.79 < tcritic = 2.051 => Se accepta H0, se respinge H1=> β2  nu este semnificativ 
+diferit de 0. Acest lucru se poate observa si din faptul ca limita inferioara (Lower =  -
+411994.54337) si limita superioara (Upper = 931253.20273) au semne diferite. 
+
+ 
+ttabelat=tα/2;n-k-1=tα/2;n-2=t0.025;27= -2.051. Pentru a determina valoarea tabelară a lui t critic am folosit 
+funcția din Excel T.INV(0.025,27) 
+ 
+c) Testarea validității modelului de regresie 
+Formulam ipotezele: 
+H0 : Modelul nu este valid statistic 
+H1 : Modelul este valid statistic 
+ 
+Fcritic = Fα;k;n-k-1= 3.354. Pentru a determina valoarea tabelară a lui Fcritic am folosit funcția din Excel 
+F.INV.RT(0.05,2,27) 
+Fcalculat > F 0.05 ; 2 ; 27 
+29.06 > 3.354 
+Respingem ipoteza nula și acceptăm ipoteza alternativa => modelul este valid statistic. 
+Significance F este 6.86*10-5 , fiind mai mic decât pragul de semnificaţie 
+ 05,0 , de unde se 
+trage aceeasi concluzie de mai sus: modelul este valid statistic. 
+ 
+4)  Verificarea ipotezelor clasice formulate asupra modelului de regresie liniară 
+ 
+a) Verificarea normalității erorilor (testul Jarque-Bera) 
+Testele de normalitate verifica daca seria de date este distribuita normal. Aceasta severifica prin 
+intermediul notiunilor simetrie, si aplatizare. 
+Simetria (skewness): proprietatea unei distributii de a fi egal despartita de catremediana. Simetria 
+se masoara prin intermediul coeficientului skewness.  
+Aplatizarea (kurtosis): indica gradul de aplatizare al repartitiei, si poate fimezocurtica, leptocurtica 
+sau platicurtica. 
+ 
+ 
+ 
+ 
+ 
+
+ 
+𝑯𝟎: reziduurile au distributie normal (S=0, K=3) 
+𝑯𝟏: reziduurile nu au distributie normal 
+ 
+Statistica Jarque-Bera = 19.38075 
+Probability (JB) = 0.000062 
+Deoarece probabilitatea asociată  statisticii JB < 0.05, acceptam 𝐻1 și respingem H0=> 
+Reziduurile nu au distributie normală. 
+ 
+        b) Verificarea ipotezei de necorelare a erorilor (DW şi BG) 
+ 
+Testul Darbin-Watson 
+
+
+ 
+𝑦𝑡 = 𝛽0 + 𝛽1𝑥1𝑡 + 𝛽2𝑥2𝑡+ 𝜀𝑡, t = 1,2̅̅̅̅ 
+ 
+𝑌𝑡̂    = 10078.51 + 0.5747*𝑋1𝑡         +          259629.3*𝑋2𝑡 
+Se  = (24416.40)  (0.057518)          +          (327329.1) 
+t  = [0.412776]  [9.992148]          +           [0.793175] 
+p  = (0.6830)  (0.0000)              +           (0.4346) 
+ 
+𝑅2=0.790474 
+R=0.889086 
+F=50.931 
+DW=2.0427 
+Pentru ∝ = 5%, n=30, k=2 dL și dU 1.28 respectiv 1.57 
+ 
+Ipoteze: 
+𝐻0: 𝜌 = 0 (∄ 𝑎𝑢𝑡𝑜𝑐𝑜𝑟𝑒𝑙𝑎𝑟𝑒) 
+
+
+𝐻1: 𝜌 ≠ 0 (∃ 𝑎𝑢𝑡𝑜𝑐𝑜𝑟𝑒𝑙𝑎𝑟𝑒 𝑑𝑒 𝑜𝑟𝑑𝑖𝑛𝑢𝑙 𝐼) 
+ 
+Reguli de decizie: 
+ Dacă 0 ≤ DW ≤ d1, seria reziduurilor prezintă autocorelare de ordinul 1 pozitivă ⇒ ρ > 0. 
+ Dacă d1 < DW < d2 ⇒indecizie. Se recomandă acceptarea autocorelării pozitive. 
+ Dacă d2 ≤ DW ≤ 4 − d2 ⇒ reziduurile sunt independente 
+ Dacă 4 − d2 < DW < 4 − d1 ⇒indecizie. Se recomandă acceptarea autocorelării negative 
+ Dacă 4 − d1 ≤ DW ≤ 4, seria reziduurilor prezintă autocorelare de ordinul 1 negativă ⇒ ρ < 0. 
+ 
+ 
+ 1.57 < 2.0427 < 4 – 1.57 (d2  ≤  DW  ≤  4 – d2) 
+ 
+Pentru că DW= 2.0427 și aparține intervalului [d2;4-d2],  reziduurile sunt independente, nu 
+exista autocorelare și înseamnă că respingem ipoteza 𝐻1. și acceptăm ipoteza 𝐻0. 
+ 
+Testul Breusch-Godfrey 
+ 
+
+
+ 
+H0: nu există Autocorelarea de oridin r a erorilor aleatoare 
+H1: există Autocorelarea de ordin r a erorilor aleatoare 
+ 
+F-statistic = 0.013309 
+Prob. F (2,25) = 0.9868 > ∝ = 5%=0.05   
+ respingem H1 și acceptăm H0, ceea ce înseamnă că nu există autocorelare de ordin I 
+ 
+c)Verificarea ipotezei de homoscedasticitate a erorilor (Testul White) 
+ 
+ 
+ 
+ 
+
+
+H0: Erorile aleatoare sunt homoscedastice 
+H1: Erorile aleatoare sunt heteroscedastice 
+Se poate observa că Prob. Chi Square (2) = 0.6223 deci se acceptă ipoteza nulă => 
+Modelul prezinta homoscedasticitate. 
+F stat = 0.48 probabilitate de 0.62, care e > 0.05, deci se ajunge la aceeasi concluzie: se 
+accepta ipoteza nula, erorile fiind homoscedastice. 
+ 
+d) Verificarea ipotezei privind lipsa multicoliniarității variabilelor explicative (Testul 
+Klein) 
+Se foloseste pentru identificarea dependențelor liniare dintre 2 variabile exogene. 
+Variabilele xi, xj  sunt coliniare dacă 𝑅𝑦
+2 < 𝑟𝑥𝑖,𝑥𝑗
+2  
+ 
+𝑅𝑦2 = 0.7904 
+𝑟𝑥𝑖,𝑥𝑗
+2  = 0.7855 
+
+
+Avem 0.7904>0.7855=>  𝑅𝑦2 > 𝑟𝑥𝑖,𝑥𝑗
+2  => nu există multicoliniaritate intre variabilele 
+independente ale modelului 
+ 
+5) Previzionarea valorii variabilei dependente Y pentru anumite valori ale variabilelor 
+explicative. 
+Presupunem că X1 crește cu 5 milioane euro și X2 cu 2%, pentru cazul Norvegiei. 
+X1 = 91,970.5 + 5 = 96,970.5 
+X2 = 3.90% + 2% = 5.90% 
+Y = 10078.51 + 0.57 * 96,970.5 + 259629.32 * 0.059 = 10078.51 + 55273.18 + 1531.81 = 
+66883.5 
+ 
+ 
+6) Concluzii 
+ 
+În urma prelucrărilor efectuate asupra datelor, s-a obținut următorul model econometric: 
+Emigratia = β0 + β1 * PIB + β2 * Rs 
+Parametrul β1 (parametrul panta) este semnificativ statistic 
+Modelul este valid din punct de vedere statistic 
+Se observa ca variabilele x1 si x2 nu sunt autocorelate; 
+
+
+Reiese ca nu exista multicoliniaritate intre variabilele independente ale modelului; 
+Nu avem nimic de corectat in cadrul modelului, avand in vedere ca modelul prezinta 
+homoscedasticitate si ca erorile nu sunt autocorelate intre ele. 
+ 
+Astfel, punctele forte ale modelului sunt: 
+o Se respecta ipotezele de homoscedasticitate si lipsa a autocorelarii erorilor; 
+o Erorile sunt normal distribuite; 
+o Nu exista multicoliniaritate; 
+o R Square are valoarea 0.79. Astfel, 79% din variatia variabilei dependente  este 
+explicate de model. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- END OF FILE: Proiect_Econometrie_Bold_Andrei_Cătălin.pdf ---
+

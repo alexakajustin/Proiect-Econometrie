@@ -1,0 +1,17 @@
+[1] "=== START SCRIPT 01 ==="
+[1] "--- Procesare Fisiere ---"
+[1] "Fisiere citite cu succes."
+[1] "Dimensiuni Master Data: 200 randuri, 7 coloane"
+[1] "--- GENERARE GRAFICE EXPLORATORII ---"
+RStudioGD 
+        2 
+[1] "Salvat: Output/Grafice/01_Histograme_Variabile.png"
+RStudioGD 
+        2 
+[1] "Salvat: Output/Grafice/01_Boxplot_Evolutie_Furturi.png"
+RStudioGD 
+        2 
+[1] "Salvat: Output/Grafice/01_Matrice_Corelatie.png"
+[1] "Salvat: Output/Date/Date_Proiect_Final_Total.xlsx"
+[1] "Salvat: Output/Date/Date_CrossSection_2023.xlsx"
+[1] "=== Script 01 FINALIZAT ==="

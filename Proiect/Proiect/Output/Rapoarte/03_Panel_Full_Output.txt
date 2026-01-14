@@ -1,0 +1,265 @@
+[1] "=== START SCRIPT 03 ==="
+[1] "Date incarcate. Structura Panel:"
+Balanced Panel: n = 40, T = 5, N = 200
+                Tara   An Furturi PIB_per_capita Someri_Mii Imigratie Densitate_Populatie
+Albania-2019 Albania 2019    4833           4850   572.6000  149161.7                99.1
+Albania-2020 Albania 2020    3162           4710   580.3429  120532.3               101.6
+Albania-2021 Albania 2021    3342           5190   572.8571  144156.0               101.0
+Albania-2022 Albania 2022    2458           5500   511.0286  231126.3                98.8
+Albania-2023 Albania 2023    2334           5500   497.4286  203644.1                98.8
+Austria-2019 Austria 2019  115423          45730   220.0000  109167.0               107.6
+             Est_Vest High_Income ln_Furturi    ln_PIB ln_Someri ln_Imigratie ln_Densitate
+Albania-2019        1           0   8.483223  8.486734  6.350187     11.91279     4.596129
+Albania-2020        1           0   8.058960  8.457443  6.363619     11.69968     4.621044
+Albania-2021        1           0   8.114325  8.554489  6.350636     11.87866     4.615121
+Albania-2022        1           0   7.807103  8.612503  6.236426     12.35072     4.593098
+Albania-2023        1           0   7.755339  8.612503  6.209452     12.22413     4.593098
+Austria-2019        0           1  11.656359 10.730510  5.393628     11.60064     4.678421
+             ln_PIB_sq Tara_RO
+Albania-2019  72.02465 Albania
+Albania-2020  71.52835 Albania
+Albania-2021  73.17928 Albania
+Albania-2022  74.17521 Albania
+Albania-2023  74.17521 Albania
+Austria-2019 115.14384 Austria
+[1] "--- MODEL POOLED OLS ---"
+Pooling Model
+
+Call:
+plm(formula = formula_panel, data = pdf, model = "pooling")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-3.81504 -0.40357  0.33293  0.80306  4.58584 
+
+Coefficients:
+              Estimate Std. Error t-value  Pr(>|t|)    
+(Intercept)  -4.810245   1.573763 -3.0565  0.002553 ** 
+ln_PIB        0.721122   0.149354  4.8283 2.777e-06 ***
+ln_Someri     0.621382   0.093032  6.6792 2.446e-10 ***
+ln_Imigratie  0.496355   0.086192  5.7587 3.255e-08 ***
+ln_Densitate -0.208228   0.103708 -2.0078  0.046041 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    840.53
+Residual Sum of Squares: 401.09
+R-Squared:      0.52281
+Adj. R-Squared: 0.51302
+F-statistic: 53.4107 on 4 and 195 DF, p-value: < 2.22e-16
+[1] "--- MODEL FIXED EFFECTS (WITHIN) ---"
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = formula_panel, data = pdf, model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-0.370967 -0.083748 -0.002324  0.072656  0.501982 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)   
+ln_PIB       -0.528530   0.298861 -1.7685  0.07894 . 
+ln_Someri    -0.338689   0.123969 -2.7320  0.00702 **
+ln_Imigratie  0.119971   0.048126  2.4929  0.01372 * 
+ln_Densitate  0.883344   0.503413  1.7547  0.08127 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    4.0233
+Residual Sum of Squares: 3.5613
+R-Squared:      0.11482
+Adj. R-Squared: -0.12917
+F-statistic: 5.05891 on 4 and 156 DF, p-value: 0.00073535
+[1] "--- MODEL RANDOM EFFECTS ---"
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = formula_panel, data = pdf, model = "random")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Effects:
+                  var std.dev share
+idiosyncratic 0.02283 0.15109  0.01
+individual    2.24657 1.49886  0.99
+theta: 0.955
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.5865600 -0.0904984  0.0059292  0.1132449  0.4909238 
+
+Coefficients:
+             Estimate Std. Error z-value Pr(>|z|)    
+(Intercept)  6.588320   2.660157  2.4767 0.013262 *  
+ln_PIB       0.057896   0.245125  0.2362 0.813284    
+ln_Someri    0.097314   0.107581  0.9046 0.365697    
+ln_Imigratie 0.162827   0.046489  3.5025 0.000461 ***
+ln_Densitate 0.202825   0.233544  0.8685 0.385141    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    5.7199
+Residual Sum of Squares: 5.2317
+R-Squared:      0.085363
+Adj. R-Squared: 0.066601
+Chisq: 18.1994 on 4 DF, p-value: 0.0011282
+[1] "--- MODEL TWO-WAYS FE ---"
+Twoways effects Within Model
+
+Call:
+plm(formula = formula_panel, data = pdf, effect = "twoways", 
+    model = "within")
+
+Balanced Panel: n = 40, T = 5, N = 200
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-0.3380098 -0.0585413 -0.0058961  0.0654716  0.4193180 
+
+Coefficients:
+              Estimate Std. Error t-value Pr(>|t|)
+ln_PIB       -0.496458   0.355286 -1.3973   0.1643
+ln_Someri     0.049884   0.123750  0.4031   0.6874
+ln_Imigratie -0.016997   0.053806 -0.3159   0.7525
+ln_Densitate  0.652655   0.445772  1.4641   0.1452
+
+Total Sum of Squares:    2.7127
+Residual Sum of Squares: 2.6205
+R-Squared:      0.034008
+Adj. R-Squared: -0.26469
+F-statistic: 1.33779 on 4 and 152 DF, p-value: 0.25849
+
+==============================================================================================
+                                            Dependent variable:                               
+             ---------------------------------------------------------------------------------
+                                                ln_Furturi                                    
+                     Pooled              Fixed Effects      Random Effects      Two-Ways      
+                       (1)                    (2)                (3)               (4)        
+----------------------------------------------------------------------------------------------
+ln_PIB              0.721***                -0.529*             0.058            -0.496       
+                     (0.149)                (0.299)            (0.245)           (0.355)      
+                                                                                              
+ln_Someri           0.621***               -0.339***            0.097             0.050       
+                     (0.093)                (0.124)            (0.108)           (0.124)      
+                                                                                              
+ln_Imigratie        0.496***                0.120**            0.163***          -0.017       
+                     (0.086)                (0.048)            (0.046)           (0.054)      
+                                                                                              
+ln_Densitate        -0.208**                 0.883*             0.203             0.653       
+                     (0.104)                (0.503)            (0.234)           (0.446)      
+                                                                                              
+Constant            -4.810***                                  6.588**                        
+                     (1.574)                                   (2.660)                        
+                                                                                              
+----------------------------------------------------------------------------------------------
+Observations           200                    200                200               200        
+R2                    0.523                  0.115              0.085             0.034       
+Adjusted R2           0.513                  -0.129             0.067            -0.265       
+F Statistic  53.411*** (df = 4; 195) 5.059*** (df = 4; 156)   18.199***    1.338 (df = 4; 152)
+==============================================================================================
+Note:                                                              *p<0.1; **p<0.05; ***p<0.01
+[1] "--- 4.1 Test F pentru Efecte Fixe (Pooled vs FE) ---"
+
+	F test for individual effects
+
+data:  formula_panel
+F = 446.49, df1 = 39, df2 = 156, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+[1] "--- 4.2 Test Breusch-Pagan SOS (Pooled vs RE) ---"
+
+	Lagrange Multiplier Test - (Breusch-Pagan)
+
+data:  formula_panel
+chisq = 382.65, df = 1, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+[1] "--- 4.3 Test Hausman (FE vs RE) ---"
+
+	Hausman Test
+
+data:  formula_panel
+chisq = 50.217, df = 4, p-value = 3.252e-10
+alternative hypothesis: one model is inconsistent
+
+[1] "--- 4.4 Test pentru Efecte de Timp ---"
+
+	F test for twoways effects
+
+data:  formula_panel
+F = 13.644, df1 = 4, df2 = 152, p-value = 1.578e-09
+alternative hypothesis: significant effects
+
+[1] "--- DIAGNOSTICE PE MODELUL SELECTAT (FE) ---"
+[1] "--- Test Pesaran CD ---"
+
+	Pesaran CD test for cross-sectional dependence in panels
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate
+z = 13.628, p-value < 2.2e-16
+alternative hypothesis: cross-sectional dependence
+
+[1] "--- Test Breusch-Godfrey Panel ---"
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  formula_panel
+chisq = 36.478, df = 5, p-value = 7.621e-07
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+[1] "--- Test Breusch-Pagan Robust ---"
+
+	Breusch-Pagan test
+
+data:  ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + ln_Densitate +     factor(Tara)
+BP = 123.79, df = 43, p-value = 9.402e-10
+
+[1] "--- ESTIMARE CU ERORI STANDARD ROBUSTE (HAC) ---"
+
+t test of coefficients:
+
+              Estimate Std. Error t value Pr(>|t|)  
+ln_PIB       -0.528530   0.296342 -1.7835  0.07645 .
+ln_Someri    -0.338689   0.151180 -2.2403  0.02648 *
+ln_Imigratie  0.119971   0.056017  2.1417  0.03377 *
+ln_Densitate  0.883344   0.737426  1.1979  0.23278  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Model Standard vs Model Robust
+================================================
+                     Dependent variable:        
+             -----------------------------------
+                   ln_Furturi                   
+                     panel          coefficient 
+                     linear             test    
+                    Standard        Robust (HAC)
+                      (1)               (2)     
+------------------------------------------------
+ln_PIB              -0.529*           -0.529*   
+                    (0.299)           (0.296)   
+                                                
+ln_Someri          -0.339***          -0.339**  
+                    (0.124)           (0.151)   
+                                                
+ln_Imigratie        0.120**           0.120**   
+                    (0.048)           (0.056)   
+                                                
+ln_Densitate         0.883*            0.883    
+                    (0.503)           (0.737)   
+                                                
+------------------------------------------------
+Observations          200                       
+R2                   0.115                      
+Adjusted R2          -0.129                     
+F Statistic  5.059*** (df = 4; 156)             
+================================================
+Note:                *p<0.1; **p<0.05; ***p<0.01
+[1] "=== Script 03 FINALIZAT ==="

@@ -1,479 +1,1320 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proiect Econometrie - Analiza Completă Furturilor în UE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * { box-sizing: border-box; }
-        html, body { margin: 0; padding: 0; min-height: 100vh; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); font-family: 'Segoe UI', sans-serif; font-size: 11px; }
-        .glass { background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-        
-        .section-box { background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 10px; margin-bottom: 10px; }
-        .section-title { color: #2dd4bf; font-weight: bold; font-size: 13px; border-bottom: 2px solid #2dd4bf; padding-bottom: 4px; margin-bottom: 8px; }
-        .subsection-title { color: #f59e0b; font-weight: bold; font-size: 11px; margin-bottom: 4px; }
-        
-        .formula { background: #0f172a; border: 1px solid #8b5cf6; padding: 6px; border-radius: 4px; font-family: monospace; font-size: 10px; color: #e2e8f0; text-align: center; margin: 6px 0; }
-        .result-box { background: linear-gradient(90deg, #065f46, #0f172a); border-left: 3px solid #10b981; padding: 8px; border-radius: 0 4px 4px 0; margin: 6px 0; }
-        .warning-box { background: linear-gradient(90deg, #7c2d12, #0f172a); border-left: 3px solid #f97316; padding: 8px; border-radius: 0 4px 4px 0; margin: 6px 0; }
-        
-        .data-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 10px; }
-        .data-table th { background: #334155; color: #94a3b8; padding: 4px; text-align: left; font-weight: 600; }
-        .data-table td { padding: 4px; border-bottom: 1px solid #334155; color: #e2e8f0; }
-        
-        .badge-pass { background: #22c55e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 9px; font-weight: bold; }
-        .badge-fail { background: #ef4444; color: white; padding: 2px 6px; border-radius: 3px; font-size: 9px; font-weight: bold; }
-        
-        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 4px; margin: 6px 0; }
-        .stat-card { background: #0f172a; border: 1px solid #334155; border-radius: 4px; padding: 6px; text-align: center; }
-        .stat-label { font-size: 9px; color: #64748b; }
-        .stat-value { font-size: 13px; font-weight: bold; font-family: monospace; }
-        
-        .highlight { color: #2dd4bf; font-weight: bold; }
-        .positive { color: #4ade80; }
-        .negative { color: #f87171; }
-        
-        .columns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 10px; }
-        @media (max-width: 1400px) { .columns { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 900px) { .columns { grid-template-columns: 1fr; } }
-    </style>
-</head>
-<body class="text-slate-300">
-    
-    <header class="glass p-3">
-        <div class="max-w-[1900px] mx-auto flex justify-between items-center">
-            <div>
-                <h1 class="text-lg font-bold text-white">📊 Analiza Determinanților Ratei Furturilor în UE</h1>
-                <p class="text-xs text-slate-400">Diaconescu A., Drilea D., Dobrovolschi E. | Coord: Prof. Dr. Manta E.M. | ASE 2024-2025</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proiect Econometrie - Analiza Criminalității în Europa</title>
+    <!-- NO EXTERNAL CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- MathJax for Formulas (Optional, can work without) -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div id="progress-bar" class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-controls">
+      <button id="prev-slide" class="nav-btn">&#10094;</button>
+      <span
+        id="slide-indicator"
+        style="font-family: monospace; color: var(--accent-blue)"
+        >1 / 15</span
+      >
+      <button id="next-slide" class="nav-btn">&#10095;</button>
+    </div>
+
+    <!-- SLIDES CONTAINER -->
+    <div id="presentation-container">
+      <!-- SLIDE 1: TITLU -->
+      <div class="slide active">
+        <div style="text-align: center; padding-top: 60px">
+          <h3
+            style="
+              color: var(--accent-blue);
+              letter-spacing: 3px;
+              margin-bottom: 20px;
+            "
+          >
+            ACADEMIA DE STUDII ECONOMICE DIN BUCUREȘTI
+          </h3>
+          <h1 class="hero-title" style="font-size: 3.5rem">
+            ANALIZA ECONOMETRICĂ A <br />
+            CRIMINALITĂȚII ÎN UE (2019-2023)
+          </h1>
+          <p
+            class="hero-subtitle"
+            style="max-width: 800px; margin: 0 auto 50px auto"
+          >
+            O abordare duală: Analiză Transversală (Cross-Section) și Analiză
+            Longitudinală (Panel Data) pentru determinarea factorilor
+            socio-economici ai furturilor.
+          </p>
+
+          <div
+            style="
+              display: inline-block;
+              text-align: left;
+              background: var(--bg-card);
+              padding: 40px;
+              border-radius: 12px;
+              border: 1px solid var(--border-color);
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            "
+          >
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 100px 1fr;
+                gap: 15px;
+                align-items: center;
+              "
+            >
+              <span style="color: var(--text-secondary)">Student:</span>
+              <strong style="font-size: 1.1rem; color: white">Jaxtin</strong>
+
+              <span style="color: var(--text-secondary)">Grupa:</span>
+              <strong style="color: white">1084</strong>
+
+              <span style="color: var(--text-secondary)">Seria:</span>
+              <strong style="color: white">C - Cibernetică</strong>
+
+              <span style="color: var(--text-secondary)">Profesor:</span>
+              <strong style="color: var(--accent-blue)"
+                >Lect. Univ. Dr. Andrei Cătălin</strong
+              >
             </div>
+          </div>
         </div>
-    </header>
+      </div>
 
-    <main class="max-w-[1900px] mx-auto columns">
-        
-        <!-- ==================== COLOANA 1: DATE + VARIABILE ==================== -->
-        <div class="space-y-2">
-            <div class="section-box">
-                <div class="section-title">📚 1. Fundamentare & Date</div>
-                <p class="text-xs text-slate-400 mb-2">Studiu bazat pe teoria economică a comportamentului criminal (Becker 1968). Analizăm relația dintre factorii socio-economici și furturi în 40 țări europene, 2019-2023.</p>
-                <div class="formula">Model Teoretic: Y = f(PIB, Șomaj, Imigrație, Densitate, Regiune) + ε</div>
-                
-                <div class="subsection-title">Ipoteze de cercetare:</div>
-                <table class="data-table">
-                    <tr><td class="text-purple-400">H₁</td><td>Șomaj ↑ → Furturi ↑</td><td>β₁ > 0</td></tr>
-                    <tr><td class="text-purple-400">H₂</td><td>PIB ↑ → Furturi ↓</td><td>β₂ < 0</td></tr>
-                    <tr><td class="text-purple-400">H₃</td><td>Imigrație ↑ → Furturi ↑</td><td>β₃ > 0</td></tr>
-                    <tr><td class="text-purple-400">H₄</td><td>Densitate ↑ → Furturi ↑</td><td>β₄ > 0</td></tr>
-                    <tr><td class="text-purple-400">H₅</td><td>Est > Vest</td><td>β₅ > 0</td></tr>
-                </table>
+      <!-- SLIDE 2: OBIECTIVE SI METODOLOGIE -->
+      <div class="slide">
+        <h2 class="slide-title">1. Obiectivele Cercetării și Metodologia</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">Fluxul Logic al Proiectului</h3>
+            <p style="margin-bottom: 15px">
+              Proiectul este structurat pe două direcții majore de analiză,
+              urmând fluxul standard econometric:
+            </p>
+            <ol style="line-height: 1.8; margin-left: 20px">
+              <li>
+                <strong>Etapa 1: Pregătirea Datelor (ETL)</strong>. Curățare,
+                transformare logaritmică, tratarea valorilor lipsă (Script
+                `01_Data_Processing.R`).
+              </li>
+              <li>
+                <strong>Etapa 2: Analiza Statică (2023)</strong>. Identificarea
+                corelațiilor în secțiune transversală. Regresii Simple ->
+                Multiple -> Testare Ipoteze -> Regularizare (Ridge/Lasso)
+                (Script `02_Cross_Section.R`).
+              </li>
+              <li>
+                <strong>Etapa 3: Analiza Dinamică (2019-2023)</strong>. Modelare
+                Panel Data pentru a surprinde efectele în timp. Test F, Hausman,
+                Teste de Dependență, Corecții Robuste (Script `03_Panel.R`).
+              </li>
+            </ol>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Tools & Resurse</h3>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px"
+            >
+              <div class="box-highlight" style="margin: 0">
+                <strong>Limbaj:</strong> R (v4.3)
+              </div>
+              <div class="box-highlight" style="margin: 0">
+                <strong>IDE:</strong> RStudio
+              </div>
+              <div class="box-highlight" style="margin: 0">
+                <strong>Date:</strong> Eurostat
+              </div>
+              <div class="box-highlight" style="margin: 0">
+                <strong>Output:</strong> HTML5/CSS3
+              </div>
             </div>
+            <p
+              style="
+                margin-top: 20px;
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+              "
+            >
+              Am utilizat librării avansate: `tidyverse` (manipulare), `plm`
+              (panel), `glmnet` (regularizare), `tseries` (teste), `lmtest`
+              (diagnostic), `sandwich` (erori robuste).
+            </p>
+          </div>
+        </div>
+        <!-- Code Snippet -->
+        <div class="card" style="margin-top: 20px; background: #000">
+          <h4
+            style="
+              color: var(--accent-green);
+              margin-bottom: 5px;
+              font-family: monospace;
+            "
+          >
+            > R Code: Structura de Input
+          </h4>
+          <pre>
+# Structura fisierelor de intrare
+files <- list("Furturi.xlsx", "PIB.xlsx", "Someri.xlsx", "Imigratie.xlsx", "Densitate.xlsx")
 
-            <div class="section-box">
-                <div class="section-title">📋 2. Variabile (6 total)</div>
-                <div class="bg-slate-800/50 p-2 rounded mb-2 text-[10px] text-slate-400">
-                    <strong>Justificare Economică:</strong>
-                    <ul class="list-disc pl-4 space-y-1">
-                        <li><strong>PIB (X₁)</strong>: Indicator al oportunităților legale. PIB mare → Cost de oportunitate al crimei mare → Furturi ↓.</li>
-                        <li><strong>Imigrație (X₃)</strong>: Teoria dezorganizării sociale (Shaw & McKay) sau oportunități economice reduse.</li>
-                        <li><strong>Densitate (X₄)</strong>: Număr mare de ținte potențiale + anonimitate crescută urbană → Furturi ↑.</li>
-                    </ul>
-                </div>
-                <table class="data-table">
-                    <thead><tr><th>Var</th><th>Descriere</th><th>Sursă</th><th>Transform</th></tr></thead>
-                    <tbody>
-                        <tr><td class="text-yellow-400">Y</td><td>Furturi (total)</td><td>Eurostat</td><td>ln(Y)</td></tr>
-                        <tr><td class="text-blue-400">X₁</td><td>PIB per capita (EUR)</td><td>nama_10_pc</td><td>ln(X₁)</td></tr>
-                        <tr><td class="text-blue-400">X₂</td><td>Șomeri (mii pers)</td><td>une_rt_m</td><td>ln(X₂)</td></tr>
-                        <tr><td class="text-blue-400">X₃</td><td>Imigrație (pers)</td><td>migr_imm</td><td>ln(X₃+1)</td></tr>
-                        <tr><td class="text-blue-400">X₄</td><td>Densitate (loc/km²)</td><td>demo_dens</td><td>ln(X₄)</td></tr>
-                        <tr><td class="text-purple-400">D</td><td>Est_Vest (dummy)</td><td>Clasif.</td><td>0/1</td></tr>
-                    </tbody>
-                </table>
-                <div class="stat-grid">
-                    <div class="stat-card"><div class="stat-label">n</div><div class="stat-value">40</div></div>
-                    <div class="stat-card"><div class="stat-label">T</div><div class="stat-value">5</div></div>
-                    <div class="stat-card"><div class="stat-label">N</div><div class="stat-value">200</div></div>
-                    <div class="stat-card"><div class="stat-label">Train</div><div class="stat-value">80%</div></div>
-                </div>
-            </div>
+# Unificam seturile de date pe baza cheii (Tara, An)
+df_total <- df_theft %>%
+  inner_join(df_gdp, by = c("Tara", "An")) %>%
+  inner_join(df_unemp, by = c("Tara", "An")) %>%
+  inner_join(df_immig, by = c("Tara", "An")) %>%
+  inner_join(df_pop, by = c("Tara", "An"))
 
-            <div class="section-box">
-                <div class="section-title">📈 3. Regresie Simplă (Model 1)</div>
-                <div class="bg-black/40 p-2 rounded mb-2 border-l-2 border-blue-500 font-mono text-[9px] text-blue-300">
-                    > model_simple <- lm(ln_Furturi ~ ln_Someri, data = train_data)<br>
-                    > summary(model_simple)
-                </div>
-                <div class="formula">ln(Y) = β₀ + β₁ln(X) + ε</div>
-                <div class="formula">Model Estimat: ln(Y) = 6.00 + 0.845 × ln(Șomeri)</div>
-                <p class="text-xs text-slate-400 mb-1"><strong>Exemplu Calcul (România):</strong><br>Dacă ln(Șomeri)=3.33 (28k):<br>ln(Y) = 6.00 + 0.845(3.33) = 8.81<br>Y = e^8.81 ≈ 6700 furturi</p>
-                <table class="data-table">
-                    <thead><tr><th>Param</th><th>β̂</th><th>SE</th><th>t</th><th>p</th></tr></thead>
-                    <tbody>
-                        <tr><td>Intercept</td><td class="positive">6.00</td><td>1.10</td><td>5.47</td><td class="text-green-400">3e-6***</td></tr>
-                        <tr><td>ln_Șom</td><td class="positive">0.845</td><td>0.20</td><td>4.25</td><td class="text-green-400">1e-4***</td></tr>
-                    </tbody>
-                </table>
-                <div class="stat-grid">
-                    <div class="stat-card"><div class="stat-label">R²</div><div class="stat-value">0.322</div></div>
-                    <div class="stat-card"><div class="stat-label">Adj R²</div><div class="stat-value">0.304</div></div>
-                    <div class="stat-card"><div class="stat-label">F</div><div class="stat-value">18.05</div></div>
-                </div>
-                <div class="result-box text-xs">
-                    <span class="positive">✓ H₁ Confirmat:</span> +1% șomeri → +0.85% furturi
-                </div>
-            </div>
+# Creare variabile logaritmate
+df_processed <- df_total %>%
+  mutate(
+    ln_Furturi = log(Furturi),
+    ln_PIB = log(PIB_per_capita),
+    ln_Someri = log(Someri_Mii),
+    ln_Imigratie = log(Imigratie + 1)
+  )
+</pre
+          >
+        </div>
+      </div>
 
-            <div class="section-box">
-                <div class="section-title">📊 4. Regresie Multiplă (Model 2)</div>
-                <div class="bg-black/40 p-2 rounded mb-2 border-l-2 border-blue-500 font-mono text-[9px] text-blue-300">
-                    > model_final <- lm(ln_Furturi ~ ., data = train_data)<br>
-                    > vif(model_final)
-                </div>
-                <div class="formula">Estimator OLS: β̂ = (X'X)⁻¹X'y</div>
-                <div class="formula">ln(Y) = β₀ + β₁PIB + β₂Șom + β₃Imig + β₄Dens + β₅Est + ε</div>
-                <table class="data-table">
-                    <thead><tr><th>Var</th><th>β̂</th><th>p</th><th>VIF</th><th>H</th></tr></thead>
-                    <tbody>
-                        <tr><td>ln_PIB</td><td class="positive">+0.89</td><td>0.030*</td><td>1.28</td><td><span class="badge-fail">H₂✗</span></td></tr>
-                        <tr><td>ln_Șom</td><td class="positive">+0.66</td><td>0.007**</td><td>1.71</td><td><span class="badge-pass">H₁✓</span></td></tr>
-                        <tr><td>ln_Imig</td><td class="positive">+0.44</td><td>0.043*</td><td>1.70</td><td><span class="badge-pass">H₃✓</span></td></tr>
-                        <tr><td>ln_Dens</td><td class="negative">-0.21</td><td>0.437</td><td>1.22</td><td><span class="badge-fail">H₄✗</span></td></tr>
-                        <tr><td>Est</td><td class="positive">+0.85</td><td>0.045*</td><td>1.34</td><td><span class="badge-pass">H₅✓</span></td></tr>
-                    </tbody>
-                </table>
-                <div class="stat-grid">
-                    <div class="stat-card"><div class="stat-label">R²</div><div class="stat-value">0.52</div></div>
-                    <div class="stat-card"><div class="stat-label">Adj R²</div><div class="stat-value">0.45</div></div>
-                </div>
+      <!-- SLIDE 3: TEORIE ECONOMICA -->
+      <div class="slide">
+        <h2 class="slide-title">2. Fundamentarea Teoretică</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">
+              Modelul Economic al Criminalității (Becker, 1968)
+            </h3>
+            <p>
+              Teoria alegerii raționale susține că indivizii, potențiali
+              infractori, fac o analiză Cost-Beneficiu înainte de a acționa.
+            </p>
+            <div class="formula-box" style="font-size: 1.3rem; padding: 20px">
+              \( E(U) = (1-p) \cdot U(Y + g) + p \cdot U(Y - f) \)
             </div>
+            <p style="margin-top: 10px; font-size: 0.95rem">
+              Conform lui <strong>Gary Becker (1968)</strong>, criminalitatea nu
+              este rezultatul unei patologii, ci al unei
+              <strong>alegeri raționale</strong>. Indivizii compară utilitatea
+              așteptată a activității ilegale cu cea a activității legale.
+            </p>
+            <ul class="feature-list" style="margin-top: 15px">
+              <li>
+                <strong>\( U(\cdot) \):</strong> Funcția de utilitate, care
+                depinde de aversiunea la risc a individului.
+              </li>
+              <li>
+                <strong>\( p \):</strong> Probabilitatea de a fi detectat și
+                condamnat. O creștere a eficienței poliției (creșterea \( p \))
+                reduce utilitatea așteptată a crimei.
+              </li>
+              <li>
+                <strong>\( f \):</strong> Severitatea pedepsei. În modelul
+                nostru, aceasta este reflectată indirect prin stabilitatea
+                instituțională (Est vs Vest).
+              </li>
+              <li>
+                <strong>\( g \):</strong> Câștigul material. În țările cu
+                <strong>PIB ridicat</strong>, "oportunitatea" este mai mare
+                (bunuri mai scumpe de furat).
+              </li>
+              <li>
+                <strong>\( Y \):</strong> Venitul legal disponibil.
+                <strong>Șomajul</strong> scade \( Y \), reducând costul de
+                oportunitate al timpului alocat activității criminale.
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Operaționalizarea Variabilelor</h3>
+            <p>
+              Transpunem variabilele teoretice în indicatori măsurabili
+              disponibili în Eurostat.
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Variabila</th>
+                  <th>Definiție & Unitate</th>
+                  <th>Ipoteza (Semn)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>ln_Furturi</strong></td>
+                  <td>
+                    Număr total de furturi înregistrate (Log). Sursa: Eurostat.
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td><strong>ln_Someri</strong></td>
+                  <td>
+                    Număr persoane fără job (mii). Cost de oportunitate scăzut.
+                  </td>
+                  <td>
+                    <strong>(+) Pozitiv</strong>. Ipoteza: Creșterea șomajului
+                    \(\rightarrow\) Creșterea criminalității (Becker).
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>ln_PIB</strong></td>
+                  <td>PIB per capita (Euro). Indicator al bogăției targets.</td>
+                  <td>
+                    <strong>(?) Ambiguu</strong>. Efect de bogăție (+) vs. Efect
+                    de oportunitate legală (-).
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>ln_Imigratie</strong></td>
+                  <td>
+                    Flux imigrație (persoane). Variabilă de control
+                    soc-demografică.
+                  </td>
+                  <td>
+                    <strong>(+) Pozitiv</strong>. Posibilă corelație cu zone
+                    urbane dens populate și tensiuni sociale.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div
+              class="box-highlight"
+              style="margin-top: 10px; font-size: 0.85rem"
+            >
+              <strong>De ce logaritmăm?</strong> Conform teoriei, transformarea
+              \( ln \) transformă relația aditivă într-una multiplicativă,
+              permițându-ne să interpretăm coeficienții ca
+              <strong>elasticități</strong> (modificarea procentuală a \( Y \)
+              la o modificare de 1% a \( X \)).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: ANALIZA EXPLORATORIE -->
+      <div class="slide">
+        <h2 class="slide-title">3. Analiza Exploratorie (EDA)</h2>
+        <p>
+          Înainte de modelare, verificăm distribuția datelor și corelațiile
+          bivariate pentru a detecta anomalii.
+        </p>
+
+        <div class="grid-2">
+          <div>
+            <div class="card">
+              <h3 class="card-title">Statistici Descriptive (Rezumat R)</h3>
+              <pre style="font-size: 0.75rem">
+Statistic           N     Mean      St. Dev.      Min         Max     
+----------------------------------------------------------------------
+Furturi             40 158,862.400 298,632.500  245.000  1,359,102.000
+PIB_per_capita      40 33,208.570  22,567.940  5,500.000  102,250.000 
+Someri_Mii          40   497.429     769.993     8.000     3,274.000  
+Imigratie           40 203,644.100 286,161.000  716.000  1,303,251.000
+----------------------------------------------------------------------
+</pre
+              >
+              <p style="margin-top: 10px; font-size: 0.9rem">
+                Observăm o deviație standard foarte mare la Furturi și
+                Imigrație, ceea ce justifică pe deplin logaritmarea pentru a
+                reduce heteroscedasticitatea naturală.
+              </p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Interpretarea Histogramei</h3>
+              <img
+                src="Grafice/01_Histograme_Variabile.png"
+                class="img-responsive"
+                alt="Histograme"
+              />
+              <p style="margin-top: 10px; font-size: 0.9rem">
+                <strong>Analiza Distribuției:</strong> Înainte de logaritmare,
+                variabilele prezentau o asimetrie puternică la dreapta (Pozitive
+                Skew). Prin \( ln \), distribuțiile tind spre una
+                <strong>Normală</strong>, condiție esențială pentru validitatea
+                inferenței prin testele T și F.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div class="card">
+              <h3 class="card-title">Matricea de Corelație (Pearson)</h3>
+              <img
+                src="Grafice/01_Matrice_Corelatie.png"
+                class="img-responsive"
+                alt="Corelatie"
+              />
+              <div class="box-highlight">
+                <strong>Fundamentare Teoretică (Corelația Pearson):</strong>
+                <p style="font-size: 0.85rem; margin-bottom: 10px">
+                  Coeficientul de corelație măsoară
+                  <strong>intensitatea și sensul</strong> legăturii liniare
+                  dintre două variabile, luând valori între \([-1, 1]\).
+                </p>
+                <ul style="font-size: 0.9rem">
+                  <li>
+                    <strong>ln_Furturi - ln_Șomeri (0.57):</strong> Corelație
+                    <strong>pozitivă și medie-spre-puternică</strong>. Aceasta
+                    confirmă parțial ipoteza lui Becker că presiunea economică
+                    (șomajul) facilitează criminalitatea.
+                  </li>
+                  <li>
+                    <strong>ln_Furturi - ln_Imigratie (0.62):</strong> Cea mai
+                    mare intensitate din setul de date. Sugerează o legătură
+                    structurală ce trebuie investigată prin regresia multiplă
+                    (posibil efect de compunere cu urbanizarea).
+                  </li>
+                  <li>
+                    <strong>ln_PIB - ln_Furturi (0.24):</strong> O legătură
+                    <strong>slabă</strong>. Bogăția per se nu pare a fi
+                    principalul motor al furturilor în 2023, cel puțin nu într-o
+                    formă liniară simplă.
+                  </li>
+                </ul>
+                <p
+                  style="
+                    margin-top: 10px;
+                    font-weight: bold;
+                    color: var(--accent-yellow);
+                  "
+                >
+                  Concluzie EDA: Predictorii tind să se miște în același sens cu
+                  variabila dependentă, validând modelul teoretic propus.
+                </p>
+              </div>
+            </div>
+            <div class="card" style="background: black">
+              <h4 style="color: green; font-family: monospace; margin: 0">
+                > R Output
+              </h4>
+              <pre>
+cor(df_clean %>% select_if(is.numeric))
+# Multicoliniaritate potentiala intre Someri si Imigratie?
+# Va fi testat cu VIF.
+</pre
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: REGRESII SIMPLE -->
+      <div class="slide">
+        <h2 class="slide-title">4. Analiza Transversală: Regresii Simple</h2>
+        <div
+          class="grid-12"
+          style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px"
+        >
+          <div class="col-span-1">
+            <h3 class="card-title">
+              Fundamentare: Metoda Celor Mai Mici Pătrate (OLS)
+            </h3>
+            <p style="font-size: 0.9rem; margin-bottom: 15px">
+              Conform <strong>Cursului 2</strong>, OLS (Ordinary Least Squares)
+              este metoda standard de estimare a parametrilor \(a\) și \(b\)
+              prin minimizarea sumei pătratelor reziduurilor: \( \min \sum
+              \epsilon_i^2 \).
+            </p>
+            <div class="box-highlight" style="font-size: 0.85rem">
+              <strong>Indicatori de Calitate:</strong>
+              <ul style="margin-top: 5px">
+                <li>
+                  <strong>Coeficientul de determinare \(R^2\):</strong> Exprimă
+                  cât la sută din variația furturilor este explicată de
+                  variabila cauză.
+                </li>
+                <li>
+                  <strong>P-value:</strong> Testează ipoteza nulă \( H_0: \beta
+                  = 0 \) (Lipsa de impact). Dacă \( p < 0.05 \), variabila este
+                  <strong>statistic semnificativă</strong>.
+                </li>
+              </ul>
+            </div>
+            <p style="margin-top: 15px">
+              Testăm fiecare predictor independent pentru a valida relația
+              bivariată (Elasticitatea brută).
+            </p>
+
+            <div class="card">
+              <h3 class="card-title">Tabel Centralizator: Modele Simple</h3>
+              <table style="font-size: 0.85rem">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Coeficient (B1)</th>
+                    <th>Std. Error</th>
+                    <th>t-stat</th>
+                    <th>p-value</th>
+                    <th>R²</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1. Furturi ~ Someri</td>
+                    <td style="color: var(--accent-green); font-weight: bold">
+                      0.8450
+                    </td>
+                    <td>0.1989</td>
+                    <td>4.248</td>
+                    <td>0.0001 ***</td>
+                    <td>0.322</td>
+                  </tr>
+                  <tr>
+                    <td>2. Furturi ~ Imigratie</td>
+                    <td style="color: var(--accent-green)">0.8155</td>
+                    <td>0.1760</td>
+                    <td>4.633</td>
+                    <td>0.0000 ***</td>
+                    <td>0.361</td>
+                  </tr>
+                  <tr>
+                    <td>3. Furturi ~ PIB Cap</td>
+                    <td style="color: var(--accent-yellow)">0.7946</td>
+                    <td>0.4579</td>
+                    <td>1.735</td>
+                    <td>0.0908 .</td>
+                    <td>0.073</td>
+                  </tr>
+                  <tr>
+                    <td>4. Furturi ~ Est_Vest</td>
+                    <td style="color: var(--accent-red)">-1.5060</td>
+                    <td>0.6369</td>
+                    <td>-2.364</td>
+                    <td>0.0233 *</td>
+                    <td>0.128</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="box-highlight" style="font-size: 0.9rem">
+                <strong>Interpretare Detaliată:</strong>
+                <br />
+                1. <strong>Șomajul (R²=0.32):</strong> Este cel mai puternic
+                predictor bivariat. O creștere cu 1% a șomajului atrage o
+                creștere de 0.84% a furturilor. Rezultatul este
+                ultra-semnificativ (\(p<0.001\)). <br /><br />
+                2. <strong>Dummy Est_Vest:</strong> Țările din Est (Dummy=1) au
+                raportat coeficientul mediu de \( -1.506 \). Din punct de vedere
+                matematic, impactul este \( e^{-1.506}-1 \approx -78\% \).
+                <br />
+                <em>Intuție:</em> Deși teoria sugerează că sărăcia aduce crimă,
+                datele Eurostat arată că țările din Est (în general mai sărace)
+                raportează mult mai puține furturi. Acest lucru poate indica o
+                <strong>sub-raportare sistemică</strong> sau o diferență
+                culturală în definirea incidentelor minore.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-span-1">
+            <div class="card" style="height: 100%">
+              <h3 class="card-title">
+                Vizualizarea Relației: Furturi vs. Șomaj
+              </h3>
+              <img
+                src="Grafice/Regresie_Simpla_Someri.png"
+                class="img-responsive"
+                alt="Scatterplot"
+              />
+              <div
+                style="
+                  margin-top: 15px;
+                  font-family: monospace;
+                  font-size: 0.8rem;
+                  color: #fff;
+                  background: #222;
+                  padding: 10px;
+                  border-radius: 4px;
+                "
+              >
+                > summary(lm(ln_Furturi ~ ln_Someri, data = df))<br />
+                > ggplot(df, aes(x=ln_Someri, y=ln_Furturi)) + geom_point() +
+                geom_smooth(method='lm')
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: REGRESIA MULTIPLA -->
+      <div class="slide">
+        <h2 class="slide-title">
+          5. Regresia Multiplă (Specificatii Complete)
+        </h2>
+        <p style="font-size: 1.1rem">
+          Estimăm modelul complet pentru a izola efectul fiecărei variabile
+          <strong>"Ceteris Paribus"</strong> (toate celelalte condiții rămânând
+          neschimbate).
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">Rezultatele Estimării OLS</h3>
+            <pre style="font-size: 1rem">
+Call:
+lm(ln_Furturi ~ ln_PIB + ln_Someri + ln_Imigratie + Est_Vest)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.3855 -0.1912  0.2114  0.5982  2.1861 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -5.11216    5.14982  -0.993  0.32831    
+ln_PIB        1.37085    0.46808   2.929  0.00623 ** 
+ln_Someri     1.31508    0.24816   5.299 8.32e-06 ***
+ln_Imigratie -0.48005    0.25235  -1.902  0.06616 .  
+Est_Vest      0.19022    0.62382   0.305  0.76240    
+
+Multiple R-squared:  0.626
+F-statistic: 10.71 (p = 4.11e-06)
+</pre
+            >
+          </div>
+
+          <div class="col-span-1">
+            <h3 class="card-title">Interpretare Economică & Intuție</h3>
+            <ul class="feature-list">
+              <li>
+                <strong>Validitatea Globală (Testul F):</strong> Cu un \( p <
+                10^{-5} \), respingem \( H_0 \) (că toți coeficienții sunt
+                zero). Modelul are sens statistic.
+              </li>
+              <li>
+                <strong>Paradoxul PIB (+1.37):</strong> În modelul multiplu,
+                ținând constant șomajul, PIB-ul devine pozitiv semnificativ.
+                <br /><em>Explicație:</em> PIB-ul măsoară aici "oportunitatea de
+                pradă". Țările mai bogate au bunuri de consum mai valoroase și
+                mai ușor de revândut (telefoane, bijuterii), atrăgând
+                activitatea criminală.
+              </li>
+              <li>
+                <strong>Șomajul (+1.31):</strong> Motorul principal al
+                infracționalității. Când șomajul crește, costul de oportunitate
+                al crimei scade (individul nu părăsește un salariu legal pentru
+                a fura).
+              </li>
+              <li>
+                <strong>Imigrația (-0.48):</strong> Paradoxal, odată ce
+                controlăm pentru bogăția țării (PIB), efectul imigrației devine
+                negativ (slab semnificativ). Acest lucru demitizează ideea că
+                imigrația în sine crește criminalitatea; zonele cu imigrație
+                mare pot avea securitate mai strictă sau mecanisme de integrare
+                urbană mai active.
+              </li>
+            </ul>
+            <div class="badge badge-yellow" style="margin-top: 10px">
+              Interpretare: R²=0.626 înseamnă că <strong>62.6%</strong> din
+              variația furturilor în Europa este explicată de acești 4 factori.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 7: DIAGNOSTICAREA MODELULUI -->
+      <div class="slide">
+        <h2 class="slide-title">6. Validarea Ipotezelor Gauss-Markov</h2>
+        <p style="margin-bottom: 20px">
+          Pentru ca estimatorii OLS să fie BLUE (Best Linear Unbiased
+          Estimators), validăm ipotezele fundamentale ale modelului clasic.
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">1. Multicoliniaritatea (VIF)</h3>
+            <p style="font-size: 0.9rem">
+              Verificăm dacă variabilele explicative sunt redundante.
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Variabilă</th>
+                  <th>VIF</th>
+                  <th>Concluzie</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ln_Someri</td>
+                  <td>3.23</td>
+                  <td style="color: var(--accent-green)">OK</td>
+                </tr>
+                <tr>
+                  <td>ln_Imigratie</td>
+                  <td>2.96</td>
+                  <td style="color: var(--accent-green)">OK</td>
+                </tr>
+                <tr>
+                  <td>ln_PIB</td>
+                  <td>2.87</td>
+                  <td style="color: var(--accent-green)">OK</td>
+                </tr>
+                <tr>
+                  <td>Est_Vest</td>
+                  <td>2.52</td>
+                  <td style="color: var(--accent-green)">OK</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="badge badge-green" style="margin-top: 10px">
+              VIF < 5 (Acceptabil)
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">2. Homoscedasticitate (BP Test)</h3>
+            <div class="box-highlight">
+              <strong>Testul Breusch-Pagan:</strong><br />
+              BP = 0.269, p-value = 0.603
+            </div>
+            <p style="font-size: 0.9rem">
+              Deoarece \( p > 0.05 \), avem <strong>Homoscedasticitate</strong>.
+              Varianța erorilor este constantă.
+            </p>
+          </div>
         </div>
 
-        <!-- ==================== COLOANA 2: DIAGNOSTICE COMPLETE ==================== -->
-        <div class="space-y-2">
-            <div class="section-box">
-                <div class="section-title">🔍 5. Diagnostice Complete (Gauss-Markov)</div>
-                
-                <div class="subsection-title">5.1 Multicoliniaritate (VIF)</div>
-                <div class="formula">VIFⱼ = 1 / (1 - R²ⱼ)</div>
-                <table class="data-table">
-                    <tr><td>Max VIF</td><td>1.71 (ln_Șom)</td><td><span class="badge-pass">OK < 5</span></td></tr>
-                </table>
-
-                <div class="subsection-title">5.2 Heteroscedasticitate</div>
-                <div class="bg-black/40 p-2 rounded mb-1 border-l-2 border-purple-500 font-mono text-[9px] text-purple-300">
-                    > bptest(model_final); whitest(model_final)<br>
-                    # H0: Homoscedastic (p > 0.05) vs H1: Hetero (p < 0.05)
-                </div>
-                <table class="data-table">
-                    <thead><tr><th>Test</th><th>Stat</th><th>p</th><th>Verdict</th></tr></thead>
-                    <tbody>
-                        <tr><td>Breusch-Pagan</td><td>15.47</td><td>0.0085</td><td><span class="badge-fail">Heterosced!</span></td></tr>
-                        <tr><td>White</td><td>12.34</td><td>0.0021</td><td><span class="badge-fail">Heterosced!</span></td></tr>
-                    </tbody>
-                </table>
-
-                <div class="subsection-title">5.3 Autocorelare</div>
-                <table class="data-table">
-                    <thead><tr><th>Test</th><th>Stat</th><th>p</th><th>Verdict</th></tr></thead>
-                    <tbody>
-                        <tr><td>Durbin-Watson</td><td>2.107</td><td>0.604</td><td><span class="badge-pass">OK</span></td></tr>
-                        <tr><td>BG (ord.1)</td><td>0.85</td><td>0.357</td><td><span class="badge-pass">OK</span></td></tr>
-                        <tr><td>BG (ord.2)</td><td>1.23</td><td>0.541</td><td><span class="badge-pass">OK</span></td></tr>
-                        <tr><td>BG (ord.3)</td><td>1.67</td><td>0.644</td><td><span class="badge-pass">OK</span></td></tr>
-                    </tbody>
-                </table>
-
-                <div class="subsection-title">5.4 Normalitate</div>
-                <div class="formula">JB = (n/6) × [S² + (K-3)²/4]</div>
-                <table class="data-table">
-                    <thead><tr><th>Test</th><th>Stat</th><th>p</th><th>Verdict</th></tr></thead>
-                    <tbody>
-                        <tr><td>Jarque-Bera</td><td>8.92</td><td>0.012</td><td><span class="badge-fail">Non-normal</span></td></tr>
-                        <tr><td>Shapiro-Wilk</td><td>0.845</td><td>6.7e-5</td><td><span class="badge-fail">Non-normal</span></td></tr>
-                    </tbody>
-                </table>
-                <p class="text-xs text-slate-500">Skewness: 0.82 | Kurtosis: 4.21</p>
+        <div class="grid-2" style="margin-top: 20px">
+          <div class="card">
+            <h3 class="card-title">3. Normalitatea Reziduurilor</h3>
+            <div
+              class="box-highlight"
+              style="border-left-color: var(--accent-red)"
+            >
+              <strong>Shapiro-Wilk:</strong> W = 0.869, p = 0.0002
             </div>
+            <p style="font-size: 0.85rem">
+              Ipoteza de normalitate este respinsă. Totuși, asimptotic (eșantion
+              mare), OLS rămâne un estimator consistent.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">4. Detectarea Outlierilor</h3>
+            <img
+              src="Grafice/Cooks_Distance_Chart.png"
+              class="img-responsive"
+              alt="Cooks"
+            />
+            <p style="font-size: 0.8rem">
+              Identificăm punctele influente (ex: Liechtenstein). Modelul este
+              stabil și după eliminarea acestora.
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <div class="section-box">
-                <div class="section-title">🎯 6. Outlieri & Stabilitate</div>
-                
-                <div class="subsection-title">6.1 Cook's Distance (Influență)</div>
-                <div class="formula">Dᵢ = Σ(ŷⱼ - ŷⱼ⁽ⁱ⁾)² / (p+1)σ²</div>
-                <p class="text-xs text-slate-400 mb-1">Măsoară cât de mult se schimbă toți coeficienții dacă eliminăm observația <em>i</em>.</p>
-                <table class="data-table">
-                    <tr><td>Prag (4/n)</td><td>0.121</td></tr>
-                    <tr><td>Outlieri detectați</td><td class="text-yellow-400">3</td></tr>
-                    <tr><td>Țări influente</td><td>Germania, Franța, Italia</td></tr>
-                </table>
-
-                <div class="subsection-title">6.2 Chow Test (Stabilitate)</div>
-                <div class="formula">F = [(SSRₚ - (SSR₁ + SSR₂))/k] / [(SSR₁ + SSR₂)/(n-2k)]</div>
-                <p class="text-xs text-slate-400 mb-1">Verifică dacă există o "ruptură" structurală între țările din Est și Vest (parametri diferiți).</p>
-                <table class="data-table">
-                    <tr><td>F-statistic</td><td>3.45</td></tr>
-                    <tr><td>p-value</td><td>0.012</td></tr>
-                    <tr><td>Verdict</td><td><span class="badge-fail">Diferențe structurale!</span></td></tr>
-                </table>
-                <p class="text-xs text-slate-500">Coeficienții diferă semnificativ între Est și Vest.</p>
+      <!-- SLIDE 8: TESTE STRUCTURALE CHOW -->
+      <div class="slide">
+        <h2 class="slide-title">7. Stabilitatea Structurală (Testul Chow)</h2>
+        <div class="grid-2">
+          <div class="col-span-1">
+            <h3 class="card-title">Teorie: Testul Chow</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 15px">
+              Testul Chow verifică dacă parametrii modelului sunt constanți
+              între grupuri (Est vs Vest).
+              <br /><br />
+              <strong>Rezultat:</strong> \( p-value = 0.003 \). Respingem \( H_0
+              \). Regimul de criminalitate din Vest este structural diferit.
+            </p>
+            <div class="card" style="margin-top: 20px">
+              <h3 class="card-title">Interpretare Plot Chow</h3>
+              <img
+                src="Grafice/02_Stabilitate_Chow.png"
+                class="img-responsive"
+                alt="Chow Plot"
+              />
             </div>
-
-            <div class="section-box">
-                <div class="section-title">⚡ 7. Model Interacțiune</div>
-                <p class="text-xs text-slate-400 mb-1">Permite ca panta (efectul marginal) să varieze în funcție de regiune (Est vs Vest).</p>
-                <div class="formula">Efect Marginal PIB = β₁ + β_interacțiune × Est</div>
-                <div class="formula">ln(Y) = β₀ + β₁PIB×Est + β₂Șom×Est + β₃Imig + β₄Dens</div>
-                <table class="data-table">
-                    <thead><tr><th>Interacțiune</th><th>β̂</th><th>p</th></tr></thead>
-                    <tbody>
-                        <tr><td>ln_PIB:Est</td><td>-0.42</td><td>0.089</td></tr>
-                        <tr><td>ln_Șom:Est</td><td>+0.31</td><td>0.124</td></tr>
-                    </tbody>
-                </table>
-                <p class="text-xs text-slate-500">Interacțiunile nu sunt semnificative la α=0.05</p>
-
-                <div class="warning-box text-xs">
-                    <span class="text-orange-400 font-bold">⚠ Corecții aplicate:</span><br>
-                    - Heteroscedasticitate → Erori robuste HC (White)<br>
-                    - Non-normalitate → Acceptabil pentru n>30 (TCL)
-                </div>
+          </div>
+          <div>
+            <div class="card">
+              <h3 class="card-title">Rezultat ANOVA (F-Test)</h3>
+              <div
+                style="
+                  font-family: monospace;
+                  padding: 15px;
+                  background: #000;
+                  border: 1px solid #333;
+                "
+              >
+                Res.Df RSS Df Sum of Sq F Pr(>F)<br />
+                1 32 44.834<br />
+                2 28 37.497 4 7.3362
+                <strong style="color: var(--accent-yellow)"
+                  >1.3695 0.2697</strong
+                >
+              </div>
+              <div
+                style="
+                  margin-top: 20px;
+                  font-weight: bold;
+                  font-size: 1.2rem;
+                  color: var(--accent-green);
+                "
+              >
+                CONCLUZIE: p-value (0.26) > 0.05
+              </div>
+              <p style="font-size: 0.9rem">
+                După controlul interacțiunilor, structura este stabilă. Putem
+                folosi un model unificat (Pooled).
+              </p>
             </div>
+            <div class="card" style="margin-top: 20px">
+              <h3 class="card-title">Modelul cu Interacțiuni</h3>
+              <ul style="font-size: 0.85rem">
+                <li><strong>ln_PIB * Est:</strong> Coef = -1.11 (p=0.16)</li>
+                <li>
+                  <strong>Est_Vest (Intercept):</strong> Coef = 11.34 (p=0.16)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 9: REGULARIZARE / ML -->
+      <div class="slide">
+        <h2 class="slide-title">8. Selecția Variabilelor (Machine Learning)</h2>
+        <p>
+          Utilizăm tehnici de regularizare pentru a preveni overfitting-ul și
+          pentru a selecta cele mai robuste variabile. Am folosit pachetul
+          `glmnet` în R.
+        </p>
+
+        <div class="grid-3">
+          <div class="col-span-1">
+            <h3 class="card-title">Teorie: Elastic Net, Ridge & Lasso</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 15px">
+              Regularizarea este folosită pentru a preveni
+              <strong>overfitting-ul</strong> prin adăugarea unei penalități la
+              funcția de cost.
+            </p>
+            <ul class="feature-list" style="font-size: 0.85rem">
+              <li>
+                <strong>Ridge (L2):</strong> Penalizează pătratul
+                coeficienților. Util când avem mulți predictori corelați.
+              </li>
+              <li>
+                <strong>Lasso (L1):</strong> Penalizează valoarea absolută,
+                putând forța unii coeficienți la exact
+                <strong>Zero</strong> (Selecție de variabile).
+              </li>
+              <li>
+                <strong>Elastic Net:</strong> O combinație între L1 și L2,
+                ideală pentru seturi de date complexe.
+              </li>
+            </ul>
+            <div
+              class="box-highlight"
+              style="margin-top: 15px; font-size: 0.9rem"
+            >
+              <strong>Econometrie vs. ML:</strong>
+              <br />În timp ce OLS se concentrează pe
+              <strong>interpretarea corectă</strong> a parametrilor, tehnicile
+              ML se concentrează pe <strong>puterea de predicție</strong>. \(
+              R^2 \) de \( \sim 0.60 \) pe setul de test confirmă că modelul
+              este robust și nu doar "memorează" datele.
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Selecția prin Algoritmul Boruta</h3>
+            <div style="display: flex; gap: 10px; align-items: start">
+              <img
+                src="Grafice/02_Boruta_Selection.png"
+                style="width: 60%; border-radius: 8px"
+                alt="Boruta"
+              />
+              <div style="font-size: 0.8rem">
+                <strong>Cum funcționează?</strong> Boruta creează copii ale
+                variabilelor ("Shadow Features") și le amestecă. O variabilă
+                reală este <strong>confirmată</strong> doar dacă performează mai
+                bine decât cea mai bună copie amestecată. <br /><br />
+                <strong>Rezultate:</strong>
+                <br />\( \checkmark \) ln_Someri (Confirmat) <br />\( \checkmark
+                \) ln_Imigratie (Confirmat) <br />\( \checkmark \) ln_PIB
+                (Confirmat) <br />\( \times \) ln_Densitate (Respinsă/Tentative)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 10: INTRODUCERE ANALIZA PANEL -->
+      <div class="slide">
+        <h2 class="slide-title">9. Analiza Panel Data (2019-2023)</h2>
+        <p>
+          Extindem analiza pe 5 ani. Setul de date devine tridimensional (Țara,
+          An, Variabile).
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">
+              De ce Date de Tip Panel? (Fundamentare Curs 10)
+            </h3>
+            <p style="font-size: 0.9rem; line-height: 1.6">
+              Spre deosebire de analiza cross-section, datele de tip panel
+              permit:
+              <br /><br />
+              1. <strong>Controlul Heterogeneității:</strong> Putem capta
+              efectele specifice fiecărei țări (cultură, legislație, rigoare
+              raportare) care nu se schimbă în timp.
+              <br />
+              2. <strong>Eficiență Sporită:</strong> Creștem numărul de
+              observații (N x T), ceea ce duce la erori standard mai mici și
+              rezultate mai precise.
+              <br />
+              3. <strong>Analiza Dinamică:</strong> Putem observa cum schimbarea
+              șomajului într-o țară afectează criminalitatea în timp
+              (Within-variation).
+            </p>
+            <ul
+              class="feature-list"
+              style="margin-top: 15px; font-size: 0.85rem"
+            >
+              <li>
+                <strong>Fixed Effects (FE):</strong> Estimatorul "Within" -
+                privește variația în interiorul fiecărei țări.
+              </li>
+              <li>
+                <strong>Random Effects (RE):</strong> Presupune că diferențele
+                între țări sunt aleatoare și necorelate cu predictorii.
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Structura Datelor</h3>
+            <pre>
+Balanced Panel: n = 40, T = 5, N = 200
+
+Total Sum of Squares:    840.53
+Residual Sum of Squares: 401.09
+Variance Decomposition:
+    idiosyncratic: 0.01 (1%)
+    individual:    0.99 (99%) -> Variabilitatea DINTRE tari domina!
+</pre
+            >
+          </div>
         </div>
 
-        <!-- ==================== COLOANA 3: ML & REGULARIZARE ==================== -->
-        <div class="space-y-2">
-            <div class="section-box">
-                <div class="section-title">🤖 8. Selecție Variabile (Boruta)</div>
-                <div class="bg-black/40 p-2 rounded mb-2 border-l-2 border-green-500 font-mono text-[9px] text-green-300">
-                    > Boruta(ln_Furturi ~ ., data = df, doTrace = 2)<br>
-                    # Compară Z-score variabilă vs Z-score "Shadow" (random)
-                </div>
-                <div class="formula">Z_score = (MeanApproxAccuracy - MeanShadowAccuracy) / SD</div>
-                <p class="text-xs text-slate-400 mb-2">Algoritm Random Forest care compară importanța reală cu variabile "fantomă" aleatoare.</p>
-                <table class="data-table">
-                    <thead><tr><th>Variabilă</th><th>Decizie</th><th>Importanță</th></tr></thead>
-                    <tbody>
-                        <tr><td>ln_Someri</td><td><span class="badge-pass">Confirmat</span></td><td class="positive">12.4</td></tr>
-                        <tr><td>ln_Imigratie</td><td><span class="badge-pass">Confirmat</span></td><td class="positive">9.8</td></tr>
-                        <tr><td>ln_PIB</td><td><span class="badge-pass">Confirmat</span></td><td class="positive">8.2</td></tr>
-                        <tr><td>Est_Vest</td><td><span class="text-yellow-400">Tentativ</span></td><td>5.1</td></tr>
-                        <tr><td>ln_Densitate</td><td><span class="badge-fail">Respins</span></td><td class="negative">2.3</td></tr>
-                    </tbody>
-                </table>
+        <div style="margin-top: 30px; text-align: center">
+          <h3
+            style="
+              border-bottom: 1px solid #333;
+              display: inline-block;
+              padding-bottom: 10px;
+              margin-bottom: 20px;
+            "
+          >
+            Schema Logică a Testării Panel
+          </h3>
+          <div
+            style="
+              display: flex;
+              justify-content: space-around;
+              font-size: 0.9rem;
+            "
+          >
+            <div
+              style="
+                width: 200px;
+                padding: 10px;
+                background: #333;
+                border-radius: 5px;
+              "
+            >
+              Model OLS (Pooled)
             </div>
-
-            <div class="section-box">
-                <div class="section-title">📉 9. Regularizare ML (Teorie & Rezultate)</div>
-                <p class="text-xs text-slate-400 mb-2">Obiectivul este minimizarea funcției de cost RSS + termen de penalizare (λ) pentru a reduce varianța modelului și a evita overfitting-ul.</p>
-                
-                <div class="subsection-title">9.1 Ridge Regression (L2)</div>
-                <div class="bg-black/40 p-2 rounded mb-1 border-l-2 border-orange-500 font-mono text-[9px] text-orange-300">
-                    > cv.glmnet(x, y, alpha = 0) # Ridge<br>
-                    > best_lambda <- cv_ridge$lambda.min
-                </div>
-                <div class="formula">min(RSS + λΣβⱼ²)</div>
-                <p class="text-xs text-slate-400 mb-1">Penalizează pătratele coeficienților. Reduce coeficienții spre zero dar nu îi elimină complet.</p>
-                <table class="data-table">
-                    <tr><td>λ optim (CV)</td><td>0.1234 (shrinkage moderat)</td></tr>
-                    <tr><td>Efect</td><td>Toți coeficienții păstrați, dar micșorați</td></tr>
-                </table>
-
-                <div class="subsection-title">9.2 LASSO Regression (L1)</div>
-                <div class="formula">min(RSS + λΣ|βⱼ|)</div>
-                <p class="text-xs text-slate-400 mb-1">Penalizează valoarea absolută. Poate reduce coeficienții exact la zero (selecție de variabile).</p>
-                <table class="data-table">
-                    <tr><td>λ optim (CV)</td><td>0.0567</td></tr>
-                    <tr><td>Rezultat</td><td><span class="text-yellow-400">ln_Densitate = 0</span> (eliminată)</td></tr>
-                </table>
-
-                <div class="subsection-title">9.3 Elastic Net (Mix L1+L2)</div>
-                <div class="formula">min(RSS + λ[(1-α)Σβⱼ²/2 + αΣ|βⱼ|])</div>
-                <p class="text-xs text-slate-400 mb-1">Combinație convexă între Ridge și Lasso (α=0.5). Balansează selecția variabilelor cu stabilitatea coeficienților.</p>
-                <table class="data-table">
-                    <tr><td>λ optim (CV)</td><td>0.0891</td></tr>
-                    <tr><td>Performanță</td><td>Compromis între bias și variance</td></tr>
-                </table>
+            <span style="font-size: 2rem">&#8594;</span>
+            <div
+              style="
+                width: 200px;
+                padding: 10px;
+                background: #333;
+                border-radius: 5px;
+                border: 2px solid var(--accent-green);
+              "
+            >
+              Model FE / RE
             </div>
-
-            <div class="section-box">
-                <div class="section-title">🏆 10. Comparație Modele</div>
-                <table class="data-table">
-                    <thead><tr><th>Model</th><th>RMSE</th><th>MAE</th><th>R² Test</th></tr></thead>
-                    <tbody>
-                        <tr class="bg-green-900/20"><td class="font-bold">OLS Step</td><td class="positive">0.579</td><td>0.457</td><td>0.429</td></tr>
-                        <tr><td>Ridge</td><td>0.841</td><td>0.703</td><td>0.619</td></tr>
-                        <tr><td>LASSO</td><td>0.660</td><td>0.498</td><td class="positive">0.765</td></tr>
-                        <tr><td>Elastic Net</td><td>0.701</td><td>0.542</td><td>0.689</td></tr>
-                    </tbody>
-                </table>
-                <div class="result-box text-xs">
-                    <span class="positive font-bold">🏆 Model optim (min RMSE):</span> OLS Stepwise<br>
-                    <span class="text-purple-400 font-bold">🏆 Model optim (max R²):</span> LASSO
-                </div>
+            <span style="font-size: 2rem">&#8594;</span>
+            <div
+              style="
+                width: 200px;
+                padding: 10px;
+                background: #333;
+                border-radius: 5px;
+              "
+            >
+              Diagnostice (HAC)
             </div>
+          </div>
+          <p style="margin-top: 10px; color: var(--text-secondary)">
+            Test F (Pooled vs FE) &nbsp; | &nbsp; Test Hausman (FE vs RE) &nbsp;
+            | &nbsp; Teste Autocorelare
+          </p>
+        </div>
+      </div>
 
-            <div class="section-box">
-                <div class="section-title">🔮 11. Prognoză (Test Set)</div>
-                <div class="formula">Interval Încredere (CI): ŷ ± t(α/2) × SE(ŷ)</div>
-                <p class="text-xs text-slate-400 mb-2">CI 90% arată intervalul în care se află media reală.</p>
-                <table class="data-table">
-                    <thead><tr><th>Țară</th><th>Actual</th><th>Pred</th><th>CI 90%</th><th>Err%</th></tr></thead>
-                    <tbody>
-                        <tr><td>🇩🇪 Germania</td><td>1.36M</td><td>1.41M</td><td>[1.2-1.6M]</td><td class="positive">+3.7%</td></tr>
-                        <tr><td>🇫🇷 Franța</td><td>890K</td><td>912K</td><td>[0.8-1.0M]</td><td class="positive">+2.5%</td></tr>
-                        <tr><td>🇷🇴 România</td><td>28K</td><td>31K</td><td>[25-38K]</td><td class="positive">+10.7%</td></tr>
-                    </tbody>
-                </table>
-                <div class="stat-grid">
-                    <div class="stat-card"><div class="stat-label">RMSE</div><div class="stat-value text-green-400">0.579</div></div>
-                    <div class="stat-card"><div class="stat-label">MAPE</div><div class="stat-value">4.18%</div></div>
-                </div>
+      <!-- SLIDE 11: TESTE SELECTIE MODEL -->
+      <div class="slide">
+        <h2 class="slide-title">10. Selectarea Modelului Optim</h2>
+        <p>
+          Aplicăm testele standard pentru a decide între Pooled OLS, Fixed
+          Effects și Random Effects.
+        </p>
+
+        <div class="grid-3">
+          <!-- Test 1 -->
+          <div class="card">
+            <h3 class="card-title">1. Testul F pentru Efecte Fixe</h3>
+            <p>
+              <strong>H0:</strong> Toate efectele individuale sunt zero (Pooled
+              OLS e bun).
+            </p>
+            <div class="box-highlight">
+              F = 446.49<br />
+              p-value < 2.2e-16
             </div>
+            <p class="badge badge-green">Respingem H0</p>
+            <p>
+              Există diferențe semnificative între țări. Pooled OLS este
+              părtinitor. Trebuie să folosim Panel (FE sau RE).
+            </p>
+          </div>
+
+          <!-- Test 2 -->
+          <div class="card">
+            <h3 class="card-title">2. Testul Breusch-Pagan (LM)</h3>
+            <p><strong>H0:</strong> Varianța efectelor aleatoare este zero.</p>
+            <div class="box-highlight">
+              Chisq = 382.65<br />
+              p-value < 2.2e-16
+            </div>
+            <p class="badge badge-green">Respingem H0</p>
+            <p>
+              Există efecte panel semnificative. RE este preferat față de OLS.
+            </p>
+          </div>
+
+          <!-- Test 3 -->
+          <div class="card" style="border: 2px solid var(--accent-yellow)">
+            <h3 class="card-title">3. Testul HAUSMAN (Alegerea Modelului)</h3>
+            <p style="font-size: 0.9rem; line-height: 1.5">
+              Este testul decisiv pentru alegerea între
+              <strong>Fixed Effects (FE)</strong> și
+              <strong>Random Effects (RE)</strong>. <br /><br />
+              <strong>Ipoteza Nulă (\( H_0 \)):</strong> Nu există corelație
+              între efectele individuale (\( \alpha_i \)) și regresori. Dacă \(
+              H_0 \) e adevărată, RE este mai eficient.
+              <br />
+              <strong>Rezultat:</strong> \( p-value = 3.25e-10 \). Respingem \(
+              H_0 \). Coeficienții FE sunt diferiți de cei RE, deci variabilele
+              neobservate sunt corelate cu șomajul sau bogăția, impunând
+              folosirea <strong>Fixed Effects</strong>.
+            </p>
+            <p class="badge badge-green" style="margin-top: 10px">
+              Status: FE Confirmat
+            </p>
+          </div>
         </div>
 
-        <!-- ==================== COLOANA 4: PANEL DATA ==================== -->
-        <div class="space-y-2">
-            <div class="section-box">
-                <div class="section-title">📉 12. Panel Data - Structură</div>
-                <div class="stat-grid">
-                    <div class="stat-card"><div class="stat-label">i (țări)</div><div class="stat-value">40</div></div>
-                    <div class="stat-card"><div class="stat-label">t (ani)</div><div class="stat-value">5</div></div>
-                    <div class="stat-card"><div class="stat-label">N total</div><div class="stat-value">200</div></div>
-                    <div class="stat-card"><div class="stat-label">Tip</div><div class="stat-value text-teal-400">Balanced</div></div>
-                </div>
-            </div>
-
-            <div class="section-box">
-                <div class="section-title">🧪 13. Selectare Model (Teste)</div>
-                <div class="bg-black/40 p-2 rounded mb-2 border-l-2 border-teal-500 font-mono text-[9px] text-teal-300">
-                    > phtest(fe_model, re_model) # Hausman<br>
-                    # p < 0.05 => FE consistent (RE inconsistent)
-                </div>
-                <div class="formula">Hausman: H = (β_FE - β_RE)'[Var(β_FE) - Var(β_RE)]⁻¹(β_FE - β_RE)</div>
-                <table class="data-table">
-                    <thead><tr><th>Test</th><th>Stat</th><th>p</th><th>Decizie</th></tr></thead>
-                    <tbody>
-                        <tr><td>Hausman (FE/RE)</td><td>50.22</td><td class="text-green-400">3e-10</td><td><span class="badge-pass">FE</span></td></tr>
-                        <tr><td>F-test (FE/Pool)</td><td>28.45</td><td class="text-green-400">2e-8</td><td><span class="badge-pass">FE > Pool</span></td></tr>
-                        <tr><td>BP LM (RE/Pool)</td><td>156.3</td><td class="text-green-400">1e-15</td><td><span class="badge-pass">RE > Pool</span></td></tr>
-                        <tr><td>F Time Effects</td><td>1.23</td><td>0.298</td><td><span class="badge-fail">One-way</span></td></tr>
-                    </tbody>
-                </table>
-                <div class="result-box text-xs">
-                    <span class="positive">Model selectat:</span> <span class="highlight">Fixed Effects (Within)</span>
-                </div>
-            </div>
-
-            <div class="section-box">
-                <div class="section-title">📊 14. Model Fixed Effects</div>
-                <div class="formula">FE (Within): (yᵢₜ - ȳᵢ) = β(xᵢₜ - x̄ᵢ) + (εᵢₜ - ε̄ᵢ)</div>
-                <p class="text-xs text-slate-400 mb-1">Elimină eterogeneitatea neobservată constantă în timp (αᵢ).</p>
-                <table class="data-table">
-                    <thead><tr><th>Var</th><th>β̂</th><th>SE</th><th>p</th></tr></thead>
-                    <tbody>
-                        <tr><td>ln_PIB</td><td class="negative">-0.53</td><td>0.30</td><td>0.079.</td></tr>
-                        <tr><td>ln_Șom</td><td class="negative">-0.34</td><td>0.12</td><td class="positive">0.007**</td></tr>
-                        <tr><td>ln_Imig</td><td class="positive">+0.12</td><td>0.05</td><td>0.014*</td></tr>
-                        <tr><td>ln_Dens</td><td class="positive">+0.88</td><td>0.50</td><td>0.081.</td></tr>
-                    </tbody>
-                </table>
-                <div class="stat-grid">
-                    <div class="stat-card"><div class="stat-label">R² within</div><div class="stat-value">0.115</div></div>
-                    <div class="stat-card"><div class="stat-label">R² between</div><div class="stat-value">0.452</div></div>
-                    <div class="stat-card"><div class="stat-label">R² overall</div><div class="stat-value">0.386</div></div>
-                </div>
-            </div>
-
-            <div class="section-box">
-                <div class="section-title">⚠️ 15. Diagnostice Panel</div>
-                <div class="bg-black/40 p-2 rounded mb-2 border-l-2 border-red-500 font-mono text-[9px] text-red-300">
-                    > pcdtest(fe_model, test = "cd")<br>
-                    > pbgtest(fe_model) # Serial Correlation
-                </div>
-                <div class="formula">Pesaran CD = √[2T/N(N-1)] × ΣΣ ρ̂ᵢⱼ</div>
-                <table class="data-table">
-                    <thead><tr><th>Test</th><th>Stat</th><th>p</th><th>V</th></tr></thead>
-                    <tbody>
-                        <tr><td>Pesaran CD</td><td>13.63</td><td><2e-16</td><td><span class="badge-fail">CD!</span></td></tr>
-                        <tr><td>BG Serial</td><td>36.48</td><td>7.6e-7</td><td><span class="badge-fail">AR!</span></td></tr>
-                        <tr><td>Wooldridge</td><td>24.12</td><td>1.2e-5</td><td><span class="badge-fail">AR(1)!</span></td></tr>
-                        <tr><td>BP Grouped</td><td>123.8</td><td>9.4e-10</td><td><span class="badge-fail">Het!</span></td></tr>
-                    </tbody>
-                </table>
-                <div class="warning-box text-xs">
-                    <span class="text-orange-400 font-bold">Probleme detectate:</span><br>
-                    ✗ Dependență cross-secțională<br>
-                    ✗ Autocorelare serială<br>
-                    ✗ Heteroscedasticitate grupată<br>
-                    <span class="text-yellow-400">→ Erori robuste cluster aplicate</span>
-                </div>
-            </div>
-
-            <div class="section-box">
-                <div class="section-title">🎯 16. Concluzii</div>
-                <table class="data-table">
-                    <thead><tr><th>H</th><th>OLS</th><th>FE</th><th>Final</th></tr></thead>
-                    <tbody>
-                        <tr><td>H₁ Șom</td><td class="positive">+0.66**</td><td class="negative">-0.34**</td><td>⚠️</td></tr>
-                        <tr><td>H₂ PIB</td><td class="positive">+0.89*</td><td class="negative">-0.53</td><td><span class="badge-fail">✗</span></td></tr>
-                        <tr><td>H₃ Imig</td><td class="positive">+0.44*</td><td class="positive">+0.12*</td><td><span class="badge-pass">✓</span></td></tr>
-                        <tr><td>H₄ Dens</td><td class="negative">-0.21</td><td class="positive">+0.88</td><td><span class="badge-fail">✗</span></td></tr>
-                        <tr><td>H₅ Est</td><td class="positive">+0.85*</td><td>-</td><td><span class="badge-pass">✓</span></td></tr>
-                    </tbody>
-                </table>
-                <p class="text-xs text-slate-400 mt-2"><strong>Limitări:</strong> Omitted variables, R² within scăzut, endogeneitate potențială.</p>
-                <p class="text-xs text-slate-400"><strong>Direcții:</strong> GMM dinamic, IV, extindere T>10 ani.</p>
-            </div>
+        <div
+          style="
+            background: #111;
+            padding: 15px;
+            margin-top: 20px;
+            font-family: monospace;
+          "
+        >
+          > phtest(model_fe, model_re) # Executia testului Hausman in R
         </div>
-        
-        <!-- ==================== COLOANA 5: TEHNOLOGII ==================== -->
-        <div class="mt-4 p-4 glass rounded-xl border border-white/10 col-span-full">
-            <div class="flex items-center gap-2 mb-3 border-b border-white/10 pb-2">
-                <div class="text-xl">🛠️</div>
-                <h2 class="text-lg font-bold text-white">17. Tehnologii & Metodologie Utilizate</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-                <div class="p-3 bg-slate-800/50 rounded-lg border border-white/5">
-                    <strong class="text-blue-400 block mb-1 text-sm">💻 R Core & Tidyverse</strong>
-                    <ul class="list-disc pl-4 space-y-1 text-slate-300">
-                        <li><strong>tidyverse</strong>: Manipulare date (dplyr), curățare (tidyr) și vizualizare (ggplot2).</li>
-                        <li><strong>readxl / writexl</strong>: Import/Export date Excel.</li>
-                    </ul>
-                </div>
+      </div>
 
-                <div class="p-3 bg-slate-800/50 rounded-lg border border-white/5">
-                    <strong class="text-green-400 block mb-1 text-sm">📈 Econometrie Avansată</strong>
-                    <ul class="list-disc pl-4 space-y-1 text-slate-300">
-                        <li><strong>lmtest</strong>: Teste Breusch-Pagan, Breusch-Godfrey.</li>
-                        <li><strong>sandwich</strong>: Erori standard robuste (HAC/Cluster).</li>
-                        <li><strong>tseries / car</strong>: Jarque-Bera, VIF, Durbin-Watson.</li>
-                    </ul>
-                </div>
-
-                <div class="p-3 bg-slate-800/50 rounded-lg border border-white/5">
-                    <strong class="text-purple-400 block mb-1 text-sm">🤖 Machine Learning</strong>
-                    <ul class="list-disc pl-4 space-y-1 text-slate-300">
-                        <li><strong>glmnet</strong>: Regularizare Ridge, LASSO, Elastic Net cu CV.</li>
-                        <li><strong>Boruta</strong>: Algoritm Random Forest pentru selecția variabilelor.</li>
-                        <li><strong>caret</strong>: Antrenare și validare modele.</li>
-                    </ul>
-                </div>
-
-                <div class="p-3 bg-slate-800/50 rounded-lg border border-white/5">
-                    <strong class="text-orange-400 block mb-1 text-sm">📉 Panel Data Analysis</strong>
-                    <ul class="list-disc pl-4 space-y-1 text-slate-300">
-                        <li><strong>plm</strong>: Estimare modele FE/RE, Test Hausman.</li>
-                        <li><strong>Diagnostice</strong>: Pesaran CD (dependență), Wooldridge (autocorelare), BP Grouped.</li>
-                    </ul>
-                </div>
-            </div>
+      <!-- SLIDE 12: DIAGNOSTICE PANEL -->
+      <div class="slide">
+        <h2 class="slide-title">11. Diagnosticarea Modelului Panel (FE)</h2>
+        <div class="card" style="background: rgba(255, 0, 0, 0.05)">
+          <h3 class="card-title">Diagnosticare Panel (Rezultate)</h3>
+          <p style="font-size: 0.85rem">
+            În datele panel, avem adesea probleme de
+            <strong>corelație spațială</strong> și <strong>serială</strong>,
+            ceea ce poate duce la subestimarea erorilor standard.
+          </p>
+          <ul class="feature-list" style="margin-top: 10px; font-size: 0.85rem">
+            <li>
+              <strong>Pesaran CD Test (Dependență Transversală):</strong> p <
+              0.05. Avem dependență strongly persistentă (Globalizare).
+            </li>
+            <li>
+              <strong>Testul Breusch-Godfrey (Autocorelare):</strong> p < 0.05.
+              Reziduurile depind de valorile lor trecute.
+            </li>
+          </ul>
+          <p class="badge badge-yellow" style="margin-top: 10px">
+            Soluție: Utilizăm
+            <strong>Erori Standard Robust (Driscoll-Kraay)</strong> pentru a
+            corecta aceste probleme.
+          </p>
         </div>
-    </main>
 
-    <footer class="glass text-center p-2">
-        <p class="text-xs text-slate-500">ASE București | CSIE | Econometrie 2024-2025 | Eurostat | R</p>
-    </footer>
-</body>
+        <div class="card" style="margin-top: 20px">
+          <h3 class="card-title">
+            Soluția: Erori Standard Robuste (Driscoll-Kraay)
+          </h3>
+          <p>
+            Pentru a corecta inferența statistică în prezența
+            Heteroscedasticității, Autocorelării și Dependenței Transversale,
+            folosim estimatorul de covarianță robust (SCC / Driscoll-Kraay).
+          </p>
+          <pre style="margin-top: 10px">
+coeftest(model_fe, vcov = vcovSCC(model_fe, type="HC3", cluster="group"))
+                 </pre
+          >
+        </div>
+      </div>
+
+      <!-- SLIDE 13: REZULTATE FINALE ROBUSTE (TABEL COMPARATIV) -->
+      <div class="slide">
+        <h2 class="slide-title">12. Rezultate Finale: Modelul Panel Robust</h2>
+        <p>
+          Acestea sunt rezultatele finale în care putem avea încredere
+          științifică.
+        </p>
+
+        <div class="card">
+          <table style="width: 100%; text-align: center">
+            <thead>
+              <tr style="background: #222">
+                <th style="text-align: left; padding: 15px">Predictor</th>
+                <th style="border-right: 1px solid #444">
+                  (1) Pooled OLS<br /><span
+                    style="font-size: 0.8rem; color: #777"
+                    >Naiv</span
+                  >
+                </th>
+                <th style="border-right: 1px solid #444">
+                  (2) Fixed Effects<br /><span
+                    style="font-size: 0.8rem; color: #777"
+                    >Standard</span
+                  >
+                </th>
+                <th
+                  style="
+                    background: rgba(34, 197, 94, 0.1);
+                    border: 2px solid var(--accent-green);
+                  "
+                >
+                  (3) FE Robust (HAC)<br /><span
+                    style="font-size: 0.8rem; color: var(--accent-green)"
+                    >CORECT</span
+                  >
+                </th>
+              </tr>
+            </thead>
+            <tbody style="font-size: 1.1rem">
+              <tr>
+                <td style="text-align: left; font-weight: bold">ln_PIB</td>
+                <td style="color: var(--accent-green)">0.721 ***</td>
+                <td style="color: var(--accent-yellow)">-0.529 *</td>
+                <td
+                  style="
+                    border: 2px solid var(--accent-green);
+                    font-weight: bold;
+                  "
+                >
+                  -0.529 . (p=0.076)
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; font-weight: bold">ln_Someri</td>
+                <td style="color: var(--accent-green)">0.621 ***</td>
+                <td style="color: var(--accent-green)">-0.339 ***</td>
+                <td
+                  style="
+                    border: 2px solid var(--accent-green);
+                    font-weight: bold;
+                  "
+                >
+                  -0.339 ** (p=0.026)
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; font-weight: bold">
+                  ln_Imigratie
+                </td>
+                <td style="color: var(--accent-green)">0.496 ***</td>
+                <td style="color: var(--accent-green)">0.120 **</td>
+                <td
+                  style="
+                    border: 2px solid var(--accent-green);
+                    font-weight: bold;
+                  "
+                >
+                  0.120 ** (p=0.033)
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left">R-Squared</td>
+                <td>0.523</td>
+                <td>0.115 (Within)</td>
+                <td>0.115 (Robust)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid-2" style="margin-top: 30px">
+          <div class="box-highlight">
+            <strong style="color: var(--accent-blue); font-size: 1.1rem"
+              >Interpretarea Finală a Modelului Robust (FE):</strong
+            >
+            <p style="margin-top: 10px; font-size: 0.95rem">
+              Modelul cu <strong>Efecte Fixe</strong> și erori Driscoll-Kraay
+              reprezintă "Standardul de Aur" al acestei cercetări, deoarece
+              filtrează toate variabilele neschimbate în timp la nivel de țară.
+            </p>
+            <ul style="margin-top: 10px; font-size: 0.9rem">
+              <li>
+                <strong>ln_PIB (-0.528):</strong> Devine negativ. Ținând cont de
+                structura fixă a țării, o creștere a nivelului de trai
+                <strong>reduce</strong> rata furturilor pe termen lung.
+              </li>
+              <li>
+                <strong>ln_Someri (-0.338):</strong> Negativ și semnificativ (\(
+                p = 0.02 \)). Spre deosebire de cross-section unde comparative
+                țările cu șomaj mare au crimă multă, în interiorul aceleiași
+                țări, recesiunea pare să scadă oportunitatea furturilor (Efectul
+                de circulație a bunurilor).
+              </li>
+              <li>
+                <strong>ln_Imigratie (+0.120):</strong> Pozitiv și semnificativ.
+                O creștere cu 1% a fluxului duce la o creștere marginală de
+                0.12% a furturilor raportate.
+              </li>
+            </ul>
+          </div>
+          <div
+            class="box-highlight"
+            style="
+              background: rgba(255, 255, 255, 0.05);
+              border-left-color: var(--text-secondary);
+            "
+          >
+            <strong>Concluzie Finală:</strong>
+            <p>
+              Analiza de tip Panel oferă o imagine mult mai nuanțată. PIB-ul și
+              Șomajul au comportamente diferite pe termen lung față de o simplă
+              comparație bivariată. Aceste rezultate sugerează că politicile de
+              siguranță trebuie să fie adaptate structural fiecărui stat.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 14: CONCLUZII GENERALE -->
+      <div class="slide">
+        <h2 class="slide-title">13. Concluzii Generale și Contribuții</h2>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">Sinteza Rezultatelor</h3>
+            <p style="font-size: 0.95rem; line-height: 1.7">
+              Cercetarea a evidențiat
+              <strong>paradoxul cross-section vs. panel</strong>: <br /><br />
+              - În <strong>Cross-Section</strong>, bogăția (PIB) și șomajul tind
+              să aibă semne pozitive (bogăția atrage criminalitatea ca
+              oportunitate).
+              <br />
+              - În <strong>Panel (Fixed Effects)</strong>, dinamica este
+              inversă: creșterea prosperității în timp
+              <strong>reduce</strong> rata furturilor, validând importanța
+              dezvoltării economice sustenabile.
+            </p>
+          </div>
+          <div class="card" style="border: 2px solid var(--accent-green)">
+            <h3 class="card-title">Validarea Ipotezei Becker</h3>
+            <p style="font-size: 0.95rem">
+              Ipoteza alegerii raționale este parțial confirmată. Șomajul
+              acționează ca un motor al criminalității, dar efectul este mediat
+              de structurile instituționale specifice fiecărui stat (efectele
+              fixe).
+            </p>
+            <div class="badge badge-green" style="margin-top: 15px">
+              Obiectiv Realizat 100%
+            </div>
+          </div>
+        </div>
+
+        <div class="box-highlight" style="margin-top: 30px">
+          <strong>Recomandări:</strong> Politicile de combatere a criminalității
+          ar trebui să se concentreze pe reducerea șomajului structural și pe
+          integrarea fluxurilor migraționiste, controlând în același timp pentru
+          heterogenitatea regională (Est vs Vest).
+        </div>
+      </div>
+
+      <!-- SLIDE 15: REFERINTE -->
+      <div class="slide">
+        <h2 class="slide-title">14. Bibliografie</h2>
+        <div class="card">
+          <ul
+            style="
+              list-style: none;
+              padding: 0;
+              font-size: 1.1rem;
+              line-height: 2;
+            "
+          >
+            <li>
+              [1] <strong>Becker, G. S. (1968)</strong>. "Crime and Punishment:
+              An Economic Approach". <em>Journal of Political Economy</em>,
+              76(2), 169-217.
+            </li>
+            <li>
+              [2] <strong>Wooldridge, J. M. (2010)</strong>.
+              <em>Econometric Analysis of Cross Section and Panel Data</em>. MIT
+              Press.
+            </li>
+            <li>
+              [3] <strong>Greene, W. H. (2018)</strong>.
+              <em>Econometric Analysis</em>, 8th Edition. Pearson.
+            </li>
+            <li>
+              [4] <strong>Eurostat (2024)</strong>. "Recorded offences by
+              offence category - police data [crim_off_cat]".
+            </li>
+            <li>
+              [5] <strong>Driscoll, J. C., & Kraay, A. C. (1998)</strong>.
+              "Consistent Covariance Matrix Estimation with Spatially Dependent
+              Panel Data". <em>Review of Economics and Statistics</em>.
+            </li>
+          </ul>
+        </div>
+        <div style="text-align: center; margin-top: 50px">
+          <p style="color: #666">
+            Proiect realizat in cadrul ASE - Facultatea de Cibernetica,
+            Statistica si Informatica Economica
+          </p>
+          <p style="color: #444; font-size: 0.8rem">ianuarie 2026</p>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="app.js"></script>
+  </body>
 </html>
